@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE WorkItem PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<WorkItem handler="sailpoint.api.Workflower" level="Normal" name="0000000030" renderer="workflow.xhtml" type="Form">
+  <Attributes>
+    <Map>
+      <entry key="workItemForm">
+        <value>
+          <Form name="Contracter Account Creation Form">
+            <Attributes>
+              <Map>
+                <entry key="hideIncompleteFields">
+                  <value>
+                    <Boolean/>
+                  </value>
+                </entry>
+                <entry key="includeHiddenFields">
+                  <value>
+                    <Boolean/>
+                  </value>
+                </entry>
+                <entry key="pageTitle" value="Contracter Account Creation Form"/>
+              </Map>
+            </Attributes>
+            <Section name="Section 2">
+              <Field displayName="Need Phone Number" name="phoneNumber" required="true" type="string">
+                <AllowedValuesDefinition>
+                  <Value>
+                    <List>
+                      <String>yes</String>
+                      <String>no</String>
+                    </List>
+                  </Value>
+                </AllowedValuesDefinition>
+              </Field>
+            </Section>
+            <Section columns="3" name="User Details">
+              <Field columnSpan="1" displayName="First Name" name="firstname" required="true" type="string"/>
+              <Field columnSpan="1" displayName="Last Name" name="lastname" required="true" type="string"/>
+              <Field columnSpan="1" displayName="Contracter Company" name="company" required="true" type="string"/>
+              <Field columnSpan="1" displayName="Email" name="email" required="true" type="string"/>
+              <Field columnSpan="1" displayName="Manager" name="manager" required="true" type="sailpoint.object.Identity"/>
+              <Field columnSpan="1" displayName="Mobile Number" name="mobileNumber" required="true" type="string">
+                <Attributes>
+                  <Map>
+                    <entry key="hidden">
+                      <value>
+                        <Script>
+                          <Source>if(phoneNumber.equls("yes"){
+  return ralse;
+}</Source>
+                        </Script>
+                      </value>
+                    </entry>
+                  </Map>
+                </Attributes>
+              </Field>
+            </Section>
+          </Form>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+  <Description>Contracter Account Creation Form</Description>
+  <Owner>
+    <Reference class="sailpoint.object.Identity" name="spadmin"/>
+  </Owner>
+  <Requester>
+    <Reference class="sailpoint.object.Identity" name="spadmin"/>
+  </Requester>
+  <WorkflowCaseRef>
+    <Reference class="sailpoint.object.WorkflowCase" name="QuickLink Launch for identity spadmin - 80"/>
+  </WorkflowCaseRef>
+</WorkItem>

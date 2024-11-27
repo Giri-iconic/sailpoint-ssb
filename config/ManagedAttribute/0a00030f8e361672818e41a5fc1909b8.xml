@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ManagedAttribute PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ManagedAttribute aggregated="true" attribute="memberOf" displayName="ICONIC\RDS Remote Access Servers" hash="4de8b70d7d23e8b032c20d65ed4e222dd2344c67" lastRefresh="1717737154435" requestable="true" type="group" uuid="{6533d747-868a-4901-b4ca-728cc76b1922}" value="CN=RDS Remote Access Servers,CN=Builtin,DC=iconic,DC=com">
+  <ApplicationRef>
+    <Reference class="sailpoint.object.Application" name="Active Directory"/>
+  </ApplicationRef>
+  <Attributes>
+    <Map>
+      <entry key="GroupScope" value="Domain local"/>
+      <entry key="GroupType" value="Security"/>
+      <entry key="cn" value="RDS Remote Access Servers"/>
+      <entry key="description" value="Servers in this group enable users of RemoteApp programs and personal virtual desktops access to these resources. In Internet-facing deployments, these servers are typically deployed in an edge network. This group needs to be populated on servers running RD Connection Broker. RD Gateway servers and RD Web Access servers used in the deployment need to be in this group."/>
+      <entry key="msDS-PrincipalName" value="ICONIC\RDS Remote Access Servers"/>
+      <entry key="objectSid" value="S-1-5-32-575"/>
+      <entry key="objectguid" value="{6533d747-868a-4901-b4ca-728cc76b1922}"/>
+      <entry key="sAMAccountName" value="RDS Remote Access Servers"/>
+      <entry key="sysDescriptions"/>
+    </Map>
+  </Attributes>
+</ManagedAttribute>

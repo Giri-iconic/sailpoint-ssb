@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent accountName="ISIN1004" action="ManualChange" application="HRMS" clientHost="192.168.56.1" interface="LCM" serverHost="WIN-T21N4E0UF24" source="The Administrator">
+  <Attributes>
+    <Map>
+      <entry key="completionComments">
+        <value>
+          <List>
+            <Comment author="The Administrator" comment="Terminated" date="1717743439238"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="flow" value="Lifecycle"/>
+      <entry key="interface" value="LCM"/>
+      <entry key="op" value="Disable"/>
+      <entry key="operation" value="Disable"/>
+      <entry key="requester" value="spadmin"/>
+    </Map>
+  </Attributes>
+</AuditEvent>

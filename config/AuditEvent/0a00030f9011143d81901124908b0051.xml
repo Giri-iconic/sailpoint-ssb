@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent accountName="CN=Raheem.Shaik,OU=Test,DC=iconic,DC=com" action="provision" application="Active Directory" serverHost="WIN-T21N4E0UF24" source="SailPointContextRequestFilter" target="Raheem.Shaik">
+  <Attributes>
+    <Map>
+      <entry key="op">
+        <value>
+          <ObjectOperation>Modify</ObjectOperation>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+  <String1>Active Directory</String1>
+  <String2>committed</String2>
+</AuditEvent>

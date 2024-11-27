@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE UIPreferences PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<UIPreferences>
+  <Owner>
+    <Reference class="sailpoint.object.Identity" name="spadmin"/>
+  </Owner>
+  <Attributes>
+    <Map>
+      <entry key="gridStates">
+        <value>
+          <List>
+            <GridState name="sailpoint.web.trigger.IdentityTriggersListBean" pageSize="25" state="o%3Acolumns%3Da%253Ao%25253Aid%25253Ds%2525253Aname%255Eo%25253Aid%25253Ds%2525253Atype%255Eo%25253Aid%25253Ds%2525253AattributeName%255Eo%25253Aid%25253Ds%2525253Aowner-displayName%255Eo%25253Aid%25253Ds%2525253Adisabled%5Esort%3Do%253Aproperty%253Ds%25253Aname%255Edirection%253Ds%25253AASC%255Eroot%253Ds%25253Adata"/>
+            <GridState name="advancedAuditSearchGridState" pageSize="25" state="o%3Acolumns%3Da%253Ao%25253Aid%25253Ds%2525253Ah6%255Eo%25253Aid%25253Ds%2525253Ah7%255Eo%25253Aid%25253Ds%2525253Ah8%255Eo%25253Aid%25253Ds%2525253Ah9%5Esort%3Do%253Aproperty%253Ds%25253Aname%255Edirection%253Ds%25253AASC%255Eroot%253Ds%25253Adata"/>
+            <GridState name="auditSearchGridState" pageSize="25" state="o%3Acolumns%3Da%253Ao%25253Aid%25253Ds%2525253Ah18%255Eo%25253Aid%25253Ds%2525253Ah19%255Eo%25253Aid%25253Ds%2525253Ah20%255Eo%25253Aid%25253Ds%2525253Ah21%5Esort%3Do%253Aproperty%253Ds%25253Aname%255Edirection%253Ds%25253AASC%255Eroot%253Ds%25253Adata"/>
+            <GridState name="applicationsListGridState" pageSize="25" state="o%3Acolumns%3Da%253Ao%25253Aid%25253Ds%2525253Aname%255Eo%25253Aid%25253Ds%2525253Ahost%255Eo%25253Aid%25253Ds%2525253Atype%255Eo%25253Aid%25253Ds%2525253AaggregationTypes%255Eo%25253Aid%25253Ds%2525253Amodified"/>
+            <GridState name="syslogSearchGridState" pageSize="25" state="o%3Acolumns%3Da%253Ao%25253Aid%25253Ds%2525253Ah10%255Eo%25253Aid%25253Ds%2525253Ah11%255Eo%25253Aid%25253Ds%2525253Ah12%255Eo%25253Aid%25253Ds%2525253Ah13%5Esort%3Do%253Aproperty%253Ds%25253Acreated%255Edirection%253Ds%25253ADESC"/>
+            <GridState name="reportDefinitionsGridState" pageSize="25" state="o%3Acolumns%3Da%253Ao%25253Aid%25253Ds%2525253Aname%255Eo%25253Aid%25253Ds%2525253Adescription%255Eo%25253Aid%25253Ds%2525253Asubtype%255Eo%25253Aid%25253Ds%2525253Atype%5Esort%3Do%253Aproperty%253Ds%25253Asubtype%255Edirection%253Ds%25253AASC%255Eroot%253Ds%25253Adata"/>
+            <GridState name="entitlementCatalogGridState" pageSize="25" state="o%3Acolumns%3Da%253Ao%25253Aid%25253Ds%2525253Aapplication%255Eo%25253Aid%25253Ds%2525253Aattribute%255Eo%25253Aid%25253Ds%2525253AdisplayableName%255Eo%25253Aid%25253Ds%2525253Avalue%255Eo%25253Aid%25253Ds%2525253Atype%255Eo%25253Aid%25253Ds%2525253Adescription%255Eo%25253Aid%25253Ds%2525253Aowner%255Eo%25253Aid%25253Ds%2525253Arequestable%255Eo%25253Aid%25253Ds%2525253Amodified%255Eo%25253Aid%25253Ds%2525253AIIQ_classificationNames"/>
+            <GridState name="quicklinkPopulationQuicklinkListGridState" pageSize="25" state="o%3Acolumns%3Da%253Ao%25253Aid%25253Ds%2525253Ah1%255Eo%25253Aid%25253Ds%2525253Aname%255Eo%25253Aid%25253Ds%2525253Adescription%255Eo%25253Aid%25253Ds%2525253Acategory%255Eo%25253Aid%25253Ds%2525253Aoptions%5Esort%3Do%253Aproperty%253Ds%25253Aname%255Edirection%253Ds%25253AASC%255Eroot%253Ds%25253Adata"/>
+            <GridState name="workItemGridState" pageSize="25" state=""/>
+            <GridState name="sailpoint.web.identity.IdentityEntitlementRoleListBean" pageSize="25" state="o%3Acolumns%3Da%253Ao%25253Aid%25253Ds%2525253AdisplayableName%255Eo%25253Aid%25253Ds%2525253AroleDescription%255Eo%25253Aid%25253Ds%2525253AclassificationNames%255Eo%25253Aid%25253Ds%2525253Aassigner%255Eo%25253Aid%25253Ds%2525253AallowedBy%255Eo%25253Aid%25253Ds%2525253Aacquired%255Eo%25253Aid%25253Ds%2525253AlastCertName%255Eo%25253Aid%25253Ds%2525253AlastCertDate%255Eo%25253Aid%25253Ds%2525253AhasPendingRequest%255Eo%25253Aid%25253Ds%2525253ApendingRequestId%255Eo%25253Aid%25253Ds%2525253Aapplication%255Eo%25253Aid%25253Ds%2525253AaccountName%255Eo%25253Aid%25253Ds%2525253AassignmentNote"/>
+            <GridState name="identityListGridState" pageSize="25" state="o%3Acolumns%3Da%253Ao%25253Aid%25253Ds%2525253Aname%25255Ewidth%25253Dn%2525253A258%255Eo%25253Aid%25253Ds%2525253Afirstname%255Eo%25253Aid%25253Ds%2525253Alastname%255Eo%25253Aid%25253Ds%2525253Amanager-displayName%255Eo%25253Aid%25253Ds%2525253AassignedRoleSummary%255Eo%25253Aid%25253Ds%2525253AbundleSummary%255Eo%25253Aid%25253Ds%2525253Ascorecard-compositeScore%25255Ewidth%25253Dn%2525253A131%255Eo%25253Aid%25253Ds%2525253AlastRefresh%25255Ewidth%25253Dn%2525253A134%255Eo%25253Aid%25253Ds%2525253Atype%255Eo%25253Aid%25253Ds%2525253AsoftwareVersion%255Eo%25253Aid%25253Ds%2525253Aadministrator-displayName"/>
+            <GridState name="taskResultsGridState" pageSize="25" state="o%3Acolumns%3Da%253Ao%25253Aid%25253Ds%2525253Aname%25255Ewidth%25253Dn%2525253A337%255Eo%25253Aid%25253Ds%2525253Acompleted%25255Ewidth%25253Dn%2525253A196%255Eo%25253Aid%25253Ds%2525253AcompletionStatus%25255Ewidth%25253Dn%2525253A184%255Eo%25253Aid%25253Ds%2525253ApendingSignoffs%255Eo%25253Aid%25253Ds%2525253Aowner-displayName%255Eo%25253Aid%25253Ds%2525253Ahost%5Esort%3Do%253Aproperty%253Ds%25253Acompleted%255Edirection%253Ds%25253ADESC%255Eroot%253Ds%25253Adata"/>
+            <GridState name="taskDefinitionsGridState" pageSize="25" state="o%3Acolumns%3Da%253Ao%25253Aid%25253Ds%2525253Aname%255Eo%25253Aid%25253Ds%2525253Adescription%255Eo%25253Aid%25253Ds%2525253Asubtype%255Eo%25253Aid%25253Ds%2525253Atype%5Esort%3Do%253Aproperty%253Ds%25253Atype%255Edirection%253Ds%25253AASC%255Eroot%253Ds%25253Adata"/>
+          </List>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+</UIPreferences>

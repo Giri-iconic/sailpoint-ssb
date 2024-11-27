@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ManagedAttribute PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ManagedAttribute aggregated="true" attribute="memberOf" displayName="ICONIC\Incoming Forest Trust Builders" hash="1e0c24afdef849ecd8b2df92301c9dca59402e4a" lastRefresh="1717737153871" requestable="true" type="group" uuid="{1e746d45-7c68-496d-ad07-35d2889fd094}" value="CN=Incoming Forest Trust Builders,CN=Builtin,DC=iconic,DC=com">
+  <ApplicationRef>
+    <Reference class="sailpoint.object.Application" name="Active Directory"/>
+  </ApplicationRef>
+  <Attributes>
+    <Map>
+      <entry key="GroupScope" value="Domain local"/>
+      <entry key="GroupType" value="Security"/>
+      <entry key="cn" value="Incoming Forest Trust Builders"/>
+      <entry key="description" value="Members of this group can create incoming, one-way trusts to this forest"/>
+      <entry key="msDS-PrincipalName" value="ICONIC\Incoming Forest Trust Builders"/>
+      <entry key="objectSid" value="S-1-5-32-557"/>
+      <entry key="objectguid" value="{1e746d45-7c68-496d-ad07-35d2889fd094}"/>
+      <entry key="sAMAccountName" value="Incoming Forest Trust Builders"/>
+      <entry key="sysDescriptions"/>
+    </Map>
+  </Attributes>
+</ManagedAttribute>

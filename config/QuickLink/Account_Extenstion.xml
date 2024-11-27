@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE QuickLink PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<QuickLink action="workflow" category="Custom" messageKey="Account Extenstion" name="Account Extenstion" ordering="2">
+  <Attributes>
+    <Map>
+      <entry key="forceAllowOthers" value="false"/>
+      <entry key="hideAllowSelf" value="true"/>
+      <entry key="workflowName" value="Contractor_Account_Extension"/>
+    </Map>
+  </Attributes>
+  <QuickLinkOptions allowSelf="true">
+    <DynamicScopeRef>
+      <Reference class="sailpoint.object.DynamicScope" name="Administrator"/>
+    </DynamicScopeRef>
+  </QuickLinkOptions>
+</QuickLink>

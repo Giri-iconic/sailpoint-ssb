@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Identity PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Identity lastLogin="1718274889426" lastRefresh="1718009929036" managerStatus="true" name="Raheem.Shaik" password="1:ACP:oCQ+jmqooOpVzrPlthuVixHUWgUm/d3ZXIQraUzEcFA=">
+  <Attributes>
+    <Map>
+      <entry key="displayName" value="Raheem.Shaik"/>
+      <entry key="email" value="Raheem.Shail@enh.com"/>
+      <entry key="firstname" value="Raheem"/>
+      <entry key="lastname" value="Shaik"/>
+      <entry key="rapidSetupProcessingState" value="skipped"/>
+    </Map>
+  </Attributes>
+  <AttributeMetaDatas>
+    <AttributeMetaData attribute="displayName" source="Active Directory:cn"/>
+    <AttributeMetaData attribute="email" source="Active Directory:mail"/>
+    <AttributeMetaData attribute="manager" source="Active Directory:manager"/>
+  </AttributeMetaDatas>
+  <Exceptions>
+    <EntitlementGroup displayName="Raheem.Shaik" nativeIdentity="CN=Raheem.Shaik,OU=Test,DC=iconic,DC=com">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application" name="Active Directory"/>
+      </ApplicationRef>
+      <Attributes>
+        <Map>
+          <entry key="memberOf">
+            <value>
+              <List>
+                <String>CN=Domain Users,CN=Users,DC=iconic,DC=com</String>
+              </List>
+            </value>
+          </entry>
+        </Map>
+      </Attributes>
+    </EntitlementGroup>
+  </Exceptions>
+  <Manager>
+    <Reference class="sailpoint.object.Identity" name="Active.Test"/>
+  </Manager>
+  <Workgroups>
+    <Reference class="sailpoint.object.Identity" name="Business Analysts"/>
+  </Workgroups>
+  <Links>
+    <Link displayName="Raheem.Shaik" entitlements="true" identity="CN=Raheem.Shaik,OU=Test,DC=iconic,DC=com" lastRefresh="1718274888511" manuallyCorrelated="true" uuid="{ef6855b6-9ddc-4ee8-9961-9cabfd71a084}">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application" name="Active Directory"/>
+      </ApplicationRef>
+      <AttributeMetaDatas>
+        <AttributeMetaData attribute="renamedAccountNativeIdentities" user="Aggregation">
+          <LastValue>
+            <Set>
+              <String>CN=Raheem.Shaik,OU=Test,DC=Iconic,DC=com</String>
+            </Set>
+          </LastValue>
+        </AttributeMetaData>
+      </AttributeMetaDatas>
+      <Attributes>
+        <Map>
+          <entry key="accountFlags">
+            <value>
+              <List>
+                <String>Normal User Account</String>
+              </List>
+            </value>
+          </entry>
+          <entry key="cn" value="Raheem.Shaik"/>
+          <entry key="distinguishedName" value="CN=Raheem.Shaik,OU=Test,DC=iconic,DC=com"/>
+          <entry key="givenName" value="Raheem"/>
+          <entry key="mail" value="Raheem.Shail@enh.com"/>
+          <entry key="manager" value="CN=Active Test,OU=Test,DC=iconic,DC=com"/>
+          <entry key="memberOf">
+            <value>
+              <List>
+                <String>CN=Domain Users,CN=Users,DC=iconic,DC=com</String>
+              </List>
+            </value>
+          </entry>
+          <entry key="msDS-PrincipalName" value="ICONIC\Raheem.Shaik"/>
+          <entry key="msNPAllowDialin" value="Not Set"/>
+          <entry key="objectClass">
+            <value>
+              <List>
+                <String>top</String>
+                <String>person</String>
+                <String>organizationalPerson</String>
+                <String>user</String>
+              </List>
+            </value>
+          </entry>
+          <entry key="objectSid" value="S-1-5-21-4221786991-103232591-4293389706-1109"/>
+          <entry key="objectType" value="user"/>
+          <entry key="objectguid" value="{ef6855b6-9ddc-4ee8-9961-9cabfd71a084}"/>
+          <entry key="primaryGroupDN" value="CN=Domain Users,CN=Users,DC=iconic,DC=com"/>
+          <entry key="primaryGroupID" value="513"/>
+          <entry key="sAMAccountName" value="Raheem.Shaik"/>
+          <entry key="sn" value="Shaik"/>
+        </Map>
+      </Attributes>
+    </Link>
+  </Links>
+  <Scorecard certificationScore="1000" compositeScore="250" entitlementScore="1" rawEntitlementScore="1">
+    <ScoreItem compositePercentage="100" displayName="score_def_certificationAge_name" score="1000" scorePercentage="100" type="score_def_certificationAge_shortname">
+      <TargetMessage>
+        <Message key="cert_scorer_target_id_not_certified" type="Info"/>
+      </TargetMessage>
+    </ScoreItem>
+  </Scorecard>
+</Identity>

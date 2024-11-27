@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ServiceDefinition PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ServiceDefinition name="SMListener">
+  <Description>
+Service definition for the SM interceptor.  Configure this
+by adding an "applications" attribute whose value is a csv of Application names
+that will be sending interception events.  Be sure you also configure 
+the ResourceEvent service to have a host.  
+    </Description>
+</ServiceDefinition>

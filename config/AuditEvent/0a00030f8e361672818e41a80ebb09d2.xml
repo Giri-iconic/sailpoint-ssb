@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent action="identityLifecycleEvent" interface="Task" serverHost="WIN-T21N4E0UF24" source="Refresh Identity Cube" target="Identity:Active Test">
+  <Attributes>
+    <Map>
+      <entry key="objectSummary" value="sailpoint.object.Identity@6af0c7b3[id=0a00030f8e361672818e41a7b7b709cc,name=Active Test]"/>
+    </Map>
+  </Attributes>
+  <String1>Joiner</String1>
+  <String2>Process a new employee.</String2>
+  <String3>Launched workflow 'Joiner: Active Test'</String3>
+  <String4>Identity created</String4>
+</AuditEvent>

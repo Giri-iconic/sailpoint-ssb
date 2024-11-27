@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE EmailTemplate PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<EmailTemplate name="ADGM Manage Engine Ticket Creation Joiner">
+  <Body>
+
+@@REQUESTTYPE=Service Request@@
+@@Employee Name=$identityDisplayName@@
+
+
+    
+		
+  </Body>
+  <Description>Email Template for ADGM HR Group for Joiner Notification</Description>
+  <Signature>
+    <Inputs>
+      <Argument name="identityDisplayName" type="string"/>
+    </Inputs>
+  </Signature>
+  <Subject>@@@ New Joiner Notification: $identityDisplayName</Subject>
+</EmailTemplate>

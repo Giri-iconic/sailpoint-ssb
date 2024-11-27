@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent accountName="CN=Raheem.Shaik,OU=Test,DC=iconic,DC=com" action="PasswordChangeFailure" application="Active Directory" clientHost="192.168.56.1" serverHost="WIN-T21N4E0UF24" source="SailPointContextRequestFilter" target="Raheem.Shaik">
+  <Attributes>
+    <Map>
+      <entry key="audit_password_change_failure_error_msg" value="Error(s) reported back from the IQService - Error occurred while setting password for the account. Exception has been thrown by the target of an invocation.One or more input parameters are invalid . HRESULT:[0x800708C5]"/>
+      <entry key="errors">
+        <value>
+          <List>
+            <Message key="Error(s) reported back from the IQService - Error occurred while setting password for the account. Exception has been thrown by the target of an invocation.One or more input parameters are invalid . HRESULT:[0x800708C5]" type="Error"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="managedAttributeType" value="Entitlement"/>
+    </Map>
+  </Attributes>
+</AuditEvent>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ManagedAttribute PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ManagedAttribute aggregated="true" attribute="memberOf" displayName="ICONIC\Terminal Server License Servers" hash="a21ea5675891991187ad1b1adea6a1105f59ee81" lastRefresh="1717737154920" requestable="true" type="group" uuid="{4f3828bf-434c-4edf-8e94-09e6d305f73e}" value="CN=Terminal Server License Servers,CN=Builtin,DC=iconic,DC=com">
+  <ApplicationRef>
+    <Reference class="sailpoint.object.Application" name="Active Directory"/>
+  </ApplicationRef>
+  <Attributes>
+    <Map>
+      <entry key="GroupScope" value="Domain local"/>
+      <entry key="GroupType" value="Security"/>
+      <entry key="cn" value="Terminal Server License Servers"/>
+      <entry key="description" value="Members of this group can update user accounts in Active Directory with information about license issuance, for the purpose of tracking and reporting TS Per User CAL usage"/>
+      <entry key="msDS-PrincipalName" value="ICONIC\Terminal Server License Servers"/>
+      <entry key="objectSid" value="S-1-5-32-561"/>
+      <entry key="objectguid" value="{4f3828bf-434c-4edf-8e94-09e6d305f73e}"/>
+      <entry key="sAMAccountName" value="Terminal Server License Servers"/>
+      <entry key="sysDescriptions"/>
+    </Map>
+  </Attributes>
+  <Owner>
+    <Reference class="sailpoint.object.Identity" name="spadmin"/>
+  </Owner>
+</ManagedAttribute>

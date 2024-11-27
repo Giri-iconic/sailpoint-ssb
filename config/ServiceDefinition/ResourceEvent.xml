@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ServiceDefinition PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ServiceDefinition name="ResourceEvent">
+  <Attributes>
+    <Map>
+      <entry key="correlateEntitlements" value="true"/>
+      <entry key="promoteAttributes" value="true"/>
+    </Map>
+  </Attributes>
+  <Description>
+Service definition for the ResourceEvent processor.  The attributes
+map contains the refresh options passed to the Identitizer.  You can set
+"noRefresh" to "true" to disable refresh.  This can run independent
+of SMListener and does not need to be on the same host.  But if you're
+running SMListener, you need to be running this somewhere as well.
+    </Description>
+</ServiceDefinition>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE TaskDefinition PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<TaskDefinition executor="sailpoint.task.ResetOrphanWorkItem" name="Reset Orphaned WorkItem Events" subType="task_item_type_system" template="true" type="System">
+  <Description>Locates WorkItem Events with expired locks and resets them by either removing the lock or pruning.</Description>
+  <Signature>
+    <Inputs>
+      <Argument helpKey="help_task_reset_orphan_wi_min_lock_age" name="minLockAge" type="int">
+        <Prompt>task_in_reset_orphan_wi_min_lock_age</Prompt>
+      </Argument>
+      <Argument helpKey="help_task_reset_orphan_wi_reset_work_flows" multi="true" name="resetWorkflows" type="Workflow">
+        <Prompt>task_in_reset_orphan_wi_workflow_to_reset</Prompt>
+      </Argument>
+    </Inputs>
+    <Returns>
+      <Argument name="eventsReset" type="int">
+        <Prompt>task_out_reset_orphan_wi_events_reset</Prompt>
+      </Argument>
+      <Argument name="eventsDeleted" type="int">
+        <Prompt>task_out_reset_orphan_wi_events_deleted</Prompt>
+      </Argument>
+    </Returns>
+  </Signature>
+</TaskDefinition>

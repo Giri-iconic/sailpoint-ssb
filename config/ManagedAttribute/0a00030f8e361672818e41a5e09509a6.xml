@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ManagedAttribute PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ManagedAttribute aggregated="true" attribute="memberOf" displayName="ICONIC\Enterprise Admins" hash="4494bce47ca9fb13ac1ea5e9f5e11fe735caa01b" lastRefresh="1717737153420" requestable="true" type="group" uuid="{068a5cda-50b8-486f-b790-0ccbbed1976d}" value="CN=Enterprise Admins,CN=Users,DC=iconic,DC=com">
+  <ApplicationRef>
+    <Reference class="sailpoint.object.Application" name="Active Directory"/>
+  </ApplicationRef>
+  <Attributes>
+    <Map>
+      <entry key="GroupScope" value="Universal"/>
+      <entry key="GroupType" value="Security"/>
+      <entry key="cn" value="Enterprise Admins"/>
+      <entry key="description" value="Designated administrators of the enterprise"/>
+      <entry key="msDS-PrincipalName" value="ICONIC\Enterprise Admins"/>
+      <entry key="objectSid" value="S-1-5-21-4221786991-103232591-4293389706-519"/>
+      <entry key="objectguid" value="{068a5cda-50b8-486f-b790-0ccbbed1976d}"/>
+      <entry key="sAMAccountName" value="Enterprise Admins"/>
+      <entry key="sysDescriptions"/>
+    </Map>
+  </Attributes>
+  <Inheritance>
+    <Reference class="sailpoint.object.ManagedAttribute"/>
+    <Reference class="sailpoint.object.ManagedAttribute"/>
+  </Inheritance>
+</ManagedAttribute>

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ServiceDefinition PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ServiceDefinition hosts="global" interval="60" name="Reanimator">
+  <Description>
+      Service definition for the task/request re-animator service
+    </Description>
+</ServiceDefinition>

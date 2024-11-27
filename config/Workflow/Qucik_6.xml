@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Workflow PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Workflow explicitTransitions="true" name="Qucik 6" type="">
+  <Variable initializer="true" input="true" name="trace"/>
+  <Variable initializer="script:wfcontext.getWorkflowCase().get(&quot;quickLinkIdentityId&quot;)" input="true" name="identityId"/>
+  <Variable input="true" name="identityName"/>
+  <Variable initializer="script:return context.getObject(Identity.class, identityId).getFirstname();" input="true" name="FirstName"/>
+  <Variable initializer="script:return context.getObject(Identity.class, identityId).getLastname()" input="true" name="LastName"/>
+  <Variable initializer="script:return context.getObject(Identity.class, identityId).getEmail()" input="true" name="Email"/>
+  <Variable input="true" name="approvalScheme"/>
+  <Variable initializer="true" input="true" name="optimisticProvisioning"/>
+  <Variable initializer="spadmin" input="true" name="fallbackApprover"/>
+  <Variable input="true" name="onOffSite"/>
+  <Variable input="true" name="ndaForm"/>
+  <Variable input="true" name="manager"/>
+  <Variable initializer="true" name="transient"/>
+  <Step action="script:System.out.println(&quot;Vendor Account Start Step&quot;);" icon="Start" name="Start" posX="13" posY="10">
+    <Transition to="Existing Vendor Company"/>
+  </Step>
+  <Step icon="Stop" name="Stop" posX="307" posY="12"/>
+  <Step icon="Default" name="Existing Vendor Company" posX="145" posY="11">
+    <Approval name="Vendor Account Creation Form" owner="ref:launcher" return="onOffSite,endDate,startDate,Description,externalCompany,manager,loginName,lastname,firstname,name,employeeNumber,employeeType,externalEmail,status,workPhone,position,vpnAccess,project,ndaForm,countryCode" send="onOffSite,endDate,startDate,Description,externalCompany,manager,loginName,lastname,firstname,name,employeeNumber,employeeType,externalEmail,status,workPhone,position,vpnAccess,project,ndaForm,countryCode">
+      <Form name="Vendor Account Creation Form">
+        <Attributes>
+          <Map>
+            <entry key="hideIncompleteFields">
+              <value>
+                <Boolean/>
+              </value>
+            </entry>
+            <entry key="includeHiddenFields">
+              <value>
+                <Boolean/>
+              </value>
+            </entry>
+            <entry key="pageTitle" value="Vendor Account Creation Form"/>
+          </Map>
+        </Attributes>
+        <Description>Form to create new joiners</Description>
+        <Section name="Basic Details">
+          <Field displayName="First Name" name="firstname" postBack="true" required="true" type="string"/>
+        </Section>
+        <Button action="next" label="Submit"/>
+        <Button action="cancel" label="Cancel"/>
+      </Form>
+    </Approval>
+    <Transition to="Stop"/>
+  </Step>
+</Workflow>

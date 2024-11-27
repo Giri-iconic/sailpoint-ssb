@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent accountName="CN=Hello.Hello,OU=Test,DC=Iconic,DC=com" action="EntitlementAdd" application="Active Directory" attributeName="sn" attributeValue="Hello" clientHost="192.168.56.1" interface="LCM" serverHost="WIN-T21N4E0UF24" source="spadmin" target="Hello.Hello">
+  <Attributes>
+    <Map>
+      <entry key="interface" value="LCM"/>
+      <entry key="nativeIdUpdated">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+</AuditEvent>

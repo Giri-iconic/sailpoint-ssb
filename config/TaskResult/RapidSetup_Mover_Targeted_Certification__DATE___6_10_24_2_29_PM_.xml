@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE TaskResult PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<TaskResult completed="1718009983566" completionStatus="Success" host="WIN-T21N4E0UF24" launched="1718009969902" launcher="spadmin" name="RapidSetup Mover Targeted Certification [DATE] [6/10/24 2:29 PM]" runLength="13" runLengthAverage="8" runLengthDeviation="62" schedule="RapidSetup Mover Targeted Certification [DATE] [6/10/24 2:29 PM]" type="Certification">
+  <Attributes>
+    <Map>
+      <entry key="activePeriodDurationAmount" value="1"/>
+      <entry key="activePeriodDurationScale" value="months"/>
+      <entry key="certificationGroup" value="RapidSetup Mover Targeted Certification [6/10/24 2:29:30 PM IST]"/>
+      <entry key="elapsedTime" value="12966"/>
+      <entry key="emailsSuppressed">
+        <value>
+          <Integer>0</Integer>
+        </value>
+      </entry>
+      <entry key="remediationPeriodDurationAmount" value="1"/>
+      <entry key="remediationPeriodDurationScale" value="months"/>
+      <entry key="restartable" value="true"/>
+      <entry key="resultingCertGroupIds" value="RapidSetup Mover Targeted Certification [6/10/24 2:29:30 PM IST]"/>
+      <entry key="total">
+        <value>
+          <Integer>1</Integer>
+        </value>
+      </entry>
+      <entry key="type" value="Targeted"/>
+    </Map>
+  </Attributes>
+  <Definition>
+    <Reference class="sailpoint.object.TaskDefinition" name="Certification Manager"/>
+  </Definition>
+  <Owner>
+    <Reference class="sailpoint.object.Identity" name="spadmin"/>
+  </Owner>
+</TaskResult>

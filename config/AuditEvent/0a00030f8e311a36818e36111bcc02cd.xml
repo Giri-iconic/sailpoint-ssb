@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent accountName="CN=Test entitlement,OU=Test,DC=iconic,DC=com" action="provision" application="Active Directory" serverHost="WIN-T21N4E0UF24" source="spadmin" target="group">
+  <Attributes>
+    <Map>
+      <entry key="GroupScope" value="Global"/>
+      <entry key="GroupType" value="Security"/>
+      <entry key="cn" value="Test entitlement"/>
+      <entry key="distinguishedName" value="CN=Test entitlement,OU=Test,DC=iconic,DC=com"/>
+      <entry key="msDS-PrincipalName" value="ICONIC\Test entitlement"/>
+      <entry key="objectSid" value="S-1-5-21-4221786991-103232591-4293389706-1106"/>
+      <entry key="objectguid" value="{b40d4e34-f126-4cbf-9899-cfec6312d9f5}"/>
+      <entry key="op">
+        <value>
+          <ObjectOperation>Create</ObjectOperation>
+        </value>
+      </entry>
+      <entry key="sAMAccountName" value="Test entitlement"/>
+    </Map>
+  </Attributes>
+  <String1>Active Directory</String1>
+  <String2>committed</String2>
+</AuditEvent>

@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE JasperTemplate PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<JasperTemplate name="Template">
+  <DesignXml>&lt;?xml version="1.0" encoding="UTF-8"  ?&gt;
+&lt;!-- Created with iReport - A designer for JasperReports --&gt;
+&lt;!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd"&gt;
+
+&lt;!-- (c) Copyright 2008 SailPoint Technologies, Inc., All Rights Reserved. --&gt;
+
+&lt;jasperReport
+		 name="Template"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="842"
+		 columnWidth="535"
+		 columnSpacing="0"
+		 leftMargin="30"
+		 rightMargin="30"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false"&gt;
+	&lt;property name="ireport.scriptlethandling" value="0" /&gt;
+	&lt;property name="ireport.encoding" value="UTF-8" /&gt;
+	&lt;import value="java.util.*" /&gt;
+	&lt;import value="net.sf.jasperreports.engine.*" /&gt;
+	&lt;import value="net.sf.jasperreports.engine.data.*" /&gt;
+
+	&lt;style 
+		name="NormalText"
+		isDefault="true"
+		vAlign="Middle"
+		fontName="Arial"
+		fontSize="12"
+	/&gt;
+
+
+		&lt;background&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/background&gt;
+		&lt;title&gt;
+			&lt;band height="50"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/title&gt;
+		&lt;pageHeader&gt;
+			&lt;band height="50"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/pageHeader&gt;
+		&lt;columnHeader&gt;
+			&lt;band height="30"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/columnHeader&gt;
+		&lt;detail&gt;
+			&lt;band height="100"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/detail&gt;
+		&lt;columnFooter&gt;
+			&lt;band height="30"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/columnFooter&gt;
+		&lt;pageFooter&gt;
+			&lt;band height="50"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/pageFooter&gt;
+		&lt;lastPageFooter&gt;
+			&lt;band height="50"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/lastPageFooter&gt;
+		&lt;summary&gt;
+			&lt;band height="50"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/summary&gt;
+&lt;/jasperReport&gt;
+</DesignXml>
+</JasperTemplate>

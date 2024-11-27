@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE TaskResult PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<TaskResult completed="1718010319755" completionStatus="Success" launched="1718009966771" launcher="Operations" name="RapidSetup Mover FOR ISIN1004 1718009952989" targetClass="Identity" targetName="ISIN1004" type="Workflow">
+  <Attributes>
+    <Map>
+      <entry key="approvalScheme" value="none"/>
+      <entry key="workflowCaseId" value="0a00030f90001de78190015fe4660255"/>
+      <entry key="workflowProcessId"/>
+      <entry key="workflowSummary">
+        <value>
+          <WorkflowSummary step="Stop"/>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+  <Definition>
+    <Reference class="sailpoint.object.TaskDefinition" name="Workflow Launcher"/>
+  </Definition>
+  <Owner>
+    <Reference class="sailpoint.object.Identity" name="Operations"/>
+  </Owner>
+</TaskResult>

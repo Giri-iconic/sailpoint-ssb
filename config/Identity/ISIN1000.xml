@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Identity PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Identity correlated="true" lastLogin="1717742088864" lastRefresh="1718009919693" managerStatus="true" name="ISIN1000" password="1:ACP:6OiIfJlsLNvkLtQuzhHATKBf2eFFJPHO+HmHQJXXf0E=">
+  <Attributes>
+    <Map>
+      <entry key="displayName" value="ISIN1000"/>
+      <entry key="emp_id" value="ISIN1000"/>
+      <entry key="firstname" value="Carla"/>
+      <entry key="lastname" value="Houston"/>
+      <entry key="type" value="employee"/>
+    </Map>
+  </Attributes>
+  <UIPreferencesRef>
+    <Reference class="sailpoint.object.UIPreferences"/>
+  </UIPreferencesRef>
+  <AttributeMetaDatas>
+    <AttributeMetaData attribute="firstname" source="Test:First Name"/>
+    <AttributeMetaData attribute="lastname" source="Test:Last Name"/>
+    <AttributeMetaData attribute="displayName" source="Test:Emp Id"/>
+    <AttributeMetaData attribute="emp_id" source="HRMS:Emp Id"/>
+    <AttributeMetaData attribute="type" source="HRMS:Type"/>
+  </AttributeMetaDatas>
+  <Workgroups>
+    <Reference class="sailpoint.object.Identity" name="Admins"/>
+  </Workgroups>
+  <Links>
+    <Link displayName="ISIN1000" identity="ISIN1000" lastRefresh="1710507132845">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application" name="Test"/>
+      </ApplicationRef>
+      <AttributeMetaDatas>
+        <AttributeMetaData attribute="renamedAccountNativeIdentities" user="Aggregation">
+          <LastValue>
+            <Set>
+              <String>Carla</String>
+            </Set>
+          </LastValue>
+        </AttributeMetaData>
+      </AttributeMetaDatas>
+      <Attributes>
+        <Map>
+          <entry key="Address" value="Hyd"/>
+          <entry key="City" value="Hyd"/>
+          <entry key="Country" value="India"/>
+          <entry key="DOB" value="30/12/1981"/>
+          <entry key="Desgn" value="Managing Director"/>
+          <entry key="Emp Id" value="ISIN1000"/>
+          <entry key="First Name" value="Carla"/>
+          <entry key="Gender" value="F"/>
+          <entry key="Last Name" value="Houston"/>
+          <entry key="Office Loc" value="Hyd"/>
+          <entry key="Org" value="ENH I secure"/>
+          <entry key="Pincode" value="500001"/>
+          <entry key="SSN" value="555-50-1001"/>
+          <entry key="State" value="Telangana"/>
+          <entry key="Status" value="Active"/>
+        </Map>
+      </Attributes>
+    </Link>
+    <Link displayName="Carla.Houston" identity="CN=Carla.Houston,OU=Test,DC=ENH,DC=local" lastRefresh="1707386402141" manuallyCorrelated="true" uuid="{15895cc9-8b7b-4308-b19d-53a8ff5fbb99}">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application" name="Active Directory old"/>
+      </ApplicationRef>
+      <Attributes>
+        <Map>
+          <entry key="accountFlags">
+            <value>
+              <List>
+                <String>Normal User Account</String>
+              </List>
+            </value>
+          </entry>
+          <entry key="cn" value="Carla.Houston"/>
+          <entry key="distinguishedName" value="CN=Carla.Houston,OU=Test,DC=ENH,DC=local"/>
+          <entry key="givenName" value="Carla"/>
+          <entry key="memberOf"/>
+          <entry key="msDS-PrincipalName" value="ENH\carla.houston"/>
+          <entry key="msNPAllowDialin" value="Not Set"/>
+          <entry key="objectClass">
+            <value>
+              <List>
+                <String>top</String>
+                <String>person</String>
+                <String>organizationalPerson</String>
+                <String>user</String>
+              </List>
+            </value>
+          </entry>
+          <entry key="objectSid" value="S-1-5-21-672954846-2807897034-3921798956-2206"/>
+          <entry key="objectType" value="user"/>
+          <entry key="objectguid" value="{15895cc9-8b7b-4308-b19d-53a8ff5fbb99}"/>
+          <entry key="sAMAccountName" value="carla.houston"/>
+          <entry key="sn" value="Houston"/>
+        </Map>
+      </Attributes>
+    </Link>
+    <Link displayName="ISIN1000" identity="ISIN1000" lastRefresh="1717996413458">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application" name="HRMS"/>
+      </ApplicationRef>
+      <Attributes>
+        <Map>
+          <entry key="Address" value="Hyd"/>
+          <entry key="City" value="Hyd"/>
+          <entry key="Country" value="India"/>
+          <entry key="DOB" value="30/12/1981"/>
+          <entry key="Desgn" value="Managing Director"/>
+          <entry key="Emp Id" value="ISIN1000"/>
+          <entry key="First Name" value="Carla"/>
+          <entry key="Gender" value="F"/>
+          <entry key="Last Name" value="Houston"/>
+          <entry key="Office Loc" value="Hyd"/>
+          <entry key="Org" value="ENH I secure"/>
+          <entry key="Pincode" value="500001"/>
+          <entry key="SSN" value="555-50-1001"/>
+          <entry key="State" value="Telangana"/>
+          <entry key="Status" value="Active"/>
+          <entry key="Type" value="employee"/>
+        </Map>
+      </Attributes>
+    </Link>
+  </Links>
+  <Scorecard/>
+</Identity>

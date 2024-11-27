@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ManagedAttribute PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ManagedAttribute aggregated="true" attribute="memberOf" displayName="ICONIC\Windows Authorization Access Group" hash="53067043d3bb203c4a18b291ecbf613043b98874" lastRefresh="1717737155037" requestable="true" type="group" uuid="{cfc27037-0bb4-4e62-bed3-bdf44f7c9f37}" value="CN=Windows Authorization Access Group,CN=Builtin,DC=iconic,DC=com">
+  <ApplicationRef>
+    <Reference class="sailpoint.object.Application" name="Active Directory"/>
+  </ApplicationRef>
+  <Attributes>
+    <Map>
+      <entry key="GroupScope" value="Domain local"/>
+      <entry key="GroupType" value="Security"/>
+      <entry key="cn" value="Windows Authorization Access Group"/>
+      <entry key="description" value="Members of this group have access to the computed tokenGroupsGlobalAndUniversal attribute on User objects"/>
+      <entry key="msDS-PrincipalName" value="ICONIC\Windows Authorization Access Group"/>
+      <entry key="objectSid" value="S-1-5-32-560"/>
+      <entry key="objectguid" value="{cfc27037-0bb4-4e62-bed3-bdf44f7c9f37}"/>
+      <entry key="sAMAccountName" value="Windows Authorization Access Group"/>
+      <entry key="sysDescriptions"/>
+    </Map>
+  </Attributes>
+  <Owner>
+    <Reference class="sailpoint.object.Identity" name="spadmin"/>
+  </Owner>
+</ManagedAttribute>

@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE JasperTemplate PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<JasperTemplate name="UserLinksReport">
+  <DesignXml>&lt;?xml version="1.0" encoding="UTF-8"  ?&gt;
+&lt;!-- Created with iReport - A designer for JasperReports --&gt;
+&lt;!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd"&gt;
+
+&lt;!-- (c) Copyright 2008 SailPoint Technologies, Inc., All Rights Reserved. --&gt;
+
+&lt;jasperReport
+		 name="UserLinksReport"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="842"
+		 columnWidth="575"
+		 columnSpacing="0"
+		 leftMargin="0"
+		 rightMargin="20"
+		 topMargin="0"
+		 bottomMargin="0"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false"&gt;
+	&lt;property name="ireport.scriptlethandling" value="0" /&gt;
+	&lt;property name="ireport.encoding" value="UTF-8" /&gt;
+	&lt;import value="java.util.*" /&gt;
+	&lt;import value="net.sf.jasperreports.engine.*" /&gt;
+	&lt;import value="net.sf.jasperreports.engine.data.*" /&gt;
+
+	&lt;style 
+		name="SailPointBlueBackWhiteFront"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#FFFFFF"
+		backcolor="#025588"
+		vAlign="Middle"
+		leftPadding="5"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		
+		isBlankWhenNull="true"
+	/&gt;
+	&lt;style 
+		name="Heading"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#000000"
+		backcolor="#CCDEE7"
+		fontName="Arial"
+		fontSize="14"
+		isBold="true"
+		isBlankWhenNull="true"
+	/&gt;
+
+	&lt;parameter name="id" isForPrompting="false" class="java.lang.String"/&gt;
+	&lt;parameter name="SUBREPORT1" isForPrompting="false" class="net.sf.jasperreports.engine.JasperReport"&gt;
+		&lt;parameterDescription&gt;&lt;![CDATA[UserAttributeReport]]&gt;&lt;/parameterDescription&gt;
+	&lt;/parameter&gt;
+	&lt;queryString&gt;&lt;![CDATA[select l.*, a.name as appName from spt_link l, spt_application a 
+where l.identity_id = $P{id} AND a.id = l.application
+order by appName]]&gt;&lt;/queryString&gt;
+
+	&lt;field name="id" class="java.lang.String"/&gt;
+	&lt;field name="created" class="java.lang.Long"/&gt;
+	&lt;field name="modified" class="java.lang.Long"/&gt;
+	&lt;field name="native_identity" class="java.lang.String"/&gt;
+	&lt;field name="last_refresh" class="java.lang.Long"/&gt;
+	&lt;field name="identityId" class="java.lang.String"/&gt;
+	&lt;field name="application" class="java.lang.String"/&gt;
+	&lt;field name="attributes" class="java.lang.String"/&gt;
+	&lt;field name="idx" class="java.lang.Integer"/&gt;
+	&lt;field name="appName" class="java.lang.String"/&gt;
+
+		&lt;background&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/background&gt;
+		&lt;title&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/title&gt;
+		&lt;pageHeader&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/pageHeader&gt;
+		&lt;columnHeader&gt;
+			&lt;band height="21"  isSplitAllowed="true" &gt;
+				&lt;staticText&gt;
+					&lt;reportElement
+						style="Heading"
+						x="0"
+						y="4"
+						width="570"
+						height="17"
+						key="staticText-1"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="5" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement&gt;
+						&lt;font fontName="Arial"  size="14" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;text&gt;&lt;![CDATA[Applications ]]&gt;&lt;/text&gt;
+				&lt;/staticText&gt;
+			&lt;/band&gt;
+		&lt;/columnHeader&gt;
+		&lt;detail&gt;
+			&lt;band height="92"  isSplitAllowed="true" &gt;
+				&lt;textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						x="103"
+						y="27"
+						width="122"
+						height="20"
+						key="textField"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement textAlignment="Justified" verticalAlignment="Middle"&gt;
+						&lt;font fontName="Arial" size="12" isItalic="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{native_identity}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						x="150"
+						y="7"
+						width="130"
+						height="20"
+						key="textField"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement textAlignment="Justified" verticalAlignment="Middle"&gt;
+						&lt;font fontName="Arial"  size="12" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{appName}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;staticText&gt;
+					&lt;reportElement
+						x="10"
+						y="27"
+						width="93"
+						height="20"
+						key="staticText-2"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement textAlignment="Left" verticalAlignment="Middle"&gt;
+						&lt;font fontName="Arial" size="12" isItalic="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;text&gt;&lt;![CDATA[Account ID]]&gt;&lt;/text&gt;
+				&lt;/staticText&gt;
+				&lt;staticText&gt;
+					&lt;reportElement
+						x="10"
+						y="47"
+						width="93"
+						height="19"
+						key="staticText-3"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement textAlignment="Left" verticalAlignment="Middle"&gt;
+						&lt;font fontName="Arial" size="12"/&gt;
+					&lt;/textElement&gt;
+				&lt;text&gt;&lt;![CDATA[Last Refresh]]&gt;&lt;/text&gt;
+				&lt;/staticText&gt;
+				&lt;textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						x="103"
+						y="47"
+						width="180"
+						height="19"
+						key="textField-1"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement textAlignment="Left" verticalAlignment="Middle"&gt;
+						&lt;font fontName="Arial" size="12"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.util.Date"&gt;&lt;![CDATA[new Date($F{last_refresh}.longValue())]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;subreport  isUsingCache="false"&gt;
+					&lt;reportElement
+						x="10"
+						y="67"
+						width="427"
+						height="22"
+						key="attributes-1"
+						positionType="Float"/&gt;
+					&lt;subreportParameter  name="title"&gt;
+						&lt;subreportParameterExpression&gt;&lt;![CDATA["ApplicationAttributes"]]&gt;&lt;/subreportParameterExpression&gt;
+					&lt;/subreportParameter&gt;
+					&lt;dataSourceExpression&gt;&lt;![CDATA[new sailpoint.reporting.datasource.AttributesDataSource($F{attributes})]]&gt;&lt;/dataSourceExpression&gt;
+					&lt;subreportExpression  class="net.sf.jasperreports.engine.JasperReport"&gt;&lt;![CDATA[$P{SUBREPORT1}]]&gt;&lt;/subreportExpression&gt;
+				&lt;/subreport&gt;
+				&lt;staticText&gt;
+					&lt;reportElement
+						x="10"
+						y="7"
+						width="140"
+						height="20"
+						key="staticText-4"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement textAlignment="Left" verticalAlignment="Middle"&gt;
+						&lt;font fontName="Arial"  size="12" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;text&gt;&lt;![CDATA[Application Name]]&gt;&lt;/text&gt;
+				&lt;/staticText&gt;
+			&lt;/band&gt;
+		&lt;/detail&gt;
+		&lt;columnFooter&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/columnFooter&gt;
+		&lt;pageFooter&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/pageFooter&gt;
+		&lt;summary&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/summary&gt;
+&lt;/jasperReport&gt;
+</DesignXml>
+</JasperTemplate>

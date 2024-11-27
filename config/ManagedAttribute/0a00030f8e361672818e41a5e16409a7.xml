@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ManagedAttribute PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ManagedAttribute aggregated="true" attribute="memberOf" displayName="ICONIC\Enterprise Key Admins" hash="dadf5dedf26669f8bd3d816f4e0ceabbf280734e" lastRefresh="1717737153443" requestable="true" type="group" uuid="{6d305192-71b3-4c8b-a35b-d75b3b0ccd5f}" value="CN=Enterprise Key Admins,CN=Users,DC=iconic,DC=com">
+  <ApplicationRef>
+    <Reference class="sailpoint.object.Application" name="Active Directory"/>
+  </ApplicationRef>
+  <Attributes>
+    <Map>
+      <entry key="GroupScope" value="Universal"/>
+      <entry key="GroupType" value="Security"/>
+      <entry key="cn" value="Enterprise Key Admins"/>
+      <entry key="description" value="Members of this group can perform administrative actions on key objects within the forest."/>
+      <entry key="msDS-PrincipalName" value="ICONIC\Enterprise Key Admins"/>
+      <entry key="objectSid" value="S-1-5-21-4221786991-103232591-4293389706-527"/>
+      <entry key="objectguid" value="{6d305192-71b3-4c8b-a35b-d75b3b0ccd5f}"/>
+      <entry key="sAMAccountName" value="Enterprise Key Admins"/>
+      <entry key="sysDescriptions"/>
+    </Map>
+  </Attributes>
+</ManagedAttribute>

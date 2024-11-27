@@ -1,0 +1,518 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE JasperTemplate PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<JasperTemplate name="UncorrelatedIdentitiesSummaryReport">
+  <DesignXml>&lt;?xml version="1.0" encoding="UTF-8"  ?&gt;
+&lt;!-- Created with iReport - A designer for JasperReports --&gt;
+&lt;!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd"&gt;
+
+&lt;!-- (c) Copyright 2008 SailPoint Technologies, Inc., All Rights Reserved. --&gt;
+
+&lt;jasperReport
+		 name="UncorrelatedIdentitiesSummaryReport"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Landscape"
+		 pageWidth="842"
+		 pageHeight="595"
+		 columnWidth="842"
+		 columnSpacing="0"
+		 leftMargin="0"
+		 rightMargin="0"
+		 topMargin="0"
+		 bottomMargin="0"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false"&gt;
+	&lt;property name="ireport.scriptlethandling" value="0" /&gt;
+	&lt;property name="ireport.encoding" value="UTF-8" /&gt;
+	&lt;import value="java.util.*" /&gt;
+	&lt;import value="net.sf.jasperreports.engine.*" /&gt;
+	&lt;import value="net.sf.jasperreports.engine.data.*" /&gt;
+
+	&lt;style 
+		name="title"
+		isDefault="false"
+		fontName="Arial"
+		fontSize="24"
+		isBold="true"
+		isBlankWhenNull="true"
+	/&gt;
+	&lt;style 
+		name="bandedText"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#000000"
+		backcolor="#FFFFFF"
+		topBorder="None"
+		topBorderColor="#FFFFFF"
+		bottomBorder="1Point"
+		bottomBorderColor="#CCCCCC"
+		fontName="Arial"
+		fontSize="12"
+		isBlankWhenNull="true"
+	&gt;
+
+		&lt;conditionalStyle&gt;
+			&lt;conditionExpression&gt;&lt;![CDATA[new Boolean($V{REPORT_COUNT}.intValue() % 2 == 0)]]&gt;&lt;/conditionExpression&gt;
+			&lt;style 
+				isDefault="false"
+				backcolor="#EEEEEE"
+			/&gt;
+		&lt;/conditionalStyle&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="spBlue"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#FFFFFF"
+		backcolor="#1A7182"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		
+		isBlankWhenNull="true"
+	/&gt;
+	&lt;style 
+		name="spLightBlue"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#333333"
+		backcolor="#c2dce0"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		
+		isBlankWhenNull="true"
+	/&gt;
+	&lt;style 
+		name="spGreen"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#FFFFFF"
+		backcolor="#5A8429"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		
+		isBlankWhenNull="true"
+	/&gt;
+	&lt;style 
+		name="spLightGreen"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#333333"
+		backcolor="#cfdcbf"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		
+		isBlankWhenNull="true"
+	/&gt;
+	&lt;style 
+		name="spOrange"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#FFFFFF"
+		backcolor="#F45D14"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		
+		isBlankWhenNull="true"
+	/&gt;
+	&lt;style 
+		name="spLightOrange"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#333333"
+		backcolor="#f4c3ab"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		
+		isBlankWhenNull="true"
+	/&gt;
+	&lt;style 
+		name="spYellow"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#333333"
+		backcolor="#F3B833"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		
+		isBlankWhenNull="true"
+	/&gt;
+	&lt;style 
+		name="spLightYellow"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#333333"
+		backcolor="#f3ddaa"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		
+		isBlankWhenNull="true"
+	/&gt;
+	&lt;style 
+		name="spRed"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#FFFFFF"
+		backcolor="#b40b0e"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		
+		isBlankWhenNull="true"
+	/&gt;
+	&lt;style 
+		name="body"
+		isDefault="false"
+		mode="Transparent"
+		forecolor="#000000"
+		backcolor="#FFFFFF"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		
+		isBlankWhenNull="true"
+	/&gt;
+	&lt;style 
+		name="bodySmall"
+		isDefault="false"
+		mode="Transparent"
+		forecolor="#000000"
+		backcolor="#FFFFFF"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="10"
+		
+		isBlankWhenNull="true"
+	/&gt;
+	&lt;style 
+		name="bodyGray"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#000000"
+		backcolor="#DDDDDD"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		
+		isBlankWhenNull="true"
+	/&gt;
+	&lt;style 
+		name="footer"
+		isDefault="false"
+		forecolor="#000000"
+		fontName="Arial"
+		fontSize="10"
+	/&gt;
+
+	&lt;parameter name="authoritativeAppNames" isForPrompting="false" class="java.lang.String"/&gt;
+	&lt;parameter name="percentComplete" isForPrompting="false" class="java.lang.Float"/&gt;
+
+	&lt;field name="appName" class="java.lang.String"/&gt;
+	&lt;field name="totalIdents" class="java.lang.Integer"/&gt;
+	&lt;field name="uncorrelatedIdents" class="java.lang.Integer"/&gt;
+	&lt;field name="correlatedIdents" class="java.lang.Integer"/&gt;
+	&lt;field name="percentCorrelated" class="java.lang.Float"/&gt;
+
+	&lt;variable name="correlatedCount" class="java.lang.Integer" resetType="Report" calculation="Sum"&gt;
+		&lt;variableExpression&gt;&lt;![CDATA[$F{correlatedIdents}]]&gt;&lt;/variableExpression&gt;
+	&lt;/variable&gt;
+	&lt;variable name="totalCount" class="java.lang.Integer" resetType="Report" calculation="Sum"&gt;
+		&lt;variableExpression&gt;&lt;![CDATA[$F{totalIdents}]]&gt;&lt;/variableExpression&gt;
+	&lt;/variable&gt;
+	&lt;variable name="uncorrelatedCount" class="java.lang.Integer" resetType="Report" calculation="Sum"&gt;
+		&lt;variableExpression&gt;&lt;![CDATA[$F{uncorrelatedIdents}]]&gt;&lt;/variableExpression&gt;
+	&lt;/variable&gt;
+		&lt;background&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/background&gt;
+		&lt;title&gt;
+			&lt;band height="40"  isSplitAllowed="true" &gt;
+				&lt;textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						x="180"
+						y="0"
+						width="609"
+						height="40"
+						key="textField-1"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement&gt;
+						&lt;font fontName="Arial"  size="12" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$P{authoritativeAppNames}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;staticText&gt;
+					&lt;reportElement
+						x="0"
+						y="0"
+						width="180"
+						height="40"
+						key="staticText-1"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement&gt;
+						&lt;font fontName="Arial"  size="12" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;text&gt;&lt;![CDATA[Authoritative Source(s):]]&gt;&lt;/text&gt;
+				&lt;/staticText&gt;
+			&lt;/band&gt;
+		&lt;/title&gt;
+		&lt;pageHeader&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/pageHeader&gt;
+		&lt;columnHeader&gt;
+			&lt;band height="35"  isSplitAllowed="true" &gt;
+				&lt;staticText&gt;
+					&lt;reportElement
+						style="spLightBlue"
+						x="25"
+						y="0"
+						width="310"
+						height="35"
+						key="staticText-2"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" topPadding="3" leftBorder="None" leftBorderColor="#000000" leftPadding="3" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement&gt;
+						&lt;font  size="12" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;text&gt;&lt;![CDATA[Correlated 
+Applications]]&gt;&lt;/text&gt;
+				&lt;/staticText&gt;
+				&lt;staticText&gt;
+					&lt;reportElement
+						style="spLightBlue"
+						x="335"
+						y="0"
+						width="86"
+						height="35"
+						key="staticText-3"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" topPadding="3" leftBorder="None" leftBorderColor="#000000" leftPadding="3" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement&gt;
+						&lt;font  size="12" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;text&gt;&lt;![CDATA[Correlated 
+Identities]]&gt;&lt;/text&gt;
+				&lt;/staticText&gt;
+				&lt;staticText&gt;
+					&lt;reportElement
+						style="spLightBlue"
+						x="421"
+						y="0"
+						width="94"
+						height="35"
+						key="staticText-4"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" topPadding="3" leftBorder="None" leftBorderColor="#000000" leftPadding="3" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement&gt;
+						&lt;font  size="12" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;text&gt;&lt;![CDATA[Uncorrelated 
+Identities]]&gt;&lt;/text&gt;
+				&lt;/staticText&gt;
+				&lt;staticText&gt;
+					&lt;reportElement
+						style="spLightBlue"
+						x="515"
+						y="0"
+						width="95"
+						height="35"
+						key="staticText-6"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" topPadding="3" leftBorder="None" leftBorderColor="#000000" leftPadding="3" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement&gt;
+						&lt;font  size="12" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;text&gt;&lt;![CDATA[Total 
+Identities]]&gt;&lt;/text&gt;
+				&lt;/staticText&gt;
+				&lt;staticText&gt;
+					&lt;reportElement
+						style="spLightBlue"
+						x="610"
+						y="0"
+						width="120"
+						height="35"
+						key="staticText-7"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" topPadding="3" leftBorder="None" leftBorderColor="#000000" leftPadding="3" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement&gt;
+						&lt;font  size="12" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;text&gt;&lt;![CDATA[Percent 
+Correlated]]&gt;&lt;/text&gt;
+				&lt;/staticText&gt;
+			&lt;/band&gt;
+		&lt;/columnHeader&gt;
+		&lt;detail&gt;
+			&lt;band height="22"  isSplitAllowed="true" &gt;
+				&lt;textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="body"
+						x="25"
+						y="0"
+						width="310"
+						height="22"
+						key="textField-7"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" topPadding="3" leftBorder="None" leftBorderColor="#000000" leftPadding="3" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement&gt;
+						&lt;font size="12"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{appName}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="false" pattern="#,##0;-#,##0" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="body"
+						x="335"
+						y="0"
+						width="86"
+						height="22"
+						key="textField-8"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" topPadding="3" leftBorder="None" leftBorderColor="#000000" leftPadding="3" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement&gt;
+						&lt;font size="12"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.Integer"&gt;&lt;![CDATA[$F{correlatedIdents}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="false" pattern="#,##0;-#,##0" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="body"
+						x="421"
+						y="0"
+						width="94"
+						height="22"
+						key="textField-9"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" topPadding="3" leftBorder="None" leftBorderColor="#000000" leftPadding="3" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement&gt;
+						&lt;font size="12"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.Integer"&gt;&lt;![CDATA[$F{uncorrelatedIdents}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="false" pattern="#,##0;-#,##0" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="body"
+						x="515"
+						y="0"
+						width="95"
+						height="22"
+						key="textField-10"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" topPadding="3" leftBorder="None" leftBorderColor="#000000" leftPadding="3" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement&gt;
+						&lt;font size="12"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.Integer"&gt;&lt;![CDATA[$F{totalIdents}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="false" pattern="#,##0 %" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="body"
+						x="610"
+						y="0"
+						width="120"
+						height="22"
+						key="textField-11"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" topPadding="3" leftBorder="None" leftBorderColor="#000000" leftPadding="3" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement&gt;
+						&lt;font size="12"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.Float"&gt;&lt;![CDATA[$F{percentCorrelated}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+			&lt;/band&gt;
+		&lt;/detail&gt;
+		&lt;columnFooter&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/columnFooter&gt;
+		&lt;pageFooter&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/pageFooter&gt;
+		&lt;summary&gt;
+			&lt;band height="30"  isSplitAllowed="true" &gt;
+				&lt;staticText&gt;
+					&lt;reportElement
+						style="body"
+						x="25"
+						y="0"
+						width="310"
+						height="26"
+						key="staticText-8"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" topPadding="3" leftBorder="None" leftBorderColor="#000000" leftPadding="3" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement&gt;
+						&lt;font  size="12" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;text&gt;&lt;![CDATA[Totals
+]]&gt;&lt;/text&gt;
+				&lt;/staticText&gt;
+				&lt;textField isStretchWithOverflow="false" pattern="#,##0;-#,##0" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="body"
+						x="335"
+						y="0"
+						width="86"
+						height="26"
+						key="textField-2"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" topPadding="3" leftBorder="None" leftBorderColor="#000000" leftPadding="3" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement&gt;
+						&lt;font  size="12" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.Integer"&gt;&lt;![CDATA[$V{correlatedCount}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="false" pattern="#,##0;-#,##0" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="body"
+						x="421"
+						y="0"
+						width="94"
+						height="26"
+						key="textField-3"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" topPadding="3" leftBorder="None" leftBorderColor="#000000" leftPadding="3" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement&gt;
+						&lt;font  size="12" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.Integer"&gt;&lt;![CDATA[$V{uncorrelatedCount}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="false" pattern="#,##0;-#,##0" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="body"
+						x="515"
+						y="0"
+						width="95"
+						height="26"
+						key="textField-5"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" topPadding="3" leftBorder="None" leftBorderColor="#000000" leftPadding="3" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement&gt;
+						&lt;font  size="12" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.Integer"&gt;&lt;![CDATA[$V{totalCount}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="false" pattern="#,##0 %" isBlankWhenNull="true" evaluationTime="Report" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="body"
+						x="610"
+						y="0"
+						width="120"
+						height="26"
+						key="textField-6"/&gt;
+					&lt;box topBorder="None" topBorderColor="#000000" topPadding="3" leftBorder="None" leftBorderColor="#000000" leftPadding="3" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/&gt;
+					&lt;textElement&gt;
+						&lt;font  size="12" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.Float"&gt;&lt;![CDATA[$P{percentComplete}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+			&lt;/band&gt;
+		&lt;/summary&gt;
+&lt;/jasperReport&gt;
+</DesignXml>
+</JasperTemplate>

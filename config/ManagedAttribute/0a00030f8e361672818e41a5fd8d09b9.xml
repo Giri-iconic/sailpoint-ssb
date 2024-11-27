@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ManagedAttribute PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ManagedAttribute aggregated="true" attribute="memberOf" displayName="ICONIC\Read-only Domain Controllers" hash="17fc0f14c4211b0999a7b3908fb3f9cd10e56122" lastRefresh="1717737154451" requestable="true" type="group" uuid="{7ad51ef4-86bf-42f0-b7b4-7877008c679b}" value="CN=Read-only Domain Controllers,CN=Users,DC=iconic,DC=com">
+  <ApplicationRef>
+    <Reference class="sailpoint.object.Application" name="Active Directory"/>
+  </ApplicationRef>
+  <Attributes>
+    <Map>
+      <entry key="GroupScope" value="Global"/>
+      <entry key="GroupType" value="Security"/>
+      <entry key="cn" value="Read-only Domain Controllers"/>
+      <entry key="description" value="Members of this group are Read-Only Domain Controllers in the domain"/>
+      <entry key="msDS-PrincipalName" value="ICONIC\Read-only Domain Controllers"/>
+      <entry key="objectSid" value="S-1-5-21-4221786991-103232591-4293389706-521"/>
+      <entry key="objectguid" value="{7ad51ef4-86bf-42f0-b7b4-7877008c679b}"/>
+      <entry key="sAMAccountName" value="Read-only Domain Controllers"/>
+      <entry key="sysDescriptions"/>
+    </Map>
+  </Attributes>
+  <Inheritance>
+    <Reference class="sailpoint.object.ManagedAttribute"/>
+  </Inheritance>
+</ManagedAttribute>

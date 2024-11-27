@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Identity PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Identity managerStatus="true" name="RapidSetup No Manager" protected="true" workgroup="true">
+  <Attributes>
+    <Map>
+      <entry key="displayName" value="RapidSetup No Manager"/>
+      <entry key="email" value="security@example.com"/>
+    </Map>
+  </Attributes>
+  <Description>Receives Rapid Setup manager emails for users with no manager
+defined</Description>
+  <Preferences>
+    <Map>
+      <entry key="workgroupNotificationOption">
+        <value>
+          <WorkgroupNotifationOption>GroupEmailOnly</WorkgroupNotifationOption>
+        </value>
+      </entry>
+    </Map>
+  </Preferences>
+</Identity>

@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ServiceDefinition PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ServiceDefinition hosts="global" interval="300" name="Monitoring">
+  <Attributes>
+    <Map>
+      <entry key="monitoringConfig">
+        <value>
+          <Map>
+            <entry key="monitoringStatistics">
+              <value>
+                <List>
+                  <String>cpu</String>
+                  <String>quartzThreads</String>
+                  <String>requestProcessorThreads</String>
+                  <String>databaseResponseTime</String>
+                  <String>memoryUsage</String>
+                  <String>memoryUsagePercentage</String>
+                  <String>openFileCount</String>
+                </List>
+              </value>
+            </entry>
+            <entry key="retentionPeriodDays">
+              <value>
+                <Integer>7</Integer>
+              </value>
+            </entry>
+          </Map>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+  <Description>
+Service definition for the Monitoring service.  The "monitoringConfig"
+attribute entry serves as the default monitoring configuration for a Server if the
+Server does not have any monitoring configuration.
+    </Description>
+</ServiceDefinition>

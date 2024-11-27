@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE IdentityEntitlement PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<IdentityEntitlement aggregationState="Disconnected" assigned="true" assigner="Operations" name="assignedRoles" nativeIdentity="ISIN1004" source="RapidSetup" type="Entitlement" value="Employees Birthright Role">
+  <IdentityRef>
+    <Reference class="sailpoint.object.Identity" name="ISIN1004"/>
+  </IdentityRef>
+  <CurrentRequestItem>
+    <Reference class="sailpoint.object.IdentityRequestItem"/>
+  </CurrentRequestItem>
+</IdentityEntitlement>

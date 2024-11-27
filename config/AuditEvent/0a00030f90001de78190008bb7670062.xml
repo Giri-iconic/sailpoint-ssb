@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent action="identityLifecycleEvent" interface="Task" serverHost="WIN-T21N4E0UF24" source="Refresh Identity Cube" target="Identity:ISIN1005">
+  <Attributes>
+    <Map>
+      <entry key="objectSummary" value="sailpoint.object.Identity@7ed6b9d3[id=0a00030f90001de78190008b6809005e,name=ISIN1005]"/>
+    </Map>
+  </Attributes>
+  <String1>RapidSetup Joiner</String1>
+  <String2>Rapid Setup Joiner processed a lifecycle event.</String2>
+  <String3>Launched workflow 'RapidSetup Joiner: ISIN1005'</String3>
+  <String4>RapidSetup trigger matched for joiner</String4>
+</AuditEvent>

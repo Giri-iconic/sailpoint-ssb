@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ServiceDefinition PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ServiceDefinition hosts="global" interval="60" name="PluginSync">
+  <Description>
+      Service definition for the plugins sync service.
+    </Description>
+</ServiceDefinition>

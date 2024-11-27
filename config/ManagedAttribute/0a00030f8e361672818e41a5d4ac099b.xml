@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ManagedAttribute PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ManagedAttribute aggregated="true" attribute="memberOf" displayName="ICONIC\Cryptographic Operators" hash="6743cec34c687536dda7cff66ef2c624d5d66147" lastRefresh="1717737152807" requestable="true" type="group" uuid="{faccb203-6189-4318-9225-fd93dd8e45b9}" value="CN=Cryptographic Operators,CN=Builtin,DC=iconic,DC=com">
+  <ApplicationRef>
+    <Reference class="sailpoint.object.Application" name="Active Directory"/>
+  </ApplicationRef>
+  <Attributes>
+    <Map>
+      <entry key="GroupScope" value="Domain local"/>
+      <entry key="GroupType" value="Security"/>
+      <entry key="cn" value="Cryptographic Operators"/>
+      <entry key="description" value="Members are authorized to perform cryptographic operations."/>
+      <entry key="msDS-PrincipalName" value="ICONIC\Cryptographic Operators"/>
+      <entry key="objectSid" value="S-1-5-32-569"/>
+      <entry key="objectguid" value="{faccb203-6189-4318-9225-fd93dd8e45b9}"/>
+      <entry key="sAMAccountName" value="Cryptographic Operators"/>
+      <entry key="sysDescriptions"/>
+    </Map>
+  </Attributes>
+</ManagedAttribute>

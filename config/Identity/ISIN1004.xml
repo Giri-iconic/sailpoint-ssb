@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Identity PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Identity assignedRoleSummary="Employees Birthright Role" bundleSummary="Employees Birthright Role" correlated="true" lastRefresh="1718627030555" name="ISIN1004">
+  <Attributes>
+    <Map>
+      <entry key="depratment" value="IAM"/>
+      <entry key="displayName" value="Test.Test"/>
+      <entry key="emp_id" value="ISIN1004"/>
+      <entry key="firstname" value="Test"/>
+      <entry key="lastname" value="Test"/>
+      <entry key="rapidSetupProcessingState" value="processed"/>
+      <entry key="type" value="employee"/>
+    </Map>
+  </Attributes>
+  <AssignedRoles>
+    <Reference class="sailpoint.object.Bundle" name="Employees Birthright Role"/>
+  </AssignedRoles>
+  <AttributeMetaDatas>
+    <AttributeMetaData attribute="emp_id" source="HRMS:Emp Id"/>
+    <AttributeMetaData attribute="firstname" source="HRMS:First Name"/>
+    <AttributeMetaData attribute="lastname" source="HRMS:Last Name"/>
+    <AttributeMetaData attribute="type" source="HRMS:Type"/>
+    <AttributeMetaData attribute="depratment" source="HRMS:Dept"/>
+    <AttributeMetaData attribute="manager" source="HRMS:Mgr"/>
+    <AttributeMetaData attribute="displayName" source="Active Directory:cn"/>
+  </AttributeMetaDatas>
+  <Bundles>
+    <Reference class="sailpoint.object.Bundle" name="Employees Birthright Role"/>
+  </Bundles>
+  <CertificationLinks>
+    <CertificationLink completed="1718010063398" identitySnapshotId="0a00030f90001de78190015fcb6a024f" type="Focused">
+      <Certifiers>
+        <String>ISIN10000</String>
+      </Certifiers>
+    </CertificationLink>
+  </CertificationLinks>
+  <Exceptions>
+    <EntitlementGroup displayName="Test.Test" nativeIdentity="cn=Test.Test,ou=Test,dc=iconic,dc=com">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application" name="Active Directory"/>
+      </ApplicationRef>
+      <Attributes>
+        <Map>
+          <entry key="memberOf" value="CN=Domain Users,CN=Users,DC=iconic,DC=com"/>
+        </Map>
+      </Attributes>
+    </EntitlementGroup>
+  </Exceptions>
+  <Manager>
+    <Reference class="sailpoint.object.Identity" name="ISIN10000"/>
+  </Manager>
+  <Preferences>
+    <Map>
+      <entry key="attributeAssignments"/>
+      <entry key="roleAssignments">
+        <value>
+          <List>
+            <RoleAssignment assigner="Operations" date="1717996433571" roleName="Employees Birthright Role" source="RapidSetup">
+              <RoleTarget applicationId="0a00030f8e311a36818e3150ce67005c" applicationName="Active Directory" nativeIdentity="cn=Test.Test,ou=Test,dc=iconic,dc=com"/>
+            </RoleAssignment>
+          </List>
+        </value>
+      </entry>
+      <entry key="roleDetections">
+        <value>
+          <List>
+            <RoleDetection assignmentIds="63b0f9006569448486556d075c854f9c" date="1717996433598" roleName="Employees Birthright Role">
+              <RoleTarget applicationId="0a00030f8e311a36818e3150ce67005c" applicationName="Active Directory" displayName="Test.Test" nativeIdentity="cn=Test.Test,ou=Test,dc=iconic,dc=com">
+                <AccountItem name="memberOf">
+                  <value>
+                    <Set>
+                      <String>CN=Test entitlement,OU=Test,DC=iconic,DC=com</String>
+                      <String>CN=Time sheet access,OU=Test,DC=iconic,DC=com</String>
+                    </Set>
+                  </value>
+                </AccountItem>
+              </RoleTarget>
+            </RoleDetection>
+          </List>
+        </value>
+      </entry>
+    </Map>
+  </Preferences>
+  <Links>
+    <Link displayName="ISIN1004" identity="ISIN1004" lastRefresh="1717996413360">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application" name="HRMS"/>
+      </ApplicationRef>
+      <Attributes>
+        <Map>
+          <entry key="Address" value="Hyd"/>
+          <entry key="City" value="Hyd"/>
+          <entry key="Country" value="India"/>
+          <entry key="DOB" value="20/5/1988"/>
+          <entry key="DOJ" value="21/2/2011"/>
+          <entry key="Dept" value="IAM"/>
+          <entry key="Desgn" value="Senior Manager"/>
+          <entry key="Emp Id" value="ISIN1004"/>
+          <entry key="First Name" value="Test"/>
+          <entry key="Gender" value="F"/>
+          <entry key="Last Name" value="Test"/>
+          <entry key="Mgr" value="ISIN10000"/>
+          <entry key="Office Loc" value="Hyd"/>
+          <entry key="Org" value="ENH I secure"/>
+          <entry key="Pincode" value="500001"/>
+          <entry key="SSN" value="555-50-1004"/>
+          <entry key="Salary" value="100000"/>
+          <entry key="State" value="Telangana"/>
+          <entry key="Status" value="Active"/>
+          <entry key="Type" value="employee"/>
+        </Map>
+      </Attributes>
+    </Link>
+    <Link displayName="Test.Test" entitlements="true" identity="cn=Test.Test,ou=Test,dc=iconic,dc=com" lastRefresh="1718627028827" manuallyCorrelated="true" uuid="{477d1f3a-c82e-437d-b896-31dbd1ce30ec}">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application" name="Active Directory"/>
+      </ApplicationRef>
+      <Attributes>
+        <Map>
+          <entry key="accountFlags">
+            <value>
+              <List>
+                <String>Normal User Account</String>
+              </List>
+            </value>
+          </entry>
+          <entry key="cn" value="Test.Test"/>
+          <entry key="distinguishedName" value="CN=Test.Test,OU=Test,DC=iconic,DC=com"/>
+          <entry key="givenName" value="Test"/>
+          <entry key="memberOf">
+            <value>
+              <List>
+                <String>CN=Test entitlement,OU=Test,DC=iconic,DC=com</String>
+                <String>CN=Time sheet access,OU=Test,DC=iconic,DC=com</String>
+                <String>CN=Domain Users,CN=Users,DC=iconic,DC=com</String>
+              </List>
+            </value>
+          </entry>
+          <entry key="msDS-PrincipalName" value="ICONIC\Test.Test"/>
+          <entry key="msNPAllowDialin" value="Not Set"/>
+          <entry key="objectClass">
+            <value>
+              <List>
+                <String>top</String>
+                <String>person</String>
+                <String>organizationalPerson</String>
+                <String>user</String>
+              </List>
+            </value>
+          </entry>
+          <entry key="objectSid" value="S-1-5-21-4221786991-103232591-4293389706-1130"/>
+          <entry key="objectType" value="user"/>
+          <entry key="objectguid" value="{477d1f3a-c82e-437d-b896-31dbd1ce30ec}"/>
+          <entry key="primaryGroupDN" value="CN=Domain Users,CN=Users,DC=iconic,DC=com"/>
+          <entry key="primaryGroupID" value="513"/>
+          <entry key="sAMAccountName" value="Test.Test"/>
+          <entry key="sn" value="Test"/>
+        </Map>
+      </Attributes>
+    </Link>
+  </Links>
+  <Scorecard certificationScore="1000" compositeScore="250" entitlementScore="1" rawEntitlementScore="1">
+    <ScoreItem compositePercentage="100" displayName="score_def_certificationAge_name" score="1000" scorePercentage="100" type="score_def_certificationAge_shortname">
+      <TargetMessage>
+        <Message key="cert_scorer_target_id_not_certified" type="Info"/>
+      </TargetMessage>
+    </ScoreItem>
+  </Scorecard>
+</Identity>

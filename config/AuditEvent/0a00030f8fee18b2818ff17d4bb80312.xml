@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent accountName="ISIN1004" action="Disable" application="HRMS" clientHost="192.168.56.1" interface="LCM" serverHost="WIN-T21N4E0UF24" source="spadmin" target="ISIN1004">
+  <Attributes>
+    <Map>
+      <entry key="flow" value="Lifecycle"/>
+      <entry key="interface" value="LCM"/>
+      <entry key="operation" value="Disable"/>
+    </Map>
+  </Attributes>
+</AuditEvent>

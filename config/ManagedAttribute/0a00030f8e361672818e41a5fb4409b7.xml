@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ManagedAttribute PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ManagedAttribute aggregated="true" attribute="memberOf" displayName="ICONIC\RDS Management Servers" hash="aae150b7f35774714d780022266dd3fd87bc856e" lastRefresh="1717737154407" requestable="true" type="group" uuid="{f2c2c9e6-f4e5-4eb6-ae4a-2fcb50db5c71}" value="CN=RDS Management Servers,CN=Builtin,DC=iconic,DC=com">
+  <ApplicationRef>
+    <Reference class="sailpoint.object.Application" name="Active Directory"/>
+  </ApplicationRef>
+  <Attributes>
+    <Map>
+      <entry key="GroupScope" value="Domain local"/>
+      <entry key="GroupType" value="Security"/>
+      <entry key="cn" value="RDS Management Servers"/>
+      <entry key="description" value="Servers in this group can perform routine administrative actions on servers running Remote Desktop Services. This group needs to be populated on all servers in a Remote Desktop Services deployment. The servers running the RDS Central Management service must be included in this group."/>
+      <entry key="msDS-PrincipalName" value="ICONIC\RDS Management Servers"/>
+      <entry key="objectSid" value="S-1-5-32-577"/>
+      <entry key="objectguid" value="{f2c2c9e6-f4e5-4eb6-ae4a-2fcb50db5c71}"/>
+      <entry key="sAMAccountName" value="RDS Management Servers"/>
+      <entry key="sysDescriptions"/>
+    </Map>
+  </Attributes>
+</ManagedAttribute>

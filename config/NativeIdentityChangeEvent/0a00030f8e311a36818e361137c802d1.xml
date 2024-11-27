@@ -1,0 +1,3 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE NativeIdentityChangeEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<NativeIdentityChangeEvent applicationId="0a00030f8e311a36818e3150ce67005c" launched="1710304083709" managedAttributeId="0a00030f8e311a36818e360bd56302c2" newNativeIdentity="CN=Time sheet access,OU=Test,DC=iconic,DC=com" oldNativeIdentity="CN=Tme sheet access,OU=Test,DC=iconic,DC=com" status="Completed" type="Group" uuid="{ee1e2b37-9b50-49e2-8634-16240ace1c53}"/>

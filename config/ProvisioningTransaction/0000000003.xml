@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ProvisioningTransaction PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ProvisioningTransaction accountDisplayName="Sai.Durga" applicationName="Active Directory" identityDisplayName="Sai.Durga" identityName="Sai.Durga" integration="Active Directory" name="0000000003" nativeIdentity="CN=Sai.Durga,OU=Test,DC=Iconic,DC=com" operation="Create" source="LCM" status="Failed" type="Auto">
+  <Attributes>
+    <Map>
+      <entry key="accessRequestId" value="0000000026"/>
+      <entry key="request">
+        <value>
+          <AccountRequest application="Active Directory" nativeIdentity="CN=Sai.Durga,OU=Test,DC=Iconic,DC=com" op="Create">
+            <Attributes>
+              <Map>
+                <entry key="provisioningTransactionId" value="0a00030f8e731378818e747ed96c0235"/>
+              </Map>
+            </Attributes>
+            <AttributeRequest name="cn" op="Set" value="Sai.Durga"/>
+            <AttributeRequest name="distinguishedName" op="Set" value="CN=Sai.Durga,OU=Test,DC=Iconic,DC=com"/>
+            <AttributeRequest name="givenName" op="Set" value="Sai"/>
+            <AttributeRequest name="sn" op="Set" value="Durga"/>
+            <AttributeRequest name="mail" op="Set" value="sail.durga@enh.com"/>
+            <AttributeRequest name="sAMAccountName" op="Set" value="Sai.Durga"/>
+            <AttributeRequest name="password" op="Set"/>
+            <AttributeRequest name="manager" op="Set" value="CN=Raheem.Shaik,OU=Test,DC=iconic,DC=com"/>
+            <AttributeRequest name="objectType" op="Set" value="User"/>
+            <AttributeRequest name="password" op="Set">
+              <Attributes>
+                <Map>
+                  <entry key="secret" value="true"/>
+                </Map>
+              </Attributes>
+            </AttributeRequest>
+            <AttributeRequest name="IIQDisabled" op="Set">
+              <Value>
+                <Boolean/>
+              </Value>
+            </AttributeRequest>
+            <AttributeRequest name="msNPAllowDialin" op="Set" value="Not Set"/>
+            <ProvisioningResult status="failed">
+              <Errors>
+                <Message key="Exception occurred while executing the RPCRequest: Errors returned from IQService. Item has already been added. Key in dictionary: 'password'  Key being added: 'password'. HRESULT:[0x80070057]" type="Error"/>
+              </Errors>
+            </ProvisioningResult>
+          </AccountRequest>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+</ProvisioningTransaction>

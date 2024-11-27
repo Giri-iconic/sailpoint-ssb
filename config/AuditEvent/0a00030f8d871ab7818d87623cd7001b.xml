@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent accountName="CN=Samantha.Smith,OU=Test,DC=ENH,DC=local" action="provision" application="Active Directory" serverHost="WIN-T21N4E0UF24" source="Scheduler" target="ISIN1001">
+  <Attributes>
+    <Map>
+      <entry key="accountFlags">
+        <value>
+          <List>
+            <String>Normal User Account</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="cn" value="Samantha.Smith"/>
+      <entry key="distinguishedName" value="CN=Samantha.Smith,OU=Test,DC=ENH,DC=local"/>
+      <entry key="givenName" value="Samantha"/>
+      <entry key="memberOf"/>
+      <entry key="msDS-PrincipalName" value="ENH\Samantha.Smith"/>
+      <entry key="msNPAllowDialin" value="Not Set"/>
+      <entry key="objectClass">
+        <value>
+          <List>
+            <String>top</String>
+            <String>person</String>
+            <String>organizationalPerson</String>
+            <String>user</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="objectSid" value="S-1-5-21-672954846-2807897034-3921798956-2207"/>
+      <entry key="objectType" value="user"/>
+      <entry key="objectguid" value="{9d582605-6544-4b69-89c6-d2aa1d510f9d}"/>
+      <entry key="op">
+        <value>
+          <ObjectOperation>Create</ObjectOperation>
+        </value>
+      </entry>
+      <entry key="sAMAccountName" value="Samantha.Smith"/>
+      <entry key="sn" value="Smith"/>
+    </Map>
+  </Attributes>
+  <String1>Active Directory</String1>
+  <String2>committed</String2>
+</AuditEvent>

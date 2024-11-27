@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ManagedAttribute PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ManagedAttribute aggregated="true" attribute="memberOf" displayName="ICONIC\Hyper-V Administrators" hash="8b486a7629550104fee7d24f5ab5840f47688984" lastRefresh="1717737153560" requestable="true" type="group" uuid="{dabcab96-2c11-4f4a-97a7-914e4b85abae}" value="CN=Hyper-V Administrators,CN=Builtin,DC=iconic,DC=com">
+  <ApplicationRef>
+    <Reference class="sailpoint.object.Application" name="Active Directory"/>
+  </ApplicationRef>
+  <Attributes>
+    <Map>
+      <entry key="GroupScope" value="Domain local"/>
+      <entry key="GroupType" value="Security"/>
+      <entry key="cn" value="Hyper-V Administrators"/>
+      <entry key="description" value="Members of this group have complete and unrestricted access to all features of Hyper-V."/>
+      <entry key="msDS-PrincipalName" value="ICONIC\Hyper-V Administrators"/>
+      <entry key="objectSid" value="S-1-5-32-578"/>
+      <entry key="objectguid" value="{dabcab96-2c11-4f4a-97a7-914e4b85abae}"/>
+      <entry key="sAMAccountName" value="Hyper-V Administrators"/>
+      <entry key="sysDescriptions"/>
+    </Map>
+  </Attributes>
+</ManagedAttribute>

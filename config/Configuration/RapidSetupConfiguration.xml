@@ -1,0 +1,653 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Configuration PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Configuration name="RapidSetupConfiguration">
+  <Attributes>
+    <Map>
+      <entry key="applications">
+        <value>
+          <Map>
+            <entry key="Active Directory">
+              <value>
+                <Map>
+                  <entry key="businessProcesses">
+                    <value>
+                      <Map>
+                        <entry key="joiner">
+                          <value>
+                            <Map>
+                              <entry key="email">
+                                <value>
+                                  <Map>
+                                    <entry key="joinerCompleted">
+                                      <value>
+                                        <Map>
+                                          <entry key="dynamic" value="New user now has access to input their timesheet hours. Please review corporate time tracking policies in HR manual."/>
+                                        </Map>
+                                      </value>
+                                    </entry>
+                                  </Map>
+                                </value>
+                              </entry>
+                              <entry key="enableBareProvisioning">
+                                <value>
+                                  <Boolean>true</Boolean>
+                                </value>
+                              </entry>
+                              <entry key="identSelectorDTO">
+                                <value>
+                                  <Map>
+                                    <entry key="selectedPopulation">
+                                      <value>
+                                        <Map>
+                                          <entry key="displayName" value="Test Population"/>
+                                          <entry key="id" value="0a00030f8e9d1eee818e9da1258700ec"/>
+                                          <entry key="name" value="Test Population"/>
+                                        </Map>
+                                      </value>
+                                    </entry>
+                                    <entry key="type" value="population"/>
+                                  </Map>
+                                </value>
+                              </entry>
+                              <entry key="isJoinerProducer">
+                                <value>
+                                  <Boolean>true</Boolean>
+                                </value>
+                              </entry>
+                            </Map>
+                          </value>
+                        </entry>
+                        <entry key="leaver">
+                          <value>
+                            <Map>
+                              <entry key="leaverConfigs">
+                                <value>
+                                  <Map>
+                                    <entry key="breakglass">
+                                      <value>
+                                        <Map>
+                                          <entry key="addComment" value="ignore"/>
+                                          <entry key="deleteAccount" value="ignore"/>
+                                          <entry key="disableAccount" value="ignore"/>
+                                          <entry key="entitlementException"/>
+                                          <entry key="moveAccount" value="ignore"/>
+                                          <entry key="removeEntitlements" value="ignore"/>
+                                          <entry key="scramblePassword" value="ignore"/>
+                                        </Map>
+                                      </value>
+                                    </entry>
+                                    <entry key="normal">
+                                      <value>
+                                        <Map>
+                                          <entry key="addComment" value="ignore"/>
+                                          <entry key="deleteAccount" value="ignore"/>
+                                          <entry key="disableAccount" value="immediate"/>
+                                          <entry key="entitlementException"/>
+                                          <entry key="moveAccount" value="ignore"/>
+                                          <entry key="removeEntitlements" value="immediate"/>
+                                          <entry key="scramblePassword" value="ignore"/>
+                                        </Map>
+                                      </value>
+                                    </entry>
+                                  </Map>
+                                </value>
+                              </entry>
+                              <entry key="useDefaultForBreakGlass">
+                                <value>
+                                  <Boolean>true</Boolean>
+                                </value>
+                              </entry>
+                              <entry key="useRule">
+                                <value>
+                                  <Boolean/>
+                                </value>
+                              </entry>
+                            </Map>
+                          </value>
+                        </entry>
+                        <entry key="mover">
+                          <value>
+                            <Map>
+                              <entry key="moverCertAdditionalEntitlements">
+                                <value>
+                                  <Boolean>true</Boolean>
+                                </value>
+                              </entry>
+                              <entry key="performJoiner">
+                                <value>
+                                  <Boolean/>
+                                </value>
+                              </entry>
+                            </Map>
+                          </value>
+                        </entry>
+                      </Map>
+                    </value>
+                  </entry>
+                </Map>
+              </value>
+            </entry>
+            <entry key="HRMS">
+              <value>
+                <Map>
+                  <entry key="businessProcesses">
+                    <value>
+                      <Map>
+                        <entry key="joiner">
+                          <value>
+                            <Map>
+                              <entry key="email">
+                                <value>
+                                  <Map>
+                                    <entry key="joinerCompleted">
+                                      <value>
+                                        <Map>
+                                          <entry key="dynamic"/>
+                                        </Map>
+                                      </value>
+                                    </entry>
+                                  </Map>
+                                </value>
+                              </entry>
+                              <entry key="isJoinerProducer">
+                                <value>
+                                  <Boolean>true</Boolean>
+                                </value>
+                              </entry>
+                            </Map>
+                          </value>
+                        </entry>
+                        <entry key="leaver">
+                          <value>
+                            <Map>
+                              <entry key="leaverConfigs">
+                                <value>
+                                  <Map>
+                                    <entry key="breakglass">
+                                      <value>
+                                        <Map>
+                                          <entry key="addComment" value="ignore"/>
+                                          <entry key="deleteAccount" value="ignore"/>
+                                          <entry key="disableAccount" value="immediate"/>
+                                          <entry key="entitlementException"/>
+                                          <entry key="removeEntitlements" value="ignore"/>
+                                          <entry key="scramblePassword" value="ignore"/>
+                                        </Map>
+                                      </value>
+                                    </entry>
+                                    <entry key="normal">
+                                      <value>
+                                        <Map>
+                                          <entry key="addComment" value="ignore"/>
+                                          <entry key="deleteAccount" value="ignore"/>
+                                          <entry key="disableAccount" value="immediate"/>
+                                          <entry key="entitlementException"/>
+                                          <entry key="removeEntitlements" value="immediate"/>
+                                          <entry key="scramblePassword" value="ignore"/>
+                                        </Map>
+                                      </value>
+                                    </entry>
+                                  </Map>
+                                </value>
+                              </entry>
+                              <entry key="useDefaultForBreakGlass">
+                                <value>
+                                  <Boolean/>
+                                </value>
+                              </entry>
+                              <entry key="useRule">
+                                <value>
+                                  <Boolean/>
+                                </value>
+                              </entry>
+                            </Map>
+                          </value>
+                        </entry>
+                        <entry key="mover"/>
+                      </Map>
+                    </value>
+                  </entry>
+                </Map>
+              </value>
+            </entry>
+          </Map>
+        </value>
+      </entry>
+      <entry key="birthright">
+        <value>
+          <Map>
+            <entry key="roleTypes">
+              <value>
+                <List>
+                  <String>rapidSetupBirthright</String>
+                </List>
+              </value>
+            </entry>
+          </Map>
+        </value>
+      </entry>
+      <entry key="businessProcesses">
+        <value>
+          <Map>
+            <entry key="joiner">
+              <value>
+                <Map>
+                  <entry key="autoJoinNewEmpty">
+                    <value>
+                      <Boolean>true</Boolean>
+                    </value>
+                  </entry>
+                  <entry key="email">
+                    <value>
+                      <Map>
+                        <entry key="altNotifyWorkgroup" value="RapidSetup No Manager"/>
+                        <entry key="joinerCompleted" value="Joiner Completed Notification"/>
+                        <entry key="joinerSendTemporaryPassword" value="Joiner Temporary Password Notification"/>
+                        <entry key="sendTemporaryPasswordEmail">
+                          <value>
+                            <Boolean>true</Boolean>
+                          </value>
+                        </entry>
+                      </Map>
+                    </value>
+                  </entry>
+                  <entry key="enabled">
+                    <value>
+                      <Boolean>true</Boolean>
+                    </value>
+                  </entry>
+                  <entry key="generateApprovals">
+                    <value>
+                      <Boolean/>
+                    </value>
+                  </entry>
+                  <entry key="label" value="identity_trigger_rapidsetup_process_joiner"/>
+                  <entry key="requireCorrelated">
+                    <value>
+                      <Boolean>true</Boolean>
+                    </value>
+                  </entry>
+                  <entry key="triggerFilter">
+                    <value>
+                      <Map>
+                        <entry key="group">
+                          <value>
+                            <Map>
+                              <entry key="booleanOperation" value="AND"/>
+                              <entry key="items">
+                                <value>
+                                  <List>
+                                    <Map>
+                                      <entry key="attributes">
+                                        <value>
+                                          <Map>
+                                            <entry key="attributeValue">
+                                              <value>
+                                                <Map>
+                                                  <entry key="operation" value="Equals"/>
+                                                  <entry key="property" value="correlated"/>
+                                                  <entry key="value">
+                                                    <value>
+                                                      <Boolean>true</Boolean>
+                                                    </value>
+                                                  </entry>
+                                                </Map>
+                                              </value>
+                                            </entry>
+                                            <entry key="dataType" value="Boolean"/>
+                                          </Map>
+                                        </value>
+                                      </entry>
+                                      <entry key="type" value="Attribute"/>
+                                    </Map>
+                                  </List>
+                                </value>
+                              </entry>
+                              <entry key="type" value="Group"/>
+                            </Map>
+                          </value>
+                        </entry>
+                      </Map>
+                    </value>
+                  </entry>
+                  <entry key="triggerWorkflow" value="RapidSetup - Joiner"/>
+                </Map>
+              </value>
+            </entry>
+            <entry key="leaver">
+              <value>
+                <Map>
+                  <entry key="email">
+                    <value>
+                      <Map>
+                        <entry key="altNotifyWorkgroup" value="Operations"/>
+                        <entry key="leaverCompleted" value="Leaver Completed Notification"/>
+                        <entry key="ownershipReassignment" value="Leaver Ownership Reassignment Notification"/>
+                      </Map>
+                    </value>
+                  </entry>
+                  <entry key="enableRoleRemoval">
+                    <value>
+                      <Boolean>true</Boolean>
+                    </value>
+                  </entry>
+                  <entry key="enabled">
+                    <value>
+                      <Boolean>true</Boolean>
+                    </value>
+                  </entry>
+                  <entry key="label" value="identity_trigger_rapidsetup_process_leaver"/>
+                  <entry key="reassignArtifacts">
+                    <value>
+                      <Map>
+                        <entry key="enableReassignment">
+                          <value>
+                            <Boolean>true</Boolean>
+                          </value>
+                        </entry>
+                        <entry key="reassignAlternative" value="Operations"/>
+                        <entry key="reassignArtifactTypes">
+                          <value>
+                            <List>
+                              <String>Application</String>
+                              <String>CertificationDefinition</String>
+                              <String>ManagedAttribute</String>
+                              <String>GroupDefinition</String>
+                              <String>Policy</String>
+                              <String>Bundle</String>
+                              <String>TaskDefinition</String>
+                              <String>WorkItem</String>
+                              <String>Identity</String>
+                            </List>
+                          </value>
+                        </entry>
+                        <entry key="reassignRule" value="Rapid Test"/>
+                        <entry key="reassignToManager">
+                          <value>
+                            <Boolean>true</Boolean>
+                          </value>
+                        </entry>
+                      </Map>
+                    </value>
+                  </entry>
+                  <entry key="reassignIdentities">
+                    <value>
+                      <Map>
+                        <entry key="enableReassignment">
+                          <value>
+                            <Boolean>true</Boolean>
+                          </value>
+                        </entry>
+                        <entry key="reassignAlternative" value="Raheem.Shaik"/>
+                        <entry key="reassignToManager">
+                          <value>
+                            <Boolean>true</Boolean>
+                          </value>
+                        </entry>
+                      </Map>
+                    </value>
+                  </entry>
+                  <entry key="requireCorrelated">
+                    <value>
+                      <Boolean>true</Boolean>
+                    </value>
+                  </entry>
+                  <entry key="triggerFilter">
+                    <value>
+                      <Map>
+                        <entry key="group">
+                          <value>
+                            <Map>
+                              <entry key="booleanOperation" value="AND"/>
+                              <entry key="items">
+                                <value>
+                                  <List>
+                                    <Map>
+                                      <entry key="attributes">
+                                        <value>
+                                          <Map>
+                                            <entry key="attributeValue">
+                                              <value>
+                                                <Map>
+                                                  <entry key="operation" value="Equals"/>
+                                                  <entry key="property" value="displayName"/>
+                                                  <entry key="value" value="Test2.Tes2t"/>
+                                                </Map>
+                                              </value>
+                                            </entry>
+                                            <entry key="coercedType" value="String"/>
+                                            <entry key="dataType" value="String"/>
+                                          </Map>
+                                        </value>
+                                      </entry>
+                                      <entry key="type" value="Attribute"/>
+                                    </Map>
+                                  </List>
+                                </value>
+                              </entry>
+                              <entry key="type" value="Group"/>
+                            </Map>
+                          </value>
+                        </entry>
+                      </Map>
+                    </value>
+                  </entry>
+                  <entry key="triggerWorkflow" value="RapidSetup - Leaver"/>
+                </Map>
+              </value>
+            </entry>
+            <entry key="mover">
+              <value>
+                <Map>
+                  <entry key="certificationParams">
+                    <value>
+                      <Map>
+                        <entry key="backupCertifier" value="Operations"/>
+                        <entry key="certificationEnabled">
+                          <value>
+                            <Boolean>true</Boolean>
+                          </value>
+                        </entry>
+                        <entry key="certificationOwner" value="ISIN1003"/>
+                        <entry key="enableCertificationStaging" value="false"/>
+                        <entry key="prevManagerIncluded">
+                          <value>
+                            <Boolean/>
+                          </value>
+                        </entry>
+                      </Map>
+                    </value>
+                  </entry>
+                  <entry key="enabled">
+                    <value>
+                      <Boolean>true</Boolean>
+                    </value>
+                  </entry>
+                  <entry key="joinerEnabled">
+                    <value>
+                      <Boolean>true</Boolean>
+                    </value>
+                  </entry>
+                  <entry key="label" value="identity_trigger_rapidsetup_process_mover"/>
+                  <entry key="requireCorrelated">
+                    <value>
+                      <Boolean>true</Boolean>
+                    </value>
+                  </entry>
+                  <entry key="triggerFilter">
+                    <value>
+                      <Map>
+                        <entry key="group">
+                          <value>
+                            <Map>
+                              <entry key="booleanOperation" value="AND"/>
+                              <entry key="items">
+                                <value>
+                                  <List>
+                                    <Map>
+                                      <entry key="attributes">
+                                        <value>
+                                          <Map>
+                                            <entry key="attributeValue">
+                                              <value>
+                                                <Map>
+                                                  <entry key="operation" value="Equals"/>
+                                                  <entry key="property" value="correlated"/>
+                                                  <entry key="value">
+                                                    <value>
+                                                      <Boolean>true</Boolean>
+                                                    </value>
+                                                  </entry>
+                                                </Map>
+                                              </value>
+                                            </entry>
+                                            <entry key="dataType" value="Boolean"/>
+                                          </Map>
+                                        </value>
+                                      </entry>
+                                      <entry key="type" value="Attribute"/>
+                                    </Map>
+                                    <Map>
+                                      <entry key="booleanOperation" value="AND"/>
+                                      <entry key="items">
+                                        <value>
+                                          <List>
+                                            <Map>
+                                              <entry key="attributes">
+                                                <value>
+                                                  <Map>
+                                                    <entry key="attributeValue">
+                                                      <value>
+                                                        <Map>
+                                                          <entry key="operation" value="Equals"/>
+                                                          <entry key="property" value="name"/>
+                                                          <entry key="value" value="ISIN1004"/>
+                                                        </Map>
+                                                      </value>
+                                                    </entry>
+                                                    <entry key="coercedType" value="String"/>
+                                                    <entry key="dataType" value="String"/>
+                                                  </Map>
+                                                </value>
+                                              </entry>
+                                              <entry key="type" value="Attribute"/>
+                                            </Map>
+                                          </List>
+                                        </value>
+                                      </entry>
+                                      <entry key="type" value="Group"/>
+                                    </Map>
+                                  </List>
+                                </value>
+                              </entry>
+                              <entry key="type" value="Group"/>
+                            </Map>
+                          </value>
+                        </entry>
+                      </Map>
+                    </value>
+                  </entry>
+                  <entry key="triggerWorkflow" value="RapidSetup - Mover"/>
+                </Map>
+              </value>
+            </entry>
+            <entry key="terminate">
+              <value>
+                <Map>
+                  <entry key="email">
+                    <value>
+                      <Map>
+                        <entry key="ownershipReassignment" value="Terminate Ownership Reassignment Notification"/>
+                        <entry key="terminateCompleted" value="Terminate Completed Notification"/>
+                      </Map>
+                    </value>
+                  </entry>
+                  <entry key="enableRoleRemoval">
+                    <value>
+                      <Boolean>true</Boolean>
+                    </value>
+                  </entry>
+                  <entry key="enabled">
+                    <value>
+                      <Boolean>true</Boolean>
+                    </value>
+                  </entry>
+                  <entry key="label" value="identity_trigger_rapidsetup_process_leaver"/>
+                  <entry key="reassignArtifacts">
+                    <value>
+                      <Map>
+                        <entry key="enableReassignment">
+                          <value>
+                            <Boolean>true</Boolean>
+                          </value>
+                        </entry>
+                        <entry key="reassignAlternative" value="Operations"/>
+                        <entry key="reassignArtifactTypes">
+                          <value>
+                            <List>
+                              <String>Application</String>
+                              <String>CertificationDefinition</String>
+                              <String>ManagedAttribute</String>
+                              <String>GroupDefinition</String>
+                              <String>Policy</String>
+                              <String>Bundle</String>
+                              <String>TaskDefinition</String>
+                              <String>WorkItem</String>
+                              <String>Identity</String>
+                            </List>
+                          </value>
+                        </entry>
+                        <entry key="reassignToManager">
+                          <value>
+                            <Boolean>true</Boolean>
+                          </value>
+                        </entry>
+                      </Map>
+                    </value>
+                  </entry>
+                  <entry key="reassignIdentities">
+                    <value>
+                      <Map>
+                        <entry key="enableReassignment">
+                          <value>
+                            <Boolean>true</Boolean>
+                          </value>
+                        </entry>
+                        <entry key="reassignAlternative" value="Operations"/>
+                        <entry key="reassignToManager">
+                          <value>
+                            <Boolean>true</Boolean>
+                          </value>
+                        </entry>
+                      </Map>
+                    </value>
+                  </entry>
+                  <entry key="triggerWorkflow" value="RapidSetup - Leaver"/>
+                </Map>
+              </value>
+            </entry>
+          </Map>
+        </value>
+      </entry>
+      <entry key="email">
+        <value>
+          <Map>
+            <entry key="altManager" value="RapidSetup No Manager"/>
+            <entry key="disableStaticManagerContent" value="false"/>
+            <entry key="errorNotificationWorkGroup" value="Operations"/>
+            <entry key="footerTemplate" value="Alert Notification"/>
+            <entry key="headerTemplate" value="Alert Notification"/>
+            <entry key="styleSheet" value="Alert Notification"/>
+          </Map>
+        </value>
+      </entry>
+      <entry key="workflow">
+        <value>
+          <Map>
+            <entry key="requester" value="Operations"/>
+          </Map>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+</Configuration>

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE GroupDefinition PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<GroupDefinition indexed="true" name="Test Population" private="true">
+  <Description/>
+  <GroupFilter>
+    <CompositeFilter operation="AND">
+      <Filter operation="EQ" property="inactive">
+        <Value>
+          <Boolean/>
+        </Value>
+      </Filter>
+    </CompositeFilter>
+  </GroupFilter>
+  <Owner>
+    <Reference class="sailpoint.object.Identity" name="spadmin"/>
+  </Owner>
+</GroupDefinition>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Custom PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Custom name="AD_Custom_Object">
+  <Attributes>
+    <Map>
+      <entry key="applicationName" value="Active Directory"/>
+      <entry key="hrmsName" value="Test"/>
+      <entry key="someKey2">
+        <value>
+          <List>
+            <String>listValue1</String>
+            <String>listValue2</String>
+            <String>listValue3</String>
+          </List>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+</Custom>

@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule language="beanshell" name="Email_Generate" type="Workflow">
+  <Description>A rule used by a Workflow to determine a step action or variable value.
+
+Note that an Attributes map of all variables from the current WorkflowContext, merged with the arguments from the Step, is also passed into the workflow rule.</Description>
+  <Signature returnType="Object"/>
+  <Source>import java.sql.ResultSet;
+  import java.sql.Statement;
+  import java.sql.Connection;
+  import java.util.ArrayList;
+  import java.sql.SQLException;
+  import java.sql.PreparedStatement;
+  import sailpoint.object.Identity;
+  
+ log.error("=================************** "+ event + " *************================");
+
+ Identity identity = context.getObjectByName(Identity.class, identityName);
+  String firstName = identity.getFirstname();
+  String lastName = identity.getLastname();
+
+  if(null == firstName || firstName.isEmpty() || lastName == null || lastName.isEmpty()){
+    log.error("===================**************** First Name or Last Name is null ****************=====================");
+    return false;
+  }
+
+  String fullName = fisrtName+"."+lastName;
+  String domain = "@iconic.com";
+  String email = fullName + domain;
+
+  String url  = "jdbc:mysql://localhost:3306/user_info"; // table details
+  String username = "root"; // MySQL credentials
+  String password = "root";
+  String query = "SELECT * FROM emails"; // query to be run
+  String insertQuery = "INSERT INTO emails (email) VALUES (?)";
+
+  try {
+
+    Class.forName("com.mysql.cj.jdbc.Driver"); // Driver name
+    Connection con = DriverManager.getConnection( url, username, password);
+    Statement st = con.createStatement();
+    ResultSet rs = st.executeQuery(query); // Execute query
+
+    PreparedStatement prepStatement = con.prepareStatement(insertQuery);
+
+
+    ArrayList list = new ArrayList();
+    while(rs.next()){
+      list.add(rs.getString("email"));
+    };
+
+    if(!list.contains(email)){
+      prepStatement.setString(1,email);
+      log.error("Email cotains  : "  + email);
+    }else{
+      int i = 0;
+      while(true){
+        i++;
+
+        email = fullName+i+domain;
+        if(!list.contains(email)) {
+          prepStatement.setString(1,email);
+          break;      
+        }
+      }
+
+    }
+    int status = prepStatement.executeUpdate();
+
+    if(status &gt; 0) {
+      log.error("=====================******************" +email+" IS CREATED *****************======================");
+    }else{
+      log.error("=====================******************" +email+" IS FAILD TO CREATE *****************======================");
+    }
+
+    st.close(); // close statement
+    con.close(); // close connection
+  }catch(SQLException sql){
+    log.error("Exception occured : " +sql); 
+  }
+
+  return email;</Source>
+</Rule>

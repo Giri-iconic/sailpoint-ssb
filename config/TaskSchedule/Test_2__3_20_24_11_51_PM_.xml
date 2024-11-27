@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE TaskSchedule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<TaskSchedule name="Test 2 [3/20/24 11:51 PM]" nextExecution="1720378800000">
+  <Arguments>
+    <Map>
+      <entry key="certificationDefinitionId" value="Application Owner Certification [3/20/24 11:36 PM] Modified 1711003902659"/>
+      <entry key="executor" value="Certification Manager"/>
+      <entry key="launcher" value="spadmin"/>
+      <entry key="nextActualFireTime" value="1720378800000"/>
+      <entry key="resultName" value="Test 2 [3/20/24 11:51 PM]"/>
+    </Map>
+  </Arguments>
+  <CronExpressions>
+    <String>0 0 12 7 1/6 ? *</String>
+  </CronExpressions>
+  <Description>Application Owner Certification for [Active Directory]</Description>
+</TaskSchedule>

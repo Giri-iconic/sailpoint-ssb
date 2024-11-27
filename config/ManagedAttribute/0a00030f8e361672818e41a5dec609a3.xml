@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ManagedAttribute PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ManagedAttribute aggregated="true" attribute="memberOf" displayName="ICONIC\Guests" hash="8fa48138b381424f297e55458c64a9e4a49e5975" lastRefresh="1717737153537" type="group" uuid="{0c4226ca-2eb1-4088-9631-99489d0d56d6}" value="CN=Guests,CN=Builtin,DC=iconic,DC=com">
+  <ApplicationRef>
+    <Reference class="sailpoint.object.Application" name="Active Directory"/>
+  </ApplicationRef>
+  <Attributes>
+    <Map>
+      <entry key="GroupScope" value="Domain local"/>
+      <entry key="GroupType" value="Security"/>
+      <entry key="cn" value="Guests"/>
+      <entry key="description" value="Guests have the same access as members of the Users group by default, except for the Guest account which is further restricted"/>
+      <entry key="msDS-PrincipalName" value="ICONIC\Guests"/>
+      <entry key="objectSid" value="S-1-5-32-546"/>
+      <entry key="objectguid" value="{0c4226ca-2eb1-4088-9631-99489d0d56d6}"/>
+      <entry key="sAMAccountName" value="Guests"/>
+      <entry key="sysDescriptions"/>
+    </Map>
+  </Attributes>
+</ManagedAttribute>

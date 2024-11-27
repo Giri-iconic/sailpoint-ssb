@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule language="beanshell" name="QuickLink Joiner Provisioning" type="Workflow">
+  <Description>A rule used by a Workflow to determine a step action or variable value.
+
+Note that an Attributes map of all variables from the current WorkflowContext, merged with the arguments from the Step, is also passed into the workflow rule.</Description>
+  <Signature returnType="Object">
+    <Inputs>
+      <Argument name="log" type="org.apache.commons.logging.Log">
+        <Description>
+          The log object associated with the SailPointContext.
+        </Description>
+      </Argument>
+      <Argument name="context" type="sailpoint.api.SailPointContext">
+        <Description>
+          A sailpoint.api.SailPointContext object that can be used to query the database if necessary.
+        </Description>
+      </Argument>
+      <Argument name="wfcontext">
+        <Description>
+          The current WorkflowContext.
+        </Description>
+      </Argument>
+      <Argument name="handler">
+        <Description>
+          The workflow handler associated with the current WorkflowContext.
+        </Description>
+      </Argument>
+      <Argument name="workflow">
+        <Description>
+          The current Workflow definition.
+        </Description>
+      </Argument>
+      <Argument name="step">
+        <Description>
+          The current Step.
+        </Description>
+      </Argument>
+      <Argument name="approval">
+        <Description>
+          The current Approval.
+        </Description>
+      </Argument>
+      <Argument name="item">
+        <Description>
+          The WorkItem being processed.
+        </Description>
+      </Argument>
+    </Inputs>
+    <Returns>
+      <Argument name="Object">
+        <Description>
+          The result of the workflow rule; dependent on the rule itself.
+        </Description>
+      </Argument>
+    </Returns>
+  </Signature>
+  <Source>log.error("============================**********************Entered step 1=========================*******************");
+  import sailpoint.object.*;
+  import sailpoint.object.ProvisioningPlan;
+  import sailpoint.object.ProvisioningPlan.AttributeRequest;
+  import sailpoint.object.ProvisioningPlan.AccountRequest;
+  import java.util.*;
+
+  Identity identity = context.getObjectByName(Identity.class,identityName);
+  ProvisioningPlan plan = new ProvisioningPlan();
+  List accountList = new ArrayList();
+  AccountRequest accReq = new AccountRequest();
+
+	accReq.setOperation(AccountRequest.Operation.Create);
+  accReq.setApplication("Active Directory");
+  
+  String firstName = identity.getFirstname();
+      log.error("============================First Name : "+firstName+"=========================*******************");
+  String lastName = identity.getLastname();
+	String cn = firstName+"."+lastName;
+  String ouPath = ",OU=Test,DC=iconic,DC=com"; 
+  
+  log.error("============================**********************Entered step 2=========================*******************");
+  accReq.add(new AttributeRequest("cn", cn));
+  accReq.add(new AttributeRequest("distinguishedName","CN="+cn+ouPath));
+  accReq.add(new AttributeRequest("givenName", firstName));
+  accReq.add(new AttributeRequest("sn",lastName));
+  
+  accReq.setNativeIdentity("CN="+cn+ouPath);
+
+  accountList.add(accReq);
+
+  plan.setAccountRequests(accountList);
+//	plan.setIdentity(identity);
+  log.error(plan.toXml());
+  return plan;</Source>
+</Rule>

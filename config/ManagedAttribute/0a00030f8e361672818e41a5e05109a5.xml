@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ManagedAttribute PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ManagedAttribute aggregated="true" attribute="memberOf" displayName="ICONIC\Users" hash="2bd9226f82f1364be6498bf65a415132ce81135e" lastRefresh="1717737155014" type="group" uuid="{b1f981e0-b28b-4855-b02a-3acfe5141842}" value="CN=Users,CN=Builtin,DC=iconic,DC=com">
+  <ApplicationRef>
+    <Reference class="sailpoint.object.Application" name="Active Directory"/>
+  </ApplicationRef>
+  <Attributes>
+    <Map>
+      <entry key="GroupScope" value="Domain local"/>
+      <entry key="GroupType" value="Security"/>
+      <entry key="cn" value="Users"/>
+      <entry key="description" value="Users are prevented from making accidental or intentional system-wide changes and can run most applications"/>
+      <entry key="msDS-PrincipalName" value="ICONIC\Users"/>
+      <entry key="objectSid" value="S-1-5-32-545"/>
+      <entry key="objectguid" value="{b1f981e0-b28b-4855-b02a-3acfe5141842}"/>
+      <entry key="sAMAccountName" value="Users"/>
+      <entry key="sysDescriptions"/>
+    </Map>
+  </Attributes>
+</ManagedAttribute>

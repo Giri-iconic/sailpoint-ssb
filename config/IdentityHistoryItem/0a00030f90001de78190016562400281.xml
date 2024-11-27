@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE IdentityHistoryItem PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<IdentityHistoryItem account="cn=Test.Test,ou=Test,dc=iconic,dc=com" actor="The Administrator" application="Active Directory" attribute="memberOf" certificationType="Exception" entryDate="1718010060332" nativeIdentity="cn=Test.Test,ou=Test,dc=iconic,dc=com" status="Approved" type="Decision" value="CN=Domain Users,CN=Users,DC=iconic,DC=com">
+  <CertificationAction actorDisplayName="The Administrator" actorName="spadmin" decisionCertificationId="0a00030f90001de78190015fcdf60250" decisionDate="1718010060332" reviewed="true" status="Approved"/>
+  <CertifiableDescriptor>
+    <EntitlementSnapshot application="Active Directory" displayName="cn=Test.Test,ou=Test,dc=iconic,dc=com" nativeIdentity="cn=Test.Test,ou=Test,dc=iconic,dc=com">
+      <Attributes>
+        <Map>
+          <entry key="memberOf" value="CN=Domain Users,CN=Users,DC=iconic,DC=com"/>
+        </Map>
+      </Attributes>
+    </EntitlementSnapshot>
+  </CertifiableDescriptor>
+  <CertificationLink completed="1718010063398" identitySnapshotId="0a00030f90001de78190015fcb6a024f" type="Focused">
+    <Certifiers>
+      <String>ISIN10000</String>
+    </Certifiers>
+  </CertificationLink>
+  <HistoryIdentity>
+    <Reference class="sailpoint.object.Identity" name="ISIN1004"/>
+  </HistoryIdentity>
+</IdentityHistoryItem>

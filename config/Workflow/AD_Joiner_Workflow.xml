@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Workflow PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Workflow explicitTransitions="true" libraries="Identity" name="AD_Joiner_Workflow" type="IdentityLifecycle">
+  <Variable input="true" name="trigger">
+    <Description>The IdentityTrigger</Description>
+  </Variable>
+  <Variable input="true" name="event" transient="true">
+    <Description>The IdentityChangeEvent.  It can be used to build
+      the provisioning plan, but does not need to be
+      persisted with the case, so marked as transient.</Description>
+  </Variable>
+  <Variable input="true" name="identityName">
+    <Description>The name of the identity.</Description>
+  </Variable>
+  <Description>Process a new employee.</Description>
+  <Step action="script:log.error(&quot;===============Entered Start Step ===============&quot;);" icon="Start" name="Start" posX="74" posY="10">
+    <Transition to="Generate email"/>
+  </Step>
+  <Step action="rule:AD_Joiner_Provision_Rule" icon="Message" name="Process user" posX="348" posY="10" resultVariable="plan">
+    <Description>Process the user that joined.</Description>
+    <Transition to="Provisioning" when="if(plan != null)"/>
+    <Transition to="Stop"/>
+  </Step>
+  <Step icon="Provision" name="Provisioning" posX="508" posY="6">
+    <Arg name="identityEmailTemplate"/>
+    <Arg name="enableRetryRequest"/>
+    <Arg name="securityOfficerElectronicSignature"/>
+    <Arg name="fallbackApprover"/>
+    <Arg name="endOnManualWorkItems"/>
+    <Arg name="userEmailTemplate"/>
+    <Arg name="policiesToCheck"/>
+    <Arg name="project"/>
+    <Arg name="workItemComments"/>
+    <Arg name="identityRequestId"/>
+    <Arg name="approvalSplitPoint"/>
+    <Arg name="source"/>
+    <Arg name="identityDisplayName"/>
+    <Arg name="foregroundProvisioning"/>
+    <Arg name="ownerElectronicSignature"/>
+    <Arg name="batchRequestItemId"/>
+    <Arg name="saveUnmanagedPlan_WithProjectArgument"/>
+    <Arg name="splitPlans"/>
+    <Arg name="doRefresh"/>
+    <Arg name="plan"/>
+    <Arg name="flow"/>
+    <Arg name="identityElectronicSignature"/>
+    <Arg name="identityName"/>
+    <Arg name="approvalSet"/>
+    <Arg name="violationReviewDecision"/>
+    <Arg name="filterRejects"/>
+    <Arg name="splitProjects"/>
+    <Arg name="requireCommentsForDenial"/>
+    <Arg name="requesterEmailTemplate"/>
+    <Arg name="approvalEmailTemplate"/>
+    <Arg name="ticketManagementApplication"/>
+    <Arg name="securityOfficerName"/>
+    <Arg name="approvingIdentities"/>
+    <Arg name="managerEmailTemplate"/>
+    <Arg name="ticketId"/>
+    <Arg name="approvalScheme"/>
+    <Arg name="allowRequestsWithViolations"/>
+    <Arg name="workItemPriority"/>
+    <Arg name="managerElectronicSignature"/>
+    <Arg name="requireViolationReviewComments"/>
+    <Arg name="splitApprovalSet"/>
+    <Arg name="approvalMode"/>
+    <Arg name="trace"/>
+    <Arg name="endOnProvisioningForms"/>
+    <Arg name="splitWorkItemComments"/>
+    <Arg name="requireCommentsForApproval"/>
+    <Arg name="notificationScheme"/>
+    <Arg name="policyViolations"/>
+    <Arg name="policyScheme"/>
+    <Arg name="setPreviousApprovalDecisions"/>
+    <Arg name="optimisticProvisioning"/>
+    <Arg name="securityOfficerEmailTemplate"/>
+    <WorkflowRef>
+      <Reference class="sailpoint.object.Workflow" name="LCM Provisioning"/>
+    </WorkflowRef>
+    <Transition to="Result check"/>
+  </Step>
+  <Step icon="Stop" name="Stop" posX="506" posY="208"/>
+  <Step action="rule:Email_Generate" icon="Default" name="Generate email" posX="217" posY="9" resultVariable="email">
+    <Transition to="Process user"/>
+  </Step>
+  <Step icon="Default" name="Result check" posX="634" posY="4">
+    <Script>
+      <Source>log.error("=================="+ trace +"==========================");
+
+
+log.error("=================="+ project+"==========================");
+log.error("=================="+ project.getMessages()+"==========================");</Source>
+    </Script>
+    <Transition to="Audit record"/>
+    <Transition to="Stop"/>
+  </Step>
+  <Step icon="Default" name="Audit record" posX="799" posY="1">
+    <Transition to="Notify manager and user"/>
+  </Step>
+  <Step icon="Default" name="Notify manager and user" posX="797" posY="140">
+    <Transition to="Stop"/>
+  </Step>
+</Workflow>

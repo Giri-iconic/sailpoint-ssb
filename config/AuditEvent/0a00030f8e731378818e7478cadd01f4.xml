@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent accountName="CN=Raheem.Shaik,OU=Test,DC=Iconic,DC=com" action="provision" application="Active Directory" serverHost="WIN-T21N4E0UF24" source="spadmin" target="Raheem.Shaik">
+  <Attributes>
+    <Map>
+      <entry key="accountFlags">
+        <value>
+          <List>
+            <String>Normal User Account</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="cn" value="Raheem.Shaik"/>
+      <entry key="distinguishedName" value="CN=Raheem.Shaik,OU=Test,DC=iconic,DC=com"/>
+      <entry key="givenName" value="Raheem"/>
+      <entry key="mail" value="Raheem.Shail@enh.com"/>
+      <entry key="manager" value="CN=Active Test,OU=Test,DC=iconic,DC=com"/>
+      <entry key="memberOf">
+        <value>
+          <List>
+            <String>CN=Domain Users,CN=Users,DC=iconic,DC=com</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="msDS-PrincipalName" value="ICONIC\Raheem.Shaik"/>
+      <entry key="msNPAllowDialin" value="Not Set"/>
+      <entry key="objectClass">
+        <value>
+          <List>
+            <String>top</String>
+            <String>person</String>
+            <String>organizationalPerson</String>
+            <String>user</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="objectSid" value="S-1-5-21-4221786991-103232591-4293389706-1109"/>
+      <entry key="objectType" value="user"/>
+      <entry key="objectguid" value="{ef6855b6-9ddc-4ee8-9961-9cabfd71a084}"/>
+      <entry key="op">
+        <value>
+          <ObjectOperation>Create</ObjectOperation>
+        </value>
+      </entry>
+      <entry key="primaryGroupDN" value="CN=Domain Users,CN=Users,DC=iconic,DC=com"/>
+      <entry key="primaryGroupID" value="513"/>
+      <entry key="sAMAccountName" value="Raheem.Shaik"/>
+      <entry key="sn" value="Shaik"/>
+    </Map>
+  </Attributes>
+  <String1>Active Directory</String1>
+  <String2>committed</String2>
+</AuditEvent>

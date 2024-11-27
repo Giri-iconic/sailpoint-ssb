@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE TaskResult PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<TaskResult completed="1718860627473" completionStatus="Success" host="WIN-T21N4E0UF24" launched="1718860625322" launcher="System" name="Check expired work items daily" runLength="2" runLengthAverage="1" runLengthDeviation="100" schedule="Check expired work items daily" type="System">
+  <Attributes>
+    <Map>
+      <entry key="emailsSuppressed">
+        <value>
+          <Integer>0</Integer>
+        </value>
+      </entry>
+      <entry key="escalations">
+        <value>
+          <Integer>0</Integer>
+        </value>
+      </entry>
+      <entry key="expirations">
+        <value>
+          <Integer>0</Integer>
+        </value>
+      </entry>
+      <entry key="pushes">
+        <value>
+          <Integer>0</Integer>
+        </value>
+      </entry>
+      <entry key="reminders">
+        <value>
+          <Integer>0</Integer>
+        </value>
+      </entry>
+      <entry key="total">
+        <value>
+          <Integer>0</Integer>
+        </value>
+      </entry>
+      <entry key="totalCertItems">
+        <value>
+          <Integer>0</Integer>
+        </value>
+      </entry>
+      <entry key="totalWorkItems">
+        <value>
+          <Integer>0</Integer>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+  <Definition>
+    <Reference class="sailpoint.object.TaskDefinition" name="Check Expired Work Items"/>
+  </Definition>
+  <Owner>
+    <Reference class="sailpoint.object.Identity" name="spadmin"/>
+  </Owner>
+</TaskResult>

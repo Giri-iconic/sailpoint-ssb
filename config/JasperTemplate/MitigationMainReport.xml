@@ -1,0 +1,708 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE JasperTemplate PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<JasperTemplate name="MitigationMainReport">
+  <DesignXml>&lt;?xml version="1.0" encoding="UTF-8"  ?&gt;
+&lt;!-- Created with iReport - A designer for JasperReports --&gt;
+&lt;!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd"&gt;
+&lt;jasperReport
+		 name="MitigationMainReport"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="963"
+		 columnWidth="535"
+		 columnSpacing="0"
+		 leftMargin="30"
+		 rightMargin="30"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false"&gt;
+	&lt;property name="ireport.scriptlethandling" value="0" /&gt;
+	&lt;property name="ireport.encoding" value="UTF-8" /&gt;
+	&lt;import value="java.util.*" /&gt;
+	&lt;import value="net.sf.jasperreports.engine.*" /&gt;
+	&lt;import value="net.sf.jasperreports.engine.data.*" /&gt;
+
+	&lt;style 
+		name="title"
+		isDefault="false"
+		fontName="Arial"
+		fontSize="24"
+		isBold="true"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="bandedText"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#000000"
+		backcolor="#FFFFFF"
+		topBorder="None"
+		topBorderColor="#FFFFFF"
+		bottomBorder="1Point"
+		bottomBorderColor="#DDDDDD"
+		fontName="Arial"
+		fontSize="12"
+		isBlankWhenNull="true"
+	&gt;
+					&lt;box&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#FFFFFF"/&gt;
+					&lt;bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#DDDDDD"/&gt;
+&lt;/box&gt;
+
+		&lt;conditionalStyle&gt;
+			&lt;conditionExpression&gt;&lt;![CDATA[new Boolean($V{REPORT_COUNT}.intValue() % 2 == 0)]]&gt;&lt;/conditionExpression&gt;
+			&lt;style 
+				isDefault="false"
+				backcolor="#EEEEEE"
+			&gt;
+			&lt;/style&gt;
+		&lt;/conditionalStyle&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="spBlue"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#FFFFFF"
+		backcolor="#1A7182"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="spGreen"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#FFFFFF"
+		backcolor="#5A8429"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="spLightBlue"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#333333"
+		backcolor="#c2dce0"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="spOrange"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#FFFFFF"
+		backcolor="#F45D14"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="spYellow"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#FFFFFF"
+		backcolor="#F3B833"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="spRed"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#FFFFFF"
+		backcolor="#b40b0e"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="body"
+		isDefault="false"
+		mode="Transparent"
+		forecolor="#000000"
+		backcolor="#FFFFFF"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="bodySmall"
+		isDefault="false"
+		mode="Transparent"
+		forecolor="#000000"
+		backcolor="#FFFFFF"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="10"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="bodyGray"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#000000"
+		backcolor="#DDDDDD"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="footer"
+		isDefault="false"
+		forecolor="#000000"
+		fontName="Arial"
+		fontSize="10"
+	&gt;
+	&lt;/style&gt;
+
+	&lt;parameter name="reportDefName" isForPrompting="false" class="java.lang.String"/&gt;
+	&lt;parameter name="MitigationEntitlementsReport" isForPrompting="false" class="net.sf.jasperreports.engine.JasperReport"&gt;
+		&lt;parameterDescription&gt;&lt;![CDATA[MitigationEntitlementsReport]]&gt;&lt;/parameterDescription&gt;
+	&lt;/parameter&gt;
+	&lt;parameter name="MitigationEntitlementsAttributeReport" isForPrompting="false" class="net.sf.jasperreports.engine.JasperReport"&gt;
+		&lt;parameterDescription&gt;&lt;![CDATA[MitigationEntitlementsAttributeReport]]&gt;&lt;/parameterDescription&gt;
+	&lt;/parameter&gt;
+	&lt;parameter name="MitigationBusinessRoleReport" isForPrompting="false" class="net.sf.jasperreports.engine.JasperReport"&gt;
+		&lt;parameterDescription&gt;&lt;![CDATA[MitigationBusinessRoleReport]]&gt;&lt;/parameterDescription&gt;
+	&lt;/parameter&gt;
+	&lt;parameter name="MitigationPolicyViolationReport" isForPrompting="false" class="net.sf.jasperreports.engine.JasperReport"&gt;
+		&lt;parameterDescription&gt;&lt;![CDATA[MitigationPolicyViolationReport]]&gt;&lt;/parameterDescription&gt;
+	&lt;/parameter&gt;
+	&lt;parameter name="UserAttributeReport" isForPrompting="false" class="net.sf.jasperreports.engine.JasperReport"&gt;
+		&lt;parameterDescription&gt;&lt;![CDATA[UserAttributeReport]]&gt;&lt;/parameterDescription&gt;
+	&lt;/parameter&gt;
+	&lt;parameter name="CertificationTypeReport" isForPrompting="false" class="net.sf.jasperreports.engine.JasperReport"&gt;
+		&lt;parameterDescription&gt;&lt;![CDATA[CertificationTypeReport]]&gt;&lt;/parameterDescription&gt;
+	&lt;/parameter&gt;
+
+	&lt;field name="identity.name" class="java.lang.String"/&gt;
+	&lt;field name="mitigator.name" class="java.lang.String"/&gt;
+	&lt;field name="businessProcess" class="java.lang.String"/&gt;
+	&lt;field name="constraintName" class="java.lang.String"/&gt;
+	&lt;field name="certificationLink" class="sailpoint.object.CertificationLink"/&gt;
+	&lt;field name="businessRole.name" class="java.lang.String"/&gt;
+	&lt;field name="action.messageKey" class="java.lang.String"/&gt;
+	&lt;field name="lastActionDate" class="java.util.Date"/&gt;
+	&lt;field name="expiration" class="java.util.Date"/&gt;
+	&lt;field name="comments" class="java.lang.String"/&gt;
+	&lt;field name="entitlementsList" class="java.util.List"/&gt;
+	&lt;field name="businessRoleMapList" class="java.util.List"/&gt;
+	&lt;field name="policyViolationMapList" class="java.util.List"/&gt;
+	&lt;field name="constraintId" class="java.lang.String"/&gt;
+	&lt;field name="type.messageKey" class="java.lang.String"/&gt;
+
+		&lt;background&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/background&gt;
+		&lt;title&gt;
+			&lt;band height="50"  isSplitAllowed="true" &gt;
+				&lt;textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="body"
+						x="0"
+						y="27"
+						width="528"
+						height="20"
+						forecolor="#525759"
+						key="textField-8"/&gt;
+					&lt;box leftPadding="5"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement&gt;
+						&lt;font size="14" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$P{reportDefName}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="body"
+						x="0"
+						y="0"
+						width="528"
+						height="25"
+						forecolor="#000000"
+						key="textField-18"/&gt;
+					&lt;box leftPadding="5"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement&gt;
+						&lt;font size="18" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_mitigations_title}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+			&lt;/band&gt;
+		&lt;/title&gt;
+		&lt;pageHeader&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/pageHeader&gt;
+		&lt;columnHeader&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/columnHeader&gt;
+		&lt;detail&gt;
+			&lt;band height="337"  isSplitAllowed="true" &gt;
+				&lt;textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="bodyGray"
+						x="140"
+						y="0"
+						width="390"
+						height="30"
+						key="textField"/&gt;
+					&lt;box leftPadding="5" topPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement&gt;
+						&lt;font isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{identity.name}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="body"
+						x="140"
+						y="30"
+						width="390"
+						height="25"
+						key="textField"/&gt;
+					&lt;box leftPadding="5" topPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement&gt;
+						&lt;font/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{mitigator.name}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;subreport  isUsingCache="false"&gt;
+					&lt;reportElement
+						mode="Transparent"
+						x="140"
+						y="55"
+						width="390"
+						height="25"
+						key="certificationType"
+						positionType="Float"
+						isPrintRepeatedValues="false"
+						isRemoveLineWhenBlank="true"/&gt;
+					&lt;subreportParameter  name="REPORT_RESOURCE_BUNDLE"&gt;
+						&lt;subreportParameterExpression&gt;&lt;![CDATA[$P{REPORT_RESOURCE_BUNDLE}]]&gt;&lt;/subreportParameterExpression&gt;
+					&lt;/subreportParameter&gt;
+					&lt;dataSourceExpression&gt;&lt;![CDATA[new sailpoint.reporting.datasource.XmlObjectDataSource($F{certificationLink})]]&gt;&lt;/dataSourceExpression&gt;
+					&lt;subreportExpression  class="net.sf.jasperreports.engine.JasperReport"&gt;&lt;![CDATA[$P{CertificationTypeReport}]]&gt;&lt;/subreportExpression&gt;
+				&lt;/subreport&gt;
+				&lt;textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="body"
+						x="140"
+						y="105"
+						width="390"
+						height="25"
+						key="textField-4"
+						isRemoveLineWhenBlank="true"/&gt;
+					&lt;box leftPadding="5" topPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement&gt;
+						&lt;font/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{action.messageKey} != null ? $P{REPORT_RESOURCE_BUNDLE}.getObject($F{action.messageKey}) : ""]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="false" pattern="MMMMM dd, yyyy" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="body"
+						x="140"
+						y="130"
+						width="390"
+						height="25"
+						key="textField"
+						isRemoveLineWhenBlank="true"&gt;
+							&lt;printWhenExpression&gt;&lt;![CDATA[new Boolean($F{lastActionDate}!=null)]]&gt;&lt;/printWhenExpression&gt;
+						&lt;/reportElement&gt;
+					&lt;box leftPadding="5" topPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement&gt;
+						&lt;font/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.util.Date"&gt;&lt;![CDATA[$F{lastActionDate}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="false" pattern="MMMMM dd, yyyy" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="body"
+						x="140"
+						y="155"
+						width="390"
+						height="25"
+						key="textField-5"/&gt;
+					&lt;box leftPadding="5" topPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement&gt;
+						&lt;font/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.util.Date"&gt;&lt;![CDATA[$F{expiration}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="body"
+						x="140"
+						y="180"
+						width="390"
+						height="50"
+						key="textField-6"/&gt;
+					&lt;box leftPadding="5" topPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement&gt;
+						&lt;font/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{comments}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;subreport  isUsingCache="true"&gt;
+					&lt;reportElement
+						mode="Transparent"
+						x="0"
+						y="234"
+						width="530"
+						height="26"
+						key="attributes"
+						isPrintRepeatedValues="false"
+						isRemoveLineWhenBlank="true"/&gt;
+					&lt;subreportParameter  name="title"&gt;
+						&lt;subreportParameterExpression&gt;&lt;![CDATA["Entitlements"]]&gt;&lt;/subreportParameterExpression&gt;
+					&lt;/subreportParameter&gt;
+					&lt;subreportParameter  name="MitigationEntitlementsAttributeReport"&gt;
+						&lt;subreportParameterExpression&gt;&lt;![CDATA[$P{MitigationEntitlementsAttributeReport}]]&gt;&lt;/subreportParameterExpression&gt;
+					&lt;/subreportParameter&gt;
+					&lt;dataSourceExpression&gt;&lt;![CDATA[new sailpoint.reporting.datasource.EntitlementSnapshotDataSource($F{entitlementsList})]]&gt;&lt;/dataSourceExpression&gt;
+					&lt;subreportExpression  class="net.sf.jasperreports.engine.JasperReport"&gt;&lt;![CDATA[$P{MitigationEntitlementsReport}]]&gt;&lt;/subreportExpression&gt;
+				&lt;/subreport&gt;
+				&lt;subreport  isUsingCache="false"&gt;
+					&lt;reportElement
+						mode="Transparent"
+						x="0"
+						y="264"
+						width="530"
+						height="25"
+						key="businessRoles-1"
+						positionType="Float"
+						isPrintRepeatedValues="false"
+						isRemoveLineWhenBlank="true"/&gt;
+					&lt;dataSourceExpression&gt;&lt;![CDATA[new net.sf.jasperreports.engine.data.JRMapCollectionDataSource($F{businessRoleMapList})]]&gt;&lt;/dataSourceExpression&gt;
+					&lt;subreportExpression  class="net.sf.jasperreports.engine.JasperReport"&gt;&lt;![CDATA[$P{MitigationBusinessRoleReport}]]&gt;&lt;/subreportExpression&gt;
+				&lt;/subreport&gt;
+				&lt;textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="body"
+						x="140"
+						y="80"
+						width="390"
+						height="25"
+						key="textField-7"/&gt;
+					&lt;box leftPadding="5" topPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement&gt;
+						&lt;font/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{businessRole.name}!=null ? $R{rept_mitigations_type_role} : $F{constraintId}!=null ? $R{rept_mitigations_type_violation} : $R{rept_mitigations_type_entitlement}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;subreport  isUsingCache="false"&gt;
+					&lt;reportElement
+						mode="Transparent"
+						x="0"
+						y="294"
+						width="530"
+						height="25"
+						key="policyViolation"
+						positionType="Float"
+						isPrintRepeatedValues="false"
+						isRemoveLineWhenBlank="true"/&gt;
+					&lt;dataSourceExpression&gt;&lt;![CDATA[new net.sf.jasperreports.engine.data.JRMapCollectionDataSource($F{policyViolationMapList})]]&gt;&lt;/dataSourceExpression&gt;
+					&lt;subreportExpression  class="net.sf.jasperreports.engine.JasperReport"&gt;&lt;![CDATA[$P{MitigationPolicyViolationReport}]]&gt;&lt;/subreportExpression&gt;
+				&lt;/subreport&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="spGreen"
+						x="0"
+						y="0"
+						width="140"
+						height="30"
+						key="textField-10"
+						isPrintRepeatedValues="false"
+						isPrintWhenDetailOverflows="true"/&gt;
+					&lt;box leftPadding="5"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement textAlignment="Left" verticalAlignment="Middle"&gt;
+						&lt;font fontName="Arial" size="12" isPdfEmbedded ="false" pdfEncoding ="Cp1250"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_mitigations_label_identity}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="spBlue"
+						x="0"
+						y="30"
+						width="140"
+						height="25"
+						key="textField-11"
+						isPrintRepeatedValues="false"
+						isPrintWhenDetailOverflows="true"/&gt;
+					&lt;box leftPadding="5"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement textAlignment="Left" verticalAlignment="Middle"&gt;
+						&lt;font fontName="Arial" size="12" isPdfEmbedded ="false" pdfEncoding ="Cp1250"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_mitigations_label_mitigator}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="spBlue"
+						x="0"
+						y="55"
+						width="140"
+						height="25"
+						key="textField-12"
+						isPrintRepeatedValues="false"
+						isPrintWhenDetailOverflows="true"/&gt;
+					&lt;box leftPadding="5"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement textAlignment="Left" verticalAlignment="Middle"&gt;
+						&lt;font fontName="Arial" size="12" isPdfEmbedded ="false" pdfEncoding ="Cp1250"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_mitigations_label_certification_type}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="spBlue"
+						x="0"
+						y="80"
+						width="140"
+						height="25"
+						key="textField-13"
+						isPrintRepeatedValues="false"
+						isPrintWhenDetailOverflows="true"/&gt;
+					&lt;box leftPadding="5"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement textAlignment="Left" verticalAlignment="Middle"&gt;
+						&lt;font fontName="Arial" size="12" isPdfEmbedded ="false" pdfEncoding ="Cp1250"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_mitigations_label_type}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="spBlue"
+						x="0"
+						y="105"
+						width="140"
+						height="25"
+						key="textField-14"
+						isPrintRepeatedValues="false"
+						isPrintWhenDetailOverflows="true"/&gt;
+					&lt;box leftPadding="5"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement textAlignment="Left" verticalAlignment="Middle"&gt;
+						&lt;font fontName="Arial" size="12" isPdfEmbedded ="false" pdfEncoding ="Cp1250"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_mitigations_label_action}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="spBlue"
+						x="0"
+						y="130"
+						width="140"
+						height="25"
+						key="textField-15"
+						isPrintRepeatedValues="false"
+						isPrintWhenDetailOverflows="true"/&gt;
+					&lt;box leftPadding="5"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement textAlignment="Left" verticalAlignment="Middle"&gt;
+						&lt;font fontName="Arial" size="12" isPdfEmbedded ="false" pdfEncoding ="Cp1250"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_mitigations_label_last_action_date}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="spBlue"
+						x="0"
+						y="155"
+						width="140"
+						height="25"
+						key="textField-16"
+						isPrintRepeatedValues="false"
+						isPrintWhenDetailOverflows="true"/&gt;
+					&lt;box leftPadding="5"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement textAlignment="Left" verticalAlignment="Middle"&gt;
+						&lt;font fontName="Arial" size="12" isPdfEmbedded ="false" pdfEncoding ="Cp1250"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_mitigations_label_expiration}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="spBlue"
+						x="0"
+						y="180"
+						width="140"
+						height="50"
+						key="textField-17"
+						isPrintRepeatedValues="false"
+						isPrintWhenDetailOverflows="true"/&gt;
+					&lt;box leftPadding="5"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement textAlignment="Left" verticalAlignment="Middle"&gt;
+						&lt;font fontName="Arial" size="12" isPdfEmbedded ="false" pdfEncoding ="Cp1250"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_mitigations_label_comments}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+			&lt;/band&gt;
+		&lt;/detail&gt;
+		&lt;columnFooter&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/columnFooter&gt;
+		&lt;pageFooter&gt;
+			&lt;band height="25"  isSplitAllowed="true" &gt;
+				&lt;textField isStretchWithOverflow="true" pattern="EEEEE dd MMMMM yyyy hh:mm a" isBlankWhenNull="false" evaluationTime="Report" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="footer"
+						x="0"
+						y="2"
+						width="290"
+						height="18"
+						key="textField-1"/&gt;
+					&lt;box&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement&gt;
+						&lt;font/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.util.Date"&gt;&lt;![CDATA[new java.util.Date()]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;line direction="TopDown"&gt;
+					&lt;reportElement
+						x="0"
+						y="0"
+						width="532"
+						height="0"
+						key="line-1"/&gt;
+					&lt;graphicElement stretchType="NoStretch"/&gt;
+				&lt;/line&gt;
+				&lt;textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Page" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="footer"
+						x="395"
+						y="4"
+						width="80"
+						height="14"
+						key="textField-14"/&gt;
+					&lt;box&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement textAlignment="Right" verticalAlignment="Bottom"&gt;
+						&lt;font/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[msg($R{rept_current_page}, $V{PAGE_NUMBER})]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Report" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						x="480"
+						y="4"
+						width="50"
+						height="14"
+						key="textField-15"/&gt;
+					&lt;box&gt;&lt;/box&gt;
+					&lt;textElement verticalAlignment="Bottom"&gt;
+						&lt;font fontName="Arial"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[msg($R{rept_current_page_of}, $V{PAGE_NUMBER})]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+			&lt;/band&gt;
+		&lt;/pageFooter&gt;
+		&lt;summary&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/summary&gt;
+&lt;/jasperReport&gt;
+</DesignXml>
+</JasperTemplate>

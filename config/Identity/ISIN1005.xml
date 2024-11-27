@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Identity PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Identity correlated="true" lastRefresh="1718627025818" name="ISIN1005">
+  <Attributes>
+    <Map>
+      <entry key="depratment" value="IAM"/>
+      <entry key="displayName" value="Test2.Tes2t"/>
+      <entry key="emp_id" value="ISIN1005"/>
+      <entry key="firstname" value="Test2"/>
+      <entry key="lastname" value="Tes2t"/>
+      <entry key="rapidSetupProcessingState" value="processed"/>
+    </Map>
+  </Attributes>
+  <AttributeMetaDatas>
+    <AttributeMetaData attribute="emp_id" source="HRMS:Emp Id"/>
+    <AttributeMetaData attribute="firstname" source="HRMS:First Name"/>
+    <AttributeMetaData attribute="lastname" source="HRMS:Last Name"/>
+    <AttributeMetaData attribute="depratment" source="HRMS:Dept"/>
+    <AttributeMetaData attribute="manager" source="HRMS:Mgr"/>
+    <AttributeMetaData attribute="displayName" source="Active Directory:cn"/>
+  </AttributeMetaDatas>
+  <Exceptions>
+    <EntitlementGroup displayName="Test2.Tes2t" nativeIdentity="cn=Test2.Tes2t,ou=Test,dc=iconic,dc=com">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application" name="Active Directory"/>
+      </ApplicationRef>
+      <Attributes>
+        <Map>
+          <entry key="memberOf">
+            <value>
+              <List>
+                <String>CN=Domain Users,CN=Users,DC=iconic,DC=com</String>
+              </List>
+            </value>
+          </entry>
+        </Map>
+      </Attributes>
+    </EntitlementGroup>
+  </Exceptions>
+  <Manager>
+    <Reference class="sailpoint.object.Identity" name="ISIN10000"/>
+  </Manager>
+  <Links>
+    <Link displayName="ISIN1005" identity="ISIN1005" lastRefresh="1717996413458">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application" name="HRMS"/>
+      </ApplicationRef>
+      <Attributes>
+        <Map>
+          <entry key="Address" value="Hyd"/>
+          <entry key="City" value="Hyd"/>
+          <entry key="Country" value="India"/>
+          <entry key="DOB" value="20/5/1988"/>
+          <entry key="DOJ" value="21/2/2011"/>
+          <entry key="Dept" value="IAM"/>
+          <entry key="Desgn" value="Senior Manager"/>
+          <entry key="Emp Id" value="ISIN1005"/>
+          <entry key="First Name" value="Test2"/>
+          <entry key="Gender" value="F"/>
+          <entry key="Last Name" value="Tes2t"/>
+          <entry key="Mgr" value="ISIN10000"/>
+          <entry key="Office Loc" value="Hyd"/>
+          <entry key="Org" value="ENH I secure"/>
+          <entry key="Pincode" value="500001"/>
+          <entry key="SSN" value="555-50-1004"/>
+          <entry key="Salary" value="100000"/>
+          <entry key="State" value="Telangana"/>
+          <entry key="Status" value="Active"/>
+          <entry key="Type" value="exits"/>
+        </Map>
+      </Attributes>
+    </Link>
+    <Link disabled="true" displayName="Test2.Tes2t" entitlements="true" identity="cn=Test2.Tes2t,ou=Test,dc=iconic,dc=com" lastRefresh="1718627024495" manuallyCorrelated="true" uuid="{66499ee1-8d68-4ac2-a415-7694b2e66082}">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application" name="Active Directory"/>
+      </ApplicationRef>
+      <Attributes>
+        <Map>
+          <entry key="IIQDisabled">
+            <value>
+              <Boolean>true</Boolean>
+            </value>
+          </entry>
+          <entry key="accountFlags">
+            <value>
+              <List>
+                <String>Normal User Account</String>
+                <String>User Account is Disabled</String>
+              </List>
+            </value>
+          </entry>
+          <entry key="cn" value="Test2.Tes2t"/>
+          <entry key="distinguishedName" value="CN=Test2.Tes2t,OU=Test,DC=iconic,DC=com"/>
+          <entry key="givenName" value="Test2"/>
+          <entry key="memberOf">
+            <value>
+              <List>
+                <String>CN=Domain Users,CN=Users,DC=iconic,DC=com</String>
+              </List>
+            </value>
+          </entry>
+          <entry key="msDS-PrincipalName" value="ICONIC\Test2.Tes2t"/>
+          <entry key="msNPAllowDialin" value="Not Set"/>
+          <entry key="objectClass">
+            <value>
+              <List>
+                <String>top</String>
+                <String>person</String>
+                <String>organizationalPerson</String>
+                <String>user</String>
+              </List>
+            </value>
+          </entry>
+          <entry key="objectSid" value="S-1-5-21-4221786991-103232591-4293389706-1129"/>
+          <entry key="objectType" value="user"/>
+          <entry key="objectguid" value="{66499ee1-8d68-4ac2-a415-7694b2e66082}"/>
+          <entry key="primaryGroupDN" value="CN=Domain Users,CN=Users,DC=iconic,DC=com"/>
+          <entry key="primaryGroupID" value="513"/>
+          <entry key="sAMAccountName" value="Test2.Tes2t"/>
+          <entry key="sn" value="Tes2t"/>
+        </Map>
+      </Attributes>
+    </Link>
+  </Links>
+  <Scorecard certificationScore="1000" compositeScore="250" entitlementScore="1" rawEntitlementScore="1">
+    <ScoreItem compositePercentage="100" displayName="score_def_certificationAge_name" score="1000" scorePercentage="100" type="score_def_certificationAge_shortname">
+      <TargetMessage>
+        <Message key="cert_scorer_target_id_not_certified" type="Info"/>
+      </TargetMessage>
+    </ScoreItem>
+  </Scorecard>
+</Identity>

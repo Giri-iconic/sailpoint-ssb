@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent action="identityLifecycleEvent" interface="Task" serverHost="WIN-T21N4E0UF24" source="Refresh Identity Cube" target="Identity:ISIN10000">
+  <Attributes>
+    <Map>
+      <entry key="objectSummary" value="sailpoint.object.Identity@1dca0b51[id=0a00030f8df81491818df999f99d0390,name=ISIN10000]"/>
+    </Map>
+  </Attributes>
+  <String1>Joiner</String1>
+  <String2>Process a new employee.</String2>
+  <String3>Launched workflow 'Joiner: Test Test'</String3>
+  <String4>Identity created</String4>
+</AuditEvent>

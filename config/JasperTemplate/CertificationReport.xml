@@ -1,0 +1,1161 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE JasperTemplate PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<JasperTemplate name="CertificationReport">
+  <DesignXml>&lt;?xml version="1.0" encoding="UTF-8"  ?&gt;
+&lt;!-- Created with iReport - A designer for JasperReports --&gt;
+&lt;!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd"&gt;
+&lt;jasperReport
+		 name="CertificationReport"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Landscape"
+		 pageWidth="3500"
+		 pageHeight="842"
+		 columnWidth="3440"
+		 columnSpacing="0"
+		 leftMargin="30"
+		 rightMargin="30"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false"&gt;
+	&lt;property name="ireport.scriptlethandling" value="0" /&gt;
+	&lt;property name="ireport.encoding" value="UTF-8" /&gt;
+	&lt;import value="java.util.*" /&gt;
+	&lt;import value="net.sf.jasperreports.engine.*" /&gt;
+	&lt;import value="net.sf.jasperreports.engine.data.*" /&gt;
+
+	&lt;style 
+		name="title"
+		isDefault="false"
+		fontName="Arial"
+		fontSize="24"
+		isBold="true"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="bandedText"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#000000"
+		backcolor="#FFFFFF"
+		topBorder="None"
+		topBorderColor="#FFFFFF"
+		bottomBorder="1Point"
+		bottomBorderColor="#DDDDDD"
+		fontName="Arial"
+		fontSize="9"
+		isBlankWhenNull="true"
+	&gt;
+					&lt;box&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#FFFFFF"/&gt;
+					&lt;bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#DDDDDD"/&gt;
+&lt;/box&gt;
+
+		&lt;conditionalStyle&gt;
+			&lt;conditionExpression&gt;&lt;![CDATA[new Boolean($V{REPORT_COUNT}.intValue() % 2 == 0)]]&gt;&lt;/conditionExpression&gt;
+			&lt;style 
+				isDefault="false"
+				backcolor="#EEEEEE"
+			&gt;
+			&lt;/style&gt;
+		&lt;/conditionalStyle&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="bandedTextRed"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#EE0000"
+		backcolor="#FFFFFF"
+		topBorder="None"
+		topBorderColor="#FFFFFF"
+		bottomBorder="1Point"
+		bottomBorderColor="#DDDDDD"
+		fontName="Arial"
+		fontSize="9"
+		isBlankWhenNull="true"
+	&gt;
+					&lt;box&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#FFFFFF"/&gt;
+					&lt;bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#DDDDDD"/&gt;
+&lt;/box&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="spBlue"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#FFFFFF"
+		backcolor="#1A7182"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="9"
+		isBold="true"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="spLightBlue"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#333333"
+		backcolor="#c2dce0"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="spGreen"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#FFFFFF"
+		backcolor="#5A8429"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="spLightGreen"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#333333"
+		backcolor="#cfdcbf"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="spOrange"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#FFFFFF"
+		backcolor="#F45D14"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="spLightOrange"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#333333"
+		backcolor="#f4c3ab"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="spYellow"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#333333"
+		backcolor="#F3B833"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="spLightYellow"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#333333"
+		backcolor="#f3ddaa"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="spRed"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#FFFFFF"
+		backcolor="#b40b0e"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBold="true"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="body"
+		isDefault="false"
+		mode="Transparent"
+		forecolor="#000000"
+		backcolor="#FFFFFF"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="9"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="bodySmall"
+		isDefault="false"
+		mode="Transparent"
+		forecolor="#000000"
+		backcolor="#FFFFFF"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="10"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="bodyGray"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#000000"
+		backcolor="#DDDDDD"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="footer"
+		isDefault="false"
+		forecolor="#000000"
+		fontName="Arial"
+		fontSize="10"
+	&gt;
+	&lt;/style&gt;
+
+	&lt;parameter name="identityConfig" isForPrompting="false" class="sailpoint.object.ObjectConfig"/&gt;
+	&lt;parameter name="title" isForPrompting="false" class="java.lang.String"/&gt;
+
+	&lt;field name="identity" class="java.lang.String"&gt;
+		&lt;fieldDescription&gt;&lt;![CDATA[parent.identity]]&gt;&lt;/fieldDescription&gt;
+	&lt;/field&gt;
+	&lt;field name="decisionMaker" class="java.lang.String"&gt;
+		&lt;fieldDescription&gt;&lt;![CDATA[action.actorName]]&gt;&lt;/fieldDescription&gt;
+	&lt;/field&gt;
+	&lt;field name="decision" class="java.lang.String"&gt;
+		&lt;fieldDescription&gt;&lt;![CDATA[action.status]]&gt;&lt;/fieldDescription&gt;
+	&lt;/field&gt;
+	&lt;field name="entitlement" class="java.lang.String"&gt;
+		&lt;fieldDescription&gt;&lt;![CDATA[entitlement]]&gt;&lt;/fieldDescription&gt;
+	&lt;/field&gt;
+	&lt;field name="entitlementType" class="java.lang.String"&gt;
+		&lt;fieldDescription&gt;&lt;![CDATA[type]]&gt;&lt;/fieldDescription&gt;
+	&lt;/field&gt;
+	&lt;field name="firstName" class="java.lang.String"&gt;
+		&lt;fieldDescription&gt;&lt;![CDATA[parent.firstname]]&gt;&lt;/fieldDescription&gt;
+	&lt;/field&gt;
+	&lt;field name="lastName" class="java.lang.String"&gt;
+		&lt;fieldDescription&gt;&lt;![CDATA[parent.lastname]]&gt;&lt;/fieldDescription&gt;
+	&lt;/field&gt;
+	&lt;field name="nativeIdentity" class="java.lang.String"&gt;
+		&lt;fieldDescription&gt;&lt;![CDATA[nativeIdentity]]&gt;&lt;/fieldDescription&gt;
+	&lt;/field&gt;
+	&lt;field name="comments" class="java.lang.String"&gt;
+		&lt;fieldDescription&gt;&lt;![CDATA[action.comments]]&gt;&lt;/fieldDescription&gt;
+	&lt;/field&gt;
+	&lt;field name="status" class="java.lang.String"&gt;
+		&lt;fieldDescription&gt;&lt;![CDATA[summaryStatus]]&gt;&lt;/fieldDescription&gt;
+	&lt;/field&gt;
+	&lt;field name="remediationCompleted" class="java.lang.String"&gt;
+		&lt;fieldDescription&gt;&lt;![CDATA[remediationCompleted]]&gt;&lt;/fieldDescription&gt;
+	&lt;/field&gt;
+	&lt;field name="manager" class="java.lang.String"/&gt;
+	&lt;field name="certName" class="java.lang.String"/&gt;
+	&lt;field name="tags" class="java.lang.String"/&gt;
+	&lt;field name="instance" class="java.lang.String"/&gt;
+	&lt;field name="application" class="java.lang.String"/&gt;
+	&lt;field name="exclusionExplanation" class="java.lang.String"/&gt;
+	&lt;field name="certGroupName" class="java.lang.String"/&gt;
+	&lt;field name="newValue" class="java.lang.String"/&gt;
+
+		&lt;background&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/background&gt;
+		&lt;title&gt;
+			&lt;band height="30"  isSplitAllowed="true" &gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						mode="Opaque"
+						x="0"
+						y="0"
+						width="2020"
+						height="30"
+						key="detail-30"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" size="18" isBold="false"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$P{title}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+			&lt;/band&gt;
+		&lt;/title&gt;
+		&lt;pageHeader&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/pageHeader&gt;
+		&lt;columnHeader&gt;
+			&lt;band height="18"  isSplitAllowed="true" &gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						mode="Opaque"
+						x="0"
+						y="0"
+						width="103"
+						height="18"
+						forecolor="#FFFFFF"
+						backcolor="#008080"
+						key="detail-22"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" size="9" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_certification_col_account_id}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						mode="Opaque"
+						x="103"
+						y="0"
+						width="103"
+						height="18"
+						forecolor="#FFFFFF"
+						backcolor="#008080"
+						key="detail-16"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" size="9" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$P{identityConfig}.getDisplayName("firstname")]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						mode="Opaque"
+						x="206"
+						y="0"
+						width="103"
+						height="18"
+						forecolor="#FFFFFF"
+						backcolor="#008080"
+						key="detail-17"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" size="9" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$P{identityConfig}.getDisplayName("lastname")]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						mode="Opaque"
+						x="309"
+						y="0"
+						width="103"
+						height="18"
+						forecolor="#FFFFFF"
+						backcolor="#008080"
+						key="detail-19"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" size="9" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$P{identityConfig}.getDisplayName("manager")]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						mode="Opaque"
+						x="1079"
+						y="0"
+						width="121"
+						height="18"
+						forecolor="#FFFFFF"
+						backcolor="#008080"
+						key="detail-23"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" size="9" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_certification_col_entitlement_type}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						mode="Opaque"
+						x="1200"
+						y="0"
+						width="210"
+						height="18"
+						forecolor="#FFFFFF"
+						backcolor="#008080"
+						key="detail-24"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" size="9" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_certification_col_entitlement_desc}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						mode="Opaque"
+						x="1588"
+						y="0"
+						width="100"
+						height="18"
+						forecolor="#FFFFFF"
+						backcolor="#008080"
+						key="detail-21"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" size="9" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$P{identityConfig}.getDisplayName("name")]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						mode="Opaque"
+						x="1688"
+						y="0"
+						width="78"
+						height="18"
+						forecolor="#FFFFFF"
+						backcolor="#008080"
+						key="detail-25"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" size="9" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_certification_col_status}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						mode="Opaque"
+						x="1766"
+						y="0"
+						width="95"
+						height="18"
+						forecolor="#FFFFFF"
+						backcolor="#008080"
+						key="detail-26"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" size="9" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_certification_col_decision}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						mode="Opaque"
+						x="2019"
+						y="0"
+						width="113"
+						height="18"
+						forecolor="#FFFFFF"
+						backcolor="#008080"
+						key="detail-29"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" size="9" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_certification_col_revoke_completed}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						mode="Opaque"
+						x="2132"
+						y="0"
+						width="100"
+						height="18"
+						forecolor="#FFFFFF"
+						backcolor="#008080"
+						key="detail-27"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" size="9" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_certification_col_decision_maker}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						mode="Opaque"
+						x="2232"
+						y="0"
+						width="325"
+						height="18"
+						forecolor="#FFFFFF"
+						backcolor="#008080"
+						key="detail-28"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" size="9" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_certification_col_decision_maker_comments}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						mode="Opaque"
+						x="412"
+						y="0"
+						width="248"
+						height="18"
+						forecolor="#FFFFFF"
+						backcolor="#008080"
+						key="detail-31"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" size="9" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_certification_col_cert_access_review}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						mode="Opaque"
+						x="878"
+						y="0"
+						width="201"
+						height="18"
+						forecolor="#FFFFFF"
+						backcolor="#008080"
+						key="detail-33"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" size="9" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_certification_col_tags}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						mode="Opaque"
+						x="1410"
+						y="0"
+						width="100"
+						height="18"
+						forecolor="#FFFFFF"
+						backcolor="#008080"
+						key="detail-35"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" size="9" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_certification_col_application}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						mode="Opaque"
+						x="1510"
+						y="0"
+						width="78"
+						height="18"
+						forecolor="#FFFFFF"
+						backcolor="#008080"
+						key="detail-36"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" size="9" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_certification_col_instance}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						mode="Opaque"
+						x="2557"
+						y="0"
+						width="325"
+						height="18"
+						forecolor="#FFFFFF"
+						backcolor="#008080"
+						key="detail-39"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" size="9" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_certification_col_exclusion_explanation}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						mode="Opaque"
+						x="660"
+						y="0"
+						width="218"
+						height="18"
+						forecolor="#FFFFFF"
+						backcolor="#008080"
+						key="detail-41"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" size="9" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_certification_col_cert_grp_name}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						mode="Opaque"
+						x="1861"
+						y="0"
+						width="158"
+						height="18"
+						forecolor="#FFFFFF"
+						backcolor="#008080"
+						key="detail-43"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" size="9" isBold="true"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_certification_col_newValue}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+			&lt;/band&gt;
+		&lt;/columnHeader&gt;
+		&lt;detail&gt;
+			&lt;band height="16"  isSplitAllowed="false" &gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="bandedText"
+						mode="Opaque"
+						x="0"
+						y="0"
+						width="103"
+						height="16"
+						key="detail-7"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" isBold="false"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{nativeIdentity}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="bandedText"
+						mode="Opaque"
+						x="103"
+						y="0"
+						width="103"
+						height="16"
+						key="detail-8"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" isBold="false"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{firstName}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="bandedText"
+						mode="Opaque"
+						x="206"
+						y="0"
+						width="103"
+						height="16"
+						key="detail-9"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" isBold="false"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{lastName}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="bandedText"
+						mode="Opaque"
+						x="309"
+						y="0"
+						width="103"
+						height="16"
+						key="detail-12"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" isBold="false"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{manager}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="bandedText"
+						mode="Opaque"
+						x="1079"
+						y="0"
+						width="120"
+						height="16"
+						key="detail-2"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" isBold="false"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{entitlementType}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="bandedText"
+						mode="Opaque"
+						x="1200"
+						y="0"
+						width="210"
+						height="16"
+						key="detail-3"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" isBold="false"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{entitlement}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="bandedText"
+						mode="Opaque"
+						x="1588"
+						y="0"
+						width="100"
+						height="16"
+						key="detail-1"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" isBold="false"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{identity}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="bandedText"
+						mode="Opaque"
+						x="1688"
+						y="0"
+						width="78"
+						height="16"
+						key="detail-15"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" isBold="false"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{status}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="bandedText"
+						mode="Opaque"
+						x="1766"
+						y="0"
+						width="95"
+						height="16"
+						key="detail-4"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" isBold="false"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{decision}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="bandedText"
+						mode="Opaque"
+						x="2019"
+						y="0"
+						width="113"
+						height="16"
+						key="detail-14"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" isBold="false"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{remediationCompleted}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="bandedText"
+						mode="Opaque"
+						x="2132"
+						y="0"
+						width="100"
+						height="16"
+						key="detail-5"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" isBold="false"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{decisionMaker}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="bandedText"
+						mode="Opaque"
+						x="2232"
+						y="0"
+						width="325"
+						height="16"
+						key="detail-6"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" isBold="false"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{comments}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="bandedText"
+						mode="Opaque"
+						x="412"
+						y="0"
+						width="248"
+						height="16"
+						key="detail-32"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" isBold="false"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{certName}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="bandedText"
+						mode="Opaque"
+						x="878"
+						y="0"
+						width="201"
+						height="16"
+						key="detail-34"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" isBold="false"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{tags}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="bandedText"
+						mode="Opaque"
+						x="1410"
+						y="0"
+						width="100"
+						height="16"
+						key="detail-37"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" isBold="false"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{application}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="bandedText"
+						mode="Opaque"
+						x="1510"
+						y="0"
+						width="78"
+						height="16"
+						key="detail-38"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" isBold="false"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{instance}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="bandedText"
+						mode="Opaque"
+						x="2557"
+						y="0"
+						width="325"
+						height="16"
+						key="detail-40"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" isBold="false"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{exclusionExplanation}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="bandedText"
+						mode="Opaque"
+						x="660"
+						y="0"
+						width="218"
+						height="16"
+						key="detail-42"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" isBold="false"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{certGroupName}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="bandedText"
+						mode="Opaque"
+						x="1861"
+						y="0"
+						width="158"
+						height="16"
+						key="detail-44"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"/&gt;
+					&lt;box leftPadding="5" topPadding="3" bottomPadding="3"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Top"&gt;
+						&lt;font fontName="Arial" isBold="false"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{newValue}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+			&lt;/band&gt;
+		&lt;/detail&gt;
+		&lt;columnFooter&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/columnFooter&gt;
+		&lt;pageFooter&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/pageFooter&gt;
+		&lt;summary&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/summary&gt;
+&lt;/jasperReport&gt;
+</DesignXml>
+</JasperTemplate>

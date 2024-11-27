@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent accountName="CN=Carla.Houston,OU=Test,DC=ENH,DC=local" action="ProvisioningComplete" application="Active Directory" attributeName="givenName" attributeValue="Carla" interface="LCM" serverHost="WIN-T21N4E0UF24" source="Scheduler" target="ISIN1000">
+  <Attributes>
+    <Map>
+      <entry key="op" value="Set"/>
+      <entry key="taskResultId" value="0a00030f8d5f1e4f818d7e91a906105f"/>
+    </Map>
+  </Attributes>
+</AuditEvent>

@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE JasperTemplate PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<JasperTemplate name="BusinessRoleCompositionProcessGridReport">
+  <DesignXml>&lt;?xml version="1.0" encoding="UTF-8"  ?&gt;
+&lt;!-- Created with iReport - A designer for JasperReports --&gt;
+&lt;!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd"&gt;
+
+&lt;!-- (c) Copyright 2008 SailPoint Technologies, Inc., All Rights Reserved. --&gt;
+&lt;jasperReport
+		 name="BusinessRoleCompositionProcessGridReport"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Landscape"
+		 pageWidth="580"
+		 pageHeight="40"
+		 columnWidth="580"
+		 columnSpacing="0"
+		 leftMargin="0"
+		 rightMargin="0"
+		 topMargin="0"
+		 bottomMargin="0"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false"&gt;
+	&lt;property name="ireport.scriptlethandling" value="0" /&gt;
+	&lt;property name="ireport.encoding" value="UTF-8" /&gt;
+	&lt;import value="java.util.*" /&gt;
+	&lt;import value="net.sf.jasperreports.engine.*" /&gt;
+	&lt;import value="net.sf.jasperreports.engine.data.*" /&gt;
+
+	&lt;style 
+		name="body"
+		isDefault="false"
+		mode="Transparent"
+		forecolor="#000000"
+		backcolor="#FFFFFF"
+		isStyledText="false"
+		fontName="Arial"
+		fontSize="12"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+
+	&lt;parameter name="id" isForPrompting="true" class="java.lang.String"&gt;
+		&lt;defaultValueExpression &gt;&lt;![CDATA["2c9081ba0d7e9647010d7e9717e20001"]]&gt;&lt;/defaultValueExpression&gt;
+	&lt;/parameter&gt;
+	&lt;parameter name="rowcount" isForPrompting="true" class="java.lang.Integer"&gt;
+		&lt;defaultValueExpression &gt;&lt;![CDATA[new Integer("1")]]&gt;&lt;/defaultValueExpression&gt;
+	&lt;/parameter&gt;
+	&lt;queryString&gt;&lt;![CDATA[select name from spt_process_application pa 
+left outer join spt_process p on p.id = pa.process
+where pa.application = $P{id}]]&gt;&lt;/queryString&gt;
+
+	&lt;field name="description" class="java.lang.String"/&gt;
+	&lt;field name="filters" class="java.lang.String"/&gt;
+	&lt;field name="appName" class="java.lang.String"/&gt;
+
+		&lt;background&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/background&gt;
+		&lt;title&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/title&gt;
+		&lt;pageHeader&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/pageHeader&gt;
+		&lt;columnHeader&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/columnHeader&gt;
+		&lt;detail&gt;
+			&lt;band height="40"  isSplitAllowed="true" &gt;
+				&lt;textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="body"
+						mode="Transparent"
+						x="0"
+						y="20"
+						width="580"
+						height="20"
+						key="textField"
+						stretchType="RelativeToBandHeight"
+						positionType="Float"
+						isRemoveLineWhenBlank="true"
+						isPrintWhenDetailOverflows="true"&gt;
+							&lt;printWhenExpression&gt;&lt;![CDATA[new Boolean($F{description}!=null)]]&gt;&lt;/printWhenExpression&gt;
+						&lt;/reportElement&gt;
+					&lt;box leftPadding="5"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Middle"&gt;
+						&lt;font size="10"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[new String($R{rept_role_comp_grid_col_profile_description} + ": " + $F{description})]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="body"
+						mode="Transparent"
+						x="0"
+						y="0"
+						width="430"
+						height="20"
+						key="textField-1"
+						isPrintWhenDetailOverflows="true"/&gt;
+					&lt;box leftPadding="5"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Middle"&gt;
+						&lt;font size="10"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{filters}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="body"
+						mode="Transparent"
+						x="430"
+						y="0"
+						width="150"
+						height="20"
+						key="textField-2"
+						stretchType="RelativeToBandHeight"
+						isPrintWhenDetailOverflows="true"/&gt;
+					&lt;box leftPadding="5"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Middle"&gt;
+						&lt;font size="10"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{appName}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+			&lt;/band&gt;
+		&lt;/detail&gt;
+		&lt;columnFooter&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/columnFooter&gt;
+		&lt;pageFooter&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/pageFooter&gt;
+		&lt;summary&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/summary&gt;
+&lt;/jasperReport&gt;
+</DesignXml>
+</JasperTemplate>

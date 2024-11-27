@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Widget PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Widget name="CertificationCampaigns" title="widget_certification_campaigns">
+  <Selector>
+    <IdentitySelector>
+      <MatchExpression>
+        <MatchTerm name="rights" value="CertificationCampaignsWidget"/>
+      </MatchExpression>
+    </IdentitySelector>
+  </Selector>
+</Widget>

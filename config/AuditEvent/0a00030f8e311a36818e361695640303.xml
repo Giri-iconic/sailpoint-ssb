@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent action="CancelWorkflow" clientHost="0:0:0:0:0:0:0:1" interface="LCM" serverHost="WIN-T21N4E0UF24" source="spadmin">
+  <Attributes>
+    <Map>
+      <entry key="interface" value="LCM"/>
+      <entry key="taskResultId" value="0a00030f8e311a36818e361526b502f1"/>
+    </Map>
+  </Attributes>
+</AuditEvent>

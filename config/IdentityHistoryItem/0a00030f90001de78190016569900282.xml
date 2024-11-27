@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE IdentityHistoryItem PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<IdentityHistoryItem account="ISIN1004" actor="The Administrator" application="HRMS" certificationType="Account" entryDate="1718010061241" nativeIdentity="ISIN1004" status="Approved" type="Decision">
+  <CertificationAction actorDisplayName="The Administrator" actorName="spadmin" decisionCertificationId="0a00030f90001de78190015fcdf60250" decisionDate="1718010061241" reviewed="true" status="Approved"/>
+  <CertifiableDescriptor>
+    <EntitlementSnapshot accountOnly="true" application="HRMS" displayName="ISIN1004" nativeIdentity="ISIN1004"/>
+  </CertifiableDescriptor>
+  <CertificationLink completed="1718010063398" identitySnapshotId="0a00030f90001de78190015fcb6a024f" type="Focused">
+    <Certifiers>
+      <String>ISIN10000</String>
+    </Certifiers>
+  </CertificationLink>
+  <HistoryIdentity>
+    <Reference class="sailpoint.object.Identity" name="ISIN1004"/>
+  </HistoryIdentity>
+</IdentityHistoryItem>

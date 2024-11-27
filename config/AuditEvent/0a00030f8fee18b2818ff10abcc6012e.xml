@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent accountName="cn=Claire.Divas,ou=Test,dc=iconic,dc=com" action="provision" application="Active Directory" serverHost="WIN-T21N4E0UF24" source="Operations" target="ISIN1003">
+  <Attributes>
+    <Map>
+      <entry key="accountFlags">
+        <value>
+          <List>
+            <String>Normal User Account</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="cn" value="Claire.Divas"/>
+      <entry key="distinguishedName" value="CN=Claire.Divas,OU=Test,DC=iconic,DC=com"/>
+      <entry key="givenName" value="Claire"/>
+      <entry key="memberOf">
+        <value>
+          <List>
+            <String>CN=Domain Users,CN=Users,DC=iconic,DC=com</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="msDS-PrincipalName" value="ICONIC\Claire.Divas"/>
+      <entry key="msNPAllowDialin" value="Not Set"/>
+      <entry key="objectClass">
+        <value>
+          <List>
+            <String>top</String>
+            <String>person</String>
+            <String>organizationalPerson</String>
+            <String>user</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="objectSid" value="S-1-5-21-4221786991-103232591-4293389706-1124"/>
+      <entry key="objectType" value="user"/>
+      <entry key="objectguid" value="{f032b9e3-025d-47e1-882a-977e50695788}"/>
+      <entry key="op">
+        <value>
+          <ObjectOperation>Create</ObjectOperation>
+        </value>
+      </entry>
+      <entry key="primaryGroupDN" value="CN=Domain Users,CN=Users,DC=iconic,DC=com"/>
+      <entry key="primaryGroupID" value="513"/>
+      <entry key="sAMAccountName" value="Claire.Divas"/>
+      <entry key="sn" value="Divas"/>
+    </Map>
+  </Attributes>
+  <String1>Active Directory</String1>
+  <String2>committed</String2>
+</AuditEvent>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE TaskResult PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<TaskResult completed="1718860627777" completionStatus="Success" host="WIN-T21N4E0UF24" launched="1718860625948" launcher="System" name="Check sunset requests for notifications daily" runLength="1" runLengthAverage="1" schedule="Check sunset requests for notifications daily" type="System">
+  <Attributes>
+    <Map>
+      <entry key="sent">
+        <value>
+          <Integer>0</Integer>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+  <Definition>
+    <Reference class="sailpoint.object.TaskDefinition" name="Check Sunset Requests"/>
+  </Definition>
+  <Owner>
+    <Reference class="sailpoint.object.Identity" name="spadmin"/>
+  </Owner>
+</TaskResult>

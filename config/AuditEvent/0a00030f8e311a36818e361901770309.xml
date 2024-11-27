@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent accountName="CN=Active Test,OU=Test,DC=iconic,DC=com" action="AccessRequestStart" application="Active Directory" attributeName="memberOf" attributeValue="&quot;CN=Test entitlement,OU=Test,DC=iconic,DC=com&quot;" clientHost="0:0:0:0:0:0:0:1" interface="LCM" serverHost="WIN-T21N4E0UF24" source="spadmin" target="ICONIC\Active.Test">
+  <Attributes>
+    <Map>
+      <entry key="attachmentConfigList"/>
+      <entry key="attachments"/>
+      <entry key="flow" value="AccessRequest"/>
+      <entry key="id" value="0a00030f8e311a36818e36111be402ce"/>
+      <entry key="interface" value="LCM"/>
+      <entry key="operation" value="EntitlementAdd"/>
+    </Map>
+  </Attributes>
+</AuditEvent>

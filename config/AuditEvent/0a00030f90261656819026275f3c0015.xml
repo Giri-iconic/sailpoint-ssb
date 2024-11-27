@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent action="ProvisioningFailure" interface="LCM" serverHost="WIN-T21N4E0UF24" source="SailPointContextRequestFilter" target="Raheem.Shaik">
+  <Attributes>
+    <Map>
+      <entry key="error1" value="Error(s) reported back from the IQService - Error occurred while setting password for the account. Exception has been thrown by the target of an invocation.One or more input parameters are invalid . HRESULT:[0x800708C5]"/>
+      <entry key="taskResultId" value="0a00030f9011143d8190112349070037"/>
+    </Map>
+  </Attributes>
+  <String1>FailedApplications=Active Directory</String1>
+</AuditEvent>

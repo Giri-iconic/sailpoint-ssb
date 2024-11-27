@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ProvisioningTransaction PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ProvisioningTransaction accountDisplayName="Suresh.Rajaboina" applicationName="Active Directory" identityDisplayName="Suresh.Rajaboina" identityName="Suresh.Rajaboina" integration="Active Directory" name="0000000004" nativeIdentity="CN=Suresh.Rajaboina,OU=Test,DC=Iconic,DC=com" operation="Create" source="LCM" status="Failed" type="Auto">
+  <Attributes>
+    <Map>
+      <entry key="accessRequestId" value="0000000028"/>
+      <entry key="request">
+        <value>
+          <AccountRequest application="Active Directory" nativeIdentity="CN=Suresh.Rajaboina,OU=Test,DC=Iconic,DC=com" op="Create" targetIntegration="Active Directory">
+            <Attributes>
+              <Map>
+                <entry key="provisioningTransactionId" value="0a00030f8e7916b7818e7ab37d650323"/>
+              </Map>
+            </Attributes>
+            <AttributeRequest name="cn" op="Set" value="Suresh.Rajaboina"/>
+            <AttributeRequest name="distinguishedName" op="Set" value="CN=Suresh.Rajaboina,OU=Test,DC=Iconic,DC=com"/>
+            <AttributeRequest name="givenName" op="Set" value="Suresh"/>
+            <AttributeRequest name="sn" op="Set" value="Rajaboina"/>
+            <AttributeRequest name="mail" op="Set" value="suresh.rajaboina"/>
+            <AttributeRequest name="sAMAccountName" op="Set" value="Suresh.Rajaboina"/>
+            <AttributeRequest name="accountExpiry" op="Set">
+              <Value>
+                <Date>1711650600000</Date>
+              </Value>
+            </AttributeRequest>
+            <AttributeRequest name="manager" op="Set" value="CN=Raheem.Shaik,OU=Test,DC=iconic,DC=com"/>
+            <AttributeRequest name="objectType" op="Set" value="User"/>
+            <AttributeRequest name="password" op="Set">
+              <Attributes>
+                <Map>
+                  <entry key="secret" value="true"/>
+                </Map>
+              </Attributes>
+            </AttributeRequest>
+            <AttributeRequest name="IIQDisabled" op="Set">
+              <Value>
+                <Boolean/>
+              </Value>
+            </AttributeRequest>
+            <AttributeRequest name="msNPAllowDialin" op="Set" value="Not Set"/>
+            <ProvisioningResult status="committed"/>
+          </AccountRequest>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+</ProvisioningTransaction>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ManagedAttribute PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ManagedAttribute aggregated="true" attribute="memberOf" displayName="ICONIC\Cloneable Domain Controllers" hash="794c3fb4245e824e576491a35f5243efe4819bae" lastRefresh="1717737152763" requestable="true" type="group" uuid="{c8f2c2d5-6857-482a-a419-f8ca41a2b418}" value="CN=Cloneable Domain Controllers,CN=Users,DC=iconic,DC=com">
+  <ApplicationRef>
+    <Reference class="sailpoint.object.Application" name="Active Directory"/>
+  </ApplicationRef>
+  <Attributes>
+    <Map>
+      <entry key="GroupScope" value="Global"/>
+      <entry key="GroupType" value="Security"/>
+      <entry key="cn" value="Cloneable Domain Controllers"/>
+      <entry key="description" value="Members of this group that are domain controllers may be cloned."/>
+      <entry key="msDS-PrincipalName" value="ICONIC\Cloneable Domain Controllers"/>
+      <entry key="objectSid" value="S-1-5-21-4221786991-103232591-4293389706-522"/>
+      <entry key="objectguid" value="{c8f2c2d5-6857-482a-a419-f8ca41a2b418}"/>
+      <entry key="sAMAccountName" value="Cloneable Domain Controllers"/>
+      <entry key="sysDescriptions"/>
+    </Map>
+  </Attributes>
+</ManagedAttribute>

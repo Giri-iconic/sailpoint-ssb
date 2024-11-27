@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent accountName="CN=Carla.Houston,OU=Test,DC=ENH,DC=local" action="ApproveLineItem" application="Active Directory" attributeName="cn" attributeValue="Carla.Houston" clientHost="192.168.56.1" interface="LCM" serverHost="WIN-T21N4E0UF24" source="The Administrator" target="ISIN1000">
+  <Attributes>
+    <Map>
+      <entry key="currentStep" value="Approval"/>
+      <entry key="interface" value="LCM"/>
+      <entry key="operation" value="Set"/>
+      <entry key="requester" value="Scheduler"/>
+    </Map>
+  </Attributes>
+</AuditEvent>

@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Identity PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Identity correlated="true" lastRefresh="1718009926052" managerStatus="true" name="ISIN10000">
+  <Attributes>
+    <Map>
+      <entry key="depratment" value="IAM"/>
+      <entry key="displayName" value="Test Test"/>
+      <entry key="emp_id" value="ISIN10000"/>
+      <entry key="firstname" value="Test"/>
+      <entry key="lastname" value="Test"/>
+      <entry key="type" value="employee"/>
+    </Map>
+  </Attributes>
+  <AttributeMetaDatas>
+    <AttributeMetaData attribute="firstname" source="Test:First Name"/>
+    <AttributeMetaData attribute="lastname" source="Test:Last Name"/>
+    <AttributeMetaData attribute="emp_id" source="HRMS:Emp Id"/>
+    <AttributeMetaData attribute="manager" source="HRMS:Mgr"/>
+    <AttributeMetaData attribute="type" source="HRMS:Type"/>
+    <AttributeMetaData attribute="depratment" source="HRMS:Dept"/>
+  </AttributeMetaDatas>
+  <Manager>
+    <Reference class="sailpoint.object.Identity" name="ISIN1003"/>
+  </Manager>
+  <Links>
+    <Link displayName="ISIN10000" identity="ISIN10000" lastRefresh="1710507132845">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application" name="Test"/>
+      </ApplicationRef>
+      <Attributes>
+        <Map>
+          <entry key="Address" value="Hyd"/>
+          <entry key="City" value="Hyd"/>
+          <entry key="Country" value="India"/>
+          <entry key="DOB" value="20/5/1988"/>
+          <entry key="DOJ" value="21/2/2011"/>
+          <entry key="Dept" value="IAM"/>
+          <entry key="Desgn" value="Senior Manager"/>
+          <entry key="Emp Id" value="ISIN10000"/>
+          <entry key="First Name" value="Test"/>
+          <entry key="Gender" value="F"/>
+          <entry key="Last Name" value="Test"/>
+          <entry key="Mgr" value="ISIN10000"/>
+          <entry key="Office Loc" value="Hyd"/>
+          <entry key="Org" value="ENH I secure"/>
+          <entry key="Pincode" value="500001"/>
+          <entry key="SSN" value="555-50-1004"/>
+          <entry key="Salary" value="100000"/>
+          <entry key="State" value="Telangana"/>
+          <entry key="Status" value="Active"/>
+        </Map>
+      </Attributes>
+    </Link>
+    <Link identity="CN=Test.Test,OU=Test,DC=ENH,DC=local" manuallyCorrelated="true" uuid="{6e3a7f55-b97d-4250-b1c2-ec4b4b96b1a3}">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application" name="Active Directory old"/>
+      </ApplicationRef>
+      <Attributes>
+        <Map>
+          <entry key="accountFlags">
+            <value>
+              <List>
+                <String>Normal User Account</String>
+              </List>
+            </value>
+          </entry>
+          <entry key="cn" value="Test.Test"/>
+          <entry key="distinguishedName" value="CN=Test.Test,OU=Test,DC=ENH,DC=local"/>
+          <entry key="givenName" value="Test"/>
+          <entry key="memberOf"/>
+          <entry key="msDS-PrincipalName" value="ENH\Test.Test"/>
+          <entry key="msNPAllowDialin" value="Not Set"/>
+          <entry key="objectClass">
+            <value>
+              <List>
+                <String>top</String>
+                <String>person</String>
+                <String>organizationalPerson</String>
+                <String>user</String>
+              </List>
+            </value>
+          </entry>
+          <entry key="objectSid" value="S-1-5-21-672954846-2807897034-3921798956-2215"/>
+          <entry key="objectType" value="user"/>
+          <entry key="objectguid" value="{6e3a7f55-b97d-4250-b1c2-ec4b4b96b1a3}"/>
+          <entry key="sAMAccountName" value="Test.Test"/>
+          <entry key="sn" value="Test"/>
+        </Map>
+      </Attributes>
+    </Link>
+    <Link disabled="true" displayName="ISIN10000" identity="ISIN10000" lastRefresh="1717996413458">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application" name="HRMS"/>
+      </ApplicationRef>
+      <Attributes>
+        <Map>
+          <entry key="Address" value="Hyd"/>
+          <entry key="City" value="Hyd"/>
+          <entry key="Country" value="India"/>
+          <entry key="DOB" value="20/5/1988"/>
+          <entry key="DOJ" value="21/2/2011"/>
+          <entry key="Dept" value="IAM"/>
+          <entry key="Desgn" value="Senior Manager"/>
+          <entry key="Emp Id" value="ISIN10000"/>
+          <entry key="First Name" value="Test"/>
+          <entry key="Gender" value="F"/>
+          <entry key="IIQDisabled" value="true"/>
+          <entry key="Last Name" value="Test"/>
+          <entry key="Mgr" value="ISIN1003"/>
+          <entry key="Office Loc" value="Hyd"/>
+          <entry key="Org" value="ENH I secure"/>
+          <entry key="Pincode" value="500001"/>
+          <entry key="SSN" value="555-50-1004"/>
+          <entry key="Salary" value="100000"/>
+          <entry key="State" value="Telangana"/>
+          <entry key="Status" value="inactive"/>
+          <entry key="Type" value="employee"/>
+        </Map>
+      </Attributes>
+    </Link>
+  </Links>
+  <Scorecard/>
+</Identity>

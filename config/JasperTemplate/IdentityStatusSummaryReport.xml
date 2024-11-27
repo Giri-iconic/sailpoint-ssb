@@ -1,0 +1,446 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE JasperTemplate PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<JasperTemplate name="IdentityStatusSummaryReport">
+  <DesignXml>&lt;?xml version="1.0" encoding="UTF-8"  ?&gt;
+&lt;!-- Created with iReport - A designer for JasperReports --&gt;
+&lt;!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd"&gt;
+&lt;jasperReport
+		 name="IdentityStatusSummaryReport"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="612"
+		 pageHeight="792"
+		 columnWidth="552"
+		 columnSpacing="0"
+		 leftMargin="30"
+		 rightMargin="30"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="AllSectionsNoDetail"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false"&gt;
+	&lt;property name="ireport.scriptlethandling" value="0" /&gt;
+	&lt;property name="ireport.encoding" value="UTF-8" /&gt;
+	&lt;import value="java.util.*" /&gt;
+	&lt;import value="net.sf.jasperreports.engine.*" /&gt;
+	&lt;import value="net.sf.jasperreports.engine.data.*" /&gt;
+
+	&lt;style 
+		name="title"
+		isDefault="false"
+		fontName="Verdana"
+		fontSize="20"
+		isBold="true"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="spBlue"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#FFFFFF"
+		backcolor="#1A7182"
+		isStyledText="false"
+		fontName="Verdana"
+		fontSize="12"
+		isBold="true"
+		pdfFontName="Helvetica"
+		isBlankWhenNull="true"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="footer"
+		isDefault="false"
+		forecolor="#000000"
+		fontName="Verdana"
+		fontSize="10"
+	&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="summaryText"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#000000"
+		backcolor="#FFFFFF"
+		topBorder="None"
+		topBorderColor="#FFFFFF"
+		bottomBorder="1Point"
+		bottomBorderColor="#DDDDDD"
+		fontName="Verdana"
+		fontSize="10"
+		isBlankWhenNull="true"
+	&gt;
+					&lt;box&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#FFFFFF"/&gt;
+					&lt;bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#DDDDDD"/&gt;
+&lt;/box&gt;
+	&lt;/style&gt;
+	&lt;style 
+		name="bandedText"
+		isDefault="false"
+		mode="Opaque"
+		forecolor="#000000"
+		backcolor="#FFFFFF"
+		topBorder="None"
+		topBorderColor="#FFFFFF"
+		bottomBorder="1Point"
+		bottomBorderColor="#DDDDDD"
+		fontName="Verdana"
+		fontSize="10"
+		isBlankWhenNull="true"
+	&gt;
+					&lt;box&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#FFFFFF"/&gt;
+					&lt;bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#DDDDDD"/&gt;
+&lt;/box&gt;
+
+		&lt;conditionalStyle&gt;
+			&lt;conditionExpression&gt;&lt;![CDATA[new Boolean($V{REPORT_COUNT}.intValue() % 2 == 0)]]&gt;&lt;/conditionExpression&gt;
+			&lt;style 
+				isDefault="false"
+				backcolor="#EEEEEE"
+			&gt;
+			&lt;/style&gt;
+		&lt;/conditionalStyle&gt;
+	&lt;/style&gt;
+
+	&lt;parameter name="activeIdentitiesCount" isForPrompting="true" class="java.lang.String"/&gt;
+	&lt;parameter name="inactiveIdentitiesCount" isForPrompting="true" class="java.lang.String"/&gt;
+	&lt;parameter name="totalIdentitiesCount" isForPrompting="true" class="java.lang.String"/&gt;
+
+	&lt;field name="inactive" class="java.lang.String"/&gt;
+	&lt;field name="name" class="java.lang.String"/&gt;
+
+		&lt;background&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/background&gt;
+		&lt;title&gt;
+			&lt;band height="35"  isSplitAllowed="true" &gt;
+				&lt;textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="title"
+						x="2"
+						y="1"
+						width="545"
+						height="30"
+						forecolor="#525759"
+						key="textField-1"/&gt;
+					&lt;box&gt;&lt;/box&gt;
+					&lt;textElement verticalAlignment="Middle"&gt;
+						&lt;font pdfFontName="Helvetica" size="20"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_identity_status_summary_title}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+			&lt;/band&gt;
+		&lt;/title&gt;
+		&lt;pageHeader&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/pageHeader&gt;
+		&lt;columnHeader&gt;
+			&lt;band height="25"  isSplitAllowed="true" &gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="spBlue"
+						x="0"
+						y="0"
+						width="200"
+						height="25"
+						key="textField-25"
+						isRemoveLineWhenBlank="true"
+						isPrintInFirstWholeBand="true"
+						isPrintWhenDetailOverflows="true"/&gt;
+					&lt;box leftPadding="5"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement textAlignment="Left" verticalAlignment="Middle"&gt;
+						&lt;font fontName="Arial" pdfFontName="Helvetica" size="12" isPdfEmbedded ="false" pdfEncoding ="Cp1250"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_identity_status_summary_name}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="spBlue"
+						x="200"
+						y="0"
+						width="200"
+						height="25"
+						key="textField-27"
+						isRemoveLineWhenBlank="true"
+						isPrintInFirstWholeBand="true"
+						isPrintWhenDetailOverflows="true"/&gt;
+					&lt;box leftPadding="5"&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement textAlignment="Left" verticalAlignment="Middle"&gt;
+						&lt;font fontName="Arial" pdfFontName="Helvetica" size="12" isPdfEmbedded ="false" pdfEncoding ="Cp1250"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_identity_status_summary_status}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+			&lt;/band&gt;
+		&lt;/columnHeader&gt;
+		&lt;detail&gt;
+			&lt;band height="20"  isSplitAllowed="true" &gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="bandedText"
+						x="0"
+						y="0"
+						width="200"
+						height="20"
+						key="textField-26"
+						stretchType="RelativeToBandHeight"/&gt;
+					&lt;box&gt;					&lt;pen lineWidth="0.0"/&gt;
+					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#FFFFFF"/&gt;
+					&lt;leftPen lineWidth="0.0"/&gt;
+					&lt;bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#DDDDDD"/&gt;
+					&lt;rightPen lineWidth="0.0"/&gt;
+&lt;/box&gt;
+					&lt;textElement&gt;
+						&lt;font/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$F{name}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="bandedText"
+						x="200"
+						y="0"
+						width="200"
+						height="20"
+						key="textField-28"
+						stretchType="RelativeToBandHeight"&gt;
+							&lt;printWhenExpression&gt;&lt;![CDATA[java.lang.Boolean.valueOf( $F{inactive} )]]&gt;&lt;/printWhenExpression&gt;
+						&lt;/reportElement&gt;
+					&lt;box&gt;					&lt;pen lineWidth="0.0"/&gt;
+					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#FFFFFF"/&gt;
+					&lt;leftPen lineWidth="0.0"/&gt;
+					&lt;bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#DDDDDD"/&gt;
+					&lt;rightPen lineWidth="0.0"/&gt;
+&lt;/box&gt;
+					&lt;textElement&gt;
+						&lt;font/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_identity_status_summary_inactive}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="bandedText"
+						x="200"
+						y="0"
+						width="200"
+						height="20"
+						key="textField-29"
+						stretchType="RelativeToBandHeight"&gt;
+							&lt;printWhenExpression&gt;&lt;![CDATA[Boolean.valueOf( Boolean.valueOf( $F{inactive} ).equals( Boolean.FALSE ) )]]&gt;&lt;/printWhenExpression&gt;
+						&lt;/reportElement&gt;
+					&lt;box&gt;					&lt;pen lineWidth="0.0"/&gt;
+					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#FFFFFF"/&gt;
+					&lt;leftPen lineWidth="0.0"/&gt;
+					&lt;bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#DDDDDD"/&gt;
+					&lt;rightPen lineWidth="0.0"/&gt;
+&lt;/box&gt;
+					&lt;textElement&gt;
+						&lt;font/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_identity_status_summary_active}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+			&lt;/band&gt;
+		&lt;/detail&gt;
+		&lt;columnFooter&gt;
+			&lt;band height="0"  isSplitAllowed="true" &gt;
+			&lt;/band&gt;
+		&lt;/columnFooter&gt;
+		&lt;pageFooter&gt;
+			&lt;band height="21"  isSplitAllowed="true" &gt;
+				&lt;textField isStretchWithOverflow="true" pattern="EEEEE dd MMMMM yyyy hh:mm a" isBlankWhenNull="false" evaluationTime="Report" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="footer"
+						x="0"
+						y="5"
+						width="290"
+						height="14"
+						key="textField-16"/&gt;
+					&lt;box&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement verticalAlignment="Bottom"&gt;
+						&lt;font size="10"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.util.Date"&gt;&lt;![CDATA[new java.util.Date()]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="false" evaluationTime="Page" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="footer"
+						x="412"
+						y="5"
+						width="80"
+						height="14"
+						key="textField-17"/&gt;
+					&lt;box&gt;					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+					&lt;bottomPen lineWidth="0.0" lineColor="#000000"/&gt;
+					&lt;rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/&gt;
+&lt;/box&gt;
+					&lt;textElement textAlignment="Right" verticalAlignment="Bottom"&gt;
+						&lt;font/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[msg($R{rept_current_page}, $V{PAGE_NUMBER}) + " "]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="true" isBlankWhenNull="false" evaluationTime="Report" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						x="497"
+						y="5"
+						width="50"
+						height="14"
+						key="textField-18"/&gt;
+					&lt;box&gt;&lt;/box&gt;
+					&lt;textElement verticalAlignment="Bottom"&gt;
+						&lt;font fontName="Verdana"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[msg($R{rept_current_page_of}, $V{PAGE_NUMBER})]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+			&lt;/band&gt;
+		&lt;/pageFooter&gt;
+		&lt;summary&gt;
+			&lt;band height="87"  isSplitAllowed="true" &gt;
+				&lt;textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="summaryText"
+						x="2"
+						y="40"
+						width="128"
+						height="15"
+						key="textField-19"/&gt;
+					&lt;box&gt;					&lt;pen lineWidth="0.0"/&gt;
+					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#FFFFFF"/&gt;
+					&lt;leftPen lineWidth="0.0"/&gt;
+					&lt;bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#DDDDDD"/&gt;
+					&lt;rightPen lineWidth="0.0"/&gt;
+&lt;/box&gt;
+					&lt;textElement&gt;
+						&lt;font/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_identity_status_summary_active_identities}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="summaryText"
+						x="2"
+						y="56"
+						width="128"
+						height="15"
+						key="textField-20"/&gt;
+					&lt;box&gt;					&lt;pen lineWidth="0.0"/&gt;
+					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#FFFFFF"/&gt;
+					&lt;leftPen lineWidth="0.0"/&gt;
+					&lt;bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#DDDDDD"/&gt;
+					&lt;rightPen lineWidth="0.0"/&gt;
+&lt;/box&gt;
+					&lt;textElement&gt;
+						&lt;font/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_identity_status_summary_inactive_identities}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="summaryText"
+						x="2"
+						y="72"
+						width="128"
+						height="15"
+						key="textField-21"/&gt;
+					&lt;box&gt;					&lt;pen lineWidth="0.0"/&gt;
+					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#FFFFFF"/&gt;
+					&lt;leftPen lineWidth="0.0"/&gt;
+					&lt;bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#DDDDDD"/&gt;
+					&lt;rightPen lineWidth="0.0"/&gt;
+&lt;/box&gt;
+					&lt;textElement&gt;
+						&lt;font/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_identity_status_summary_total_identities}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="summaryText"
+						x="130"
+						y="40"
+						width="128"
+						height="15"
+						key="textField-22"/&gt;
+					&lt;box&gt;					&lt;pen lineWidth="0.0"/&gt;
+					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#FFFFFF"/&gt;
+					&lt;leftPen lineWidth="0.0"/&gt;
+					&lt;bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#DDDDDD"/&gt;
+					&lt;rightPen lineWidth="0.0"/&gt;
+&lt;/box&gt;
+					&lt;textElement&gt;
+						&lt;font/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$P{activeIdentitiesCount}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="summaryText"
+						x="130"
+						y="56"
+						width="128"
+						height="15"
+						key="textField-23"/&gt;
+					&lt;box&gt;					&lt;pen lineWidth="0.0"/&gt;
+					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#FFFFFF"/&gt;
+					&lt;leftPen lineWidth="0.0"/&gt;
+					&lt;bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#DDDDDD"/&gt;
+					&lt;rightPen lineWidth="0.0"/&gt;
+&lt;/box&gt;
+					&lt;textElement&gt;
+						&lt;font/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$P{inactiveIdentitiesCount}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="summaryText"
+						x="130"
+						y="72"
+						width="128"
+						height="15"
+						key="textField-24"/&gt;
+					&lt;box&gt;					&lt;pen lineWidth="0.0"/&gt;
+					&lt;topPen lineWidth="0.0" lineStyle="Solid" lineColor="#FFFFFF"/&gt;
+					&lt;leftPen lineWidth="0.0"/&gt;
+					&lt;bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#DDDDDD"/&gt;
+					&lt;rightPen lineWidth="0.0"/&gt;
+&lt;/box&gt;
+					&lt;textElement&gt;
+						&lt;font/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$P{totalIdentitiesCount}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+				&lt;textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" &gt;
+					&lt;reportElement
+						style="title"
+						x="1"
+						y="5"
+						width="545"
+						height="30"
+						forecolor="#525759"
+						key="textField-30"/&gt;
+					&lt;box&gt;&lt;/box&gt;
+					&lt;textElement verticalAlignment="Middle"&gt;
+						&lt;font pdfFontName="Helvetica" size="20"/&gt;
+					&lt;/textElement&gt;
+				&lt;textFieldExpression   class="java.lang.String"&gt;&lt;![CDATA[$R{rept_identity_status_summary_summary_title}]]&gt;&lt;/textFieldExpression&gt;
+				&lt;/textField&gt;
+			&lt;/band&gt;
+		&lt;/summary&gt;
+&lt;/jasperReport&gt;
+</DesignXml>
+</JasperTemplate>

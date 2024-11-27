@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE TaskDefinition PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<TaskDefinition executor="sailpoint.reporting.LiveReportExecutor" name="Roles by Application Report" progressMode="Percentage" resultAction="Rename" subType="Role Management Reports" template="true" type="LiveReport">
+  <Attributes>
+    <Map>
+      <entry key="report">
+        <value>
+          <LiveReport disablePreview="true" title="Roles by Application Report">
+            <DataSource dataSourceClass="sailpoint.reporting.datasource.ApplicationBundleDataSource" type="Java">
+              <QueryParameters>
+                <Parameter argument="applications" property="profiles.application.id"/>
+                <Parameter argument="includeInherited" property="includeInherited" valueClass="boolean"/>
+                <Parameter argument="showAllApps" property="showAllApps" valueClass="boolean"/>
+              </QueryParameters>
+            </DataSource>
+            <ReportForm>
+              <Reference class="sailpoint.object.Form" name="Roles by Application Report Custom Fields"/>
+            </ReportForm>
+            <Columns>
+              <ReportColumnConfig field="role" header="rept_role_details_col_role" property="name" sortable="true" width="110"/>
+              <ReportColumnConfig field="owner" header="rept_role_details_col_owner" property="owner.name" sortable="true" width="110"/>
+              <ReportColumnConfig field="type" header="rept_role_details_col_type" property="type" sortable="true" width="110"/>
+              <ReportColumnConfig field="status" header="status" property="disabled" sortable="true" width="110"/>
+              <ReportColumnConfig field="relation" header="rept_role_by_app_relation" width="110"/>
+              <ReportColumnConfig field="classification" header="rept_role_details_col_classifications" width="110"/>
+              <ReportColumnConfig field="elevatedAccess" header="rept_role_details_col_elevated_access" property="iiqElevatedAccess" sortable="true" width="110"/>
+            </Columns>
+          </LiveReport>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+  <Description>Displays all roles for the chosen application(s).</Description>
+  <RequiredRights>
+    <Reference class="sailpoint.object.SPRight" name="FullAccessBusinessRoleReport"/>
+  </RequiredRights>
+  <Signature>
+    <Inputs>
+      <Argument name="applications" type="Application">
+        <Description>rept_input_biz_role_report_app</Description>
+      </Argument>
+      <Argument name="includeInherited" type="boolean">
+        <Description>rept_role_by_app_input_inherit</Description>
+      </Argument>
+      <Argument name="showAllApps" type="boolean">
+        <Description>rept_role_by_app_input_show_all_apps</Description>
+      </Argument>
+    </Inputs>
+  </Signature>
+</TaskDefinition>

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent accountName="CN=Raheem.Shaik,OU=Test,DC=iconic,DC=com" action="PasswordChange" application="Active Directory" attributeName="password" clientHost="192.168.56.1" interface="LCM" serverHost="WIN-T21N4E0UF24" source="SailPointContextRequestFilter" target="Raheem.Shaik">
+  <Attributes>
+    <Map>
+      <entry key="interface" value="LCM"/>
+    </Map>
+  </Attributes>
+</AuditEvent>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent action="ProvisioningFailure" interface="RapidSetup" serverHost="WIN-T21N4E0UF24" source="Operations" target="ISIN1003">
+  <Attributes>
+    <Map>
+      <entry key="error1" value="Exception occurred while executing the RPCRequest: Errors returned from IQService. Object reference not set to an instance of an object.. HRESULT:[0x80004003]"/>
+      <entry key="error2" value="Access request verification failed, the identity ISIN1003 was no longer found. Marking request verified with failures."/>
+      <entry key="taskResultId" value="0a00030f8fee18b2818ff0e1336e0080"/>
+    </Map>
+  </Attributes>
+  <String1>FailedApplications=Active Directory</String1>
+</AuditEvent>

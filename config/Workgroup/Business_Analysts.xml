@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Identity PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Identity name="Business Analysts" workgroup="true">
+  <Attributes>
+    <Map>
+      <entry key="displayName" value="Business Analysts"/>
+    </Map>
+  </Attributes>
+  <Capabilities>
+    <Reference class="sailpoint.object.Capability" name="RapidSetupAdministrator"/>
+    <Reference class="sailpoint.object.Capability" name="RapidSetupBirthrightRoleAdministrator"/>
+  </Capabilities>
+  <Description>IdentityIQ analysts responsible for configurations related to
+business data</Description>
+  <Owner>
+    <Reference class="sailpoint.object.Identity" name="spadmin"/>
+  </Owner>
+  <Preferences>
+    <Map>
+      <entry key="workgroupNotificationOption">
+        <value>
+          <WorkgroupNotifationOption>MembersOnly</WorkgroupNotifationOption>
+        </value>
+      </entry>
+    </Map>
+  </Preferences>
+</Identity>

@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ProvisioningTransaction PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ProvisioningTransaction accountDisplayName="Claire.Divas" applicationName="Active Directory" identityDisplayName="ISIN1003" identityName="ISIN1003" integration="Active Directory" name="0000000010" nativeIdentity="cn=Claire.Divas,ou=Test,dc=iconic,dc=com" operation="Create" source="RapidSetup" status="Failed" type="Auto">
+  <Attributes>
+    <Map>
+      <entry key="accessRequestId" value="0000000043"/>
+      <entry key="request">
+        <value>
+          <AccountRequest application="Active Directory" assignmentIds="a9fb7cca49bd43c08ebd1e2dd351a965" nativeIdentity="cn=Claire.Divas,ou=Test,dc=iconic,dc=com" op="Create">
+            <Attributes>
+              <Map>
+                <entry key="flow" value="Lifecycle"/>
+                <entry key="interface" value="LCM"/>
+                <entry key="nativeIdUpdated">
+                  <value>
+                    <Boolean>true</Boolean>
+                  </value>
+                </entry>
+                <entry key="operation" value="Create"/>
+                <entry key="provisioningTransactionId" value="0a00030f8fee18b28190006aab6a04e1"/>
+              </Map>
+            </Attributes>
+            <AttributeRequest name="memberOf" op="Add">
+              <Value>
+                <List>
+                  <String>CN=Test entitlement,OU=Test,DC=iconic,DC=com</String>
+                  <String>CN=Time sheet access,OU=Test,DC=iconic,DC=com</String>
+                </List>
+              </Value>
+            </AttributeRequest>
+            <AttributeRequest name="objectType" op="Set" value="User"/>
+            <AttributeRequest name="sAMAccountName" op="Set" value="Claire.Divas"/>
+            <AttributeRequest name="password" op="Set">
+              <Attributes>
+                <Map>
+                  <entry key="secret" value="true"/>
+                </Map>
+              </Attributes>
+            </AttributeRequest>
+            <AttributeRequest name="IIQDisabled" op="Set">
+              <Value>
+                <Boolean/>
+              </Value>
+            </AttributeRequest>
+            <AttributeRequest name="givenName" op="Set" value="Claire"/>
+            <AttributeRequest name="sn" op="Set" value="Divas"/>
+            <AttributeRequest name="msNPAllowDialin" op="Set" value="Not Set"/>
+            <ProvisioningResult status="failed">
+              <Errors>
+                <Message key="Exception occurred while executing the RPCRequest: Errors returned from IQService. &quot;The object already exists. 00000524: UpdErr: DSID-031A11EE, problem 6005 (ENTRY_EXISTS), data 0 . HRESULT:[0x80071392] For identity: cn=Claire.Divas,ou=Test,dc=iconic,dc=com&quot;" type="Error"/>
+              </Errors>
+            </ProvisioningResult>
+          </AccountRequest>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+</ProvisioningTransaction>

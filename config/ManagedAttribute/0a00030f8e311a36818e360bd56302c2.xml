@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ManagedAttribute PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ManagedAttribute aggregated="true" attribute="memberOf" displayName="ICONIC\Tme sheet access" hash="a6ea6b81c254e95379d9c7043519f6243b76a5e0" lastRefresh="1717737154990" requestable="true" type="group" uuid="{ee1e2b37-9b50-49e2-8634-16240ace1c53}" value="CN=Time sheet access,OU=Test,DC=iconic,DC=com">
+  <ApplicationRef>
+    <Reference class="sailpoint.object.Application" name="Active Directory"/>
+  </ApplicationRef>
+  <Attributes>
+    <Map>
+      <entry key="GroupScope" value="Domain local"/>
+      <entry key="GroupType" value="Security"/>
+      <entry key="cn" value="Time sheet access"/>
+      <entry key="msDS-PrincipalName" value="ICONIC\Time sheet access"/>
+      <entry key="objectSid" value="S-1-5-21-4221786991-103232591-4293389706-1105"/>
+      <entry key="objectguid" value="{ee1e2b37-9b50-49e2-8634-16240ace1c53}"/>
+      <entry key="sAMAccountName" value="Time sheet access"/>
+      <entry key="sysDescriptions">
+        <value>
+          <Map>
+            <entry key="en_US"/>
+          </Map>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+  <Owner>
+    <Reference class="sailpoint.object.Identity" name="spadmin"/>
+  </Owner>
+</ManagedAttribute>

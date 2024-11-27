@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ServiceDefinition PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ServiceDefinition hosts="global" interval="3600" name="FullText">
+  <Attributes>
+    <Map>
+      <entry key="executionMode" value="automatic"/>
+    </Map>
+  </Attributes>
+  <Description>
+Service definition for refreshing full text indexes.  The executionMode may be either "scheduled" or "automatic".  The default if not specified is scheduled.
+    </Description>
+</ServiceDefinition>

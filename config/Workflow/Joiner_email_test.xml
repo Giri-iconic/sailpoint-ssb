@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Workflow PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Workflow explicitTransitions="true" libraries="Identity" name="Joiner email test" type="IdentityLifecycle">
+  <Variable input="true" name="trigger">
+    <Description>The IdentityTrigger</Description>
+  </Variable>
+  <Variable input="true" name="event" transient="true">
+    <Description>The IdentityChangeEvent.  It can be used to build
+      the provisioning plan, but does not need to be
+      persisted with the case, so marked as transient.</Description>
+  </Variable>
+  <Variable input="true" name="identityName">
+    <Description>The name of the identity.</Description>
+  </Variable>
+  <Description>Process a new employee.</Description>
+  <Step action="script:log.error(&quot;===============Entered Start Step ===============&quot;);" icon="Start" name="Start" posX="74" posY="10">
+    <Transition to="Process user"/>
+  </Step>
+  <Step action="rule:AD_Joiner_Provision_Rule" icon="Message" name="Process user" posX="348" posY="10" resultVariable="plan">
+    <Description>Process the user that joined.</Description>
+    <Transition to="Provisioning"/>
+  </Step>
+  <Step icon="Provision" name="Provisioning" posX="509" posY="10">
+    <Arg name="identityEmailTemplate"/>
+    <Arg name="enableRetryRequest"/>
+    <Arg name="securityOfficerElectronicSignature"/>
+    <Arg name="fallbackApprover"/>
+    <Arg name="endOnManualWorkItems"/>
+    <Arg name="userEmailTemplate"/>
+    <Arg name="policiesToCheck"/>
+    <Arg name="project"/>
+    <Arg name="workItemComments"/>
+    <Arg name="identityRequestId"/>
+    <Arg name="approvalSplitPoint"/>
+    <Arg name="source"/>
+    <Arg name="identityDisplayName"/>
+    <Arg name="foregroundProvisioning"/>
+    <Arg name="ownerElectronicSignature"/>
+    <Arg name="batchRequestItemId"/>
+    <Arg name="saveUnmanagedPlan_WithProjectArgument"/>
+    <Arg name="splitPlans"/>
+    <Arg name="doRefresh"/>
+    <Arg name="plan"/>
+    <Arg name="flow"/>
+    <Arg name="identityElectronicSignature"/>
+    <Arg name="identityName"/>
+    <Arg name="approvalSet"/>
+    <Arg name="violationReviewDecision"/>
+    <Arg name="filterRejects"/>
+    <Arg name="splitProjects"/>
+    <Arg name="requireCommentsForDenial"/>
+    <Arg name="requesterEmailTemplate"/>
+    <Arg name="approvalEmailTemplate"/>
+    <Arg name="ticketManagementApplication"/>
+    <Arg name="securityOfficerName"/>
+    <Arg name="approvingIdentities"/>
+    <Arg name="managerEmailTemplate"/>
+    <Arg name="ticketId"/>
+    <Arg name="approvalScheme"/>
+    <Arg name="allowRequestsWithViolations"/>
+    <Arg name="workItemPriority"/>
+    <Arg name="managerElectronicSignature"/>
+    <Arg name="requireViolationReviewComments"/>
+    <Arg name="splitApprovalSet"/>
+    <Arg name="approvalMode"/>
+    <Arg name="trace"/>
+    <Arg name="endOnProvisioningForms"/>
+    <Arg name="splitWorkItemComments"/>
+    <Arg name="requireCommentsForApproval"/>
+    <Arg name="notificationScheme"/>
+    <Arg name="policyViolations"/>
+    <Arg name="policyScheme"/>
+    <Arg name="setPreviousApprovalDecisions"/>
+    <Arg name="optimisticProvisioning"/>
+    <Arg name="securityOfficerEmailTemplate"/>
+    <WorkflowRef>
+      <Reference class="sailpoint.object.Workflow" name="LCM Provisioning"/>
+    </WorkflowRef>
+    <Transition to="Add notification attributes"/>
+  </Step>
+  <Step icon="Stop" name="Stop" posX="416" posY="169"/>
+  <Step icon="Default" name="Add notification attributes" posX="630" posY="7">
+    <Script>
+      <Source>
+			import sailpoint.object.Identity;
+			import sailpoint.object.WorkflowCase;
+			
+
+			Identity cube = context.getObjectByName(Identity.class, identityName);
+			
+			String identityDisplayName = cube.getDisplayName();
+			
+			WorkflowCase c = wfcontext.getWorkflowCase();
+			c.put("identityDisplayName", identityDisplayName);
+
+			
+
+			
+			
+
+     </Source>
+    </Script>
+    <Transition to="Notify user"/>
+  </Step>
+  <Step action="call:sendMultipleNotifications" configForm="Provisioning Notification Step Form" icon="Email" name="Notify user" posX="632" posY="170">
+    <Arg name="requesterEmail" value="script:getEmail(launcher)"/>
+    <Arg name="otherUsersToNotifyEmailTemplate" value="ADGM Manage Engine Ticket Creation Joiner"/>
+    <Arg name="notificationScheme" value="otherUsers"/>
+    <Arg name="identityName" value="ref:identityName"/>
+    <Arg name="userEmailTemplate" value="ADGM Manage Engine Ticket Creation Joiner"/>
+    <Arg name="source" value="ref:source"/>
+    <Arg name="managerEmail" value="script:getManagersEmail(identityName, plan)"/>
+    <Arg name="otherUsersToNotify" value="spadmin"/>
+    <Arg name="trace" value="ref:trace"/>
+    <Arg name="requesterEmailTemplate"/>
+    <Arg name="userEmail" value="script:getUserEmail(identityName, plan)"/>
+    <Arg name="securityOfficerName"/>
+    <Arg name="securityOfficerEmailTemplate"/>
+    <Arg name="plan" value="ref:plan"/>
+    <Arg name="managerEmailTemplate"/>
+    <Arg name="flow" value="ref:flow"/>
+    <Arg name="launcher" value="ref:launcher"/>
+    <Description>
+      	  Notify the various actors specified on notification scheme.
+        </Description>
+    <Transition to="Stop"/>
+  </Step>
+</Workflow>

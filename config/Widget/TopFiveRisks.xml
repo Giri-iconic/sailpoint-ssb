@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Widget PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Widget name="TopFiveRisks" title="widget_top_five_risks">
+  <Selector>
+    <IdentitySelector>
+      <MatchExpression>
+        <MatchTerm name="rights" value="ViewRiskScoreChart"/>
+        <MatchTerm name="rights" value="ViewApplicationRiskScoreChart"/>
+      </MatchExpression>
+    </IdentitySelector>
+  </Selector>
+</Widget>

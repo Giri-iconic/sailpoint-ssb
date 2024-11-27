@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE JasperTemplate PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<JasperTemplate name="GridReportHeaderRow">
+  <DesignXml>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" 
+    name="GridReportHeaderRow" printOrder="Vertical" orientation="Landscape" 
+    pageWidth="740" pageHeight="595" columnWidth="700"
+    leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20"&gt;
+	&lt;property name="ireport.zoom" value="3.0"/&gt;
+	&lt;property name="ireport.x" value="0"/&gt;
+	&lt;property name="ireport.y" value="0"/&gt;
+    &lt;field name="label1" class="java.lang.String"/&gt;
+    &lt;field name="value1" class="java.lang.String"/&gt;
+    &lt;field name="label2" class="java.lang.String"/&gt;
+    &lt;field name="value2" class="java.lang.String"/&gt;
+	&lt;background&gt;
+		&lt;band splitType="Stretch"/&gt;
+	&lt;/background&gt;
+	&lt;title&gt;
+        &lt;band splitType="Stretch"/&gt;
+	&lt;/title&gt;
+	&lt;pageHeader&gt;
+		&lt;band splitType="Stretch"/&gt;
+	&lt;/pageHeader&gt;
+	&lt;columnHeader&gt;
+		&lt;band splitType="Stretch"/&gt;
+	&lt;/columnHeader&gt;
+	&lt;detail&gt;
+		&lt;band height="21" splitType="Stretch"&gt;
+            &lt;textField isStretchWithOverflow="true"&gt;
+                &lt;reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="100" height="16" isPrintWhenDetailOverflows="true"/&gt;
+                &lt;textElement/&gt;
+                &lt;textFieldExpression&gt;&lt;![CDATA[$F{label1}]]&gt;&lt;/textFieldExpression&gt;
+            &lt;/textField&gt;
+            &lt;textField isStretchWithOverflow="true"&gt;
+                &lt;reportElement stretchType="RelativeToBandHeight" x="110" y="0" width="220" height="16" isPrintWhenDetailOverflows="true"/&gt;
+                &lt;textElement/&gt;
+                &lt;textFieldExpression&gt;&lt;![CDATA[$F{value1}]]&gt;&lt;/textFieldExpression&gt;
+            &lt;/textField&gt;
+            &lt;textField isStretchWithOverflow="true"&gt;
+                &lt;reportElement stretchType="RelativeToBandHeight" x="360" y="0" width="100" height="16" isPrintWhenDetailOverflows="true"/&gt;
+                &lt;textElement/&gt;
+                &lt;textFieldExpression&gt;&lt;![CDATA[$F{label2}]]&gt;&lt;/textFieldExpression&gt;
+            &lt;/textField&gt;
+            &lt;textField isStretchWithOverflow="true"&gt;
+                &lt;reportElement stretchType="RelativeToBandHeight" x="470" y="0" width="220" height="16" isPrintWhenDetailOverflows="true"/&gt;
+                &lt;textElement/&gt;
+                &lt;textFieldExpression&gt;&lt;![CDATA[$F{value2}]]&gt;&lt;/textFieldExpression&gt;
+            &lt;/textField&gt;
+		&lt;/band&gt;
+	&lt;/detail&gt;
+	&lt;columnFooter&gt;
+		&lt;band splitType="Stretch"/&gt;
+	&lt;/columnFooter&gt;
+	&lt;pageFooter&gt;
+		&lt;band splitType="Stretch"/&gt;
+	&lt;/pageFooter&gt;
+	&lt;summary&gt;
+		&lt;band splitType="Stretch"/&gt;
+	&lt;/summary&gt;
+&lt;/jasperReport&gt;
+</DesignXml>
+</JasperTemplate>

@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE IdentityRequest PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<IdentityRequest completionStatus="Failure" endDate="1718274188274" executionStatus="Completed" name="0000000051" priority="Normal" requesterDisplayName="SailPointContextRequestFilter" source="LCM" state="End" targetClass="Identity" targetDisplayName="Raheem.Shaik" type="ExpirePassword" verified="1718627032638">
+  <Attributes>
+    <Map>
+      <entry key="messages">
+        <value>
+          <List>
+            <Message key="Error(s) reported back from the IQService - Error occurred while setting password for the account. Exception has been thrown by the target of an invocation.One or more input parameters are invalid . HRESULT:[0x800708C5]" type="Error"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="provisionedProject">
+        <value>
+          <ProvisioningProject identity="Raheem.Shaik">
+            <Attributes>
+              <Map>
+                <entry key="disableRetryRequest">
+                  <value>
+                    <Boolean>true</Boolean>
+                  </value>
+                </entry>
+                <entry key="identityRequestId" value="0000000051"/>
+                <entry key="noApplicationTemplates">
+                  <value>
+                    <Boolean>true</Boolean>
+                  </value>
+                </entry>
+                <entry key="optimisticProvisioning" value="false"/>
+                <entry key="requester" value="SailPointContextRequestFilter"/>
+                <entry key="source" value="LCM"/>
+              </Map>
+            </Attributes>
+            <MasterPlan>
+              <ProvisioningPlan>
+                <AccountRequest application="Active Directory" nativeIdentity="CN=Raheem.Shaik,OU=Test,DC=iconic,DC=com" op="Modify">
+                  <AttributeRequest name="password" op="Set">
+                    <Attributes>
+                      <Map>
+                        <entry key="currentPassword"/>
+                      </Map>
+                    </Attributes>
+                  </AttributeRequest>
+                </AccountRequest>
+                <Attributes>
+                  <Map>
+                    <entry key="identityRequestId" value="0000000051"/>
+                    <entry key="requester" value="SailPointContextRequestFilter"/>
+                    <entry key="source" value="LCM"/>
+                  </Map>
+                </Attributes>
+              </ProvisioningPlan>
+            </MasterPlan>
+            <ProvisioningPlan nativeIdentity="Raheem.Shaik" targetIntegration="Active Directory" trackingId="c785ecf86c5744859b74e693b7b6070c">
+              <AccountRequest application="Active Directory" nativeIdentity="CN=Raheem.Shaik,OU=Test,DC=iconic,DC=com" op="Modify">
+                <Attributes>
+                  <Map>
+                    <entry key="oldNativeIdentity" value="CN=Raheem.Shaik,OU=Test,DC=iconic,DC=com"/>
+                    <entry key="provisioningTransactionId" value="0a00030f9011143d8190111f58100031"/>
+                    <entry key="uuid" value="{ef6855b6-9ddc-4ee8-9961-9cabfd71a084}"/>
+                  </Map>
+                </Attributes>
+                <AttributeRequest name="password" op="Set">
+                  <Attributes>
+                    <Map>
+                      <entry key="currentPassword"/>
+                    </Map>
+                  </Attributes>
+                </AttributeRequest>
+                <ProvisioningResult status="failed">
+                  <Errors>
+                    <Message key="Error(s) reported back from the IQService - Error occurred while setting password for the account. Exception has been thrown by the target of an invocation.One or more input parameters are invalid . HRESULT:[0x800708C5]" type="Error"/>
+                  </Errors>
+                </ProvisioningResult>
+              </AccountRequest>
+              <Attributes>
+                <Map>
+                  <entry key="identityRequestId" value="0000000051"/>
+                  <entry key="requester" value="SailPointContextRequestFilter"/>
+                  <entry key="source" value="LCM"/>
+                </Map>
+              </Attributes>
+            </ProvisioningPlan>
+          </ProvisioningProject>
+        </value>
+      </entry>
+      <entry key="taskResultId" value="0a00030f9011143d8190111f0e510026"/>
+    </Map>
+  </Attributes>
+  <RequestItems>
+    <IdentityRequestItem application="Active Directory" name="password" nativeIdentity="CN=Raheem.Shaik,OU=Test,DC=iconic,DC=com" operation="Set" provisioningEngine="Active Directory" provisioningState="Failed">
+      <Attributes>
+        <Map>
+          <entry key="audit_password_change_failure_error_msg" value="Error(s) reported back from the IQService - Error occurred while setting password for the account. Exception has been thrown by the target of an invocation.One or more input parameters are invalid . HRESULT:[0x800708C5]"/>
+          <entry key="errors">
+            <value>
+              <List>
+                <Message key="Error(s) reported back from the IQService - Error occurred while setting password for the account. Exception has been thrown by the target of an invocation.One or more input parameters are invalid . HRESULT:[0x800708C5]" type="Error"/>
+              </List>
+            </value>
+          </entry>
+          <entry key="managedAttributeType" value="Entitlement"/>
+        </Map>
+      </Attributes>
+    </IdentityRequestItem>
+  </RequestItems>
+</IdentityRequest>

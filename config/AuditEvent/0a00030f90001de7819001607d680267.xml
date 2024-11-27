@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent action="ProvisioningFailure" interface="RapidSetup" serverHost="WIN-T21N4E0UF24" source="Operations" target="ISIN1005">
+  <Attributes>
+    <Map>
+      <entry key="error1" value="Exception occurred while executing the RPCRequest: Errors returned from IQService. &quot;The object already exists. 00000524: UpdErr: DSID-031A11EE, problem 6005 (ENTRY_EXISTS), data 0 . HRESULT:[0x80071392] For identity: cn=Test2.Tes2t,ou=Test,dc=iconic,dc=com&quot;"/>
+      <entry key="error2" value="Access request verification failed, the identity ISIN1005 was no longer found. Marking request verified with failures."/>
+      <entry key="taskResultId" value="0a00030f90001de78190008920f00037"/>
+    </Map>
+  </Attributes>
+  <String1>FailedApplications=Active Directory</String1>
+</AuditEvent>

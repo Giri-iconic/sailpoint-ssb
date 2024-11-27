@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ProvisioningTransaction PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ProvisioningTransaction accountDisplayName="cn=Claire.Divas,ou=Test,dc=iconic,dc=com" applicationName="Active Directory" identityDisplayName="Claire.Divas" identityName="ISIN1003" integration="Active Directory" name="0000000007" nativeIdentity="cn=Claire.Divas,ou=Test,dc=iconic,dc=com" operation="Disable" source="RapidSetup" status="Failed" type="Auto">
+  <Attributes>
+    <Map>
+      <entry key="accessRequestId" value="0000000039"/>
+      <entry key="request">
+        <value>
+          <AccountRequest application="Active Directory" nativeIdentity="cn=Claire.Divas,ou=Test,dc=iconic,dc=com" op="Disable" targetIntegration="Active Directory">
+            <Attributes>
+              <Map>
+                <entry key="flow" value="Lifecycle"/>
+                <entry key="interface" value="LCM"/>
+                <entry key="operation" value="Disable"/>
+                <entry key="provisioningTransactionId" value="0a00030f8fee18b2818ff1582b6c027a"/>
+              </Map>
+            </Attributes>
+            <AttributeRequest name="memberOf" op="Remove">
+              <Attributes>
+                <Map>
+                  <entry key="allowSimplification" value="true"/>
+                  <entry key="assignment" value="true"/>
+                  <entry key="preferRemoveOverRetain" value="true"/>
+                </Map>
+              </Attributes>
+              <Value>
+                <List>
+                  <String>CN=Test entitlement,OU=Test,DC=iconic,DC=com</String>
+                  <String>CN=Time sheet access,OU=Test,DC=iconic,DC=com</String>
+                </List>
+              </Value>
+            </AttributeRequest>
+            <AttributeRequest displayValue="ICONIC\Domain Users" name="memberOf" op="Remove" value="CN=Domain Users,CN=Users,DC=iconic,DC=com">
+              <Attributes>
+                <Map>
+                  <entry key="assignment" value="true"/>
+                </Map>
+              </Attributes>
+            </AttributeRequest>
+            <ProvisioningResult status="committed"/>
+          </AccountRequest>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+</ProvisioningTransaction>

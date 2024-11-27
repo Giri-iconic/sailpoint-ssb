@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent accountName="ISIN1004" action="RoleAdd" application="IIQ" attributeName="assignedRoles" attributeValue="Employees Birthright Role" interface="LCM" serverHost="WIN-T21N4E0UF24" source="Operations" target="ISIN1004">
+  <Attributes>
+    <Map>
+      <entry key="flow" value="Lifecycle"/>
+      <entry key="id" value="0a00030f8fec152f818fedc35df705c9"/>
+      <entry key="interface" value="LCM"/>
+      <entry key="operation" value="RoleAdd"/>
+    </Map>
+  </Attributes>
+</AuditEvent>

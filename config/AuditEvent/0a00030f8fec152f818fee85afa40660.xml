@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent action="identityLifecycleEvent" interface="Task" serverHost="WIN-T21N4E0UF24" source="Refresh Identity Cube" target="Identity:ISIN1005">
+  <Attributes>
+    <Map>
+      <entry key="objectSummary" value="sailpoint.object.Identity@dc933e4[id=0a00030f8fec152f818fee8428a9063d,name=ISIN1005]"/>
+    </Map>
+  </Attributes>
+  <String1>RapidSetup Leaver</String1>
+  <String2>Rapid Setup Leaver processed a lifecycle event.</String2>
+  <String3>Launched workflow 'RapidSetup Leaver: ISIN1005'</String3>
+  <String4>RapidSetup trigger matched for leaver</String4>
+</AuditEvent>

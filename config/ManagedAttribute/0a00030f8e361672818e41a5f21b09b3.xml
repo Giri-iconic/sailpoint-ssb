@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ManagedAttribute PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ManagedAttribute aggregated="true" attribute="memberOf" displayName="ICONIC\Print Operators" hash="3e6545ed7dff3cedfce0c4ccc0a55d841e1a02b9" lastRefresh="1717737154022" requestable="true" type="group" uuid="{d32d04c9-8583-4bf4-8ef9-b00299757922}" value="CN=Print Operators,CN=Builtin,DC=iconic,DC=com">
+  <ApplicationRef>
+    <Reference class="sailpoint.object.Application" name="Active Directory"/>
+  </ApplicationRef>
+  <Attributes>
+    <Map>
+      <entry key="GroupScope" value="Domain local"/>
+      <entry key="GroupType" value="Security"/>
+      <entry key="cn" value="Print Operators"/>
+      <entry key="description" value="Members can administer printers installed on domain controllers"/>
+      <entry key="msDS-PrincipalName" value="ICONIC\Print Operators"/>
+      <entry key="objectSid" value="S-1-5-32-550"/>
+      <entry key="objectguid" value="{d32d04c9-8583-4bf4-8ef9-b00299757922}"/>
+      <entry key="sAMAccountName" value="Print Operators"/>
+      <entry key="sysDescriptions"/>
+    </Map>
+  </Attributes>
+</ManagedAttribute>

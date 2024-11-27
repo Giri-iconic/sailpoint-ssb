@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ManagedAttribute PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ManagedAttribute aggregated="true" attribute="memberOf" displayName="ICONIC\Account Operators" hash="c01bb8457ceebcc801790ad5e64184e54e4ed99a" lastRefresh="1717737152170" requestable="true" type="group" uuid="{b331966e-8e06-46c5-8576-456039629695}" value="CN=Account Operators,CN=Builtin,DC=iconic,DC=com">
+  <ApplicationRef>
+    <Reference class="sailpoint.object.Application" name="Active Directory"/>
+  </ApplicationRef>
+  <Attributes>
+    <Map>
+      <entry key="GroupScope" value="Domain local"/>
+      <entry key="GroupType" value="Security"/>
+      <entry key="cn" value="Account Operators"/>
+      <entry key="description" value="Members can administer domain user and group accounts"/>
+      <entry key="msDS-PrincipalName" value="ICONIC\Account Operators"/>
+      <entry key="objectSid" value="S-1-5-32-548"/>
+      <entry key="objectguid" value="{b331966e-8e06-46c5-8576-456039629695}"/>
+      <entry key="sAMAccountName" value="Account Operators"/>
+      <entry key="sysDescriptions"/>
+    </Map>
+  </Attributes>
+  <Owner>
+    <Reference class="sailpoint.object.Identity" name="spadmin"/>
+  </Owner>
+</ManagedAttribute>

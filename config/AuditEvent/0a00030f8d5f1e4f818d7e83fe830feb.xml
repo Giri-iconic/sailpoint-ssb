@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent action="identityLifecycleEvent" clientHost="192.168.56.1" interface="UI" serverHost="WIN-T21N4E0UF24" source="spadmin" target="Identity:ISIN1000">
+  <Attributes>
+    <Map>
+      <entry key="objectSummary" value="sailpoint.object.Identity@66db9801[id=0a00030f8d5316f9818d5552c6be02d8,name=ISIN1000]"/>
+    </Map>
+  </Attributes>
+  <String1>Joiner</String1>
+  <String2>Process a new employee.</String2>
+  <String3>Launched workflow 'Joiner: ISIN1000'</String3>
+  <String4>Rule 'Joiner_Triggering_Rule' matched</String4>
+</AuditEvent>

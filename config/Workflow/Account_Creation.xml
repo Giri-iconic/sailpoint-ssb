@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Workflow PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Workflow explicitTransitions="true" name="Account Creation" type="">
+  <Variable input="true" name="launcher"/>
+  <Variable initializer="true" name="transient"/>
+  <Step icon="Default" name="Form" posX="161" posY="13">
+    <Approval name="Contracter Account Creation Form" owner="ref:launcher" return="firstname,needAccounExpiry,accountExpiry, lastname, email,manager,company" send="">
+      <Form name="Contracter Account Creation Form">
+        <Attributes>
+          <Map>
+            <entry key="hideIncompleteFields">
+              <value>
+                <Boolean/>
+              </value>
+            </entry>
+            <entry key="includeHiddenFields">
+              <value>
+                <Boolean/>
+              </value>
+            </entry>
+            <entry key="pageTitle" value="Contracter Account Creation Form"/>
+          </Map>
+        </Attributes>
+        <Section name="Section 2">
+          <Field displayName="Need Expiry Date" name="needAccounExpiry" postBack="true" required="true" type="string">
+            <AllowedValuesDefinition>
+              <Value>
+                <List>
+                  <String>yes</String>
+                  <String>no</String>
+                </List>
+              </Value>
+            </AllowedValuesDefinition>
+          </Field>
+        </Section>
+        <Section columns="3" name="User Details">
+          <Field columnSpan="1" displayName="First Name" name="firstname" postBack="true" required="true" type="string"/>
+          <Field columnSpan="1" displayName="Last Name" name="lastname" required="true" type="string"/>
+          <Field columnSpan="1" displayName="Contracter Company" name="company" required="true" type="string"/>
+          <Field columnSpan="1" displayName="Email" name="email" required="true" type="string"/>
+          <Field columnSpan="2" displayName="Manager" name="manager" required="true" type="sailpoint.object.Identity"/>
+        </Section>
+        <Section name="Section 3">
+          <Field displayName="Account Expiry Date" name="accountExpiry" postBack="true" required="true" type="date">
+            <Attributes>
+              <Map>
+                <entry key="hidden">
+                  <value>
+                    <Script>
+                      <Source>
+if(needAccounExpiry != null &amp;&amp; needAccounExpiry.equals("yes")){
+  return "false";
+}else{
+ return "true";
+}</Source>
+                    </Script>
+                  </value>
+                </entry>
+              </Map>
+            </Attributes>
+          </Field>
+        </Section>
+        <Button action="cancel" label="Cancel"/>
+        <Button action="next" label="Submit"/>
+      </Form>
+    </Approval>
+    <Transition to="Create Identity"/>
+  </Step>
+  <Step icon="Start" name="Start" posX="39" posY="14">
+    <Transition to="Form"/>
+  </Step>
+  <Step icon="Stop" name="Stop" posX="729" posY="14"/>
+  <Step action="rule:Contracter_Identity_Create_Rule" icon="Default" name="Create Identity" posX="294" posY="13" resultVariable="identityName">
+    <Transition to="Provisioning plan"/>
+  </Step>
+  <Step action="rule:Iconic_Contractor_Joiner_Provision_Rule" icon="Default" name="Provisioning plan" posX="450" posY="13" resultVariable="plan">
+    <Transition to="Generic Step"/>
+  </Step>
+  <Step icon="Default" name="Generic Step" posX="590" posY="13">
+    <Arg name="identityEmailTemplate"/>
+    <Arg name="enableRetryRequest"/>
+    <Arg name="securityOfficerElectronicSignature"/>
+    <Arg name="fallbackApprover"/>
+    <Arg name="endOnManualWorkItems"/>
+    <Arg name="userEmailTemplate"/>
+    <Arg name="policiesToCheck"/>
+    <Arg name="project"/>
+    <Arg name="workItemComments"/>
+    <Arg name="identityRequestId"/>
+    <Arg name="approvalSplitPoint"/>
+    <Arg name="source"/>
+    <Arg name="identityDisplayName"/>
+    <Arg name="foregroundProvisioning"/>
+    <Arg name="ownerElectronicSignature"/>
+    <Arg name="batchRequestItemId"/>
+    <Arg name="saveUnmanagedPlan_WithProjectArgument"/>
+    <Arg name="splitPlans"/>
+    <Arg name="doRefresh"/>
+    <Arg name="plan"/>
+    <Arg name="flow"/>
+    <Arg name="identityElectronicSignature"/>
+    <Arg name="identityName"/>
+    <Arg name="approvalSet"/>
+    <Arg name="violationReviewDecision"/>
+    <Arg name="filterRejects"/>
+    <Arg name="splitProjects"/>
+    <Arg name="requireCommentsForDenial"/>
+    <Arg name="requesterEmailTemplate"/>
+    <Arg name="approvalEmailTemplate"/>
+    <Arg name="ticketManagementApplication"/>
+    <Arg name="securityOfficerName"/>
+    <Arg name="approvingIdentities"/>
+    <Arg name="managerEmailTemplate"/>
+    <Arg name="ticketId"/>
+    <Arg name="approvalScheme"/>
+    <Arg name="allowRequestsWithViolations"/>
+    <Arg name="workItemPriority"/>
+    <Arg name="managerElectronicSignature"/>
+    <Arg name="requireViolationReviewComments"/>
+    <Arg name="splitApprovalSet"/>
+    <Arg name="approvalMode"/>
+    <Arg name="trace"/>
+    <Arg name="endOnProvisioningForms"/>
+    <Arg name="splitWorkItemComments"/>
+    <Arg name="requireCommentsForApproval"/>
+    <Arg name="notificationScheme"/>
+    <Arg name="policyViolations"/>
+    <Arg name="policyScheme"/>
+    <Arg name="setPreviousApprovalDecisions"/>
+    <Arg name="optimisticProvisioning"/>
+    <Arg name="securityOfficerEmailTemplate"/>
+    <WorkflowRef>
+      <Reference class="sailpoint.object.Workflow" name="LCM Provisioning"/>
+    </WorkflowRef>
+    <Transition to="Stop"/>
+  </Step>
+</Workflow>

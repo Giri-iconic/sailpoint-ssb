@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ManagedAttribute PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ManagedAttribute aggregated="true" attribute="memberOf" displayName="ICONIC\Remote Desktop Users" hash="146b9d785cd97eb3c0655928f3a80da21f059856" lastRefresh="1717737154491" requestable="true" type="group" uuid="{2a4df6ed-0149-450c-9572-ed4c169c3a3f}" value="CN=Remote Desktop Users,CN=Builtin,DC=iconic,DC=com">
+  <ApplicationRef>
+    <Reference class="sailpoint.object.Application" name="Active Directory"/>
+  </ApplicationRef>
+  <Attributes>
+    <Map>
+      <entry key="GroupScope" value="Domain local"/>
+      <entry key="GroupType" value="Security"/>
+      <entry key="cn" value="Remote Desktop Users"/>
+      <entry key="description" value="Members in this group are granted the right to logon remotely"/>
+      <entry key="msDS-PrincipalName" value="ICONIC\Remote Desktop Users"/>
+      <entry key="objectSid" value="S-1-5-32-555"/>
+      <entry key="objectguid" value="{2a4df6ed-0149-450c-9572-ed4c169c3a3f}"/>
+      <entry key="sAMAccountName" value="Remote Desktop Users"/>
+      <entry key="sysDescriptions"/>
+    </Map>
+  </Attributes>
+</ManagedAttribute>

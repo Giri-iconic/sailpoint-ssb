@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE QuickLink PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<QuickLink action="external" category="Custom" messageKey="Debug page" name="Debug page" ordering="1">
+  <Attributes>
+    <Map>
+      <entry key="url" value="http://192.168.56.101:8080/identityiq/debug/debug.jsf"/>
+    </Map>
+  </Attributes>
+  <QuickLinkOptions allowSelf="true">
+    <DynamicScopeRef>
+      <Reference class="sailpoint.object.DynamicScope" name="Administrator"/>
+    </DynamicScopeRef>
+  </QuickLinkOptions>
+</QuickLink>

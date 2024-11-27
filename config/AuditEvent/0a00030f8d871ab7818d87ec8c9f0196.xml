@@ -1,0 +1,3 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditEvent action="User account is created in AD" application="Active Directory" source="AD Joiner Trigger Rule" target="ISIN1003"/>
