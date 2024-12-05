@@ -307,13 +307,13 @@
     <Arg name="disableRetryRequest" value="!ref:enableRetryRequest"/>
     <Arg name="noApplicationTemplates">
       <Script>
-        <Source>
+        <Source><![CDATA[
                     boolean ignoreForms = false;
                     if ("ForgotPassword".equals(flow) || "ExpirePassword".equals(flow)) {
                     ignoreForms = true;
                     }
                     return ignoreForms;
-                </Source>
+                ]]></Source>
       </Script>
     </Arg>
     <Transition to="Build Approval Set"/>

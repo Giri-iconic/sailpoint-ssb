@@ -12,12 +12,12 @@
                 <Parameter argument="application" property="application"/>
               </QueryParameters>
               <QueryScript>
-                <Source>
+                <Source><![CDATA[
                         
                           import java.util.*;
 
                           List applications = args.get("application");
-                          if (applications != null &amp;&amp; !applications.isEmpty()){
+                          if (applications != null && !applications.isEmpty()){
                             query = query + " and application.id in(:application) ";
                           }
 
@@ -26,7 +26,7 @@
 
                           return query;
                         
-                      </Source>
+                      ]]></Source>
               </QueryScript>
             </DataSource>
             <Columns>

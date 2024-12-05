@@ -26,9 +26,9 @@
                 <IdentityFilter name="DelegationRecipient" order="Ascending">
                   <FilterScript>
                     <Script>
-                      <Source>
+                      <Source><![CDATA[
                           return sailpoint.api.IdentityService.getDelegationRecipientSuggestQueryOptions(context, itemId, query);
-                        </Source>
+                        ]]></Source>
                     </Script>
                   </FilterScript>
                   <OrderBy>
@@ -201,14 +201,14 @@
                 <IdentityFilter name="LcmPopulation" order="Ascending">
                   <FilterScript>
                     <Script>
-                      <Source>
+                      <Source><![CDATA[
                             import sailpoint.object.Identity;
                             import sailpoint.service.LCMConfigService;
     
                             Identity identity = context.getObjectById(Identity.class, loggedInUser);
                             LCMConfigService svc = new LCMConfigService(context);
                             return svc.getConfiguredIdentityQueryOptions(identity, null);
-                          </Source>
+                          ]]></Source>
                     </Script>
                   </FilterScript>
                   <OrderBy>
@@ -225,7 +225,7 @@
                 <IdentityFilter name="LcmPopulationManager" order="Ascending">
                   <FilterScript>
                     <Script>
-                      <Source>
+                      <Source><![CDATA[
                             import sailpoint.object.Filter;
                             import sailpoint.object.Identity;
                             import sailpoint.object.QueryOptions;
@@ -242,10 +242,10 @@
                             // users.  We need a way to return this from IdentityFilters.  Currently,
                             // this is filter config is only used when we know that the logged in user
                             // is able to request for others, so we won't worry about it yet.
-                            if ((null != popQueryOptions) &amp;&amp; !Util.isEmpty(popQueryOptions.getRestrictions())) {
+                            if ((null != popQueryOptions) && !Util.isEmpty(popQueryOptions.getRestrictions())) {
                                 List popFilters = popQueryOptions.getRestrictions();
                                 Filter subFilter =
-                                    (popFilters.size() &gt; 0) ? Filter.and(popFilters)
+                                    (popFilters.size() > 0) ? Filter.and(popFilters)
                                                             : (Filter) popFilters.get(0);
                                 Filter f = Filter.subquery("id", Identity.class, "manager.id", subFilter);
                                 qo.addFilter(f);
@@ -255,7 +255,7 @@
                               
                             return qo;
                           
-                          </Source>
+                          ]]></Source>
                     </Script>
                   </FilterScript>
                   <OrderBy>
@@ -333,7 +333,7 @@
                 <IdentityFilter ignoreGlobal="true" name="QuickAssign" order="Ascending">
                   <FilterScript>
                     <Script>
-                      <Source>
+                      <Source><![CDATA[
                             import sailpoint.object.*;
                             import java.util.ArrayList;
                             import java.util.List;
@@ -349,7 +349,7 @@
                             qo.addOrdering("name", true);
                             qo.addOrdering("id", true);
                             return qo;
-                          </Source>
+                          ]]></Source>
                     </Script>
                   </FilterScript>
                   <OrderBy>
@@ -398,14 +398,14 @@
                 <IdentityFilter name="WorkgroupMembers" order="Ascending">
                   <FilterScript>
                     <Script>
-                      <Source>
+                      <Source><![CDATA[
                               import sailpoint.object.*;
                               QueryOptions qo = new QueryOptions();
                               qo.addFilter( Filter.or(Filter.eq("workgroups.id", workgroup), Filter.eq("workgroups.name", workgroup)) );
                               qo.setScopeResults(true); // Set to false to allow workgroup members to see other members in the same group.
                               qo.addOrdering("firstname", true);
                               return qo;
-                            </Source>
+                            ]]></Source>
                     </Script>
                   </FilterScript>
                   <OrderBy>

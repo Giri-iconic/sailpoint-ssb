@@ -21,7 +21,7 @@
               <ReportColumnConfig field="owner" header="rept_app_grid_col_owner" property="owner.name" sortable="true" width="110"/>
               <ReportColumnConfig field="remediator" header="rept_app_grid_col_revoker" property="remediators.name" sortable="true" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                                     import sailpoint.tools.Message;
                                     import sailpoint.web.messages.MessageKeys;
                                     
@@ -32,7 +32,7 @@
                                     else {
                                     return value;
                                     }
-                                </Source>
+                                ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
             </Columns>

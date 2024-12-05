@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
 <Rule language="beanshell" name="Certification Report Customizer" type="ReportCustomizer">
-  <Source>
+  <Source><![CDATA[
        
         import sailpoint.object.*;
         import sailpoint.tools.Util;
@@ -15,5 +15,5 @@
         }
 
        
-</Source>
+]]></Source>
 </Rule>

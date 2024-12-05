@@ -6,7 +6,7 @@
     <Field displayName="rept_exclude_application_by_type" helpKey="rept_exclude_application_by_type_helpkey" multi="true" name="applicationTypes" type="string" value="ref:applicationTypes">
       <AllowedValuesDefinition>
         <Script>
-          <Source>
+          <Source><![CDATA[
               
               import sailpoint.object.*;
 
@@ -22,7 +22,7 @@
 
               return applicationTypeList;
               
-            </Source>
+            ]]></Source>
         </Script>
       </AllowedValuesDefinition>
     </Field>

@@ -6,7 +6,7 @@
     <Reference class="sailpoint.object.Rule" name="Iconic_Rule_Library"/>
   </ReferencedRules>
   <Signature returnType="Object"/>
-  <Source>
+  <Source><![CDATA[
   import sailpoint.object.*;
   import sailpoint.object.ProvisioningPlan;
   import sailpoint.object.ProvisioningPlan.AttributeRequest;
@@ -51,5 +51,5 @@
   plan.setAccountRequests(accountList);
   plan.setIdentity(identity);
   log.error(plan.toXml());
-  return plan;</Source>
+  return plan;]]></Source>
 </Rule>

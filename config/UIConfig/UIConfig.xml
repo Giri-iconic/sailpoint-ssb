@@ -95,7 +95,7 @@
       <entry key="accountGroupRolesTableColumns">
         <value>
           <List>
-            <ColumnConfig dataIndex="displayName" groupProperty="displayName" headerKey="display_name" hideable="true" property="displayName" sortProperty="displayName" sortable="true" stateId="displayName"/>
+            <ColumnConfig dataIndex="displayName" groupProperty="displayName" headerKey="display_name" hideable="true" property="displayName" renderer="SailPoint.grid.Util.renderIiqElevatedAccess" sortProperty="displayName" sortable="true" stateId="displayName"/>
             <ColumnConfig dataIndex="description" groupProperty="description" headerKey="description" hideable="true" property="description" renderer="SailPoint.grid.Util.renderDescription" sortProperty="description" sortable="true" stateId="description"/>
           </List>
         </value>
@@ -766,6 +766,363 @@
           </List>
         </value>
       </entry>
+      <entry key="debugHistoricalAccountCaptureGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="accountId" groupProperty="accountId" headerKey="Account ID" property="accountId" sortProperty="accountId" sortable="true" stateId="accountId" width="250"/>
+            <ColumnConfig dataIndex="applicationName" groupProperty="applicationName" headerKey="Application Name" property="applicationName" sortProperty="applicationName" sortable="true" stateId="applicationName" width="150"/>
+            <ColumnConfig dataIndex="displayableName" groupProperty="displayableName" headerKey="Displayable Name" property="displayableName" sortProperty="displayableName" sortable="true" stateId="displayableName" width="150"/>
+            <ColumnConfig dataIndex="identityId" groupProperty="identityId" headerKey="Identity ID" property="identityId" sortProperty="identityId" sortable="true" stateId="identityId" width="250"/>
+            <ColumnConfig dataIndex="identityName" groupProperty="identityName" headerKey="Identity Name" property="identityName" sortProperty="identityName" sortable="true" stateId="identityName" width="220"/>
+            <ColumnConfig dataIndex="deleted" groupProperty="deleted" headerKey="Deleted" property="deleted" sortProperty="deleted" sortable="true" stateId="deleted" width="100"/>
+            <ColumnConfig dataIndex="effectiveDate" dateStyle="medium" groupProperty="effectiveDate" headerKey="Effective From" property="effectiveDate" sortProperty="effectiveDate" sortable="true" stateId="effectiveDate" width="150"/>
+            <ColumnConfig dataIndex="extendedToDate" dateStyle="medium" groupProperty="extendedToDate" headerKey="Effective Until" property="extendedToDate" sortProperty="extendedToDate" sortable="true" stateId="extendedToDate" width="150"/>
+            <ColumnConfig dataIndex="transformType" groupProperty="transformType" headerKey="Transform Type" property="transformType" sortProperty="transformType" stateId="transformType" width="150"/>
+            <ColumnConfig dataIndex="smartHash" groupProperty="smartHash" headerKey="Smart Hash" property="smartHash" sortProperty="smartHash" stateId="smartHash" width="325"/>
+            <ColumnConfig dataIndex="fullHash" groupProperty="fullHash" headerKey="Full Hash" property="fullHash" sortProperty="fullHash" stateId="fullHash" width="325"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalAccountCaptureSearchProperties" value="id,accountId,applicationName,displayableName,identityName"/>
+      <entry key="debugHistoricalCapabilityCaptureGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="capabilityId" groupProperty="capabilityId" headerKey="Capability ID" property="capabilityId" sortProperty="capabilityId" sortable="true" stateId="capabilityId" width="250"/>
+            <ColumnConfig dataIndex="capabilityName" groupProperty="capabilityName" headerKey="Capability Name" property="capabilityName" sortProperty="capabilityName" sortable="true" stateId="capabilityName" width="220"/>
+            <ColumnConfig dataIndex="effectiveDate" dateStyle="medium" groupProperty="effectiveDate" headerKey="Effective From" property="effectiveDate" sortProperty="effectiveDate" sortable="true" stateId="effectiveDate" width="150"/>
+            <ColumnConfig dataIndex="extendedToDate" dateStyle="medium" groupProperty="extendedToDate" headerKey="Effective Until" property="extendedToDate" sortProperty="extendedToDate" sortable="true" stateId="extendedToDate" width="150"/>
+            <ColumnConfig dataIndex="transformType" groupProperty="transformType" headerKey="Transform Type" property="transformType" sortProperty="transformType" stateId="transformType" width="150"/>
+            <ColumnConfig dataIndex="smartHash" groupProperty="smartHash" headerKey="Smart Hash" property="smartHash" sortProperty="smartHash" stateId="smartHash" width="325"/>
+            <ColumnConfig dataIndex="fullHash" groupProperty="fullHash" headerKey="Full Hash" property="fullHash" sortProperty="fullHash" stateId="fullHash" width="325"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalCapabilityCaptureSearchProperties" value="id,capabilityId,capabilityName"/>
+      <entry key="debugHistoricalCapabilityGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="capabilityId" groupProperty="capabilityId" headerKey="Capability ID" property="capabilityId" sortProperty="capabilityId" sortable="true" stateId="capabilityId" width="250"/>
+            <ColumnConfig dataIndex="name" groupProperty="name" headerKey="Name" property="name" sortProperty="name" sortable="true" stateId="name" width="200"/>
+            <ColumnConfig dataIndex="displayName" groupProperty="displayName" headerKey="Display Name" property="displayName" sortProperty="displayName" sortable="true" stateId="displayName" width="150"/>
+            <ColumnConfig dataIndex="deleted" groupProperty="deleted" headerKey="Deleted" property="deleted" sortProperty="deleted" sortable="true" stateId="deleted" width="100"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalCapabilitySearchProperties" value="id,capabilityId,name"/>
+      <entry key="debugHistoricalCertificationGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="certId" groupProperty="certId" headerKey="Cert ID" property="certId" sortProperty="certId" sortable="true" stateId="certId" width="250"/>
+            <ColumnConfig dataIndex="certName" groupProperty="certName" headerKey="Cert Name" property="certName" sortProperty="certName" sortable="true" stateId="certName" width="250"/>
+            <ColumnConfig dataIndex="certType" groupProperty="certType" headerKey="Cert Type" property="certType" sortProperty="certType" sortable="true" stateId="certType" width="150"/>
+            <ColumnConfig dataIndex="finished" dateStyle="medium" groupProperty="finished" headerKey="Finished" property="finished" sortProperty="finished" sortable="true" stateId="finished" width="150"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalCertificationRemediationCaptureGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="effectiveDate" dateStyle="medium" groupProperty="effectiveDate" headerKey="Effective From" property="effectiveDate" sortProperty="effectiveDate" sortable="true" stateId="effectiveDate" width="150"/>
+            <ColumnConfig dataIndex="certificationItemId" groupProperty="certificationItemId" headerKey="Cert Item ID" property="certificationItemId" sortProperty="certificationItemId" stateId="certificationItemId" width="250"/>
+            <ColumnConfig dataIndex="certificationItemType" groupProperty="certificationItemType" headerKey="Cert Item Type" property="certificationItemType" sortProperty="certificationItemType" sortable="true" stateId="certificationItemType" width="150"/>
+            <ColumnConfig dataIndex="identityName" groupProperty="identityName" headerKey="Identity" property="identityName" sortProperty="identityName" sortable="true" stateId="identityName" width="250"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalCertificationRemediationCaptureSearchProperties" value="id,identityName,certificationItemId"/>
+      <entry key="debugHistoricalCertificationSearchProperties" value="id,certId,certName"/>
+      <entry key="debugHistoricalDatabaseVersionGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="name" groupProperty="name" headerKey="Name" property="name" sortProperty="name" sortable="true" stateId="name" width="200"/>
+            <ColumnConfig dataIndex="systemVersion" groupProperty="systemVersion" headerKey="System Version" property="systemVersion" sortProperty="systemVersion" sortable="true" stateId="systemVersion" width="150"/>
+            <ColumnConfig dataIndex="schemaVersion" groupProperty="schemaVersion" headerKey="Schema Version" property="schemaVersion" sortProperty="schemaVersion" sortable="true" stateId="schemaVersion" width="150"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalEntitlementCaptureGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="identityName" groupProperty="identityName" headerKey="Identity Name" property="identityName" sortProperty="identityName" sortable="true" stateId="identityName" width="220"/>
+            <ColumnConfig dataIndex="entitlementId" groupProperty="identityEntitlementId" headerKey="Entitlement ID" property="identityEntitlementId" sortProperty="identityEntitlementId" sortable="true" stateId="identityEntitlementId" width="250"/>
+            <ColumnConfig dataIndex="effectiveDate" dateStyle="medium" groupProperty="effectiveDate" headerKey="Effective From" property="effectiveDate" sortProperty="effectiveDate" sortable="true" stateId="effectiveDate" width="150"/>
+            <ColumnConfig dataIndex="applicationName" groupProperty="applicationName" headerKey="Application Name" property="applicationName" sortProperty="applicationName" sortable="true" stateId="applicationName" width="250"/>
+            <ColumnConfig dataIndex="attributeName" groupProperty="attributeName" headerKey="Attribute Name" property="attributeName" sortProperty="attributeName" sortable="true" stateId="attributeName" width="220"/>
+            <ColumnConfig dataIndex="displayValue" groupProperty="displayValue" headerKey="Display Value" property="displayValue" sortProperty="displayValue" sortable="true" stateId="displayValue" width="220"/>
+            <ColumnConfig dataIndex="attributeValue" groupProperty="attributeValue" headerKey="Attribute Value" property="attributeValue" sortProperty="attributeValue" sortable="true" stateId="attributeValue" width="220"/>
+            <ColumnConfig dataIndex="type" groupProperty="type" headerKey="Type" property="type" sortProperty="type" sortable="true" stateId="type" width="220"/>
+            <ColumnConfig dataIndex="identityId" groupProperty="identityId" headerKey="Identity ID" property="identityId" sortProperty="identityId" sortable="true" stateId="identityId" width="250"/>
+            <ColumnConfig dataIndex="extendedToDate" dateStyle="medium" groupProperty="extendedToDate" headerKey="Effective Until" property="extendedToDate" sortProperty="extendedToDate" sortable="true" stateId="extendedToDate" width="150"/>
+            <ColumnConfig dataIndex="applicationId" groupProperty="applicationId" headerKey="Application ID" property="applicationId" sortProperty="applicationId" sortable="true" stateId="applicationId" width="250"/>
+            <ColumnConfig dataIndex="transformType" groupProperty="transformType" headerKey="Transform Type" property="transformType" sortProperty="transformType" stateId="transformType" width="150"/>
+            <ColumnConfig dataIndex="smartHash" groupProperty="smartHash" headerKey="Smart Hash" property="smartHash" sortProperty="smartHash" stateId="smartHash" width="325"/>
+            <ColumnConfig dataIndex="fullHash" groupProperty="fullHash" headerKey="Full Hash" property="fullHash" sortProperty="fullHash" stateId="fullHash" width="325"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalEntitlementCaptureSearchProperties" value="id,identityName,attributeName,attributeValue,displayValue,applicationName,applicationId,identityEntitlementId"/>
+      <entry key="debugHistoricalIdentityCaptureGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="identityId" groupProperty="identityId" headerKey="Identity ID" property="identityId" sortProperty="identityId" sortable="true" stateId="identityId" width="250"/>
+            <ColumnConfig dataIndex="identityName" groupProperty="identityName" headerKey="Identity Name" property="identityName" sortProperty="identityName" sortable="true" stateId="identityName" width="220"/>
+            <ColumnConfig dataIndex="effectiveDate" dateStyle="medium" groupProperty="effectiveDate" headerKey="Effective From" property="effectiveDate" sortProperty="effectiveDate" sortable="true" stateId="effectiveDate" width="150"/>
+            <ColumnConfig dataIndex="extendedToDate" dateStyle="medium" groupProperty="extendedToDate" headerKey="Effective Until" property="extendedToDate" sortProperty="extendedToDate" sortable="true" stateId="extendedToDate" width="150"/>
+            <ColumnConfig dataIndex="transformType" groupProperty="transformType" headerKey="Transform Type" property="transformType" sortProperty="transformType" stateId="transformType" width="150"/>
+            <ColumnConfig dataIndex="smartHash" groupProperty="smartHash" headerKey="Smart Hash" property="smartHash" sortProperty="smartHash" stateId="smartHash" width="325"/>
+            <ColumnConfig dataIndex="fullHash" groupProperty="fullHash" headerKey="Full Hash" property="fullHash" sortProperty="fullHash" stateId="fullHash" width="325"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalIdentityCaptureSearchProperties" value="id,identityName"/>
+      <entry key="debugHistoricalIdentityEventGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="eventDate" dateStyle="medium" groupProperty="eventDate" headerKey="Eff Date" property="eventDate" sortProperty="eventDate" sortable="true" stateId="eventDate" width="150"/>
+            <ColumnConfig dataIndex="entityId" groupProperty="entityId" headerKey="Identity ID" property="entityId" sortProperty="entityId" sortable="true" stateId="entityId" width="250"/>
+            <ColumnConfig dataIndex="entityName" groupProperty="entityName" headerKey="Identity Name" property="entityName" sortProperty="entityName" sortable="true" stateId="entityName" width="220"/>
+            <ColumnConfig dataIndex="eventSourceType" groupProperty="eventSourceType" headerKey="Event Source Type" property="eventSourceType" sortProperty="eventSourceType" sortable="true" stateId="eventSourceType" width="250"/>
+            <ColumnConfig dataIndex="eventType" groupProperty="eventType" headerKey="Event Type" property="eventType" sortProperty="eventType" sortable="true" stateId="eventType" width="250"/>
+            <ColumnConfig dataIndex="propertyName" groupProperty="propertyName" headerKey="Property" property="propertyName" sortProperty="propertyName" sortable="true" stateId="propertyName" width="220"/>
+            <ColumnConfig dataIndex="accountId" groupProperty="accountId" headerKey="Account ID" property="accountId" sortProperty="accountId" sortable="true" stateId="accountId" width="250"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalIdentityEventSearchProperties" value="id,entityName,propertyName,accountId"/>
+      <entry key="debugHistoricalIdentityGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="identityId" groupProperty="identityId" headerKey="Identity ID" property="identityId" sortProperty="identityId" sortable="true" stateId="identityId" width="250"/>
+            <ColumnConfig dataIndex="name" groupProperty="name" headerKey="Name" property="name" sortProperty="name" sortable="true" stateId="name" width="200"/>
+            <ColumnConfig dataIndex="displayName" groupProperty="displayName" headerKey="Display Name" property="displayName" sortProperty="displayName" sortable="true" stateId="displayName" width="150"/>
+            <ColumnConfig dataIndex="deleted" groupProperty="deleted" headerKey="Deleted" property="deleted" sortProperty="deleted" sortable="true" stateId="deleted" width="100"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalIdentityRequestCaptureGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="effectiveDate" dateStyle="medium" groupProperty="effectiveDate" headerKey="Effective From" property="effectiveDate" sortProperty="effectiveDate" sortable="true" stateId="effectiveDate" width="150"/>
+            <ColumnConfig dataIndex="identityRequestId" groupProperty="identityRequestId" headerKey="Request ID" property="identityRequestId" sortProperty="identityRequestId" stateId="identityRequestId" width="250"/>
+            <ColumnConfig dataIndex="identityName" groupProperty="identityName" headerKey="Identity Name" property="identityName" sortProperty="identityName" sortable="true" stateId="identityName" width="220"/>
+            <ColumnConfig dataIndex="requesterDisplayName" groupProperty="requesterDisplayName" headerKey="Requester" property="requesterDisplayName" sortProperty="requesterDisplayName" sortable="true" stateId="requesterDisplayName" width="220"/>
+            <ColumnConfig dataIndex="extendedToDate" dateStyle="medium" groupProperty="extendedToDate" headerKey="Effective Until" property="extendedToDate" sortProperty="extendedToDate" sortable="true" stateId="extendedToDate" width="150"/>
+            <ColumnConfig dataIndex="type" groupProperty="type" headerKey="Type" property="type" sortProperty="type" sortable="true" stateId="type" width="200"/>
+            <ColumnConfig dataIndex="transformType" groupProperty="transformType" headerKey="Transform Type" property="transformType" sortProperty="transformType" stateId="transformType" width="150"/>
+            <ColumnConfig dataIndex="smartHash" groupProperty="smartHash" headerKey="Smart Hash" property="smartHash" sortProperty="smartHash" stateId="smartHash" width="325"/>
+            <ColumnConfig dataIndex="fullHash" groupProperty="fullHash" headerKey="Full Hash" property="fullHash" sortProperty="fullHash" stateId="fullHash" width="325"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalIdentityRequestCaptureSearchProperties" value="id,identityName,identityRequestId"/>
+      <entry key="debugHistoricalIdentityRequestItemCaptureGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="effectiveDate" dateStyle="medium" groupProperty="effectiveDate" headerKey="Effective From" property="effectiveDate" sortProperty="effectiveDate" sortable="true" stateId="effectiveDate" width="150"/>
+            <ColumnConfig dataIndex="identityName" groupProperty="identityName" headerKey="Identity Name" property="identityName" sortProperty="identityName" sortable="true" stateId="identityName" width="220"/>
+            <ColumnConfig dataIndex="identityRequestItemId" groupProperty="identityRequestItemId" headerKey="Request Item ID" property="identityRequestItemId" sortProperty="identityRequestItemId" stateId="identityRequestItemId" width="250"/>
+            <ColumnConfig dataIndex="identityRequestId" groupProperty="identityRequestId" headerKey="Request ID" property="identityRequestId" sortProperty="identityRequestId" stateId="identityRequestId" width="250"/>
+            <ColumnConfig dataIndex="operation" groupProperty="operation" headerKey="Operation" property="operation" sortProperty="operation" stateId="operation" width="160"/>
+            <ColumnConfig dataIndex="name" groupProperty="name" headerKey="Name" property="name" sortProperty="name" sortable="true" stateId="name" width="200"/>
+            <ColumnConfig dataIndex="value" groupProperty="value" headerKey="Value" property="value" sortProperty="value" sortable="true" stateId="value" width="200"/>
+            <ColumnConfig dataIndex="applicationName" groupProperty="applicationName" headerKey="Application" property="applicationName" sortProperty="applicationName" sortable="true" stateId="applicationName" width="200"/>
+            <ColumnConfig dataIndex="identityEntitlementId" groupProperty="identityEntitlementId" headerKey="Entitlement ID" property="identityEntitlementId" sortProperty="identityEntitlementId" stateId="identityEntitlementId" width="250"/>
+            <ColumnConfig dataIndex="extendedToDate" dateStyle="medium" groupProperty="extendedToDate" headerKey="Effective Until" property="extendedToDate" sortProperty="extendedToDate" sortable="true" stateId="extendedToDate" width="150"/>
+            <ColumnConfig dataIndex="transformType" groupProperty="transformType" headerKey="Transform Type" property="transformType" sortProperty="transformType" stateId="transformType" width="150"/>
+            <ColumnConfig dataIndex="smartHash" groupProperty="smartHash" headerKey="Smart Hash" property="smartHash" sortProperty="smartHash" stateId="smartHash" width="325"/>
+            <ColumnConfig dataIndex="fullHash" groupProperty="fullHash" headerKey="Full Hash" property="fullHash" sortProperty="fullHash" stateId="fullHash" width="325"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalIdentityRequestItemCaptureSearchProperties" value="id,identityName,identityRequestItemId,identityRequestId,identityEntitlementId,name,value,applicationName"/>
+      <entry key="debugHistoricalIdentitySearchProperties" value="id,identityId,name"/>
+      <entry key="debugHistoricalManagedAttributeCaptureGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="managedAttributeId" groupProperty="managedAttributeId" headerKey="Managed Attr ID" property="managedAttributeId" sortProperty="managedAttributeId" sortable="true" stateId="managedAttributeId" width="250"/>
+            <ColumnConfig dataIndex="displayName" groupProperty="displayName" headerKey="Display Name" property="displayName" sortProperty="displayName" sortable="true" stateId="displayName" width="220"/>
+            <ColumnConfig dataIndex="effectiveDate" dateStyle="medium" groupProperty="effectiveDate" headerKey="Effective From" property="effectiveDate" sortProperty="effectiveDate" sortable="true" stateId="effectiveDate" width="150"/>
+            <ColumnConfig dataIndex="extendedToDate" dateStyle="medium" groupProperty="extendedToDate" headerKey="Effective Until" property="extendedToDate" sortProperty="extendedToDate" sortable="true" stateId="extendedToDate" width="150"/>
+            <ColumnConfig dataIndex="transformType" groupProperty="transformType" headerKey="Transform Type" property="transformType" sortProperty="transformType" stateId="transformType" width="150"/>
+            <ColumnConfig dataIndex="smartHash" groupProperty="smartHash" headerKey="Smart Hash" property="smartHash" sortProperty="smartHash" stateId="smartHash" width="325"/>
+            <ColumnConfig dataIndex="fullHash" groupProperty="fullHash" headerKey="Full Hash" property="fullHash" sortProperty="fullHash" stateId="fullHash" width="325"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalManagedAttributeCaptureSearchProperties" value="id,managedAttributeId,displayName"/>
+      <entry key="debugHistoricalManagedAttributeEventGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="eventDate" dateStyle="medium" groupProperty="eventDate" headerKey="Eff Date" property="eventDate" sortProperty="eventDate" sortable="true" stateId="eventDate" width="150"/>
+            <ColumnConfig dataIndex="entityId" groupProperty="entityId" headerKey="Managed Attribute ID" property="entityId" sortProperty="entityId" sortable="true" stateId="entityId" width="250"/>
+            <ColumnConfig dataIndex="displayName" groupProperty="displayName" headerKey="Display Name" property="displayName" sortProperty="displayName" sortable="true" stateId="displayName" width="220"/>
+            <ColumnConfig dataIndex="eventSourceType" groupProperty="eventSourceType" headerKey="Event Source Type" property="eventSourceType" sortProperty="eventSourceType" sortable="true" stateId="eventSourceType" width="250"/>
+            <ColumnConfig dataIndex="eventType" groupProperty="eventType" headerKey="Event Type" property="eventType" sortProperty="eventType" sortable="true" stateId="eventType" width="250"/>
+            <ColumnConfig dataIndex="propertyName" groupProperty="propertyName" headerKey="Property" property="propertyName" sortProperty="propertyName" sortable="true" stateId="propertyName" width="220"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalManagedAttributeEventSearchProperties" value="id,entityId,displayName,propertyName"/>
+      <entry key="debugHistoricalManagedAttributeGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="managedAttributeId" groupProperty="managedAttributeId" headerKey="Managed Attr ID" property="managedAttributeId" sortProperty="managedAttributeId" sortable="true" stateId="managedAttributeId" width="250"/>
+            <ColumnConfig dataIndex="displayName" groupProperty="displayName" headerKey="Display Name" property="displayName" sortProperty="displayName" sortable="true" stateId="displayName" width="220"/>
+            <ColumnConfig dataIndex="deleted" groupProperty="deleted" headerKey="Deleted" property="deleted" sortProperty="deleted" sortable="true" stateId="deleted" width="100"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalManagedAttributeSearchProperties" value="id,managedAttributeId,displayName"/>
+      <entry key="debugHistoricalObjectConfigCaptureGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="objectConfigId" groupProperty="objectConfigId" headerKey="Object Config ID" property="objectConfigId" sortProperty="objectConfigId" sortable="true" stateId="objectConfigId" width="250"/>
+            <ColumnConfig dataIndex="objectConfigName" groupProperty="objectConfigName" headerKey="Object Config Name" property="objectConfigName" sortProperty="objectConfigName" sortable="true" stateId="objectConfigName" width="220"/>
+            <ColumnConfig dataIndex="effectiveDate" dateStyle="medium" groupProperty="effectiveDate" headerKey="Effective From" property="effectiveDate" sortProperty="effectiveDate" sortable="true" stateId="effectiveDate" width="150"/>
+            <ColumnConfig dataIndex="extendedToDate" dateStyle="medium" groupProperty="extendedToDate" headerKey="Effective Until" property="extendedToDate" sortProperty="extendedToDate" sortable="true" stateId="extendedToDate" width="150"/>
+            <ColumnConfig dataIndex="transformType" groupProperty="transformType" headerKey="Transform Type" property="transformType" sortProperty="transformType" stateId="transformType" width="150"/>
+            <ColumnConfig dataIndex="smartHash" groupProperty="smartHash" headerKey="Smart Hash" property="smartHash" sortProperty="smartHash" stateId="smartHash" width="325"/>
+            <ColumnConfig dataIndex="fullHash" groupProperty="fullHash" headerKey="Full Hash" property="fullHash" sortProperty="fullHash" stateId="fullHash" width="325"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalObjectConfigSearchProperties" value="id,objectConfigId,name"/>
+      <entry key="debugHistoricalPolicyViolationCaptureGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="policyViolationId" groupProperty="policyViolationId" headerKey="Policy Violation ID" property="policyViolationId" sortProperty="policyViolationId" sortable="true" stateId="policyViolationId" width="250"/>
+            <ColumnConfig dataIndex="identityName" groupProperty="identityName" headerKey="Identity Name" property="identityName" sortProperty="identityName" sortable="true" stateId="identityName" width="220"/>
+            <ColumnConfig dataIndex="effectiveDate" dateStyle="medium" groupProperty="effectiveDate" headerKey="Effective From" property="effectiveDate" sortProperty="effectiveDate" sortable="true" stateId="effectiveDate" width="150"/>
+            <ColumnConfig dataIndex="policyName" groupProperty="policyName" headerKey="Policy" property="policyName" sortProperty="policyName" sortable="true" stateId="policyName" width="220"/>
+            <ColumnConfig dataIndex="constraintName" groupProperty="constraintName" headerKey="Constraint" property="constraintName" sortProperty="constraintName" sortable="true" stateId="constraintName" width="220"/>
+            <ColumnConfig dataIndex="status" groupProperty="status" headerKey="Status" property="status" sortProperty="status" sortable="true" stateId="status" width="150"/>
+            <ColumnConfig dataIndex="deleted" groupProperty="deleted" headerKey="Deleted" property="deleted" sortProperty="deleted" sortable="true" stateId="deleted" width="100"/>
+            <ColumnConfig dataIndex="extendedToDate" dateStyle="medium" groupProperty="extendedToDate" headerKey="Effective Until" property="extendedToDate" sortProperty="extendedToDate" sortable="true" stateId="extendedToDate" width="150"/>
+            <ColumnConfig dataIndex="identityId" groupProperty="identityId" headerKey="Identity ID" property="identityId" sortProperty="identityId" sortable="true" stateId="identityId" width="250"/>
+            <ColumnConfig dataIndex="transformType" groupProperty="transformType" headerKey="Transform Type" property="transformType" sortProperty="transformType" stateId="transformType" width="150"/>
+            <ColumnConfig dataIndex="smartHash" groupProperty="smartHash" headerKey="Smart Hash" property="smartHash" sortProperty="smartHash" stateId="smartHash" width="325"/>
+            <ColumnConfig dataIndex="fullHash" groupProperty="fullHash" headerKey="Full Hash" property="fullHash" sortProperty="fullHash" stateId="fullHash" width="325"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalPolicyViolationCaptureSearchProperties" value="id,policyViolationId,identityName,policyName,constraintName"/>
+      <entry key="debugHistoricalPolicyViolationRemediationCaptureGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="identityHistoryItemId" groupProperty="identityHistoryItemId" headerKey="Identity History Item ID" property="identityHistoryItemId" sortProperty="identityHistoryItemId" sortable="true" stateId="identityHistoryItemId" width="250"/>
+            <ColumnConfig dataIndex="identityName" groupProperty="identityName" headerKey="Identity Name" property="identityName" sortProperty="identityName" sortable="true" stateId="identityName" width="220"/>
+            <ColumnConfig dataIndex="effectiveDate" dateStyle="medium" groupProperty="effectiveDate" headerKey="Effective From" property="effectiveDate" sortProperty="effectiveDate" sortable="true" stateId="effectiveDate" width="150"/>
+            <ColumnConfig dataIndex="policyName" groupProperty="policyName" headerKey="Policy" property="policyName" sortProperty="policyName" sortable="true" stateId="policyName" width="220"/>
+            <ColumnConfig dataIndex="constraintName" groupProperty="constraintName" headerKey="Constraint" property="constraintName" sortProperty="constraintName" sortable="true" stateId="constraintName" width="220"/>
+            <ColumnConfig dataIndex="deleted" groupProperty="deleted" headerKey="Deleted" property="deleted" sortProperty="deleted" sortable="true" stateId="deleted" width="100"/>
+            <ColumnConfig dataIndex="extendedToDate" dateStyle="medium" groupProperty="extendedToDate" headerKey="Effective Until" property="extendedToDate" sortProperty="extendedToDate" sortable="true" stateId="extendedToDate" width="150"/>
+            <ColumnConfig dataIndex="identityId" groupProperty="identityId" headerKey="Identity ID" property="identityId" sortProperty="identityId" sortable="true" stateId="identityId" width="250"/>
+            <ColumnConfig dataIndex="transformType" groupProperty="transformType" headerKey="Transform Type" property="transformType" sortProperty="transformType" stateId="transformType" width="150"/>
+            <ColumnConfig dataIndex="smartHash" groupProperty="smartHash" headerKey="Smart Hash" property="smartHash" sortProperty="smartHash" stateId="smartHash" width="325"/>
+            <ColumnConfig dataIndex="fullHash" groupProperty="fullHash" headerKey="Full Hash" property="fullHash" sortProperty="fullHash" stateId="fullHash" width="325"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalPolicyViolationRemediationCaptureSearchProperties" value="id,identityHistoryItemId,identityName,policyName,constraintName"/>
+      <entry key="debugHistoricalRoleCaptureGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="roleId" groupProperty="roleId" headerKey="Role ID" property="roleId" sortProperty="roleId" sortable="true" stateId="roleId" width="250"/>
+            <ColumnConfig dataIndex="roleName" groupProperty="roleName" headerKey="Role Name" property="roleName" sortProperty="roleName" sortable="true" stateId="roleName" width="220"/>
+            <ColumnConfig dataIndex="effectiveDate" dateStyle="medium" groupProperty="effectiveDate" headerKey="Effective From" property="effectiveDate" sortProperty="effectiveDate" sortable="true" stateId="effectiveDate" width="150"/>
+            <ColumnConfig dataIndex="extendedToDate" dateStyle="medium" groupProperty="extendedToDate" headerKey="Effective Until" property="extendedToDate" sortProperty="extendedToDate" sortable="true" stateId="extendedToDate" width="150"/>
+            <ColumnConfig dataIndex="transformType" groupProperty="transformType" headerKey="Transform Type" property="transformType" sortProperty="transformType" stateId="transformType" width="150"/>
+            <ColumnConfig dataIndex="smartHash" groupProperty="smartHash" headerKey="Smart Hash" property="smartHash" sortProperty="smartHash" stateId="smartHash" width="325"/>
+            <ColumnConfig dataIndex="fullHash" groupProperty="fullHash" headerKey="Full Hash" property="fullHash" sortProperty="fullHash" stateId="fullHash" width="325"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalRoleCaptureSearchProperties" value="id,roleId,roleName"/>
+      <entry key="debugHistoricalRoleEventGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="eventDate" dateStyle="medium" groupProperty="eventDate" headerKey="Eff Date" property="eventDate" sortProperty="eventDate" sortable="true" stateId="eventDate" width="150"/>
+            <ColumnConfig dataIndex="entityId" groupProperty="entityId" headerKey="Role ID" property="entityId" sortProperty="entityId" sortable="true" stateId="entityId" width="250"/>
+            <ColumnConfig dataIndex="entityName" groupProperty="entityName" headerKey="Role Name" property="entityName" sortProperty="entityName" sortable="true" stateId="entityName" width="220"/>
+            <ColumnConfig dataIndex="eventSourceType" groupProperty="eventSourceType" headerKey="Event Source Type" property="eventSourceType" sortProperty="eventSourceType" sortable="true" stateId="eventSourceType" width="250"/>
+            <ColumnConfig dataIndex="eventType" groupProperty="eventType" headerKey="Event Type" property="eventType" sortProperty="eventType" sortable="true" stateId="eventType" width="250"/>
+            <ColumnConfig dataIndex="propertyName" groupProperty="propertyName" headerKey="Property" property="propertyName" sortProperty="propertyName" sortable="true" stateId="propertyName" width="220"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalRoleEventSearchProperties" value="id,entityId,entityName,propertyName"/>
+      <entry key="debugHistoricalRoleGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="roleId" groupProperty="roleId" headerKey="Role ID" property="roleId" sortProperty="roleId" sortable="true" stateId="roleId" width="250"/>
+            <ColumnConfig dataIndex="name" groupProperty="name" headerKey="Name" property="name" sortProperty="name" sortable="true" stateId="name" width="200"/>
+            <ColumnConfig dataIndex="displayName" groupProperty="displayName" headerKey="Display Name" property="displayName" sortProperty="displayName" sortable="true" stateId="displayName" width="150"/>
+            <ColumnConfig dataIndex="deleted" groupProperty="deleted" headerKey="Deleted" property="deleted" sortProperty="deleted" sortable="true" stateId="deleted" width="100"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalRoleSearchProperties" value="id,roleId,name"/>
+      <entry key="debugHistoricalWorkgroupCaptureGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="workgroupId" groupProperty="workgroupId" headerKey="Workgroup ID" property="workgroupId" sortProperty="workgroupId" sortable="true" stateId="workgroupId" width="250"/>
+            <ColumnConfig dataIndex="workgroupName" groupProperty="workgroupName" headerKey="Workgroup Name" property="workgroupName" sortProperty="workgroupName" sortable="true" stateId="workgroupName" width="220"/>
+            <ColumnConfig dataIndex="effectiveDate" dateStyle="medium" groupProperty="effectiveDate" headerKey="Effective From" property="effectiveDate" sortProperty="effectiveDate" sortable="true" stateId="effectiveDate" width="150"/>
+            <ColumnConfig dataIndex="extendedToDate" dateStyle="medium" groupProperty="extendedToDate" headerKey="Effective Until" property="extendedToDate" sortProperty="extendedToDate" sortable="true" stateId="extendedToDate" width="150"/>
+            <ColumnConfig dataIndex="transformType" groupProperty="transformType" headerKey="Transform Type" property="transformType" sortProperty="transformType" stateId="transformType" width="150"/>
+            <ColumnConfig dataIndex="smartHash" groupProperty="smartHash" headerKey="Smart Hash" property="smartHash" sortProperty="smartHash" stateId="smartHash" width="325"/>
+            <ColumnConfig dataIndex="fullHash" groupProperty="fullHash" headerKey="Full Hash" property="fullHash" sortProperty="fullHash" stateId="fullHash" width="325"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalWorkgroupCaptureSearchProperties" value="id,workgroupId,workgroupName"/>
+      <entry key="debugHistoricalWorkgroupEventGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="eventDate" dateStyle="medium" groupProperty="eventDate" headerKey="Eff Date" property="eventDate" sortProperty="eventDate" sortable="true" stateId="eventDate" width="150"/>
+            <ColumnConfig dataIndex="entityId" groupProperty="entityId" headerKey="Identity ID" property="entityId" sortProperty="v" sortable="true" stateId="entityId" width="250"/>
+            <ColumnConfig dataIndex="entityName" groupProperty="entityName" headerKey="Identity Name" property="entityName" sortProperty="entityName" sortable="true" stateId="entityName" width="220"/>
+            <ColumnConfig dataIndex="eventSourceType" groupProperty="eventSourceType" headerKey="Event Source Type" property="eventSourceType" sortProperty="eventSourceType" sortable="true" stateId="eventSourceType" width="250"/>
+            <ColumnConfig dataIndex="eventType" groupProperty="eventType" headerKey="Event Type" property="eventType" sortProperty="eventType" sortable="true" stateId="eventType" width="250"/>
+            <ColumnConfig dataIndex="propertyName" groupProperty="propertyName" headerKey="Property" property="propertyName" sortProperty="propertyName" sortable="true" stateId="propertyName" width="220"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalWorkgroupEventSearchProperties" value="id,entityId,entityName,propertyName"/>
+      <entry key="debugHistoricalWorkgroupGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="workgroupId" groupProperty="workgropuId" headerKey="Workgroup ID" property="workgroupId" sortProperty="workgroupId" sortable="true" stateId="workgroupId" width="250"/>
+            <ColumnConfig dataIndex="name" groupProperty="name" headerKey="Name" property="name" sortProperty="name" sortable="true" stateId="name" width="200"/>
+            <ColumnConfig dataIndex="displayName" groupProperty="displayName" headerKey="Display Name" property="displayName" sortProperty="displayName" sortable="true" stateId="displayName" width="150"/>
+            <ColumnConfig dataIndex="deleted" groupProperty="deleted" headerKey="Deleted" property="deleted" sortProperty="deleted" sortable="true" stateId="deleted" width="100"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugHistoricalWorkgroupSearchProperties" value="id,workgroupId,name"/>
       <entry key="debugIdentityEntitlementGridColumns">
         <value>
           <List>
@@ -780,6 +1137,7 @@
           </List>
         </value>
       </entry>
+      <entry key="debugIdentityEntitlementSearchProperties" value="id,identity.name,name,value"/>
       <entry key="debugIdentityHistoryItemGridColumns">
         <value>
           <List>
@@ -817,7 +1175,36 @@
           </List>
         </value>
       </entry>
-      <entry key="debugLinkSearchProperties" value="id,name,displayName"/>
+      <entry key="debugInterceptedDeleteGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="objectId" groupProperty="objectId" headerKey="Obj ID" property="objectId" sortProperty="objectId" sortable="true" stateId="objectId" width="250"/>
+            <ColumnConfig dataIndex="objectName" groupProperty="objectName" headerKey="Obj Name" property="objectName" sortProperty="objectName" sortable="true" stateId="objectName" width="250"/>
+            <ColumnConfig dataIndex="objectType" groupProperty="objectType" headerKey="Obj Type" property="objectType" sortProperty="objectType" sortable="true" stateId="objectType" width="100"/>
+            <ColumnConfig dataIndex="objectDeletedDate" dateStyle="medium" groupProperty="objectDeletedDate" headerKey="Obj Deleted" property="objectDeletedDate" sortProperty="objectDeletedDate" sortable="true" stateId="objectDeletedDate" width="175"/>
+            <ColumnConfig dataIndex="extractConfigName" groupProperty="extractConfigName" headerKey="Extract Config" property="extractConfigName" sortProperty="extractConfigName" sortable="true" stateId="extractConfigName" width="200"/>
+            <ColumnConfig dataIndex="extractExecutionTimeMs" groupProperty="extractExecutionTimeMs" headerKey="Run Time (ms)" property="extractExecutionTimeMs" sortProperty="extractExecutionTimeMs" stateId="extractExecutionTimeMs" width="200"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugInterceptedDeleteSearchProperties" value="objectId,objectName,extractConfigName"/>
+      <entry key="debugLinkGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="displayName" groupProperty="displayName" headerKey="Name" property="displayName" sortProperty="displayName" sortable="true" stateId="displayName" width="200"/>
+            <ColumnConfig dataIndex="identityId" groupProperty="identity.id" headerKey="Identity Id" property="identity.id" sortProperty="identity.id" stateId="identityId" width="250"/>
+            <ColumnConfig dataIndex="identityName" groupProperty="identity.name" headerKey="Identity" property="identity.name" sortProperty="identity.name" stateId="identityName" width="250"/>
+            <ColumnConfig dataIndex="applicationId" groupProperty="application.id" headerKey="Application Id" property="application.id" sortProperty="application.id" stateId="applicationId" width="250"/>
+            <ColumnConfig dataIndex="applicationName" groupProperty="application.name" headerKey="Application" property="application.name" sortProperty="application.name" stateId="applicationName" width="250"/>
+            <ColumnConfig dataIndex="disabled" groupProperty="iiqDisabled" headerKey="Disabled" property="iiqDisabled" sortProperty="iiqDisabled" stateId="disabled" width="150"/>
+            <ColumnConfig dataIndex="created" dateStyle="short" groupProperty="created" headerKey="Created" property="created" sortProperty="created" sortable="true" stateId="created" width="150"/>
+            <ColumnConfig dataIndex="modified" dateStyle="short" groupProperty="modified" headerKey="Modified" property="modified" sortProperty="modified" sortable="true" stateId="modified" width="150"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugLinkSearchProperties" value="id,displayName,identity.id,identity.name,application.id,application.name"/>
       <entry key="debugManagedAttributeGridColumns">
         <value>
           <List>
@@ -828,6 +1215,17 @@
             <ColumnConfig dataIndex="type" groupProperty="type" headerKey="Type" property="type" sortProperty="type" sortable="true" stateId="type" width="100"/>
             <ColumnConfig dataIndex="requestable" groupProperty="requestable" headerKey="Requestable" property="requestable" sortProperty="requestable" sortable="true" stateId="requestable" width="50"/>
             <ColumnConfig dataIndex="owner" groupProperty="owner.name" headerKey="Owner" property="owner.name" sortProperty="owner.name" sortable="true" stateId="owner" width="150"/>
+            <ColumnConfig dataIndex="created" dateStyle="short" groupProperty="created" headerKey="Created" property="created" sortProperty="created" sortable="true" stateId="created" width="150"/>
+            <ColumnConfig dataIndex="modified" dateStyle="short" groupProperty="modified" headerKey="Modified" property="modified" sortProperty="modified" sortable="true" stateId="modified" width="150"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugNamedTimestampGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="name" groupProperty="name" headerKey="Name" property="name" sortProperty="name" sortable="true" stateId="name" width="250"/>
+            <ColumnConfig dataIndex="timestamp" dateStyle="short" groupProperty="timestamp" headerKey="Timestamp" property="timestamp" sortProperty="timestamp" sortable="true" stateId="timestamp" width="150"/>
             <ColumnConfig dataIndex="created" dateStyle="short" groupProperty="created" headerKey="Created" property="created" sortProperty="created" sortable="true" stateId="created" width="150"/>
             <ColumnConfig dataIndex="modified" dateStyle="short" groupProperty="modified" headerKey="Modified" property="modified" sortProperty="modified" sortable="true" stateId="modified" width="150"/>
           </List>
@@ -909,6 +1307,7 @@
             <ColumnConfig dataIndex="modified" dateStyle="short" groupProperty="modified" headerKey="Modified" property="modified" sortProperty="modified" sortable="true" stateId="modified" width="250"/>
             <ColumnConfig dataIndex="created" dateStyle="short" groupProperty="created" headerKey="Created" property="created" sortProperty="created" sortable="true" stateId="created" width="250"/>
             <ColumnConfig dataIndex="consumer" groupProperty="consumer" headerKey="Consumer" property="consumer" sortProperty="consumer" sortable="true" stateId="consumer" width="250"/>
+            <ColumnConfig dataIndex="subtype" groupProperty="subtype" headerKey="Subtype" property="subtype" sortProperty="subtype" sortable="true" stateId="subtype" width="250"/>
           </List>
         </value>
       </entry>
@@ -1081,6 +1480,18 @@
             <ColumnConfig dataIndex="description" groupProperty="description" headerKey="Description" property="description" sortProperty="description" sortable="true" stateId="description" width="400"/>
             <ColumnConfig dataIndex="created" dateStyle="short" groupProperty="created" headerKey="Created" property="created" sortProperty="created" sortable="true" stateId="created" width="150"/>
             <ColumnConfig dataIndex="modified" dateStyle="short" groupProperty="modified" headerKey="Modified" property="modified" sortProperty="modified" sortable="true" stateId="modified" width="150"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="debugYAMLConfigGridColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" groupProperty="id" headerKey="Id" property="id" sortProperty="id" sortable="true" stateId="id" width="250"/>
+            <ColumnConfig dataIndex="name" groupProperty="name" headerKey="Name" property="name" sortProperty="name" sortable="true" stateId="name" width="250"/>
+            <ColumnConfig dataIndex="type" groupProperty="type" headerKey="Type" property="type" sortProperty="type" sortable="true" stateId="type" width="150"/>
+            <ColumnConfig dataIndex="subtype" groupProperty="subtype" headerKey="SubType" property="subtype" sortProperty="subtype" sortable="true" stateId="subtype" width="150"/>
+            <ColumnConfig dataIndex="created" dateStyle="medium" groupProperty="created" headerKey="Created" property="created" sortProperty="created" sortable="true" stateId="created" width="150"/>
+            <ColumnConfig dataIndex="modified" dateStyle="medium" groupProperty="modified" headerKey="Modified" property="modified" sortProperty="modified" sortable="true" stateId="modified" width="150"/>
           </List>
         </value>
       </entry>
@@ -1306,7 +1717,7 @@
           </List>
         </value>
       </entry>
-      <entry key="identityViewAttributes" value="name,firstname,lastname,email,manager,type,softwareVersion,administrator,displayName"/>
+      <entry key="identityViewAttributes" value="name,firstname,lastname,email,manager,type,softwareVersion,administrator"/>
       <entry key="lcmCreateIdentityProvisioningPolicyRequiredFields">
         <value>
           <List>
@@ -1339,6 +1750,7 @@
             <ColumnConfig dataIndex="status" headerKey="ui_manage_accounts_status" renderer="linkStatus" sortable="true" stateId="status"/>
             <ColumnConfig dataIndex="lastRefresh" dateStyle="short" groupProperty="lastRefresh" headerKey="ui_manage_accounts_last_refresh" property="lastRefresh" sortProperty="lastRefresh" sortable="true" stateId="lastRefresh"/>
             <ColumnConfig dataIndex="actionStatus" headerKey="ui_manage_accounts_action_status" renderer="spLinkActionStatusColumn" sortable="true" stateId="actionStatus"/>
+            <ColumnConfig dataIndex="identityRequestCompletionStatus" fieldOnly="true" stateId="identityRequestCompletionStatus"/>
             <ColumnConfig dataIndex="previousAction" fieldOnly="true" stateId="previousAction"/>
             <ColumnConfig dataIndex="approvalStatus" fieldOnly="true" stateId="approvalStatus"/>
             <ColumnConfig dataIndex="errors" fieldOnly="true" stateId="errors"/>
@@ -2048,6 +2460,47 @@
           </List>
         </value>
       </entry>
+      <entry key="uiAccessHistoryAccountCaptureTableColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="application" groupProperty="application" headerKey="ui_access_history_account_application" percentWidth="20" sortProperty="application" sortable="true" stateId="application"/>
+            <ColumnConfig dataIndex="displayName" groupProperty="displayName" headerKey="ui_access_history_account_id" percentWidth="20" sortProperty="displayName" sortable="true" stateId="displayName"/>
+            <ColumnConfig dataIndex="status" headerKey="ui_access_history_account_status" percentWidth="20" renderer="spHistoricalAccountCaptureStatusColumn" stateId="status"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="uiAccessHistoryEntitlementCaptureTableColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="attributeName" groupProperty="attributeName" headerKey="ui_access_history_attribute" percentWidth="20" property="attributeName" renderer="spHistoricalEntitlementCaptureAttributeColumn" sortProperty="attributeName" sortable="true" stateId="attributeName"/>
+            <ColumnConfig dataIndex="displayValue" groupProperty="displayValue" headerKey="ui_access_history_entitlement" percentWidth="20" property="displayValue" renderer="spHistoricalEntitlementCaptureEntitlementColumn" sortProperty="displayValue" stateId="displayValue"/>
+            <ColumnConfig dataIndex="classifications" headerKey="ui_access_history_classifications" percentWidth="20" renderer="spHistoricalItemCaptureClassificationsColumn" stateId="classifications"/>
+            <ColumnConfig dataIndex="application" groupProperty="application" headerKey="ui_access_history_entitlement_application" percentWidth="20" sortProperty="application" sortable="true" stateId="application"/>
+            <ColumnConfig dataIndex="accountName" headerKey="ui_access_history_entitlement_account_name" percentWidth="20" stateId="accountName"/>
+            <ColumnConfig dataIndex="disconnected" fieldOnly="true" groupProperty="disconnected" headerKey="ui_access_history_disconnected" property="disconnected" sortProperty="disconnected" stateId="disconnected"/>
+            <ColumnConfig dataIndex="elevatedAccess" fieldOnly="true" groupProperty="elevatedAccess" headerKey="ui_access_history_elevated" property="elevatedAccess" sortProperty="elevatedAccess" stateId="elevatedAccess"/>
+            <ColumnConfig dataIndex="startDate" fieldOnly="true" groupProperty="startDate" headerKey="ui_access_history_sunrise_date" property="startDate" sortProperty="startDate" stateId="startDate"/>
+            <ColumnConfig dataIndex="endDate" fieldOnly="true" groupProperty="endDate" headerKey="ui_access_history_sunset_date" property="endDate" sortProperty="endDate" stateId="endDate"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="uiAccessHistoryRoleCaptureTableColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="roleName" groupProperty="roleName" headerKey="ui_access_history_role_name" percentWidth="20" property="roleName" renderer="spHistoricalRoleCaptureNameColumn" sortProperty="roleName" sortable="true" stateId="roleName"/>
+            <ColumnConfig dataIndex="assigner" headerKey="ui_access_history_role_assigner" percentWidth="10" stateId="assigner"/>
+            <ColumnConfig dataIndex="acquired" headerKey="ui_access_history_role_acquired" percentWidth="10" stateId="acquired"/>
+            <ColumnConfig dataIndex="allowedBy" headerKey="ui_access_history_role_allowed_by" percentWidth="10" stateId="allowedBy"/>
+            <ColumnConfig dataIndex="application" headerKey="ui_access_history_role_application" percentWidth="10" stateId="application"/>
+            <ColumnConfig dataIndex="owner" headerKey="ui_access_history_role_owner" percentWidth="10" stateId="owner"/>
+            <ColumnConfig dataIndex="classifications" headerKey="ui_access_history_classifications" percentWidth="10" renderer="spHistoricalItemCaptureClassificationsColumn" stateId="classifications"/>
+            <ColumnConfig dataIndex="description" headerKey="ui_access_history_role_description" percentWidth="40" renderer="spMoreLessToggleUnencodedColumn" stateId="description"/>
+            <ColumnConfig dataIndex="elevatedAccess" fieldOnly="true" groupProperty="elevatedAccess" headerKey="ui_access_history_elevated" property="elevatedAccess" sortProperty="elevatedAccess" stateId="elevatedAccess"/>
+            <ColumnConfig dataIndex="startDate" fieldOnly="true" groupProperty="startDate" headerKey="ui_access_history_sunrise_date" property="startDate" sortProperty="startDate" stateId="startDate"/>
+            <ColumnConfig dataIndex="endDate" fieldOnly="true" groupProperty="endDate" headerKey="ui_access_history_sunset_date" property="endDate" sortProperty="endDate" stateId="endDate"/>
+          </List>
+        </value>
+      </entry>
       <entry key="uiAccessItemsColumnsEntitlement">
         <value>
           <List>
@@ -2381,7 +2834,7 @@
             <ColumnConfig dataIndex="accessRequestName" groupProperty="identityRequestId" property="identityRequestId" sortProperty="identityRequestId" stateId="accessRequestName"/>
             <ColumnConfig dataIndex="requester" groupProperty="requester" property="requester" sortProperty="requester" stateId="requester"/>
             <ColumnConfig dataIndex="owner" groupProperty="owner" property="owner" sortProperty="owner" stateId="owner"/>
-            <ColumnConfig dataIndex="workItemName" groupProperty="name" property="name" sortProperty="name" stateId="workItemName"/>
+            <ColumnConfig dataIndex="workItemName" groupProperty="name" property="name" sortProperty="name" sortable="true" stateId="workItemName"/>
             <ColumnConfig dataIndex="assignee" groupProperty="assignee" property="assignee" sortProperty="assignee" stateId="assignee"/>
             <ColumnConfig dataIndex="workflowCaseId" groupProperty="workflowCase.id" property="workflowCase.id" sortProperty="workflowCase.id" stateId="workflowCaseId"/>
             <ColumnConfig dataIndex="targetId" groupProperty="targetId" property="targetId" sortProperty="targetId" stateId="targetId"/>
@@ -2843,13 +3296,19 @@
             <ColumnConfig dataIndex="Identity-firstname" groupProperty="Identity.firstname" headerKey="cert_item_tbl_header_firstname" property="Identity.firstname" sortProperty="Identity.firstname" stateId="Identity-firstname"/>
             <ColumnConfig dataIndex="Identity-lastname" groupProperty="Identity.lastname" headerKey="cert_item_tbl_header_lastname" property="Identity.lastname" sortProperty="Identity.lastname" stateId="Identity-lastname"/>
             <ColumnConfig dataIndex="type" evaluator="sailpoint.web.view.certification.ShortItemTypeColumn" groupProperty="type" headerKey="cert_item_tbl_header_type" property="type" sortProperty="type" stateId="type"/>
-            <ColumnConfig dataIndex="displayName" evaluator="sailpoint.web.view.certification.CertificationItemDisplayNameColumn" groupProperty="IIQ_displayName" headerKey="cert_item_tbl_header_display_name" property="IIQ_displayName" sortProperty="IIQ_displayName" stateId="displayName"/>
+            <ColumnConfig dataIndex="displayName" evaluator="sailpoint.web.view.certification.CertificationItemDisplayNameColumn" groupProperty="type,bundle,exceptionApplication,exceptionAttributeName,exceptionAttributeValue,exceptionPermissionTarget,exceptionPermissionRight,violationSummary,id" headerKey="cert_item_tbl_header_value" hidden="true" hideable="true" percentWidth="20" property="IIQ_displayName" secondarySort="parent.lastname,parent.firstname,type" sortProperty="type,bundle,exceptionApplication,exceptionAttributeName,exceptionAttributeValue,exceptionPermissionTarget,exceptionPermissionRight,violationSummary,id" sortable="true" stateId="displayName"/>
             <ColumnConfig dataIndex="description" evaluator="sailpoint.web.view.certification.CertificationItemDescriptionColumn" groupProperty="IIQ_description" headerKey="cert_item_tbl_header_description" property="IIQ_description" sortProperty="IIQ_description" stateId="description"/>
             <ColumnConfig dataIndex="application" groupProperty="exceptionApplication" headerKey="cert_item_tbl_header_application" property="exceptionApplication" sortProperty="exceptionApplication" stateId="application"/>
             <ColumnConfig dataIndex="summaryStatus" groupProperty="summaryStatus" headerKey="status" property="summaryStatus" sortProperty="summaryStatus" stateId="summaryStatus"/>
             <ColumnConfig dataIndex="accountName" groupProperty="exceptionEntitlements.displayName" headerKey="cert_item_tbl_header_accountDisplayName" property="exceptionEntitlements.displayName" sortProperty="exceptionEntitlements.displayName" stateId="accountName"/>
             <ColumnConfig dataIndex="IIQ_decision" evaluator="sailpoint.web.view.certification.CertificationItemCurrentDecisionStateColumn" groupProperty="IIQ_decision" headerKey="cert_item_tbl_header_decision" property="IIQ_decision" sortProperty="IIQ_decision" stateId="IIQ_decision"/>
             <ColumnConfig dataIndex="IIQ_decisionComment" evaluator="sailpoint.web.view.certification.CertificationItemCurrentDecisionCommentColumn" groupProperty="IIQ_decisionComment" headerKey="certification_decision_comment" property="IIQ_decisionComment" sortProperty="IIQ_decisionComment" stateId="IIQ_decisionComment"/>
+            <ColumnConfig dataIndex="Identity-displayName" groupProperty="Identity.displayName" headerKey="cert_item_tbl_header_identity" hidden="true" hideable="true" property="Identity.displayName" sortProperty="Identity.displayName" sortable="true" stateId="Identity-displayName"/>
+            <ColumnConfig dataIndex="Identity-manager-displayName" groupProperty="Identity.manager.displayName" headerKey="manager" hidden="true" hideable="true" property="Identity.manager.displayName" sortProperty="Identity.manager.displayName" sortable="true" stateId="Identity-manager-displayName"/>
+            <ColumnConfig dataIndex="nativeIdentity" groupProperty="exceptionEntitlements.nativeIdentity" headerKey="cert_item_tbl_header_accountid" hidden="true" hideable="true" property="exceptionEntitlements.nativeIdentity" secondarySort="exceptionApplication,parent.lastname,parent.firstname,type,IIQ_displayName" sortProperty="exceptionEntitlements.nativeIdentity" sortable="true" stateId="nativeIdentity"/>
+            <ColumnConfig dataIndex="instance" groupProperty="exceptionEntitlements.instance" headerKey="cert_item_tbl_header_instance" hidden="true" hideable="true" property="exceptionEntitlements.instance" secondarySort="exceptionApplication,parent.lastname,parent.firstname,type,IIQ_displayName" sortProperty="exceptionEntitlements.instance" sortable="true" stateId="instance"/>
+            <ColumnConfig dataIndex="IIQ_accountKey" evaluator="sailpoint.web.view.certification.CertificationItemAccountKeyColumn" groupProperty="exceptionApplication,exceptionEntitlements.nativeIdentity,exceptionEntitlements.instance" headerKey="cert_item_tbl_header_account" hidden="true" hideable="true" property="IIQ_accountKey" renderer="certItemAccount" secondarySort="parent.lastname,parent.firstname,type,IIQ_displayName" sortProperty="exceptionEntitlements.displayName,exceptionApplication,exceptionEntitlements.instance" sortable="true" stateId="IIQ_accountKey"/>
+            <ColumnConfig dataIndex="exceptionAttributeName" groupProperty="exceptionAttributeName" headerKey="cert_item_tbl_header_attribute" hideable="true" property="exceptionAttributeName" secondarySort="parent.lastname,parent.firstname,type,IIQ_displayName" sortProperty="exceptionAttributeName" sortable="true" stateId="exceptionAttributeName"/>
           </List>
         </value>
       </entry>
@@ -2976,6 +3435,38 @@
             <ColumnConfig dataIndex="description" headerKey="ui_work_items_widget_name" renderer="encodeHtml,priorityFlag" stateId="description"/>
             <ColumnConfig dataIndex="requester" headerKey="ui_work_items_widget_requester" renderer="displayableName,encodeHtml" stateId="requester"/>
             <ColumnConfig dataIndex="created" dateStyle="short" groupProperty="created" headerKey="ui_work_items_widget_date" property="created" sortProperty="created" stateId="created"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="uiHistoricalIdentityEventListColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="id" fieldOnly="true" groupProperty="id" property="id" sortProperty="id" stateId="id"/>
+            <ColumnConfig dataIndex="eventDate" fieldOnly="true" groupProperty="eventDate" headerKey="ui_access_history_export_event_date" property="eventDate" secondarySort="eventType" sortProperty="eventDate" sortable="true" stateId="eventDate"/>
+            <ColumnConfig dataIndex="eventType" fieldOnly="true" groupProperty="eventType" headerKey="ui_access_history_export_event_type" property="eventType" sortProperty="eventType" sortable="true" stateId="eventType"/>
+            <ColumnConfig dataIndex="eventDetailJson" fieldOnly="true" groupProperty="eventDetailJson" property="eventDetailJson" sortProperty="eventDetailJson" stateId="eventDetailJson"/>
+            <ColumnConfig dataIndex="propertyName" fieldOnly="true" groupProperty="propertyName" headerKey="ui_access_history_export_property" property="propertyName" sortProperty="propertyName" stateId="propertyName"/>
+            <ColumnConfig dataIndex="oldValue" fieldOnly="true" groupProperty="oldValue" headerKey="ui_access_history_export_old_value" property="oldValue" sortProperty="oldValue" stateId="oldValue"/>
+            <ColumnConfig dataIndex="newValue" fieldOnly="true" groupProperty="newValue" headerKey="ui_access_history_export_new_value" property="newValue" sortProperty="newValue" stateId="newValue"/>
+            <ColumnConfig dataIndex="acctDisplayName" fieldOnly="true" groupProperty="acctDisplayName" headerKey="ui_access_history_export_account_name" property="acctDisplayName" sortProperty="acctDisplayName" stateId="acctDisplayName"/>
+            <ColumnConfig dataIndex="acctAppName" fieldOnly="true" groupProperty="acctAppName" headerKey="ui_access_history_export_account_app" property="acctAppName" sortProperty="acctAppName" stateId="acctAppName"/>
+            <ColumnConfig dataIndex="acctNativeId" fieldOnly="true" groupProperty="acctNativeId" headerKey="ui_access_history_account_id" property="acctNativeId" sortProperty="acctNativeId" stateId="acctNativeId"/>
+            <ColumnConfig dataIndex="entityId" fieldOnly="true" groupProperty="entityId" property="entityId" sortProperty="entityId" stateId="entityId"/>
+            <ColumnConfig dataIndex="entityName" fieldOnly="true" groupProperty="entityName" headerKey="ui_access_history_export_entity_name" property="entityName" sortProperty="entityName" stateId="entityName"/>
+            <ColumnConfig dataIndex="requestItemId" fieldOnly="true" groupProperty="requestItemId" property="requestItemId" sortProperty="requestItemId" stateId="requestItemId"/>
+            <ColumnConfig dataIndex="pendingRequestItemId" fieldOnly="true" groupProperty="pendingRequestItemId" property="pendingRequestItemId" sortProperty="pendingRequestItemId" stateId="pendingRequestItemId"/>
+            <ColumnConfig dataIndex="identityEntitlementId" fieldOnly="true" groupProperty="identityEntitlementId" property="identityEntitlementId" sortProperty="identityEntitlementId" stateId="identityEntitlementId"/>
+            <ColumnConfig dataIndex="identityRequestId" fieldOnly="true" groupProperty="identityRequestId" property="identityRequestId" sortProperty="identityRequestId" stateId="identityRequestId"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="uiHistoricalIdentityListItemColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="HistoricalIdentity-id" fieldOnly="true" groupProperty="HistoricalIdentity.id" property="HistoricalIdentity.id" sortProperty="HistoricalIdentity.id" stateId="HistoricalIdentity-id"/>
+            <ColumnConfig dataIndex="identityId" fieldOnly="true" groupProperty="identityId" property="identityId" sortProperty="identityId" stateId="identityId"/>
+            <ColumnConfig dataIndex="displayName" fieldOnly="true" groupProperty="displayName" property="displayName" secondarySort="email" sortProperty="displayName" sortable="true" stateId="displayName"/>
+            <ColumnConfig dataIndex="HistoricalIdentity-deleted" fieldOnly="true" groupProperty="HistoricalIdentity.deleted" property="HistoricalIdentity.deleted" sortProperty="HistoricalIdentity.deleted" stateId="HistoricalIdentity-deleted"/>
           </List>
         </value>
       </entry>

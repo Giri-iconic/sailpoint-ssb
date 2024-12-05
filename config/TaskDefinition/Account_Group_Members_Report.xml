@@ -20,9 +20,9 @@
               <ReportColumnConfig field="accountGroupName" header="rept_account_group_membership_col_account_group" property="value" sortable="true" width="110"/>
               <ReportColumnConfig field="accountGroupDisplayName" header="rept_account_group_membership_col_account_group_display" property="value" scriptArguments="application.id,name" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                             return sailpoint.api.Explanator.getDisplayValue(scriptArgs.get("application.id"), scriptArgs.get("name"), value);
-                      </Source>
+                      ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="accountGroupType" header="rept_cert_col_type" property="ManagedAttribute.type" sortable="true" width="110"/>

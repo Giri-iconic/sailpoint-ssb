@@ -15,12 +15,12 @@
   </Variable>
   <Variable name="activate">
     <Script>
-      <Source>
+      <Source><![CDATA[
         // we sholld only be here for activation or deactivation events, 
         // but err on the side of activation in case the type is wrong
         import sailpoint.api.RoleEventGenerator;
         return !RoleEventGenerator.EVENT_TYPE_ROLE_DEACTIVATION.equals(eventType);
-      </Source>
+      ]]></Source>
     </Script>
   </Variable>
   <Variable editable="true" initializer="false" name="noRolePropagation" type="boolean">
@@ -51,14 +51,14 @@ Workflow called when a role is ready to be enabled or disabled.
   <Step action="call:refreshIdentities" condition="ref:doRefresh" icon="Task" name="Refresh Identities" posX="525" posY="10">
     <Arg name="identitiesWithRoles">
       <Script>
-        <Source>
+        <Source><![CDATA[
           // if we're deactivating, only refresh roles that have us
           import sailpoint.api.RoleEventGenerator;
           Object retval = null;
           if (RoleEventGenerator.EVENT_TYPE_ROLE_DEACTIVATION.equals(eventType)) 
              retval = role;
           return retval;
-      </Source>
+      ]]></Source>
       </Script>
     </Arg>
     <Arg name="correlateEntitlements" value="true"/>

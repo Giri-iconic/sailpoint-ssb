@@ -7,7 +7,6 @@
   <ApplicationRequestControl>
     <Reference class="sailpoint.object.Rule" name="Objects in Requestor's Authorized Scopes"/>
   </ApplicationRequestControl>
-  <Description/>
   <ManagedAttributeRemoveControl>
     <Reference class="sailpoint.object.Rule" name="All Objects"/>
   </ManagedAttributeRemoveControl>

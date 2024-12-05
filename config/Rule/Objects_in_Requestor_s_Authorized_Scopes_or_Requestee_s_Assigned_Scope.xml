@@ -36,7 +36,7 @@
       </Argument>
     </Returns>
   </Signature>
-  <Source>
+  <Source><![CDATA[
     
         import sailpoint.api.ScopeService;
         import sailpoint.object.Filter;
@@ -58,7 +58,7 @@
             // Either no requestee was available or the requestee doesn't have anything in scope.  
             // Only apply the requestor QueryInfo in either case.
             scopeQueryInfo = requestorQueryInfo;
-        } else if (requestorQueryInfo != null &amp;&amp; !requestorQueryInfo.isReturnNone()) {
+        } else if (requestorQueryInfo != null && !requestorQueryInfo.isReturnNone()) {
             if (requestorQueryInfo.isReturnAll() || requesteeQueryInfo.isReturnAll()) {
                 // If either the requestor or requestee has access to everything create a QueryInfo that grants
                 // access to everything
@@ -74,5 +74,5 @@
 
         return scopeQueryInfo;
     
-  </Source>
+  ]]></Source>
 </Rule>

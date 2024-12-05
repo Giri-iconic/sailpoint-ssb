@@ -96,9 +96,9 @@ plan evaluator.
   </Step>
   <Step name="Inspect Project" posX="336" posY="10">
     <Script>
-      <Source>
+      <Source><![CDATA[
         // hooks for project customization before execution
-      </Source>
+      ]]></Source>
     </Script>
     <Transition to="Check For Outstanding Forms" when="!ref:identityHasOutstandingForms"/>
     <Transition to="Do Provisioning Forms"/>
@@ -124,7 +124,7 @@ plan evaluator.
     <Arg name="disableRetryRequest" value="!ref:enableRetryRequest"/>
     <Arg name="enableManualAccountSelection" value="ref:enableManualAccountSelection"/>
     <ConditionScript>
-      <Source>identityHasOutstandingForms</Source>
+      <Source><![CDATA[identityHasOutstandingForms]]></Source>
     </ConditionScript>
     <Transition to="Inspect Project"/>
   </Step>
@@ -146,7 +146,7 @@ plan evaluator.
     <Arg name="identityName" value="ref:identityName"/>
     <Arg name="accountSelectionForm"/>
     <ConditionScript>
-      <Source>project != null &amp;&amp; (project.hasQuestions() || (isTrue(enableManualAccountSelection) &amp;&amp; (project.hasUnansweredAccountSelections() ||  project.hasUnansweredProvisioningTargets())))</Source>
+      <Source><![CDATA[project != null && (project.hasQuestions() || (isTrue(enableManualAccountSelection) && (project.hasUnansweredAccountSelections() ||  project.hasUnansweredProvisioningTargets())))]]></Source>
     </ConditionScript>
     <Description>
       Call the standard subprocess for assembling, presenting, and assimilating

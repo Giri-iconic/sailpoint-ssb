@@ -3,9 +3,6 @@
 <TaskDefinition executor="sailpoint.reporting.LiveReportExecutor" name="Application Status Report" progressMode="Percentage" resultAction="Rename" subType="Application Reports" template="true" type="LiveReport">
   <Attributes>
     <Map>
-      <entry key="TaskDefinition.runLengthAverage" value="4382"/>
-      <entry key="TaskDefinition.runLengthTotal" value="4382"/>
-      <entry key="TaskDefinition.runs" value="1"/>
       <entry key="report">
         <value>
           <LiveReport title="Application Status Report">
@@ -15,14 +12,14 @@
                 <Parameter argument="applications"/>
               </QueryParameters>
               <QueryScript>
-                <Source>
+                <Source><![CDATA[
                         
                               if (args.containsKey("applications")){
                                 return query + " where a.id in (:applications)";
                               }
                               return query;
                           
-                       </Source>
+                       ]]></Source>
               </QueryScript>
             </DataSource>
             <Columns>
@@ -30,11 +27,11 @@
               <ReportColumnConfig field="numberAccounts" header="rept_app_status_col_num_accounts" property="(select count(id) from sailpoint.object.Link l where l.application.id = a.id)" width="110"/>
               <ReportColumnConfig field="lastAgg" header="rept_app_status_col_last_agg" property="attributes" sortable="true" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                             if(null != value){
                               return value.get("acctAggregationEnd");
                             }
-                          </Source>
+                          ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="oldRefresh" header="rept_app_status_col_oldest_refresh" property="(select min(lastRefresh) from sailpoint.object.Link l where l.application.id = a.id)" width="110"/>
@@ -42,7 +39,7 @@
               <ReportColumnConfig field="totalAssignments" header="rept_app_status_col_assignments" property="(select count(id) from sailpoint.object.IdentityEntitlement e where e.application.id = a.id and e.type is not null)" width="110"/>
               <ReportColumnConfig field="totalAttributes" header="rept_app_status_col_entitlements" property="a.id" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           import sailpoint.object.*;
                           import sailpoint.tools.BrandingServiceFactory;
                           import java.util.*;
@@ -65,7 +62,7 @@
                           }
 
                           return count;
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
             </Columns>

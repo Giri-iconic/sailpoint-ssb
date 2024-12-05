@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE Scorecard PUBLIC "sailpoint.dtd" "sailpoint.dtd">
-<Scorecard certificationScore="1000" compositeScore="250" entitlementScore="1" rawEntitlementScore="1">
-  <ScoreItem compositePercentage="100" displayName="score_def_certificationAge_name" score="1000" scorePercentage="100" type="score_def_certificationAge_shortname">
-    <TargetMessage>
-      <Message key="cert_scorer_target_id_not_certified" type="Info"/>
-    </TargetMessage>
-  </ScoreItem>
-</Scorecard>

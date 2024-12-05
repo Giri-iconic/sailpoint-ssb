@@ -27,7 +27,7 @@
             </Columns>
             <ReportSummary title="Uncorrelated Account Details">
               <DataSourceScript>
-                <Source>
+                <Source><![CDATA[
                         
                         import java.util.*;
                         import sailpoint.tools.Util;
@@ -78,7 +78,7 @@
 
                         return map;
                         
-                      </Source>
+                      ]]></Source>
               </DataSourceScript>
               <Values>
                 <LiveReportSummaryValue label="rept_uncorrelated_ids_grid_label_auth_sources" name="sources"/>

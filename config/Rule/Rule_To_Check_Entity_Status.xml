@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule language="beanshell" name="Rule To Check Entity Status">
+  <Source><![CDATA[
+   import sailpoint.object.Custom;  
+  import com.fasterxml.jackson.databind.ObjectMapper;
+  Custom customObj = context.getObjectByName(Custom.class, "SailPoint Query");
+  
+  String query = customObj.getString("getAllUserRegion");
+
+  Iterator itr = null;
+  try {
+    itr = context.search("sql:" + query, null, null);
+  } catch (Exception e) {
+    return "Error: " + e.getMessage();
+  }
+
+  Map map=new HashMap();
+  while(itr.hasNext()){
+    Object[] row = (Object[]) itr.next();
+    if(row!=null)
+
+    {
+      String count = row[0].toString();
+      String region = (String) row[1];
+      if(region!= null) {
+        map.put(region, count);
+      }
+    }
+  }
+  ObjectMapper mapper = new ObjectMapper();
+  String jsonString = mapper.writeValueAsString(map);
+  return jsonString;
+  ]]></Source>
+</Rule>

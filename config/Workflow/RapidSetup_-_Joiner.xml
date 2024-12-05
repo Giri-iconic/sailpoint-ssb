@@ -106,73 +106,73 @@
     <WorkflowRef>
       <Reference class="sailpoint.object.Workflow" name="LCM Provisioning"/>
     </WorkflowRef>
-    <Transition to="Notify Manager" when="project != null &amp;&amp; project.getPlans() != null &amp;&amp; project.getPlans().size() > 0"/>
+    <Transition to="Notify Manager" when="project != null &amp;&amp; project.getPlans() != null &amp;&amp; project.getPlans().size() &gt; 0"/>
     <Transition to="Stop"/>
   </Step>
   <Step action="sendEmail" icon="Default" name="Notify Manager" posX="1088" posY="164">
     <Arg name="plan" value="ref:plan"/>
     <Arg name="to">
       <Script>
-        <Source>
+        <Source><![CDATA[
                 
                     sailpoint.rapidsetup.tools.EmailTools.getIdentityNameForNotification(context, workflow,
                               identityName, project, true);
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Arg name="template">
       <Script>
-        <Source>
+        <Source><![CDATA[
                 
                     sailpoint.object.RapidSetupConfigUtils.getString("businessProcesses,joiner,email,joinerCompleted");
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Arg name="refIdentityDisplayName">
       <Script>
-        <Source>
+        <Source><![CDATA[
                 
                     sailpoint.rapidsetup.tools.EmailTools.getIdentityDisplayName(context, identityName);
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Arg name="recipientDisplayName">
       <Script>
-        <Source>
+        <Source><![CDATA[
                 
                     sailpoint.rapidsetup.tools.EmailTools.getManagerOrAltIdentityDisplayName(context, identityName);
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Arg name="disableStaticManagerContent">
       <Script>
-        <Source>
+        <Source><![CDATA[
                 
                     sailpoint.object.RapidSetupConfigUtils.getBoolean("email,disableStaticManagerContent");
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Arg name="provisioningErrors">
       <Script>
-        <Source>
+        <Source><![CDATA[
                 
                     sailpoint.rapidsetup.tools.EmailTools.getProvisioningErrors(context, project);
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Arg name="dynamicAppContent">
       <Script>
-        <Source>
+        <Source><![CDATA[
                 
                     sailpoint.rapidsetup.tools.EmailTools.getDynamicTextEmailTemplate(context, project, "email,joinerCompleted", requestType);
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Transition to="Notify Manager Temporary Password" when="call:isSendTemporaryPasswordEmailEnabled"/>
@@ -182,75 +182,75 @@
     <Arg name="plan" value="ref:plan"/>
     <Arg name="to">
       <Script>
-        <Source>
+        <Source><![CDATA[
                 
                     sailpoint.rapidsetup.tools.EmailTools.getIdentityNameForNotification(context, workflow,
                               identityName, project, true);
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Arg name="template">
       <Script>
-        <Source>
+        <Source><![CDATA[
                 
                     sailpoint.object.RapidSetupConfigUtils.getString("businessProcesses,joiner,email,joinerSendTemporaryPassword");
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Arg name="refIdentityDisplayName">
       <Script>
-        <Source>
+        <Source><![CDATA[
                 
                     sailpoint.rapidsetup.tools.EmailTools.getIdentityDisplayName(context, identityName);
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Arg name="recipientDisplayName">
       <Script>
-        <Source>
+        <Source><![CDATA[
                 
                     sailpoint.rapidsetup.tools.EmailTools.getManagerOrAltIdentityDisplayName(context, identityName);
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Arg name="requestId">
       <Script>
-        <Source>
+        <Source><![CDATA[
                 
                     sailpoint.rapidsetup.tools.EmailTools.getRequestId(context, plan);
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Arg name="disableStaticManagerContent">
       <Script>
-        <Source>
+        <Source><![CDATA[
                 
                     sailpoint.object.RapidSetupConfigUtils.getBoolean("email,disableStaticManagerContent");
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Arg name="provisioningErrors">
       <Script>
-        <Source>
+        <Source><![CDATA[
                 
                     sailpoint.rapidsetup.tools.EmailTools.getProvisioningErrors(context, project);
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Arg name="dynamicAppContent">
       <Script>
-        <Source>
+        <Source><![CDATA[
                 
                     sailpoint.rapidsetup.tools.EmailTools.getDynamicTextEmailTemplate(context, project, "email,joinerSendTemporaryPassword", requestType);
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Transition to="Execute Joiner Post Rule"/>

@@ -35,7 +35,7 @@
       </Argument>
     </Returns>
   </Signature>
-  <Source>import sailpoint.object.QueryOptions; 
+  <Source><![CDATA[import sailpoint.object.QueryOptions; 
   import sailpoint.object.AuditEvent;
   import sailpoint.object.Custom;
   import sailpoint.object.Filter;
@@ -60,7 +60,7 @@ if(accountName.equals("ISIN1003")) return true;
 
   int triggerCount = context.countObjects(AuditEvent.class,triggerOptions);
 
-  if(triggerCount &gt; 0) {
+  if(triggerCount > 0) {
     
     log.error("===============================*********USER ACCCOUNT IS TRIGGERED MORE THAN ONCE*********===================================");
     return false;
@@ -89,5 +89,5 @@ if(accountName.equals("ISIN1003")) return true;
     }
   }
 
-  return adTrigger;</Source>
+  return adTrigger;]]></Source>
 </Rule>

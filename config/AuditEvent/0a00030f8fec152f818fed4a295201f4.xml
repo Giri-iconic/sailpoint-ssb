@@ -1,5 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE AuditEvent PUBLIC "sailpoint.dtd" "sailpoint.dtd">
-<AuditEvent action="IdentityWorkgroupAdd" clientHost="192.168.56.1" serverHost="WIN-T21N4E0UF24" source="spadmin" target="Praveen.Revally">
-  <String1>Business Analysts</String1>
-</AuditEvent>

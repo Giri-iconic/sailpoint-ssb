@@ -2,4 +2,4 @@ text.txt
 *.zip
 *.class
 build/
-
+*.war

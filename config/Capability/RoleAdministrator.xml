@@ -6,7 +6,6 @@
     <Reference class="sailpoint.object.Capability" name="OrganizationalRoleAdministrator"/>
     <Reference class="sailpoint.object.Capability" name="BusinessRoleAdministrator"/>
     <Reference class="sailpoint.object.Capability" name="ITRoleAdministrator"/>
-    <Reference class="sailpoint.object.Capability" name="RapidSetupBirthrightRoleAdministrator"/>
   </InheritedCapabilities>
   <RightRefs>
     <Reference class="sailpoint.object.SPRight" name="ViewApplication"/>

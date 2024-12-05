@@ -153,7 +153,7 @@
        approvals can be validate.
     </Description>
     <Script>
-      <Source>
+      <Source><![CDATA[
         import sailpoint.object.Field;
         import sailpoint.object.Form;
         import sailpoint.object.Rule;
@@ -185,7 +185,7 @@
             }
         }
         return approvalForm;
-      </Source>
+      ]]></Source>
     </Script>
     <Transition to="Build Approvers If Necessary"/>
   </Step>
@@ -199,7 +199,7 @@
   <Step icon="Approval" name="Approval" posX="577" posY="12">
     <Approval mode="ref:approvalMode" owner="ref:approvers" renderer="lcmEditableWorkItemRenderer.xhtml" send="identityDisplayName,identityName,policyViolations, approvalSet">
       <AfterScript>
-        <Source>
+        <Source><![CDATA[
           import sailpoint.workflow.IdentityRequestLibrary;
 
           import sailpoint.object.ApprovalSet;
@@ -233,9 +233,6 @@
               throw new GeneralException("ApprovalSet not found in afterscript.");
           }
 
-          // djs: this is kind of a hack, do I have alternatives?
-          // come back to this
-          // jsl: Yes, I think you want &lt;Return name='workItemForm' to='approvalForm'/&gt;
           Form form = (Form)item.get("workItemForm");
           if ( form != null ) {
               WorkflowCase c = wfcontext.getWorkflowCase();
@@ -263,7 +260,7 @@
                                   List approvals = parent.getChildren();
                                   if (approvals != null) {
                                       Approval prev = null;
-                                      for (int i = 0 ; i &lt; approvals.size() ; i++) {
+                                      for (int i = 0 ; i < approvals.size() ; i++) {
                                           Approval a = (Approval)approvals.get(i);
                                           if (prev == approval) {
                                              newApproval = a;
@@ -342,7 +339,7 @@
           auditWorkItemOwnerHistory(item);
           auditWorkItemComments(item);
           auditDecisions(item);
-        </Source>
+        ]]></Source>
       </AfterScript>
       <Arg name="workItemDescription" value="Account Changes for User: $(identityDisplayName)"/>
       <Arg name="workItemElectronicSignature" value="ref:approverElectronicSignature"/>
@@ -371,7 +368,7 @@
       the stub identity on the plan accordingly.
     </Description>
     <Script>
-      <Source>
+      <Source><![CDATA[
         
         import sailpoint.api.ObjectUtil;
         import sailpoint.object.ApprovalSet;
@@ -385,7 +382,7 @@
 
         List accountRequests = plan.getAccountRequests(ProvisioningPlan.APP_IIQ);
 
-        if ( accountRequests != null &amp;&amp; !accountRequests.isEmpty() &amp;&amp; accountRequests.get(0) != null) {
+        if ( accountRequests != null && !accountRequests.isEmpty() && accountRequests.get(0) != null) {
             AccountRequest iiq = accountRequests.get(0);
             // Look for the name attribute
             boolean nameChanged = false;
@@ -407,7 +404,7 @@
                             qo.add(new Filter[]{filter});
                             qo.addFilter(ObjectUtil.buildWorkgroupInclusiveIdentityFilter());
                             int count = wfcontext.getSailPointContext().countObjects(Identity.class, qo);
-                            if (count &gt; 0) {
+                            if (count > 0) {
                                 throw new GeneralException("User '"+ nameStr + "' already exists.");
                             }
                         }
@@ -453,7 +450,7 @@
         }
         return plan;
         
-      </Source>
+      ]]></Source>
     </Script>
     <Transition to="end"/>
   </Step>

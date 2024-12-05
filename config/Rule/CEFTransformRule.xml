@@ -29,7 +29,7 @@
       </Argument>
     </Returns>
   </Signature>
-  <Source>import sailpoint.object.ApplicationActivity.Action;
+  <Source><![CDATA[import sailpoint.object.ApplicationActivity.Action;
 import sailpoint.object.ApplicationActivity.Result;
 import java.text.SimpleDateFormat;
 import java.io;
@@ -61,7 +61,7 @@ if (o instanceof List) {
             cefUserNames = (List)o;
 }
 
-for (String paramPair: cef_explanation.split("\\s(?=\\S*(?&lt;!\\\\)=)", 0)){
+for (String paramPair: cef_explanation.split("\\s(?=\\S*(?<!\\\\)=)", 0)){
 //	System.out.println("CEFTransformRule: Parameter pair found " + paramPair);
     for(String cefUser: cefUserNames){
         String cefUserParam = cefUser.concat("=.*");
@@ -85,5 +85,5 @@ defaultYear = Calendar.getInstance().get(Calendar.YEAR);
 Date date = date = f.parse(cef_timestamp + " " + defaultYear);
 activity.setTimeStamp(date);
 
-return activity;</Source>
+return activity;]]></Source>
 </Rule>

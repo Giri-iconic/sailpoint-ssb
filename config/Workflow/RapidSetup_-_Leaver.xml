@@ -95,7 +95,7 @@
     <Arg name="to" value="ref:identityManager"/>
     <Arg name="template">
       <Script>
-        <Source>
+        <Source><![CDATA[
                 
                     if(isTerminateIdentity) {
                         return sailpoint.object.RapidSetupConfigUtils.getString("businessProcesses,terminate,email,ownershipReassignment");
@@ -103,25 +103,25 @@
                         return sailpoint.object.RapidSetupConfigUtils.getString("businessProcesses,leaver,email,ownershipReassignment");
                     }
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Arg name="refIdentityDisplayName">
       <Script>
-        <Source>
+        <Source><![CDATA[
                 
                     sailpoint.rapidsetup.tools.EmailTools.getIdentityDisplayName(context, identityName);
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Arg name="recipientDisplayName">
       <Script>
-        <Source>
+        <Source><![CDATA[
                 
                     sailpoint.rapidsetup.tools.EmailTools.getIdentityDisplayName(context, identityManager);
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Transition to="Remove Identity Ownership"/>
@@ -140,7 +140,7 @@
     <Arg name="to" value="ref:identityManager"/>
     <Arg name="template">
       <Script>
-        <Source>
+        <Source><![CDATA[
                 
                     if(isTerminateIdentity) {
                         return sailpoint.object.RapidSetupConfigUtils.getString("businessProcesses,terminate,email,ownershipReassignment");
@@ -148,25 +148,25 @@
                         return sailpoint.object.RapidSetupConfigUtils.getString("businessProcesses,leaver,email,ownershipReassignment");
                     }
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Arg name="refIdentityDisplayName">
       <Script>
-        <Source>
+        <Source><![CDATA[
                 
                     sailpoint.rapidsetup.tools.EmailTools.getIdentityDisplayName(context, identityName);
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Arg name="recipientDisplayName">
       <Script>
-        <Source>
+        <Source><![CDATA[
                 
                     sailpoint.rapidsetup.tools.EmailTools.getIdentityDisplayName(context, identityManager);
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Transition to="Auto Reject Pending Requests"/>
@@ -197,33 +197,33 @@
   </Step>
   <Step name="Build Immediate Plan" posX="565" posY="380" resultVariable="immediatePlan">
     <Script>
-      <Source>
+      <Source><![CDATA[
                 
                 return leaverPlanBuilder.buildPlan();
                 
-            </Source>
+            ]]></Source>
     </Script>
     <Transition to="Extract Pam Plans"/>
   </Step>
   <Step name="Extract Pam Plans" posX="570" posY="257" resultVariable="pamPlans">
     <Arg name="immediatePlan" value="ref:immediatePlan"/>
     <Script>
-      <Source>
+      <Source><![CDATA[
                 
                     return leaverPlanBuilder.extractPamPlans(immediatePlan );
                 
-            </Source>
+            ]]></Source>
     </Script>
     <Transition to="Process Pam Plans"/>
   </Step>
   <Step name="Process Pam Plans" posX="706" posY="207">
     <Arg name="pamPlans" value="ref:pamPlans"/>
     <Script>
-      <Source>
+      <Source><![CDATA[
                 
                     return leaverPlanBuilder.processPamPlans(pamPlans, approvalScheme);
                 
-            </Source>
+            ]]></Source>
     </Script>
     <Transition to="Process Plan" when="script:(immediatePlan != null &amp;&amp; !immediatePlan.isEmpty())"/>
     <Transition to="Get Deferred Plan Builder"/>
@@ -243,24 +243,24 @@
     <WorkflowRef>
       <Reference class="sailpoint.object.Workflow" name="LCM Provisioning"/>
     </WorkflowRef>
-    <Transition to="Notify Manager" when="project != null &amp;&amp; project.getPlans() != null &amp;&amp; project.getPlans().size() > 0"/>
+    <Transition to="Notify Manager" when="project != null &amp;&amp; project.getPlans() != null &amp;&amp; project.getPlans().size() &gt; 0"/>
     <Transition to="Get Deferred Plan Builder"/>
   </Step>
   <Step action="sendEmail" icon="Default" name="Notify Manager" posX="829" posY="176">
     <Arg name="plan" value="ref:immediatePlan"/>
     <Arg name="to">
       <Script>
-        <Source>
+        <Source><![CDATA[
               
                     sailpoint.rapidsetup.tools.EmailTools.getIdentityNameForNotification(context, workflow,
                               identityName, project, true);
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Arg name="template">
       <Script>
-        <Source>
+        <Source><![CDATA[
               
                     if(isTerminateIdentity) {
                         return sailpoint.object.RapidSetupConfigUtils.getString("businessProcesses,terminate,email,terminateCompleted");
@@ -268,43 +268,43 @@
                         return sailpoint.object.RapidSetupConfigUtils.getString("businessProcesses,leaver,email,leaverCompleted");
                     }
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Arg name="refIdentityDisplayName">
       <Script>
-        <Source>
+        <Source><![CDATA[
               
                     sailpoint.rapidsetup.tools.EmailTools.getIdentityDisplayName(context, identityName);
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Arg name="recipientDisplayName">
       <Script>
-        <Source>
+        <Source><![CDATA[
               
                     sailpoint.rapidsetup.tools.EmailTools.getManagerOrAltIdentityDisplayName(context, identityName);
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Arg name="disableStaticManagerContent">
       <Script>
-        <Source>
+        <Source><![CDATA[
               
                     sailpoint.object.RapidSetupConfigUtils.getBoolean("email,disableStaticManagerContent");
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Arg name="provisioningErrors">
       <Script>
-        <Source>
+        <Source><![CDATA[
                 
                     sailpoint.rapidsetup.tools.EmailTools.getProvisioningErrors(context, project);
                 
-            </Source>
+            ]]></Source>
       </Script>
     </Arg>
     <Transition to="Refresh Identity Links"/>
@@ -323,22 +323,22 @@
   </Step>
   <Step name="Build Deferred Plan" posX="1020" posY="487" resultVariable="deferredPlans">
     <Script>
-      <Source>
+      <Source><![CDATA[
                 
                 return deferredLeaverPlanBuilder.buildDeferredPlans();
                 
-            </Source>
+            ]]></Source>
     </Script>
     <Transition to="Extract Deferred Pam Plans"/>
   </Step>
   <Step name="Extract Deferred Pam Plans" posX="1050" posY="606" resultVariable="deferredPamPlans">
     <Arg name="deferredPlans" value="ref:deferredPlans"/>
     <Script>
-      <Source>
+      <Source><![CDATA[
                 
                     return deferredLeaverPlanBuilder.extractDeferredPamPlans(deferredPlans);
                 
-            </Source>
+            ]]></Source>
     </Script>
     <Transition to="Schedule Deferred Pam Plan"/>
   </Step>

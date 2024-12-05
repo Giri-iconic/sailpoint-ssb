@@ -50,7 +50,7 @@
   <Step icon="Approval" name="Manual Actions">
     <Approval mode="parallelPoll" owner="rule:Build Manual Action Approvals" renderer="lcmManualActionsRenderer.xhtml" send="identityDisplayName,identityName">
       <AfterScript>
-        <Source>
+        <Source><![CDATA[
           // Mark all items finished, LCM workflows do this for the dashboard
           // widget that tracks provisioning completion (the closed loop).
           // I'm not sure if we need that here, depends on which TaskResults
@@ -77,7 +77,7 @@
             // if (doAudit)
             //   auditManualAction(item);
           }
-        </Source>
+        ]]></Source>
       </AfterScript>
       <Arg name="workItemRequester" value="$(launcher)"/>
       <Arg name="workItemDescription" value="Manual Changes requested for User: $(identityDisplayName)"/>

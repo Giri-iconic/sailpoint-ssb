@@ -55,7 +55,7 @@ Note that an Attributes map of all variables from the current WorkflowContext, m
       </Argument>
     </Returns>
   </Signature>
-  <Source>log.error("============================**********************Entered step 1=========================*******************");
+  <Source><![CDATA[log.error("============================**********************Entered step 1=========================*******************");
   import sailpoint.object.*;
   import sailpoint.object.ProvisioningPlan;
   import sailpoint.object.ProvisioningPlan.AttributeRequest;
@@ -89,5 +89,5 @@ Note that an Attributes map of all variables from the current WorkflowContext, m
   plan.setAccountRequests(accountList);
 //	plan.setIdentity(identity);
   log.error(plan.toXml());
-  return plan;</Source>
+  return plan;]]></Source>
 </Rule>

@@ -8,7 +8,7 @@
           <LiveReport title="Identity Risk Report">
             <Chart bottomLabel="rept_id_risk_chart_bottom_label" leftLabel="rept_id_risk_chart_left_label" title="rept_id_risk_chart_title" type="column">
               <Script>
-                <Source>
+                <Source><![CDATA[
                         
                           import sailpoint.object.*;
                           import java.util.*;
@@ -22,7 +22,7 @@
 
                           List data = new ArrayList();
                           for(Map.Entry entry : scores.entrySet()){
-                            for(var i=1;i&lt;=5;i++){
+                            for(var i=1;i<=5;i++){
                               int min = (i - 1) * 200;
                               int max = i * 200;
 
@@ -43,7 +43,7 @@
                           }
                           return data;
                         
-                      </Source>
+                      ]]></Source>
               </Script>
             </Chart>
             <DataSource objectType="Identity" type="Filter">
@@ -57,7 +57,7 @@
                 <Parameter argument="capabilities" property="capabilities.id"/>
                 <Parameter argument="identityBusinessRoles">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                             import sailpoint.object.*;
                             import java.lang.*;
                             List roleFilters = new ArrayList();
@@ -71,12 +71,12 @@
                                 queryOptions.addFilter(Filter.or(roleFilters));
                             }
                             return queryOptions;
-                          </Source>
+                          ]]></Source>
                   </QueryScript>
                 </Parameter>
                 <Parameter argument="groupDefinitions">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                             import sailpoint.object.*;
                             import sailpoint.reporting.*;
                             Filter f = ReportingLibrary.getGroupDefinitionFilter(context, value, false);
@@ -84,7 +84,7 @@
                                 queryOptions.addFilter(f);
                             }
                             return queryOptions;
-                          </Source>
+                          ]]></Source>
                   </QueryScript>
                 </Parameter>
               </QueryParameters>

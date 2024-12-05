@@ -86,7 +86,7 @@
       </Argument>
     </Returns>
   </Signature>
-  <Source>import sailpoint.object.ApplicationActivity;
+  <Source><![CDATA[import sailpoint.object.ApplicationActivity;
   import sailpoint.object.Configuration;
 	
 //  System.out.println("CEFActivityCorrelation: In Correlation Rule");
@@ -102,5 +102,5 @@
 //        System.out.println("returnMap " + returnMap);
     }
 
-    return returnMap;</Source>
+    return returnMap;]]></Source>
 </Rule>

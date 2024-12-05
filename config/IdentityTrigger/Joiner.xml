@@ -5,10 +5,7 @@
   <HandlerParameters>
     <Attributes>
       <Map>
-        <entry key="businessProcess"/>
-        <entry key="identityProcessingThreshold"/>
-        <entry key="identityProcessingThresholdType"/>
-        <entry key="workflow" value="Joiner email test"/>
+        <entry key="workflow" value="Lifecycle Event - Joiner"/>
       </Map>
     </Attributes>
   </HandlerParameters>

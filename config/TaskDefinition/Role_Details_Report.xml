@@ -10,7 +10,7 @@
               <QueryParameters>
                 <Parameter argument="applications" property="profiles.application.id">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                               import sailpoint.object.*;
 
                               if (value != null) {
@@ -19,7 +19,7 @@
                               }
 
                               return queryOptions;
-                            </Source>
+                            ]]></Source>
                   </QueryScript>
                 </Parameter>
                 <Parameter argument="type" property="type"/>

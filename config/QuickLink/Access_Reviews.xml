@@ -8,7 +8,7 @@
       <entry key="textScript">
         <value>
           <Script>
-            <Source>
+            <Source><![CDATA[
                 
                   import sailpoint.object.Certification;
                   import sailpoint.object.Filter;
@@ -20,11 +20,16 @@
 
                   return context.countObjects(Certification.class, qo);
                 
-              </Source>
+              ]]></Source>
           </Script>
         </value>
       </entry>
     </Map>
   </Attributes>
   <Description>quicklink_access_reviews_desc</Description>
+  <QuickLinkOptions allowSelf="true">
+    <DynamicScopeRef>
+      <Reference class="sailpoint.object.DynamicScope" name="Everyone"/>
+    </DynamicScopeRef>
+  </QuickLinkOptions>
 </QuickLink>

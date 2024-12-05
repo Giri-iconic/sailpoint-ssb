@@ -14,14 +14,14 @@
                 <Parameter argument="expirationDate" operation="LT" property="expiration"/>
                 <Parameter argument="roles" property="roleName">
                   <ValueScript>
-                    <Source>
+                    <Source><![CDATA[
                             import sailpoint.object.*;
                             import sailpoint.api.ObjectUtil;
                             if (value != null){
                               return ObjectUtil.convertIdsToNames(context, Bundle.class, value);
                             }
                             return null;
-                          </Source>
+                          ]]></Source>
                   </ValueScript>
                 </Parameter>
               </QueryParameters>
@@ -34,7 +34,7 @@
               <ReportColumnConfig field="mitigator" header="rept_mitigations_grid_col_mitigator" property="mitigator.name" sortable="true" width="110"/>
               <ReportColumnConfig field="type" header="rept_mitigations_grid_col_type" property="certifiableDescriptor" sortable="true" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                                     import sailpoint.object.*;
                                     import sailpoint.tools.Message;
                                     if (value != null){
@@ -46,12 +46,12 @@
                                           return Message.localize("rept_mitigations_type_violation");
                                     }
                                     return "";
-                                  </Source>
+                                  ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="item" header="rept_mitigations_grid_col_item" property="certifiableDescriptor" sortable="true" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                                     import sailpoint.object.*;
                                     import sailpoint.tools.Message;
                                     import sailpoint.api.EntitlementDescriber;
@@ -65,7 +65,7 @@
                                         }
                                     }
                                     return "";
-                         </Source>
+                         ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig dateFormat="short" field="expiration" header="rept_mitigations_grid_col_expiration" property="expiration" sortable="true" timeFormat="long" width="110"/>

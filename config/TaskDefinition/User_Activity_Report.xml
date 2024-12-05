@@ -10,26 +10,26 @@
               <QueryParameters>
                 <Parameter argument="identities" property="identityName">
                   <ValueScript>
-                    <Source>
+                    <Source><![CDATA[
                             import sailpoint.object.*;
                             import sailpoint.api.ObjectUtil;
                             if (value != null){
                               return ObjectUtil.convertIdsToNames(context, Identity.class, value);
                             }
                             return null;
-                          </Source>
+                          ]]></Source>
                   </ValueScript>
                 </Parameter>
                 <Parameter argument="applications" property="sourceApplication">
                   <ValueScript>
-                    <Source>
+                    <Source><![CDATA[
                             import sailpoint.object.*;
                             import sailpoint.api.ObjectUtil;
                             if (value != null){
                               return ObjectUtil.convertIdsToNames(context, Application.class, value);
                             }
                             return null;
-                          </Source>
+                          ]]></Source>
                   </ValueScript>
                 </Parameter>
                 <Parameter argument="startDate" operation="GE" property="timeStamp"/>

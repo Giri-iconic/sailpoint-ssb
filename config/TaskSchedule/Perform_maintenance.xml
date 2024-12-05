@@ -1,10 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE TaskSchedule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
-<TaskSchedule lastExecution="1718863606844" name="Perform maintenance" nextExecution="1718863800000">
+<TaskSchedule name="Perform maintenance">
   <Arguments>
     <Map>
       <entry key="executor" value="Perform Maintenance"/>
-      <entry key="nextActualFireTime" value="1718863800000"/>
     </Map>
   </Arguments>
   <CronExpressions>

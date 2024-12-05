@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
 <Rule language="beanshell" name="Provisioner_API_Sample">
-  <Source>
+  <Source><![CDATA[
   import sailpoint.api.Provisioner;
   import sailpoint.object.ProvisioningPlan;
   import sailpoint.object.ProvisioningPlan.AccountRequest;
@@ -39,5 +39,5 @@
   Provisioner provisioner = new Provisioner(context);
   provisioner.execute(plan);
   
-  </Source>
+  ]]></Source>
 </Rule>

@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE TaskDefinition PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<TaskDefinition executor="sailpoint.task.NativeIdentityChangeEventResetter" name="Reset Failed NativeIdentityChange Events" subType="task_item_type_system" template="true" type="System">
+  <Attributes>
+    <Map>
+      <entry key="pruneDupDifferByCase" value="true"/>
+      <entry key="resetAndProcess" value="true"/>
+    </Map>
+  </Attributes>
+  <Description>Reset Failed NativeIdentityChange Events and reprocess those events.</Description>
+  <Signature>
+    <Inputs>
+      <Argument helpKey="help_task_reset_nice_prune_dup_differ_by_case" name="pruneDupDifferByCase" type="boolean">
+        <Prompt>task_in_reset_nice_prune_dup_differ_by_case</Prompt>
+      </Argument>
+      <Argument helpKey="help_task_reset_nice_reprocess" name="resetAndProcess" type="boolean">
+        <Prompt>task_in_reset_nice_reprocess</Prompt>
+      </Argument>
+    </Inputs>
+    <Returns>
+      <Argument name="dupAccountEvents" type="int">
+        <Prompt>task_out_reset_nice_dup_account_events</Prompt>
+      </Argument>
+      <Argument name="dupAccountEventsPruned" type="int">
+        <Prompt>task_out_reset_nice_dup_account_events_pruned</Prompt>
+      </Argument>
+      <Argument name="failedAccountEvents" type="int">
+        <Prompt>task_out_reset_nice_failed_account_events</Prompt>
+      </Argument>
+      <Argument name="accountEventsReset" type="int">
+        <Prompt>task_out_reset_nice_account_events_reset</Prompt>
+      </Argument>
+      <Argument name="dupGroupEvents" type="int">
+        <Prompt>task_out_reset_nice_dup_group_events</Prompt>
+      </Argument>
+      <Argument name="dupGroupEventsPruned" type="int">
+        <Prompt>task_out_reset_nice_dup_group_events_pruned</Prompt>
+      </Argument>
+      <Argument name="failedGroupEvents" type="int">
+        <Prompt>task_out_reset_nice_failed_group_events</Prompt>
+      </Argument>
+      <Argument name="groupEventsReset" type="int">
+        <Prompt>task_out_reset_nice_group_events_reset</Prompt>
+      </Argument>
+    </Returns>
+  </Signature>
+</TaskDefinition>

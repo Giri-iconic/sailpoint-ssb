@@ -168,7 +168,7 @@
       It is reloaded in the "Reset Original Plan" step.
     </Description>
     <Script>
-      <Source>
+      <Source><![CDATA[
         import sailpoint.object.ProvisioningPlan;
         
         if (null != project) {
@@ -178,7 +178,7 @@
                 workflow.put("originalPlan", copy);
             }
         }
-      </Source>
+      ]]></Source>
     </Script>
     <Transition to="Check Policies"/>
   </Step>
@@ -189,7 +189,7 @@
     <Arg name="policyScheme" value="ref:policyScheme"/>
     <Arg name="asyncCacheRefresh" value="ref:asyncCacheRefresh"/>
     <Return name="policyViolations" to="policyViolations"/>
-    <Transition to="Reset Original Plan" when="script:((!&quot;ignore&quot;.equals(violationReviewDecision) &amp;&amp; !&quot;cancel&quot;.equals(violationReviewDecision) ) &amp;&amp; size(policyViolations) > 0 &amp;&amp; (policyScheme.equals(&quot;interactive&quot;)))"/>
+    <Transition to="Reset Original Plan" when="script:((!&quot;ignore&quot;.equals(violationReviewDecision) &amp;&amp; !&quot;cancel&quot;.equals(violationReviewDecision) ) &amp;&amp; size(policyViolations) &gt; 0 &amp;&amp; (policyScheme.equals(&quot;interactive&quot;)))"/>
     <Transition to="end"/>
   </Step>
   <Step name="Reset Original Plan" posX="378" posY="9">
@@ -199,19 +199,19 @@
       plan.  Also see the step "Save Original Plan".
     </Description>
     <Script>
-      <Source>
+      <Source><![CDATA[
         if (null != originalPlan) {
             plan = (ProvisioningPlan) originalPlan.deepCopy(wfcontext.getSailPointContext());
             workflow.put("plan", plan);
         }
-      </Source>
+      ]]></Source>
     </Script>
     <Transition to="Violation Review"/>
   </Step>
   <Step icon="Approval" name="Violation Review" posX="446" posY="210">
     <Approval mode="ref:approvalMode" owner="ref:launcher" renderer="lcmViolationReviewRenderer.xhtml" send="identityDisplayName,identityName,policyViolations,approvalSet,violationReviewDecision,requireViolationReviewComments,allowRequestsWithViolations">
       <AfterScript>
-        <Source>
+        <Source><![CDATA[
           import sailpoint.object.ApprovalSet;
           import sailpoint.object.ApprovalItem;
           import sailpoint.object.WorkItem;
@@ -245,7 +245,7 @@
           }
           
           assimilateWorkItemApprovalSet(wfcontext, item, approvalSet);
-        </Source>
+        ]]></Source>
       </AfterScript>
       <Arg name="workItemRequester" value="$(launcher)"/>
       <Arg name="workItemDescription" value="Policy Violation Review - Account Changes for User: $(identityDisplayName)"/>

@@ -8,88 +8,88 @@
   #set($reqType = $workflow.requestType)
   #set($styleSheet = $emailTools.getEmailSection($ctx, "styleSheet"))
   #set($headerTemplate = $emailTools.getEmailSection($ctx, "headerTemplate")) #set($footerTemplate = $emailTools.getEmailSection($ctx, "footerTemplate"))
-  &lt;html&gt;
-  &lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
+  <![CDATA[<html>
+  <head>
+  <meta charset="UTF-8">
   #if( $styleSheet )
     $styleSheet
   #end
-  &lt;/head&gt;
-  &lt;body&gt;
+  </head>
+  <body>
   #if( $headerTemplate )
     $headerTemplate
   #end
-  &lt;br/&gt;
-  Dear $recipientDisplayName,&lt;br/&gt;
-  &lt;p&gt;Termination of Identity '$refIdentityDisplayName' completed.&lt;/p&gt;
-  #if ( $plan &amp;&amp; $plan.accountRequests &amp;&amp; !$disableStaticManagerContent )
-    &lt;ul&gt;
+  <br/>
+  Dear $recipientDisplayName,<br/>
+  <p>Termination of Identity '$refIdentityDisplayName' completed.</p>
+  #if ( $plan && $plan.accountRequests && !$disableStaticManagerContent )
+    <ul>
     #set($approvedAccountRequests = $emailTools.getApprovedAccountRequest($plan.accountRequests, $approvalSet, "leaver"))
     #foreach ( $acctReq in $approvedAccountRequests )
-      &lt;li&gt;Application: $!acctReq.applicationName&lt;/li&gt;
-      &lt;ul&gt;
+      <li>Application: $!acctReq.applicationName</li>
+      <ul>
       #if ( $!{acctReq.arguments["comments"]} )
         #foreach ( $comment in $!{acctReq.arguments["comments"]} )
-          &lt;li&gt;Completion Comments: $comment&lt;/li&gt;
+          <li>Completion Comments: $comment</li>
         #end
       #end
       #if ( $!acctReq.nativeIdentity )
-        &lt;li&gt;Account ID : $!acctReq.nativeIdentity&lt;/li&gt;
+        <li>Account ID : $!acctReq.nativeIdentity</li>
       #end
       #if ( $!acctReq.op )
-        &lt;li&gt;Operation: $!acctReq.op&lt;/li&gt;
+        <li>Operation: $!acctReq.op</li>
       #end
-      &lt;ul&gt;
+      <ul>
       #foreach ( $attrReq in $acctReq.attributeRequests )
         #if ( $!attrReq.name )
-          &lt;li&gt;Attribute Name : $!attrReq.name&lt;/li&gt;
+          <li>Attribute Name : $!attrReq.name</li>
         #end
         #if ( $!attrReq.displayValue )
-          &lt;li&gt;Display Value: $!attrReq.displayValue&lt;/li&gt;
+          <li>Display Value: $!attrReq.displayValue</li>
         #end
         #if ( $!attrReq.op )
-          &lt;li&gt;Operation: $!attrReq.op&lt;/li&gt;
+          <li>Operation: $!attrReq.op</li>
         #end
         #if ( $!attrReq.displayValue )
-          &lt;li&gt;Attribute Value: $!attrReq.displayValue&lt;/li&gt;
+          <li>Attribute Value: $!attrReq.displayValue</li>
         #elseif ( $!attrReq.value )
-          &lt;li&gt;Attribute Value: $!attrReq.value&lt;/li&gt;
+          <li>Attribute Value: $!attrReq.value</li>
         #end
       #end
       #if ( $!{acctReq.arguments["requesterComments"]} )
-        &lt;li&gt;Requester Comments: $!{acctReq.arguments["requesterComments"]}&lt;/li&gt;
+        <li>Requester Comments: $!{acctReq.arguments["requesterComments"]}</li>
       #end
-      &lt;/ul&gt;
-      &lt;/ul&gt;
+      </ul>
+      </ul>
     #end
-    &lt;/ul&gt;
+    </ul>
   #end
   #if ( $dynamicAppContent )
-    &lt;table&gt;
+    <table>
     #if ( !$disableStaticManagerContent )
       #foreach( $key in $dynamicAppContent.keySet() )
-        &lt;tr&gt;&lt;td&gt;$key&lt;/td&gt;&lt;td&gt;$dynamicAppContent.get($key)&lt;/td&gt;&lt;/tr&gt;
+        <tr><td>$key</td><td>$dynamicAppContent.get($key)</td></tr>
       #end
     #else
       #foreach( $key in $dynamicAppContent.keySet() )
-        &lt;tr&gt;&lt;td&gt;$dynamicAppContent.get($key)&lt;/td&gt;&lt;/tr&gt;
+        <tr><td>$dynamicAppContent.get($key)</td></tr>
       #end
     #end
-    &lt;/table&gt;
+    </table>
   #end
   #if ( $provisioningErrors )
     The following errors occurred during provisioning:
-    &lt;ul&gt;
+    <ul>
     #foreach ( $error in $provisioningErrors )
-      &lt;li&gt;$!error&lt;/li&gt;
+      <li>$!error</li>
     #end
-    &lt;/ul&gt;
+    </ul>
   #end
   #if( $footerTemplate )
     $footerTemplate
   #end
-  &lt;/body&gt;
-  &lt;/html&gt;
+  </body>
+  </html>]]>
         
     </Body>
   <Description>

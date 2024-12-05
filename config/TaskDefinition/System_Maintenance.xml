@@ -65,6 +65,12 @@
       <Argument helpKey="help_task_prune_native_identity_change_events" name="pruneNativeIdentityChangeEvents" type="boolean">
         <Prompt>task_in_perform_maintenance_prune_native_identity_change_events</Prompt>
       </Argument>
+      <Argument helpKey="help_task_prune_inoperable_intercepted_deletes" name="pruneInoperableInterceptedDeletes" type="boolean">
+        <Prompt>task_in_perform_maintenance_prune_inoperable_intercepted_deletes</Prompt>
+      </Argument>
+      <Argument helpKey="help_task_prune_post_commit_notification_objects" name="prunePostCommitNotificationObjects" type="boolean">
+        <Prompt>task_in_perform_maintenance_prune_post_commit_notification_objects</Prompt>
+      </Argument>
       <Argument helpKey="help_task_perform_maintenance_enable_partitioning" name="enablePartitioning" type="boolean">
         <Prompt>task_in_perform_maintenance_enable_partitioning</Prompt>
       </Argument>
@@ -141,6 +147,12 @@
       </Argument>
       <Argument name="nativeIdentityChangeEventsPruned" type="int">
         <Prompt>task_out_perform_maintenance_native_identity_change_events_pruned</Prompt>
+      </Argument>
+      <Argument name="inoperableInterceptedDeletesPruned" type="int">
+        <Prompt>task_out_perform_maintenance_inoperable_intercepted_deletes_pruned</Prompt>
+      </Argument>
+      <Argument name="postCommitNotificationObjectsPruned" type="int">
+        <Prompt>task_out_perform_maintenance_post_commit_notification_objects_pruned</Prompt>
       </Argument>
     </Returns>
   </Signature>

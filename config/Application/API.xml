@@ -1,0 +1,321 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Application PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Application connector="sailpoint.connector.webservices.WebServicesConnector" featuresString="PROVISIONING, ENABLE, PASSWORD, AUTHENTICATE, UNLOCK, ACCOUNT_ONLY_REQUEST" name="API" profileClass="" type="Web Services">
+  <Attributes>
+    <Map>
+      <entry key="afterProvisioningRule" value="Sample After Provisioning Rule"/>
+      <entry key="authenticationMethod" value="No Auth"/>
+      <entry key="beforeProvisioningRule" value="AD before provisioing"/>
+      <entry key="clientCertAuthEnabled">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="compositeDefinition"/>
+      <entry key="connectionParameters">
+        <value>
+          <List>
+            <Map>
+              <entry key="afterRule"/>
+              <entry key="beforeRule"/>
+              <entry key="body">
+                <value>
+                  <Map>
+                    <entry key="bodyFormData"/>
+                    <entry key="bodyFormat" value="raw"/>
+                    <entry key="jsonBody"/>
+                  </Map>
+                </value>
+              </entry>
+              <entry key="contextUrl" value="/"/>
+              <entry key="curlCommand"/>
+              <entry key="curlEnabled">
+                <value>
+                  <Boolean/>
+                </value>
+              </entry>
+              <entry key="customAuthUrl"/>
+              <entry key="header"/>
+              <entry key="httpMethodType" value="GET"/>
+              <entry key="operationType" value="Test Connection"/>
+              <entry key="paginationSteps"/>
+              <entry key="pagingInitialOffset">
+                <value>
+                  <Integer>0</Integer>
+                </value>
+              </entry>
+              <entry key="pagingSize">
+                <value>
+                  <Integer>50</Integer>
+                </value>
+              </entry>
+              <entry key="parentEndpointName"/>
+              <entry key="resMappingObj"/>
+              <entry key="responseCode">
+                <value>
+                  <List>
+                    <String>2**</String>
+                  </List>
+                </value>
+              </entry>
+              <entry key="rootPath" value="[*]"/>
+              <entry key="sequenceNumberForEndpoint" value="1"/>
+              <entry key="uniqueNameForEndPoint" value="Test Connection"/>
+              <entry key="xpathNamespaces"/>
+            </Map>
+            <Map>
+              <entry key="afterRule"/>
+              <entry key="beforeRule"/>
+              <entry key="body">
+                <value>
+                  <Map>
+                    <entry key="bodyFormData"/>
+                    <entry key="bodyFormat" value="raw"/>
+                    <entry key="jsonBody"/>
+                  </Map>
+                </value>
+              </entry>
+              <entry key="contextUrl" value="/employees"/>
+              <entry key="curlCommand"/>
+              <entry key="curlEnabled">
+                <value>
+                  <Boolean/>
+                </value>
+              </entry>
+              <entry key="customAuthUrl"/>
+              <entry key="header"/>
+              <entry key="httpMethodType" value="GET"/>
+              <entry key="operationType" value="Account Aggregation"/>
+              <entry key="paginationSteps"/>
+              <entry key="pagingInitialOffset">
+                <value>
+                  <Integer>0</Integer>
+                </value>
+              </entry>
+              <entry key="pagingSize">
+                <value>
+                  <Integer>50</Integer>
+                </value>
+              </entry>
+              <entry key="parentEndpointName"/>
+              <entry key="resMappingObj">
+                <value>
+                  <Map>
+                    <entry key="department" value="department"/>
+                    <entry key="employeeId" value="employeeId"/>
+                    <entry key="firstName" value="firstName"/>
+                    <entry key="fullName" value="fullName"/>
+                    <entry key="lastName" value="lastName"/>
+                    <entry key="manager" value="manager"/>
+                    <entry key="title" value="title"/>
+                  </Map>
+                </value>
+              </entry>
+              <entry key="responseCode">
+                <value>
+                  <List>
+                    <String>2**</String>
+                  </List>
+                </value>
+              </entry>
+              <entry key="rootPath" value="$.employees[*]"/>
+              <entry key="sequenceNumberForEndpoint" value="2"/>
+              <entry key="uniqueNameForEndPoint" value="Get All Employees"/>
+              <entry key="xpathNamespaces"/>
+            </Map>
+            <Map>
+              <entry key="afterRule"/>
+              <entry key="beforeRule" value="Test Before Rule"/>
+              <entry key="body">
+                <value>
+                  <Map>
+                    <entry key="bodyFormData"/>
+                    <entry key="bodyFormat" value="raw"/>
+                    <entry key="jsonBody" value="{&#13;&#10;&quot;lastName&quot; : &quot;$plan.lastName$&quot;,&#13;&#10;&quot;fullName&quot;  : &quot;$plan.fullName$&quot;,&#13;&#10;&quot;department&quot; : &quot;Operations&quot;,&#13;&#10;&quot;title&quot; : &quot;Senior Manager&quot;,&#13;&#10;&quot;employeeId&quot; : 3,&#13;&#10;&quot;manager&quot; : &quot;Giridhar&quot;&#13;&#10;}"/>
+                  </Map>
+                </value>
+              </entry>
+              <entry key="contextUrl" value="/employee"/>
+              <entry key="curlCommand"/>
+              <entry key="curlEnabled">
+                <value>
+                  <Boolean/>
+                </value>
+              </entry>
+              <entry key="customAuthUrl"/>
+              <entry key="header"/>
+              <entry key="httpMethodType" value="POST"/>
+              <entry key="operationType" value="Create Account"/>
+              <entry key="paginationSteps"/>
+              <entry key="pagingInitialOffset">
+                <value>
+                  <Integer>0</Integer>
+                </value>
+              </entry>
+              <entry key="pagingSize">
+                <value>
+                  <Integer>50</Integer>
+                </value>
+              </entry>
+              <entry key="parentEndpointName"/>
+              <entry key="resMappingObj">
+                <value>
+                  <Map>
+                    <entry key="department" value="department"/>
+                    <entry key="employeeId" value="employeeId"/>
+                    <entry key="firsName" value="firstName"/>
+                    <entry key="fullName" value="fullName"/>
+                    <entry key="lastName" value="lastName"/>
+                    <entry key="title" value="title"/>
+                  </Map>
+                </value>
+              </entry>
+              <entry key="responseCode">
+                <value>
+                  <List>
+                    <String>2**</String>
+                  </List>
+                </value>
+              </entry>
+              <entry key="rootPath" value="$.employee"/>
+              <entry key="sequenceNumberForEndpoint" value="3"/>
+              <entry key="uniqueNameForEndPoint" value="Create Employee Account"/>
+              <entry key="xpathNamespaces"/>
+            </Map>
+          </List>
+        </value>
+      </entry>
+      <entry key="createAccountWithEntReq">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="enableHasMore" value="true"/>
+      <entry key="enableStatus"/>
+      <entry key="encrypted" value="accesstoken,refresh_token,oauth_token_info,client_secret,private_key,private_key_password,clientCertificate,clientKeySpec,resourceOwnerPassword,custom_auth_token_info"/>
+      <entry key="fixedPlanMultivaluedAttribute" value="true"/>
+      <entry key="genericWebServiceBaseUrl" value="http://localhost:3000"/>
+      <entry key="httpCookieSpecsStandard" value="true"/>
+      <entry key="isGetObjectRequiredForPTA">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+      <entry key="nativeChangeDetectionAttributeScope" value="entitlements"/>
+      <entry key="nativeChangeDetectionAttributes"/>
+      <entry key="nativeChangeDetectionEnabled">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="nativeChangeDetectionOperations"/>
+      <entry key="oAuthJwtHeader">
+        <value>
+          <Map>
+            <entry key="alg" value="RS256"/>
+          </Map>
+        </value>
+      </entry>
+      <entry key="oAuthJwtPayload">
+        <value>
+          <Map>
+            <entry key="aud"/>
+            <entry key="exp" value="15f"/>
+            <entry key="iss"/>
+            <entry key="sub"/>
+          </Map>
+        </value>
+      </entry>
+      <entry key="private_key_to_update"/>
+      <entry key="saml_assertion_url"/>
+      <entry key="saml_request_body"/>
+      <entry key="sysDescriptions">
+        <value>
+          <Map>
+            <entry key="en_US"/>
+          </Map>
+        </value>
+      </entry>
+      <entry key="templateApplication" value="Web Services"/>
+      <entry key="throwProvAfterRuleException">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+      <entry key="throwProvBeforeRuleException">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+      <entry key="timeoutInSeconds"/>
+      <entry key="version" value="v2"/>
+    </Map>
+  </Attributes>
+  <Owner>
+    <Reference class="sailpoint.object.Identity" name="spadmin"/>
+  </Owner>
+  <ProvisioningForms>
+    <Form name="API Application Form" objectType="account" type="Create">
+      <Attributes>
+        <Map>
+          <entry key="pageTitle" value="API Application Form"/>
+        </Map>
+      </Attributes>
+      <Section name="Section 1">
+        <Field displayName="First Name" name="firstName" type="string">
+          <Script>
+            <Source><![CDATA[log.error("============ API FirstName ============");
+log.error(identity.toXml());
+return identity.getFirstname();]]></Source>
+          </Script>
+        </Field>
+        <Field displayName="Last Name" name="lastName" type="string">
+          <Script>
+            <Source><![CDATA[log.error("============ API FirstName ============");
+return identity.getLastname();]]></Source>
+          </Script>
+        </Field>
+        <Field displayName="Full Name" name="fullName" type="string">
+          <Script>
+            <Source><![CDATA[
+return identity.getFirstname() + " " + identity.getLastname();]]></Source>
+          </Script>
+        </Field>
+        <Field displayName="Employee Id" name="employeeId" type="string">
+          <Script>
+            <Source><![CDATA[return identity.getAttribute("employeeId");]]></Source>
+          </Script>
+        </Field>
+        <Field displayName="Title" name="title" type="string"/>
+        <Field displayName="Department" name="department" type="string"/>
+      </Section>
+    </Form>
+  </ProvisioningForms>
+  <Schemas>
+    <Schema displayAttribute="fullName" groupAttribute="" identityAttribute="employeeId" instanceAttribute="" nativeObjectType="user" objectType="account">
+      <AttributeDefinition name="firstName" type="string">
+        <Description/>
+      </AttributeDefinition>
+      <AttributeDefinition name="lastName" type="string">
+        <Description/>
+      </AttributeDefinition>
+      <AttributeDefinition name="fullName" type="string">
+        <Description/>
+      </AttributeDefinition>
+      <AttributeDefinition name="manager" type="string">
+        <Description/>
+      </AttributeDefinition>
+      <AttributeDefinition name="department" type="string">
+        <Description/>
+      </AttributeDefinition>
+      <AttributeDefinition name="employeeId" type="int">
+        <Description/>
+      </AttributeDefinition>
+      <AttributeDefinition name="title" type="string">
+        <Description/>
+      </AttributeDefinition>
+    </Schema>
+    <Schema descriptionAttribute="" displayAttribute="" identityAttribute="" instanceAttribute="" nativeObjectType="group" objectType="group"/>
+  </Schemas>
+  <ApplicationScorecard/>
+</Application>

@@ -1,10 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE TaskSchedule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
-<TaskSchedule lastExecution="1718860619651" name="Check expired work items daily" nextExecution="1718866800000">
+<TaskSchedule name="Check expired work items daily">
   <Arguments>
     <Map>
       <entry key="executor" value="Check Expired Work Items"/>
-      <entry key="nextActualFireTime" value="1718866800000"/>
     </Map>
   </Arguments>
   <CronExpressions>

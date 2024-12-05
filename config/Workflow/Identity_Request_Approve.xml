@@ -244,13 +244,13 @@
   <Step icon="Approval" name="Manager Approval" posX="172" posY="7">
     <Approval mode="serial" owner="call:buildManagerApproval" renderer="lcmWorkItemRenderer.xhtml" send="approvalSet,identityDisplayName,identityName,policyViolations">
       <AfterScript>
-        <Source>
+        <Source><![CDATA[
           import sailpoint.workflow.IdentityRequestLibrary;
 
             assimilateWorkItemApprovalSet(wfcontext, item, approvalSet);
             IdentityRequestLibrary.assimilateWorkItemApprovalSetToIdentityRequest(wfcontext, approvalSet);
             auditDecisions(item);
-        </Source>
+        ]]></Source>
       </AfterScript>
       <Arg name="workItemIdentityRequestId" value="ref:identityRequestId"/>
       <Arg name="workItemElectronicSignature" value="ref:managerElectronicSignature"/>
@@ -277,7 +277,7 @@
   <Step icon="Approval" name="Owner Approval" posX="389" posY="211">
     <Approval mode="ref:approvalMode" owner="call:buildOwnerApprovals" renderer="lcmWorkItemRenderer.xhtml" send="identityDisplayName,identityName,policyViolations">
       <AfterScript>
-        <Source>
+        <Source><![CDATA[
 
           import sailpoint.workflow.IdentityRequestLibrary;
 
@@ -287,7 +287,7 @@
           assimilateWorkItemApprovalSet(wfcontext, item, approvalSet);
           IdentityRequestLibrary.assimilateWorkItemApprovalSetToIdentityRequest(wfcontext, approvalSet);
           auditDecisions(item);
-        </Source>
+        ]]></Source>
       </AfterScript>
       <Arg name="approvalSet" value="ref:tmpApprovalSet"/>
       <Arg name="workItemDescription" value="Owner Approval - Account Changes for User: $(identityDisplayName)"/>
@@ -318,12 +318,12 @@
   <Step condition="script:!isNull(tmpApprovalSet) &amp;&amp; !tmpApprovalSet.isEmpty()" icon="Approval" name="Security Officer Approval" posX="698" posY="59">
     <Approval mode="serial" owner="call:buildSecurityOfficerApproval" renderer="lcmWorkItemRenderer.xhtml" send="identityDisplayName,identityName,policyViolations">
       <AfterScript>
-        <Source>
+        <Source><![CDATA[
           import sailpoint.workflow.IdentityRequestLibrary;
 
           assimilateWorkItemApprovalSet(wfcontext, item, approvalSet);
           IdentityRequestLibrary.assimilateWorkItemApprovalSetToIdentityRequest(wfcontext, approvalSet);
-        </Source>
+        ]]></Source>
       </AfterScript>
       <Arg name="approvalSet" value="ref:tmpApprovalSet"/>
       <Arg name="workItemElectronicSignature" value="ref:securityOfficerElectronicSignature"/>
@@ -349,9 +349,9 @@
   <Step icon="Approval" name="Batch Request Approval" posX="833" posY="59">
     <Approval mode="serial" owner="ref:batchRequestApprover" renderer="lcmWorkItemRenderer.xhtml" send="identityDisplayName,identityName">
       <AfterScript>
-        <Source>
+        <Source><![CDATA[
           assimilateWorkItemApprovalSet(wfcontext, item, approvalSet);
-        </Source>
+        ]]></Source>
       </AfterScript>
       <Arg name="approvalSet" value="ref:approvalSet"/>
       <Arg name="workItemDescription" value="Batch Request Approval requested by $(launcher)"/>

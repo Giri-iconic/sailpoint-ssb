@@ -17,7 +17,7 @@
                 <Parameter argument="capabilities" property="capabilities.id"/>
                 <Parameter argument="businessRoles">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                             import sailpoint.object.*;
                             import java.lang.*;
                             List roleFilters = new ArrayList();
@@ -32,12 +32,12 @@
 
                             }
                             return queryOptions;
-                          </Source>
+                          ]]></Source>
                   </QueryScript>
                 </Parameter>
                 <Parameter argument="groupDefinitions">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                             import sailpoint.object.*;
                             import sailpoint.reporting.*;
                             Filter f = ReportingLibrary.getGroupDefinitionFilter(context, value, false);
@@ -45,7 +45,7 @@
                                 queryOptions.addFilter(f);
                             }
                             return queryOptions;
-                          </Source>
+                          ]]></Source>
                   </QueryScript>
                 </Parameter>
               </QueryParameters>
@@ -62,7 +62,7 @@
               <ReportColumnConfig field="lastLogin" header="rept_users_auth_col_last_login" property="lastLogin" sortable="true" width="110"/>
               <ReportColumnConfig field="questions" header="rept_users_auth_col_questions" property="id" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           import sailpoint.object.*;
 
                           Integer required = renderCache.get("requiredAuthQuestions");
@@ -75,7 +75,7 @@
                           ops.addFilter(Filter.eq("identity.id", value));
                           ops.addFilter(Filter.notnull("question"));
                           return context.countObjects(AuthenticationAnswer.class, ops) + "/" + required;
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
             </Columns>

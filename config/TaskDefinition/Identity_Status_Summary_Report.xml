@@ -15,7 +15,7 @@
             </Columns>
             <ReportSummary title="rept_identity_status_summary_summary_title">
               <DataSourceScript>
-                <Source>
+                <Source><![CDATA[
                             
                             import java.util.*;
                             import sailpoint.object.*;
@@ -70,7 +70,7 @@
 
                             return map;
                             
-                          </Source>
+                          ]]></Source>
               </DataSourceScript>
               <Values>
                 <LiveReportSummaryValue label="rept_identity_status_summary_active_identities" name="active"/>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE TaskSchedule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<TaskSchedule name="39159cbc37ca455aa68fc2f393af1331">
+  <Arguments>
+    <Map>
+      <entry key="executor" value="Refresh Identity Cube"/>
+      <entry key="launcher" value="spadmin"/>
+      <entry key="locale" value="en_US"/>
+      <entry key="timezone" value="Asia/Calcutta"/>
+    </Map>
+  </Arguments>
+  <Description>Immediate task runner</Description>
+</TaskSchedule>

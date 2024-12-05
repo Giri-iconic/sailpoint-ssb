@@ -12,7 +12,7 @@
                 <Parameter argument="identities" property="identity.id"/>
                 <Parameter argument="status" property="active">
                   <ValueScript>
-                    <Source>
+                    <Source><![CDATA[
                                             if ("active".equals(value)){
                                               return true;
                                             }
@@ -21,7 +21,7 @@
                                             }
 
                                           return null;
-                                        </Source>
+                                        ]]></Source>
                   </ValueScript>
                 </Parameter>
                 <Parameter argument="policies" property="policyId"/>
@@ -39,19 +39,19 @@
               <ReportColumnConfig field="policy" header="rept_viol_grid_col_policy" property="policyName" sortable="true" width="110"/>
               <ReportColumnConfig field="violationOwner" header="rept_viol_grid_col_violation_owner" property="owner" sortable="true" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                                         import sailpoint.object.*;
                                         if (value != null){
                                         return value.getDisplayableName();
                                         }
                                         return "";
-                                    </Source>
+                                    ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="rule" header="rept_viol_grid_col_rule" property="constraintName" sortable="true" width="110"/>
               <ReportColumnConfig field="status" header="rept_viol_grid_col_status" property="status" scriptArguments="identity,policyName,constraintName,created" sortable="true" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                                     
                                         import sailpoint.object.*;
                                         import sailpoint.api.*;
@@ -75,14 +75,14 @@
                                         ops.setOrderAscending(false);
                                         ops.setResultLimit(1);
                                         List items = context.getObjects(IdentityHistoryItem.class, ops);
-                                        if (items != null &amp;&amp; !items.isEmpty()){
+                                        if (items != null && !items.isEmpty()){
                                             lastDecision = (IdentityHistoryItem)items.get(0);
                                         }
-                                        if (lastDecision != null &amp;&amp; lastDecision.getAction() != null){
+                                        if (lastDecision != null && lastDecision.getAction() != null){
                                             // if the decision was made after the last policy scan then display it. We don't want to
                                             // display old decisions, just those made for the current violation. If no decisions have been made on
                                             // the violation, display any mitigation if it is still active.
-                                            if (lastDecision.getAction().getCreated().compareTo(scriptArgs.get("created")) &gt; 0 ||
+                                            if (lastDecision.getAction().getCreated().compareTo(scriptArgs.get("created")) > 0 ||
                                                     lastDecision.getAction().isMitigation()){
                                 
                                                 if (lastDecision.getAction().isMitigation()){
@@ -105,12 +105,12 @@
                                         return out.getLocalizedMessage(locale, timezone);
                                         
 
-                                    </Source>
+                                    ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="summary" header="rept_viol_grid_col_summary" property="description" scriptArguments="rightBundles,leftBundles,policyId,policyName,constraintId,constraintName" sortable="true" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                                     
                                         import sailpoint.object.*;
                                         import sailpoint.tools.*;
@@ -120,7 +120,7 @@
                                         String summary = value;
                                         BaseConstraint found = null;
                                         if(summary == null) {
-                                            if (( scriptArgs.get("leftBundles") != null ) &amp;&amp; ( scriptArgs.get("rightBundles") != null)) {
+                                            if (( scriptArgs.get("leftBundles") != null ) && ( scriptArgs.get("rightBundles") != null)) {
                                                 List leftBundles = Util.csvToList((String)scriptArgs.get("leftBundles"));
                                                 List rightBundles = Util.csvToList((String)scriptArgs.get("rightBundles"));
         
@@ -152,13 +152,13 @@
                                         
                                         return summary;
                                         
-                                    </Source>
+                                    ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
             </Columns>
             <ReportSummary title="rept_violations_summary_title">
               <DataSourceScript>
-                <Source>
+                <Source><![CDATA[
                               
                               import java.util.*;
                               import sailpoint.object.*;
@@ -189,7 +189,7 @@
 
                               return map;
                               
-                            </Source>
+                            ]]></Source>
               </DataSourceScript>
               <Values>
                 <LiveReportSummaryValue label="rept_violations_summary_total" name="total"/>

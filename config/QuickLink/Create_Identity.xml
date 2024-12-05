@@ -4,12 +4,12 @@
   <Description>quicklink_create_identity_desc</Description>
   <QuickLinkOptions allowOther="true">
     <DynamicScopeRef>
-      <Reference class="sailpoint.object.DynamicScope" name="Help Desk"/>
+      <Reference class="sailpoint.object.DynamicScope" name="Manager"/>
     </DynamicScopeRef>
   </QuickLinkOptions>
   <QuickLinkOptions allowOther="true">
     <DynamicScopeRef>
-      <Reference class="sailpoint.object.DynamicScope" name="Manager"/>
+      <Reference class="sailpoint.object.DynamicScope" name="Help Desk"/>
     </DynamicScopeRef>
   </QuickLinkOptions>
 </QuickLink>

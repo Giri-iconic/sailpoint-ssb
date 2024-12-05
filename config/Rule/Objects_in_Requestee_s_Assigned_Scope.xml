@@ -37,7 +37,7 @@
       </Argument>
     </Returns>
   </Signature>
-  <Source>
+  <Source><![CDATA[
     
       import sailpoint.api.ScopeService;
       import sailpoint.object.Identity;
@@ -55,5 +55,5 @@
       
       return scopeQueryInfo;
     
-  </Source>
+  ]]></Source>
 </Rule>

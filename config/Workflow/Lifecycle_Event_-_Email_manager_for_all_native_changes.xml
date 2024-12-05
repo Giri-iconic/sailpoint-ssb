@@ -101,7 +101,7 @@
   </RuleLibraries>
   <Step name="start" posX="28" posY="10">
     <Script>
-      <Source>
+      <Source><![CDATA[
         import sailpoint.tools.Util;
         import sailpoint.object.WorkflowCase;
         import sailpoint.object.TaskResult;
@@ -109,7 +109,7 @@
        // System.out.println("Event was fired for identity ["+identityName+"]");
        // System.out.println("                    trigger ["+trigger.toXml()+"]");
        // System.out.println("                    event ["+event.toXml()+"]");
-      </Source>
+      ]]></Source>
     </Script>
     <Transition to="Notify Manager"/>
   </Step>

@@ -85,11 +85,11 @@
   </Step>
   <Step icon="Default" name="Result check" posX="634" posY="4">
     <Script>
-      <Source>log.error("=================="+ trace +"==========================");
+      <Source><![CDATA[log.error("=================="+ trace +"==========================");
 
 
 log.error("=================="+ project+"==========================");
-log.error("=================="+ project.getMessages()+"==========================");</Source>
+log.error("=================="+ project.getMessages()+"==========================");]]></Source>
     </Script>
     <Transition to="Audit record"/>
     <Transition to="Stop"/>

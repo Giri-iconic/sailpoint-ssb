@@ -140,7 +140,7 @@
     <Arg name="plan" value="ref:plan"/>
     <Description>Appennd Plan to add ticket and remove AD Groups</Description>
     <Script>
-      <Source>
+      <Source><![CDATA[
         import java.util.ArrayList;
         import java.util.List;
         import java.util.HashMap;
@@ -166,10 +166,10 @@
 
         Identity identityObject = context.getObjectByName(Identity.class, identityName);
         // Get AD account
-        List&lt;AccountRequest&gt; accountRequests = plan.getAccountRequests();
+        List<AccountRequest> accountRequests = plan.getAccountRequests();
         String adAppName = "";
         String adNavtiveIdentityName = "";
-        List&lt;AccountRequest&gt; newAccountRequest = new ArrayList();
+        List<AccountRequest> newAccountRequest = new ArrayList();
         for(AccountRequest accountRequest : accountRequests){
         if(accountRequest.getApplication().equalsIgnoreCase("Active Directory")){
         adAppName = accountRequest.getApplication();
@@ -185,8 +185,8 @@
 
         // if application type is active directory remove all the AD groups as per the requirement
         AccountRequest modify = new AccountRequest();
-        List&lt;Link&gt; adLinks = identityObject.getLinks(app); 
-        if(adLinks != null &amp;&amp; adLinks.size()&gt;0){
+        List<Link> adLinks = identityObject.getLinks(app); 
+        if(adLinks != null && adLinks.size()>0){
         for (Link adLink : adLinks){
         AttributeRequest removeGpRequest = new AttributeRequest();
         removeGpRequest.setName("memberOf");
@@ -205,7 +205,7 @@
         }
 
         return plan;
-      </Source>
+      ]]></Source>
     </Script>
     <Transition to="Initialize"/>
   </Step>
@@ -322,7 +322,7 @@
     <Description>This is left over from the previous incarnation of this
 			workflow. Need to figure out if this is still needed</Description>
     <Script>
-      <Source>
+      <Source><![CDATA[
 			
 			import sailpoint.object.Identity;
 			import sailpoint.object.WorkflowCase;
@@ -354,7 +354,7 @@
 			c.put("firstName", cube.getFirstname());
 			c.put("lastName", cube.getLastname());
 
-     </Source>
+     ]]></Source>
     </Script>
     <Transition to="Notify Stakeholders"/>
   </Step>
@@ -372,11 +372,11 @@
     <Arg name="userEmail" value="script:getUserEmail(identityName, plan)"/>
     <Arg name="mailId">
       <Script>
-        <Source>
+        <Source><![CDATA[
 			import sailpoint.object.Identity;
 			Identity identity=context.getObjectByName(Identity.class, identityName);
 			return identity.getEmail();
-        </Source>
+        ]]></Source>
       </Script>
     </Arg>
     <Arg name="securityOfficerName" value="IT Support"/>
@@ -387,7 +387,7 @@
     <Arg name="launcher" value="ref:launcher"/>
     <Arg name="appMap">
       <Script>
-        <Source>
+        <Source><![CDATA[
 			import sailpoint.object.Application;
 			import sailpoint.object.Identity;
 			import sailpoint.object.Link;
@@ -425,7 +425,7 @@
 			  serilog.debug("No links found on identity "+identityName);
 			}
 			return mapAppList;
-        </Source>
+        ]]></Source>
       </Script>
     </Arg>
     <Description>
@@ -438,7 +438,7 @@
     <Description>Remove the manager field so that the manager can't see
 			the leaver reporting to him/her</Description>
     <Script>
-      <Source>import sailpoint.object.Identity;  
+      <Source><![CDATA[import sailpoint.object.Identity;  
 		// Have IdentityIQ retrieve the specific Identity object for us to modify.  
 		Identity id = context.getObjectByName(Identity.class, identityName);  
 		if (null == id) {  
@@ -452,7 +452,7 @@
 		  
 		context.decache(id);  
 		return;
-  </Source>
+  ]]></Source>
     </Script>
     <Transition to="Update Ticket Post Provision"/>
   </Step>
@@ -506,7 +506,7 @@
     <Description>Update plan to add a ticket for GS for revoking physical
 			access &amp; collecting access card</Description>
     <Script>
-      <Source>
+      <Source><![CDATA[
 	    import java.util.ArrayList;
 	    import java.util.List;
 	    import java.util.HashMap;
@@ -544,7 +544,7 @@
          plan.add(accRequest);	   
 
 	    return plan;
-	  	</Source>
+	  	]]></Source>
     </Script>
     <Transition to="Submit Request for Card Remove"/>
   </Step>
@@ -617,12 +617,12 @@
   </Step>
   <Step icon="Default" name="Change Status" posX="136" posY="6">
     <Script>
-      <Source> import sailpoint.object.Identity;        			
+      <Source><![CDATA[ import sailpoint.object.Identity;        			
         			Identity identityObj =context.getObject(Identity.class,identityName);
         			identityObj.setAttribute("status", "Terminated");
         			identityObj.setAttribute("inactive", true);
         			context.saveObject(identityObj);
-        			context.commitTransaction();</Source>
+        			context.commitTransaction();]]></Source>
     </Script>
     <Transition to="Notify"/>
   </Step>
@@ -645,7 +645,7 @@
     <Arg name="flow" value="ref:flow"/>
     <Arg name="launcher" value="ref:launcher"/>
     <ConditionScript>
-      <Source>
+      <Source><![CDATA[
     import sailpoint.object.Link;
     import java.util.List;     
     import sailpoint.object.Identity;
@@ -662,7 +662,7 @@
     }
     else{
       return true;
-    }</Source>
+    }]]></Source>
     </ConditionScript>
     <Description>
       	  Notify the various actors specified on notification scheme.
@@ -672,7 +672,7 @@
   <Step action="call:sendMultipleNotifications" configForm="Provisioning Notification Step Form" icon="Email" name="Disconnected App Ticket Creation" posX="1029" posY="6">
     <Arg name="App">
       <Script>
-        <Source>import sailpoint.object.Identity;
+        <Source><![CDATA[import sailpoint.object.Identity;
     import java.util.List;
     import org.apache.log4j.Logger;
     import java.util.ArrayList;  
@@ -697,7 +697,7 @@
        return App;
      }
  }
-  return "No App";</Source>
+  return "No App";]]></Source>
       </Script>
     </Arg>
     <Arg name="requesterEmail" value="script:getEmail(launcher)"/>
@@ -718,7 +718,7 @@
     <Arg name="flow" value="ref:flow"/>
     <Arg name="launcher" value="ref:launcher"/>
     <ConditionScript>
-      <Source>   import sailpoint.object.Identity;
+      <Source><![CDATA[   import sailpoint.object.Identity;
     import java.util.List;
     import org.apache.log4j.Logger;
     import java.util.ArrayList;  
@@ -747,7 +747,7 @@
        return true + App;
      }
  }
-  return false;</Source>
+  return false;]]></Source>
     </ConditionScript>
     <Description>
       	  Notify the various actors specified on notification scheme.
@@ -773,7 +773,7 @@
     <Arg name="flow" value="ref:flow"/>
     <Arg name="launcher" value="ref:launcher"/>
     <ConditionScript>
-      <Source>
+      <Source><![CDATA[
     import sailpoint.object.Link;
     import java.util.List;     
     import sailpoint.object.Identity;
@@ -790,7 +790,7 @@
     }
     else{
       return false;
-    }</Source>
+    }]]></Source>
     </ConditionScript>
     <Description>
       	  Notify the various actors specified on notification scheme.

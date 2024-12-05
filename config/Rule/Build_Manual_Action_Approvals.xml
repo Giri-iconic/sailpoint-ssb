@@ -4,12 +4,13 @@
   <ReferencedRules>
     <Reference class="sailpoint.object.Rule" name="Approval Library"/>
   </ReferencedRules>
-  <Source>
+  <Source><![CDATA[
     
        import sailpoint.object.ApprovalSet;
        import sailpoint.object.ApprovalItem;
        import sailpoint.object.ProvisioningPlan;
        import sailpoint.object.ProvisioningPlan.AccountRequest;
+       import sailpoint.provisioning.PlanCompiler;
        import sailpoint.service.ProvisioningTransactionService;
        import sailpoint.service.ProvisioningTransactionService.TransactionDetails;
        import sailpoint.workflow.IdentityLibrary;
@@ -37,6 +38,12 @@
                ProvisioningTransactionService transService = new ProvisioningTransactionService(context);
 
                AccountRequest account = new AccountRequest(acctReq.toMap());
+                // do not include directEdits
+               acctReq = PlanCompiler.filterLinkEdits(acctReq, false);
+               if (acctReq.isEmpty()) {
+                   // Nothing to do, keep looking
+                   continue;
+               }
                if ( AccountRequest.Operation.Create.equals(account.getOperation()) ) {
                    ApprovalItem item = new ApprovalItem();
                    // need to deal with this 
@@ -56,11 +63,11 @@
                    String permComments = getRequesterComments(account.getPermissionRequests());
                    
                    //only one of these should be set... ideally
-                   if(attrComments.length() &gt; 0) {
+                   if(attrComments.length() > 0) {
                       requesterComments = attrComments;
                    }
                    
-                   if(permComments.length() &gt; 0) {
+                   if(permComments.length() > 0) {
                       requesterComments = permComments;
                    }
 
@@ -111,5 +118,5 @@
        }
        return approvals;
     
-  </Source>
+  ]]></Source>
 </Rule>

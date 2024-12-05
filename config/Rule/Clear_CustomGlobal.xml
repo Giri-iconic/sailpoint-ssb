@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
 <Rule language="beanshell" name="Clear CustomGlobal">
-  <Source>
+  <Source><![CDATA[
       
         import sailpoint.object.CustomGlobal;
 
@@ -14,5 +14,5 @@
 
         return results;
       
-    </Source>
+    ]]></Source>
 </Rule>

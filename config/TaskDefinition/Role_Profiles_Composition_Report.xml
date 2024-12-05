@@ -16,7 +16,7 @@
                 <Parameter argument="filters" excludeHqlParameter="true" property="filters"/>
               </QueryParameters>
               <QueryScript>
-                <Source>
+                <Source><![CDATA[
                           
                               import sailpoint.reporting.ReportingLibrary;
                               String whereClause = "";
@@ -60,7 +60,7 @@
 
                               return query + whereClause;
                           
-                       </Source>
+                       ]]></Source>
               </QueryScript>
             </DataSource>
             <ReportForm>
@@ -70,28 +70,28 @@
               <ReportColumnConfig field="role" header="rept_role_profiles_comp_grid_col_role" property="bundle.name" sortable="true" width="110"/>
               <ReportColumnConfig field="profileDescription" header="rept_role_profiles_comp_grid_col_profile_description" property="profile" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           
                               import sailpoint.tools.Message;
                                return value != null ? value.description : Message.localize("rept_role_comp_msg_no_profiles");
                           
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="filters" header="rept_role_profiles_comp_grid_col_filters" property="profile" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           
                               import sailpoint.object.*;
                               List filterStrings = new ArrayList();
-                              if (value != null &amp;&amp; value.getConstraints()  != null){
+                              if (value != null && value.getConstraints()  != null){
                                   for(Filter filter : value.getConstraints() ){
                                     filterStrings.add(filter.toString());
                                   }
                                 }
                               return filterStrings;
                           
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="application" header="rept_role_profiles_comp_grid_col_profile_app" property="application.name" sortable="true" width="110"/>

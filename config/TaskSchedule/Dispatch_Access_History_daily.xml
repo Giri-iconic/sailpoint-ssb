@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE TaskSchedule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<TaskSchedule name="Dispatch Access History daily">
+  <Arguments>
+    <Map>
+      <entry key="executor" value="Dispatch Access History"/>
+    </Map>
+  </Arguments>
+  <CronExpressions>
+    <String>0 0 0 * * ?</String>
+  </CronExpressions>
+  <Description>Dispatch Access History on a defined schedule.</Description>
+</TaskSchedule>

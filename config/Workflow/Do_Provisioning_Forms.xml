@@ -136,7 +136,7 @@
   <Step condition="script:!isNull(accountSelectionForm)" name="Present Account Selection Form" posX="561" posY="12">
     <Approval owner="script:accountSelectionForm.getTargetUser()" send="identityName,identityDisplayName,launcher">
       <AfterScript>
-        <Source>
+        <Source><![CDATA[
           import sailpoint.object.Form;
           import sailpoint.object.ProvisioningTarget;
           import sailpoint.object.AccountSelection;
@@ -175,19 +175,19 @@
               }
           }
           
-        </Source>
+        ]]></Source>
       </AfterScript>
       <Arg name="workItemType" value="Form"/>
       <Arg name="workItemDescription" value="Role Account Selection for $(identityDisplayName)"/>
       <Arg name="workItemForm" value="ref:accountSelectionForm"/>
       <Arg name="workItemDisableNotification">
         <Script>
-          <Source>
+          <Source><![CDATA[
            
             // If this is interactive then don't bother sending email notifications.
-            return (null != sessionOwner) &amp;&amp; !sessionOwner.equals("System") &amp;&amp; !sessionOwner.equals("Scheduler");
+            return (null != sessionOwner) && !sessionOwner.equals("System") && !sessionOwner.equals("Scheduler");
             
-          </Source>
+          ]]></Source>
         </Script>
       </Arg>
       <Arg name="workItemPriority" value="ref:workItemPriority"/>
@@ -205,7 +205,7 @@
   <Step condition="script:project != null &amp;&amp; !isTrue(disableManualAccountSelection) &amp;&amp; project.hasUnansweredAccountSelections()" name="Handle Old Account Selections" posX="561" posY="12">
     <Approval owner="ref:calculatedAccountSelectionOwner" renderer="accountSelectionRenderer.xhtml">
       <AfterScript>
-        <Source>
+        <Source><![CDATA[
           import sailpoint.object.Attributes;
           import sailpoint.api.Provisioner;
 
@@ -219,18 +219,18 @@
           Provisioner p = new Provisioner(wfcontext.getSailPointContext());
           Attributes args = wfcontext.getStepArguments();
           p.recompile(project, args);
-        </Source>
+        ]]></Source>
       </AfterScript>
       <Arg name="workItemRequester" value="$(launcher)"/>
       <Arg name="workItemDescription" value="Account Selection for User: $(identityDisplayName)"/>
       <Arg name="workItemDisableNotification">
         <Script>
-          <Source>
+          <Source><![CDATA[
            
             // If this is interactive then don't bother sending email notifications.
-            return (null != sessionOwner) &amp;&amp; !sessionOwner.equals("System") &amp;&amp; !sessionOwner.equals("Scheduler");
+            return (null != sessionOwner) && !sessionOwner.equals("System") && !sessionOwner.equals("Scheduler");
             
-          </Source>
+          ]]></Source>
         </Script>
       </Arg>
       <Arg name="workItemPriority" value="ref:workItemPriority"/>
@@ -240,7 +240,7 @@
       <Arg name="identityName" value="$(identityName)"/>
       <Return local="true" name="accounts" to="accountSelectionsFromWorkItem"/>
       <ValidationScript>
-        <Source>
+        <Source><![CDATA[
           import sailpoint.object.AccountSelection;
           import sailpoint.tools.Util;
 
@@ -255,7 +255,7 @@
               }
           }
           return null;
-        </Source>
+        ]]></Source>
       </ValidationScript>
       <WorkItemConfig escalationStyle="none">
         <NotificationEmailTemplateRef>
@@ -299,7 +299,7 @@
       <Arg name="workItemDescription" value="Complete provisioning form for $(identityDisplayName)"/>
       <Arg name="workItemDisableNotification">
         <Script>
-          <Source>
+          <Source><![CDATA[
             
             // 
             // If this is interactive then don't bother sending email
@@ -318,7 +318,7 @@
             }
             return disableEmail;
             
-          </Source>
+          ]]></Source>
         </Script>
       </Arg>
       <Arg name="workItemPriority" value="ref:workItemPriority"/>

@@ -21,7 +21,7 @@
   <Step icon="Message" name="Process user" posX="148" posY="10">
     <Description>Process the user that transferred managers.</Description>
     <Script>
-      <Source>
+      <Source><![CDATA[
       
        import sailpoint.object.*;
 
@@ -34,7 +34,7 @@
 
        System.out.println(identityFullname + " changed managers from " + oldManagerName + " to " + newManagerName);
       
-      </Source>
+      ]]></Source>
     </Script>
     <Transition to="Stop"/>
   </Step>

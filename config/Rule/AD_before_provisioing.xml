@@ -30,6 +30,5 @@ The plan can be updated directly in the rule by reference and does not need to r
       </Argument>
     </Inputs>
   </Signature>
-  <Source>log.error("From before provisioning **************************************  "+plan.toXml());
-</Source>
+  <Source><![CDATA[log.error("From before provisioning **************************************  "+plan.toXml());]]></Source>
 </Rule>

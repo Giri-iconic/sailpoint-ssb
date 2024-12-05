@@ -250,7 +250,7 @@
   </Step>
   <Step icon="Task" name="Post Provision" posX="1205" posY="13">
     <Script>
-      <Source>
+      <Source><![CDATA[
         import sailpoint.api.ObjectUtil;
         import sailpoint.tools.Util;
         import sailpoint.object.ProvisioningProject;
@@ -270,14 +270,14 @@
                  System.out.println("Project Executed in identitiy:\n" + clonedProject.toXml());
             }
         }
-      </Source>
+      ]]></Source>
     </Script>
     <Transition to="Manual Actions"/>
   </Step>
   <Step condition="script:project.getUnmanagedPlan() != null" icon="Approval" name="Manual Actions" posX="1316" posY="13">
     <Approval mode="parallelPoll" owner="rule:Build Manual Action Approvals" renderer="lcmManualActionsRenderer.xhtml" send="identityDisplayName,identityName,policyViolations">
       <AfterScript>
-        <Source>
+        <Source><![CDATA[
           
           import sailpoint.object.ApprovalSet;
           import sailpoint.object.ApprovalItem;
@@ -305,7 +305,7 @@
           
           //save unmanaged plan as ProvisioningRequest
           if ( Util.otob(saveUnmanagedPlan) ) {
-              if( ( Util.otob(saveUnmanagedPlan_WithProjectArgument) ) &amp;&amp; ( project != null ) ) {
+              if( ( Util.otob(saveUnmanagedPlan_WithProjectArgument) ) && ( project != null ) ) {
                   IdentityLibrary.saveUnmanagedPlan(wfcontext, project);
               } else {
                   IdentityLibrary.saveUnmanagedPlan(wfcontext);
@@ -315,7 +315,7 @@
           // Audit the manual change
           auditManualAction(item);
           
-        </Source>
+        ]]></Source>
       </AfterScript>
       <Arg name="project" value="ref:project"/>
       <Arg name="workItemRequester" value="$(launcher)"/>

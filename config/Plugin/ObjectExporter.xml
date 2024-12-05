@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE Plugin PUBLIC "sailpoint.dtd" "sailpoint.dtd">
-<Plugin certificationLevel="None" displayName="Object Exporter" installDate="1718860759576" minSystemVersion="7.2" name="ObjectExporter" version="4.2.0">
+<Plugin certificationLevel="None" displayName="Object Exporter" installDate="1732794499907" minSystemVersion="7.2" name="ObjectExporter" version="4.2.0">
   <Attributes>
     <Map>
       <entry key="fullPage">

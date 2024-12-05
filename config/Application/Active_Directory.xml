@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE Application PUBLIC "sailpoint.dtd" "sailpoint.dtd">
-<Application connector="sailpoint.connector.ADLDAPConnector" featuresString="PROVISIONING, SYNC_PROVISIONING, AUTHENTICATE, MANAGER_LOOKUP, SEARCH, UNSTRUCTURED_TARGETS, UNLOCK, ENABLE, PASSWORD, CURRENT_PASSWORD, ADDITIONAL_ACCOUNT_REQUEST" icon="directory1Icon" name="Active Directory" profileClass="" type="Active Directory - Direct">
+<Application connector="sailpoint.connector.ADLDAPConnector" featuresString="PROVISIONING, SYNC_PROVISIONING, AUTHENTICATE, MANAGER_LOOKUP, SEARCH, UNSTRUCTURED_TARGETS, UNLOCK, ENABLE, PASSWORD, CURRENT_PASSWORD, ACCOUNT_ONLY_REQUEST, ADDITIONAL_ACCOUNT_REQUEST" icon="directory1Icon" name="Active Directory" profileClass="" type="Active Directory - Direct">
   <AccountCorrelationConfig>
-    <Reference class="sailpoint.object.CorrelationConfig" name="ActiveDirectory Correlation Config"/>
+    <Reference class="sailpoint.object.CorrelationConfig" name="HRMS Correlation Config"/>
   </AccountCorrelationConfig>
   <Attributes>
     <Map>
@@ -12,7 +12,7 @@
           <List>
             <Map>
               <entry key="IQServiceHost" value="192.168.56.101"/>
-              <entry key="IQServicePassword" value="1:ACP:rf9uSiA3RFLvY1oXrnLs+7AHK7rBhZqkmZuDhLR3GPE="/>
+              <entry key="IQServicePassword" value="1:ACP:EsW7PkbPN+gZdpQO/K8AB1Ll3eaKSoigNK5o8fRZQcQ="/>
               <entry key="IQServicePort" value="5050"/>
               <entry key="IQServiceUser" value="iconic\administrator"/>
               <entry key="useTLSForIQService">
@@ -24,17 +24,13 @@
           </List>
         </value>
       </entry>
-      <entry key="acctAggregationEnd">
-        <value>
-          <Date>1717995933751</Date>
-        </value>
-      </entry>
-      <entry key="acctAggregationStart">
-        <value>
-          <Date>1717995932253</Date>
-        </value>
-      </entry>
       <entry key="afterProvisioningRule"/>
+      <entry key="aggregationPartitioned">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="aggregationType" value="account"/>
       <entry key="allowAutoPartitioning">
         <value>
           <Boolean/>
@@ -50,26 +46,11 @@
         </value>
       </entry>
       <entry key="autoPartitionCount" value="256"/>
-      <entry key="beforeProvisioningRule" value="AD before provisioing"/>
+      <entry key="beforeProvisioningRule"/>
       <entry key="cacheRemoteObjectPort" value="40002"/>
       <entry key="cacheRmiPort" value="40001"/>
       <entry key="compositeDefinition"/>
       <entry key="deletedObjectsContainer" value="CN=Deleted Objects,DOMAIN"/>
-      <entry key="deltaAggregation">
-        <value>
-          <Map>
-            <entry key="dc=iconic,dc=com">
-              <value>
-                <Map>
-                  <entry key="groups_cookie" value="TVNEUwMAAABRy+ZMmbjaAQAAAAAAAAAAKAAAAOthAgAAAAAAAAAAAAAAAADrYQIAAAAAAMjKzYyQ&#xd;&#xa;kDJHp70wZdDQtWYBAAAAAAAAAAEAAAAAAAAAyMrNjJCQMkenvTBl0NC1ZgpiAgAAAAAA"/>
-                  <entry key="lastDirsyncServer" value="192.168.56.101"/>
-                  <entry key="users_cookie" value="TVNEUwMAAABxXeHR87raAQAAAAAAAAAAKAAAAOViAgAAAAAAAAAAAAAAAADlYgIAAAAAAMjKzYyQ&#xd;&#xa;kDJHp70wZdDQtWYBAAAAAAAAAAEAAAAAAAAAyMrNjJCQMkenvTBl0NC1ZkZwAgAAAAAA"/>
-                </Map>
-              </value>
-            </entry>
-          </Map>
-        </value>
-      </entry>
       <entry key="deltaIterationMode" value="dirSync"/>
       <entry key="disableComputePreloading">
         <value>
@@ -92,7 +73,7 @@
               <entry key="domainIterateSearchFilter"/>
               <entry key="domainNetBiosName" value="iconic"/>
               <entry key="forestName" value="iconic.com"/>
-              <entry key="password" value="1:ACP:KHzVMU8DKtxUsUrTgOEgEHxNGROl+Qsv1WP04LVHGKk="/>
+              <entry key="password" value="1:ACP:ReLpDf/CcR/YI2Ek6NDGk20mQn027Azs5jkU9YM8BMg="/>
               <entry key="port" value="389"/>
               <entry key="servers">
                 <value>
@@ -135,7 +116,7 @@
                   <Boolean/>
                 </value>
               </entry>
-              <entry key="password" value="1:ACP:h5iTcCL5653P5fcyf7j2zNO7EiFjOkAgx22IRfOS2GA="/>
+              <entry key="password" value="1:ACP:nX0XIIGCpC28JTzfs34kH/nj64217vfF9FsKZFnLaKE="/>
               <entry key="useGroupMembershipPreloading"/>
               <entry key="useSSL">
                 <value>
@@ -158,11 +139,6 @@
           </List>
         </value>
       </entry>
-      <entry key="groupProvisioning">
-        <value>
-          <Boolean>true</Boolean>
-        </value>
-      </entry>
       <entry key="ldapExtendedControls">
         <value>
           <List>
@@ -181,6 +157,11 @@
           <Boolean/>
         </value>
       </entry>
+      <entry key="managerCorrelationFilter">
+        <value>
+          <Filter operation="EQ" property="displayName" value="displayName"/>
+        </value>
+      </entry>
       <entry key="nativeChangeDetectionAttributeScope" value="entitlements"/>
       <entry key="nativeChangeDetectionAttributes"/>
       <entry key="nativeChangeDetectionEnabled">
@@ -189,31 +170,7 @@
         </value>
       </entry>
       <entry key="nativeChangeDetectionOperations"/>
-      <entry key="noGroupPermissions">
-        <value>
-          <Map>
-            <entry key="group">
-              <value>
-                <Boolean/>
-              </value>
-            </entry>
-          </Map>
-        </value>
-      </entry>
-      <entry key="noPermissions" value="false"/>
-      <entry key="operations" value="Create, Modify, Delete, Enable, Disable, Unlock, SetPassword"/>
       <entry key="pageSize" value="100"/>
-      <entry key="schemaProvisioningMap">
-        <value>
-          <Map>
-            <entry key="group">
-              <value>
-                <Boolean>true</Boolean>
-              </value>
-            </entry>
-          </Map>
-        </value>
-      </entry>
       <entry key="searchDNs">
         <value>
           <List>
@@ -221,8 +178,8 @@
               <entry key="groupMemberFilterString"/>
               <entry key="groupMembershipSearchDN" value="DC=iconic,DC=com"/>
               <entry key="iterateSearchFilter"/>
-              <entry key="primaryGroupSearchDN" value="DC=iconic,Dc=com"/>
-              <entry key="searchDN" value="OU=Test,DC=iconic,DC=com"/>
+              <entry key="primaryGroupSearchDN"/>
+              <entry key="searchDN" value="dc=iconic,dc=com"/>
               <entry key="searchScope" value="SUBTREE"/>
             </Map>
           </List>
@@ -250,7 +207,7 @@
         </Map>
       </Attributes>
       <Section label="Account" name="Account">
-        <Field displayName="con_prov_policy_ad_objecttype" name="objectType" postBack="true" section="Account" type="string" value="User">
+        <Field displayName="con_prov_policy_ad_objecttype" name="objectType" postBack="true" reviewRequired="true" section="Account" type="string" value="User">
           <AllowedValuesDefinition>
             <Value>
               <List>
@@ -266,172 +223,156 @@
               <entry key="hidden">
                 <value>
                   <Script>
-                    <Source>
-                      Object objType = field.getValue();    
-                      if ("contact".equalsIgnoreCase(objType)) {
-                      if (form.getSection("Dial-in") != null) {
-                      form.remove(form.getSection("Dial-in"));
-                      }
-                      if (form.getSection("User Details") != null) {
-                      form.remove(form.getSection("User Details"));
-                      }
-                      if (form.getSection("Skype for Business") != null) {
-                      form.remove(form.getSection("Skype for Business"));
-                      } 
-                      if (form.getSection("gmsa") != null) {
-                      form.remove(form.getSection("gmsa"));
-                      } 
+                    <Source><![CDATA[
+                          Object objType = field.getValue();    
+                           if ("contact".equalsIgnoreCase(objType)) {
+                              if (form.getSection("Dial-in") != null) {
+                                  form.remove(form.getSection("Dial-in"));
+                                  }
+                              if (form.getSection("User Details") != null) {
+                                  form.remove(form.getSection("User Details"));
+                                  }
+                              if (form.getSection("Skype for Business") != null) {
+                                  form.remove(form.getSection("Skype for Business"));
+                                  } 
+                              if (form.getSection("gmsa") != null) {
+                                  form.remove(form.getSection("gmsa"));
+                                  } 
 
-                      if (form.getSection("Exchange") != null &amp;&amp; form.getSection("Exchange").getFields() != null ) {
-                      for (Object field : form.getSection("Exchange").getFields()) {
-                      String name = field.getName();
-                      if (name != null &amp;&amp; name.indexOf(":") &gt; 0 ) {
-                      String[] nameKeys = name.split(":");
-                      if (nameKeys.length &gt; 1 &amp;&amp;
-                      "homeMDB".equalsIgnoreCase(nameKeys[2])){
-                      field.setHidden(true);
-                      }
-                      }
-                      }
-                      }  
+                              if (form.getSection("Exchange") != null && form.getSection("Exchange").getFields() != null ) {
+                                    for (Object field : form.getSection("Exchange").getFields()) {
+                                         String name = field.getName();
+                                         if (name != null && name.indexOf(":") > 0 ) {
+                                            String[] nameKeys = name.split(":");
+                                              if (nameKeys.length > 1 &&
+                                                  "homeMDB".equalsIgnoreCase(nameKeys[2])){
+                                                  field.setHidden(true);
+                                                }
+                                            }
+                                        }
+                                 }  
+                                     
+                           } 
+                           else if ("msDS-GroupManagedServiceAccount".equalsIgnoreCase(objType) 
+                                    || "msDS-ManagedServiceAccount".equalsIgnoreCase(objType)) {
+                            if (form.getSection("Dial-in") != null) {
+                                form.remove(form.getSection("Dial-in"));
+                            }
+                            if (form.getSection("Skype for Business") != null) {
+                                form.remove(form.getSection("Skype for Business"));
+                            }
+                            if (form.getSection("Exchange") != null) {
+                                form.remove(form.getSection("Exchange"));
+                            }
+                            if (form.getSection("gmsa") != null) {
+                                form.getSection("gmsa").setLabel("Service Account");
+                            } 
 
-                      } 
-                      else if ("msDS-GroupManagedServiceAccount".equalsIgnoreCase(objType) 
-                      || "msDS-ManagedServiceAccount".equalsIgnoreCase(objType)) {
-                      if (form.getSection("Dial-in") != null) {
-                      form.remove(form.getSection("Dial-in"));
-                      }
-                      if (form.getSection("Skype for Business") != null) {
-                      form.remove(form.getSection("Skype for Business"));
-                      }
-                      if (form.getSection("Exchange") != null) {
-                      form.remove(form.getSection("Exchange"));
-                      }
-                      if (form.getSection("gmsa") != null) {
-                      form.getSection("gmsa").setLabel("Service Account");
-                      } 
+                            if (form.getSection("User Details") != null && form.getSection("User Details").getFields() != null ) {
+                                for (Object field : form.getSection("User Details").getFields()) {
+                                    String name = field.getName();
+                                    if (name != null && name.indexOf(":") > 0 ) {
+                                        String[] nameKeys = name.split(":");
+                                        if (nameKeys.length > 1) {
+                                            if("password".equalsIgnoreCase(nameKeys[2])
+                                                    || "pwdLastSet".equalsIgnoreCase(nameKeys[2])
+                                                    || "primaryGroupDN".equalsIgnoreCase(nameKeys[2]) )
+                                            {
+                                                field.setHidden(true);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            Object serviceAccSection = form.getSection("gmsa");
+                            String dnsHostNameFieldName = null;
+                            String pAllowedToRetrievPwdFieldName = null;
+                            String pAllowedToDelegate = null;
+                            String managePasswordInterval = null;
 
-                      if (form.getSection("User Details") != null &amp;&amp; form.getSection("User Details").getFields() != null ) {
-                      for (Object field : form.getSection("User Details").getFields()) {
-                      String name = field.getName();
-                      if (name != null &amp;&amp; name.indexOf(":") &gt; 0 ) {
-                      String[] nameKeys = name.split(":");
-                      if (nameKeys.length &gt; 1) {
-                      if("password".equalsIgnoreCase(nameKeys[2])
-                      || "pwdLastSet".equalsIgnoreCase(nameKeys[2])
-                      || "primaryGroupDN".equalsIgnoreCase(nameKeys[2]) )
-                      {
-                      field.setHidden(true);
-                      }
-                      }
-                      }
-                      }
-                      }
-                      Object serviceAccSection = form.getSection("gmsa");
-                      String dnsHostNameFieldName = null;
-                      String pAllowedToRetrievPwdFieldName = null;
-                      String pAllowedToDelegate = null;
-                      String managePasswordInterval = null;
-
-                      for (Object field : serviceAccSection.getFields()) {
-                      String name = field.getName();
-                      if( null != name) {
-                      if( name.contains(":dNSHostName"))
-                      dnsHostNameFieldName = name;
-                      else if( name.contains(":msDS-GroupMSAMembership") )
-                      pAllowedToRetrievPwdFieldName = name;
-                      else if( name.contains(":msDS-AllowedToActOnBehalfOfOtherIdentity") )
-                      pAllowedToDelegate = name;
-                      else if( name.contains(":msDS-ManagedPasswordInterval") )
-                      managePasswordInterval = name;
-                      }
-                      }
-                      if ("msDS-GroupManagedServiceAccount".equalsIgnoreCase(objType))
-                      {
-                      if (null != dnsHostNameFieldName) {
-                      Object dnsHostName =   serviceAccSection.getField(dnsHostNameFieldName);
-                      dnsHostName.setRequired(true);
-                      }
-                      }
-                      else if ("msDS-ManagedServiceAccount".equalsIgnoreCase(objType))
-                      {
-                      if (null != dnsHostNameFieldName) {
-                      Object dnsHostName =   serviceAccSection.getField(dnsHostNameFieldName);
-                      dnsHostName.setHidden(true);
-                      }
-                      if(null != pAllowedToRetrievPwdFieldName){
-                      Object msDSGroupMSAMembership = serviceAccSection.getField(pAllowedToRetrievPwdFieldName);
-                      msDSGroupMSAMembership.setHidden(true);
-                      }
-                      if(null != pAllowedToDelegate){
-                      Object PrincipalsAllowedToDelegate = serviceAccSection.getField(pAllowedToDelegate);
-                      PrincipalsAllowedToDelegate.setHidden(true);
-                      }
-                      if(null != managePasswordInterval) {
-                      Object ManageIntervalField = serviceAccSection.getField(managePasswordInterval);
-                      ManageIntervalField.setHidden(true);
-                      }
-                      }
-                      }
-                      else {
-                      if (form.getSection("User Details") != null &amp;&amp; form.getSection("User Details").getFields() != null ) {
-                      for (Object field : form.getSection("User Details").getFields()) {
-                      String name = field.getName();
-                      if (name != null &amp;&amp; name.indexOf(":") &gt; 0 ) {
-                      String[] nameKeys = name.split(":");
-                      if (nameKeys.length &gt; 1 &amp;&amp;
-                      ("sAMAccountName".equalsIgnoreCase(nameKeys[2]) 
-                      || "password".equalsIgnoreCase(nameKeys[2]))){
-                      field.setRequired(true);
-                      }
-                      }
-                      }
-                      }
-                      if (form.getSection("gmsa") != null) {
-                      form.remove(form.getSection("gmsa"));
-                      } 
-                      }
-
-                      return false;
-                    </Source>
+                            for (Object field : serviceAccSection.getFields()) {
+                                String name = field.getName();
+                                if( null != name) {
+                                    if( name.contains(":dNSHostName"))
+                                        dnsHostNameFieldName = name;
+                                    else if( name.contains(":msDS-GroupMSAMembership") )
+                                        pAllowedToRetrievPwdFieldName = name;
+                                    else if( name.contains(":msDS-AllowedToActOnBehalfOfOtherIdentity") )
+                                        pAllowedToDelegate = name;
+                                    else if( name.contains(":msDS-ManagedPasswordInterval") )
+                                        managePasswordInterval = name;
+                                }
+                            }
+                            if ("msDS-GroupManagedServiceAccount".equalsIgnoreCase(objType))
+                            {
+                                if (null != dnsHostNameFieldName) {
+                                    Object dnsHostName =   serviceAccSection.getField(dnsHostNameFieldName);
+                                    dnsHostName.setRequired(true);
+                                }
+                            }
+                            else if ("msDS-ManagedServiceAccount".equalsIgnoreCase(objType))
+                            {
+                                if (null != dnsHostNameFieldName) {
+                                    Object dnsHostName =   serviceAccSection.getField(dnsHostNameFieldName);
+                                    dnsHostName.setHidden(true);
+                                }
+                                if(null != pAllowedToRetrievPwdFieldName){
+                                    Object msDSGroupMSAMembership = serviceAccSection.getField(pAllowedToRetrievPwdFieldName);
+                                    msDSGroupMSAMembership.setHidden(true);
+                                }
+                                if(null != pAllowedToDelegate){
+                                    Object PrincipalsAllowedToDelegate = serviceAccSection.getField(pAllowedToDelegate);
+                                    PrincipalsAllowedToDelegate.setHidden(true);
+                                }
+                                if(null != managePasswordInterval) {
+                                    Object ManageIntervalField = serviceAccSection.getField(managePasswordInterval);
+                                    ManageIntervalField.setHidden(true);
+                                }
+                            }
+                          }
+                           else {
+                                   if (form.getSection("User Details") != null && form.getSection("User Details").getFields() != null ) {
+                                      for (Object field : form.getSection("User Details").getFields()) {
+                                         String name = field.getName();
+                                         if (name != null && name.indexOf(":") > 0 ) {
+                                            String[] nameKeys = name.split(":");
+                                              if (nameKeys.length > 1 &&
+                                                  ("sAMAccountName".equalsIgnoreCase(nameKeys[2]) 
+                                                 || "password".equalsIgnoreCase(nameKeys[2]))){
+                                                  field.setRequired(true);
+                                                }
+                                            }
+                                        }
+                                     }
+                                  if (form.getSection("gmsa") != null) {
+                                     form.remove(form.getSection("gmsa"));
+                                   } 
+                               }
+                                  
+                           return false;
+                        ]]></Source>
                   </Script>
                 </value>
               </entry>
             </Map>
           </Attributes>
         </Field>
-        <Field displayName="con_prov_policy_ad_distinguishedName" helpKey="help_con_prov_policy_ad_distinguishedName" name="distinguishedName" required="true" section="Account" type="string">
-          <Script>
-            <Source>return "cn="+identity.getFirstname()+"."+identity.getLastname()+",ou=Test,dc=iconic,dc=com";</Source>
-          </Script>
-        </Field>
+        <Field displayName="con_prov_policy_ad_distinguishedName" helpKey="help_con_prov_policy_ad_distinguishedName" name="distinguishedName" required="true" section="Account" type="string"/>
       </Section>
       <Section label="User Details" name="User Details">
-        <Field displayName="con_prov_policy_ad_sAMAccountName" helpKey="help_con_prov_policy_ad_sAMAccountName" name="sAMAccountName" required="true" section="User Details" type="string">
-          <Script>
-            <Source>return identity.getFirstname()+"."+identity.getLastname();</Source>
-          </Script>
-        </Field>
-        <Field displayName="con_prov_policy_ad_password" helpKey="help_con_prov_policy_ad_password" name="password" required="true" section="User Details" type="secret" value="return &quot;Pa$$word&quot;;"/>
-        <Field displayName="con_prov_policy_ad_pwdLastSet" helpKey="help_con_prov_policy_ad_pwdLastSet" name="pwdLastSet" section="User Details" type="boolean"/>
-        <Field displayName="con_prov_policy_ad_IIQDisabled" helpKey="help_con_prov_policy_ad_IIQDisabled" name="IIQDisabled" section="User Details" type="boolean" value="false"/>
-        <Field displayName="con_prov_policy_ad_primaryGroupDN" helpKey="help_con_prov_policy_ad_primaryGroupDN" name="primaryGroupDN" section="User Details" type="string"/>
+        <Field displayName="con_prov_policy_ad_sAMAccountName" helpKey="help_con_prov_policy_ad_sAMAccountName" name="sAMAccountName" reviewRequired="true" section="User Details" type="string"/>
+        <Field displayName="con_prov_policy_ad_password" helpKey="help_con_prov_policy_ad_password" name="password" reviewRequired="true" section="User Details" type="secret" value="&quot;P@ssw0rd&quot;"/>
+        <Field displayName="con_prov_policy_ad_pwdLastSet" helpKey="help_con_prov_policy_ad_pwdLastSet" name="pwdLastSet" reviewRequired="true" section="User Details" type="boolean"/>
+        <Field displayName="con_prov_policy_ad_IIQDisabled" helpKey="help_con_prov_policy_ad_IIQDisabled" name="IIQDisabled" reviewRequired="true" section="User Details" type="boolean" value="false"/>
+        <Field displayName="con_prov_policy_ad_primaryGroupDN" helpKey="help_con_prov_policy_ad_primaryGroupDN" name="primaryGroupDN" reviewRequired="true" section="User Details" type="string"/>
       </Section>
       <Section label="General" name="General">
-        <Field displayName="con_prov_policy_ad_givenName" helpKey="help_con_prov_policy_ad_givenName" name="givenName" section="General" type="string">
-          <Script>
-            <Source>return identity.getFirstname();</Source>
-          </Script>
-        </Field>
-        <Field displayName="con_prov_policy_ad_sn" helpKey="help_con_prov_policy_ad_sn" name="sn" section="General" type="string">
-          <Script>
-            <Source>return identity.getLastname();</Source>
-          </Script>
-        </Field>
-        <Field displayName="con_prov_policy_ad_description" helpKey="help_con_prov_policy_ad_description" name="description" section="General" type="string"/>
+        <Field displayName="con_prov_policy_ad_givenName" helpKey="help_con_prov_policy_ad_givenName" name="givenName" reviewRequired="true" section="General" type="string"/>
+        <Field displayName="con_prov_policy_ad_sn" helpKey="help_con_prov_policy_ad_sn" name="sn" reviewRequired="true" section="General" type="string"/>
+        <Field displayName="con_prov_policy_ad_description" helpKey="help_con_prov_policy_ad_description" name="description" reviewRequired="true" section="General" type="string"/>
       </Section>
       <Section label="Dial-in" name="Dial-in">
-        <Field displayName="con_prov_policy_ad_msNPAllowDialin" helpKey="help_con_prov_policy_ad_msNPAllowDialin" name="msNPAllowDialin" section="Dial-in" type="string" value="Not Set">
+        <Field displayName="con_prov_policy_ad_msNPAllowDialin" helpKey="help_con_prov_policy_ad_msNPAllowDialin" name="msNPAllowDialin" reviewRequired="true" section="Dial-in" type="string" value="Not Set">
           <AllowedValuesDefinition>
             <Value>
               <List>
@@ -442,22 +383,22 @@
             </Value>
           </AllowedValuesDefinition>
         </Field>
-        <Field displayName="con_prov_policy_ad_msNPCallingStationID" helpKey="help_con_prov_policy_ad_msNPCallingStationID" multi="true" name="msNPCallingStationID" section="Dial-in" type="string"/>
-        <Field displayName="con_prov_policy_ad_msRADIUSCallbackNumber" helpKey="help_con_prov_policy_ad_msRADIUSCallbackNumber" name="msRADIUSCallbackNumber" section="Dial-in" type="string"/>
-        <Field displayName="con_prov_policy_ad_msRADIUSFramedRoute" helpKey="help_con_prov_policy_ad_msRADIUSFramedRoute" multi="true" name="msRADIUSFramedRoute" section="Dial-in" type="string"/>
-        <Field displayName="con_prov_policy_ad_msRADIUSFramedIPAddress" helpKey="help_con_prov_policy_ad_msRADIUSFramedIPAddress" name="msRADIUSFramedIPAddress" section="Dial-in" type="string"/>
+        <Field displayName="con_prov_policy_ad_msNPCallingStationID" helpKey="help_con_prov_policy_ad_msNPCallingStationID" multi="true" name="msNPCallingStationID" reviewRequired="true" section="Dial-in" type="string"/>
+        <Field displayName="con_prov_policy_ad_msRADIUSCallbackNumber" helpKey="help_con_prov_policy_ad_msRADIUSCallbackNumber" name="msRADIUSCallbackNumber" reviewRequired="true" section="Dial-in" type="string"/>
+        <Field displayName="con_prov_policy_ad_msRADIUSFramedRoute" helpKey="help_con_prov_policy_ad_msRADIUSFramedRoute" multi="true" name="msRADIUSFramedRoute" reviewRequired="true" section="Dial-in" type="string"/>
+        <Field displayName="con_prov_policy_ad_msRADIUSFramedIPAddress" helpKey="help_con_prov_policy_ad_msRADIUSFramedIPAddress" name="msRADIUSFramedIPAddress" reviewRequired="true" section="Dial-in" type="string"/>
       </Section>
       <Section label="Exchange" name="Exchange">
-        <Field displayName="con_prov_policy_ad_homeMDB" helpKey="help_con_prov_policy_ad_homeMDB" name="homeMDB" section="Exchange" type="string"/>
-        <Field displayName="con_prov_policy_ad_mailNickname" helpKey="help_con_prov_policy_ad_mailNickname" name="mailNickname" section="Exchange" type="string"/>
-        <Field displayName="con_prov_policy_ad_shadowAccountDN" helpKey="help_con_prov_policy_ad_shadowAccountDN" name="shadowAccountDN" section="Exchange" type="string"/>
-        <Field displayName="con_prov_policy_ad_msExchHideFromAddressLists" helpKey="help_con_prov_policy_ad_msExchHideFromAddressLists" name="msExchHideFromAddressLists" section="Exchange" type="boolean"/>
-        <Field displayName="con_prov_policy_ad_externalEmailAddress" helpKey="help_con_prov_policy_ad_externalEmailAddress" name="exch_externalEmailAddress" section="Exchange" type="string"/>
+        <Field displayName="con_prov_policy_ad_homeMDB" helpKey="help_con_prov_policy_ad_homeMDB" name="homeMDB" reviewRequired="true" section="Exchange" type="string"/>
+        <Field displayName="con_prov_policy_ad_mailNickname" helpKey="help_con_prov_policy_ad_mailNickname" name="mailNickname" reviewRequired="true" section="Exchange" type="string"/>
+        <Field displayName="con_prov_policy_ad_shadowAccountDN" helpKey="help_con_prov_policy_ad_shadowAccountDN" name="shadowAccountDN" reviewRequired="true" section="Exchange" type="string"/>
+        <Field displayName="con_prov_policy_ad_msExchHideFromAddressLists" helpKey="help_con_prov_policy_ad_msExchHideFromAddressLists" name="msExchHideFromAddressLists" reviewRequired="true" section="Exchange" type="boolean"/>
+        <Field displayName="con_prov_policy_ad_externalEmailAddress" helpKey="help_con_prov_policy_ad_externalEmailAddress" name="externalEmailAddress" reviewRequired="true" section="Exchange" type="string"/>
       </Section>
       <Section label="Skype for Business" name="Skype for Business">
-        <Field displayName="con_prov_policy_ad_SipAddress" helpKey="help_con_prov_policy_ad_SipAddress" name="SipAddress" section="Skype for Business" type="string"/>
-        <Field displayName="con_prov_policy_ad_SipDomain" helpKey="help_con_prov_policy_ad_SipDomain" name="SipDomain" section="Skype for Business" type="string"/>
-        <Field displayName="con_prov_policy_ad_SipAddressType" helpKey="help_con_prov_policy_ad_SipAddressType" name="SipAddressType" section="Skype for Business" type="string">
+        <Field displayName="con_prov_policy_ad_SipAddress" helpKey="help_con_prov_policy_ad_SipAddress" name="SipAddress" reviewRequired="true" section="Skype for Business" type="string"/>
+        <Field displayName="con_prov_policy_ad_SipDomain" helpKey="help_con_prov_policy_ad_SipDomain" name="SipDomain" reviewRequired="true" section="Skype for Business" type="string"/>
+        <Field displayName="con_prov_policy_ad_SipAddressType" helpKey="help_con_prov_policy_ad_SipAddressType" name="SipAddressType" reviewRequired="true" section="Skype for Business" type="string">
           <AllowedValuesDefinition>
             <Value>
               <List>
@@ -468,11 +409,11 @@
             </Value>
           </AllowedValuesDefinition>
         </Field>
-        <Field displayName="con_prov_policy_ad_RegistrarPool" helpKey="help_con_prov_policy_ad_RegistrarPool" name="RegistrarPool" section="Skype for Business" type="string"/>
+        <Field displayName="con_prov_policy_ad_RegistrarPool" helpKey="help_con_prov_policy_ad_RegistrarPool" name="RegistrarPool" reviewRequired="true" section="Skype for Business" type="string"/>
       </Section>
       <Section label="gmsa" name="gmsa">
-        <Field displayName="con_prov_policy_ad_DNSHostName" helpKey="help_con_prov_policy_ad_DNSHostName" name="dNSHostName" section="gmsa" type="string"/>
-        <Field displayName="con_prov_policy_ad_msDSSupportedEncryptionTypes" helpKey="help_con_prov_policy_ad_msDSSupportedEncryptionTypes" multi="true" name="msDS-SupportedEncryptionTypes" section="gmsa" type="string">
+        <Field displayName="con_prov_policy_ad_DNSHostName" helpKey="help_con_prov_policy_ad_DNSHostName" name="dNSHostName" reviewRequired="true" section="gmsa" type="string"/>
+        <Field displayName="con_prov_policy_ad_msDSSupportedEncryptionTypes" helpKey="help_con_prov_policy_ad_msDSSupportedEncryptionTypes" multi="true" name="msDS-SupportedEncryptionTypes" reviewRequired="true" section="gmsa" type="string">
           <AllowedValuesDefinition>
             <Value>
               <List>
@@ -484,10 +425,10 @@
             </Value>
           </AllowedValuesDefinition>
         </Field>
-        <Field displayName="con_prov_policy_ad_msDSManagedPasswordInterval" helpKey="help_con_prov_policy_ad_msDSManagedPasswordInterval" name="msDS-ManagedPasswordInterval" section="gmsa" type="string"/>
-        <Field displayName="con_prov_policy_ad_msDSGroupMSAMembership" helpKey="help_con_prov_policy_ad_msDSGroupMSAMembership" multi="true" name="msDS-GroupMSAMembership" section="gmsa" type="string"/>
-        <Field displayName="con_prov_policy_ad_msDSAllowedToActOnBehalfOfOtherIdentity" helpKey="help_con_prov_policy_ad_msDSAllowedToActOnBehalfOfOtherIdentity" multi="true" name="msDS-AllowedToActOnBehalfOfOtherIdentity" section="gmsa" type="string"/>
-        <Field displayName="con_prov_policy_ad_ServicePrincipalNames" helpKey="help_con_prov_policy_ad_ServicePrincipalNames" multi="true" name="servicePrincipalName" section="gmsa" type="string"/>
+        <Field displayName="con_prov_policy_ad_msDSManagedPasswordInterval" helpKey="help_con_prov_policy_ad_msDSManagedPasswordInterval" name="msDS-ManagedPasswordInterval" reviewRequired="true" section="gmsa" type="string"/>
+        <Field displayName="con_prov_policy_ad_msDSGroupMSAMembership" helpKey="help_con_prov_policy_ad_msDSGroupMSAMembership" multi="true" name="msDS-GroupMSAMembership" reviewRequired="true" section="gmsa" type="string"/>
+        <Field displayName="con_prov_policy_ad_msDSAllowedToActOnBehalfOfOtherIdentity" helpKey="help_con_prov_policy_ad_msDSAllowedToActOnBehalfOfOtherIdentity" multi="true" name="msDS-AllowedToActOnBehalfOfOtherIdentity" reviewRequired="true" section="gmsa" type="string"/>
+        <Field displayName="con_prov_policy_ad_ServicePrincipalNames" helpKey="help_con_prov_policy_ad_ServicePrincipalNames" multi="true" name="servicePrincipalName" reviewRequired="true" section="gmsa" type="string"/>
       </Section>
     </Form>
     <Form name="Create Group" objectType="group" type="Create">
@@ -617,12 +558,6 @@
       <AttributeDefinition name="postalCode" type="string">
         <Description>postal code</Description>
       </AttributeDefinition>
-      <AttributeDefinition name="primaryGroupID" type="string">
-        <Description>RID of users primary group</Description>
-      </AttributeDefinition>
-      <AttributeDefinition name="primaryGroupDN" type="string">
-        <Description>DN of users primary group</Description>
-      </AttributeDefinition>
       <AttributeDefinition name="preferredDeliveryMethod" type="string">
         <Description>preferred delivery method</Description>
       </AttributeDefinition>
@@ -674,7 +609,7 @@
       <AttributeDefinition multi="true" name="objectClass" type="string">
         <Description>object classes of the entity</Description>
       </AttributeDefinition>
-      <AttributeDefinition entitlement="true" managed="true" multi="true" name="memberOf" type="string">
+      <AttributeDefinition entitlement="true" managed="true" multi="true" name="memberOf" schemaObjectType="group" type="string">
         <Description>Group Membership</Description>
       </AttributeDefinition>
       <AttributeDefinition name="objectSid" type="string">
@@ -722,7 +657,7 @@
       <AttributeDefinition name="msExchHideFromAddressLists" type="string">
         <Description>Hide from Exchange address lists</Description>
       </AttributeDefinition>
-      <AttributeDefinition name="msRTCSIP-UserEnabled" type="string">
+      <AttributeDefinition name="msRTCSIP-UserEnabled" type="boolean">
         <Description>User enabled for Skype for Business Server</Description>
       </AttributeDefinition>
       <AttributeDefinition name="SipAddress" type="string">
@@ -784,7 +719,7 @@
       <AttributeDefinition name="description" type="string">
         <Description>descriptive information</Description>
       </AttributeDefinition>
-      <AttributeDefinition entitlement="true" multi="true" name="memberOf" type="string">
+      <AttributeDefinition entitlement="true" multi="true" name="memberOf" schemaObjectType="group" type="string">
         <Description>Group Membership</Description>
       </AttributeDefinition>
       <AttributeDefinition name="objectSid" type="string">

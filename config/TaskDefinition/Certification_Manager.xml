@@ -1,13 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE TaskDefinition PUBLIC "sailpoint.dtd" "sailpoint.dtd">
-<TaskDefinition concurrent="true" executor="sailpoint.task.CertificationExecutor" hidden="true" name="Certification Manager" progressMode="String" subType="task_item_type_certification" template="true" type="Certification">
-  <Attributes>
-    <Map>
-      <entry key="TaskDefinition.runLengthAverage" value="9"/>
-      <entry key="TaskDefinition.runLengthTotal" value="46"/>
-      <entry key="TaskDefinition.runs" value="5"/>
-    </Map>
-  </Attributes>
+<TaskDefinition concurrent="true" executor="sailpoint.task.CertificationExecutor" hidden="true" name="Certification Manager" progressMode="String" resultAction="RenameNew" subType="task_item_type_certification" template="true" type="Certification">
   <Description>
             Template Task for scheduling access certifications.
         </Description>

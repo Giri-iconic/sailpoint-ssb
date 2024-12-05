@@ -10,7 +10,7 @@
               <QueryParameters>
                 <Parameter argument="applications" property="profiles.application.id">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                            
                                import sailpoint.reporting.*;
                                import sailpoint.object.*;
@@ -20,7 +20,7 @@
                                }
                                return queryOptions;
                                
-                         </Source>
+                         ]]></Source>
                   </QueryScript>
                 </Parameter>
                 <Parameter argument="type" property="type"/>
@@ -29,7 +29,7 @@
                 <Parameter argument="roleName" operation="IN" property="name"/>
                 <Parameter argument="entitlementAttribute" property="profileEntAttribute">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                              
                                import sailpoint.reporting.*;
                                import sailpoint.object.*;
@@ -39,12 +39,12 @@
                                }
                                return queryOptions;
                                
-                           </Source>
+                           ]]></Source>
                   </QueryScript>
                 </Parameter>
                 <Parameter argument="entitlementValue" property="profileEntValue">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                                
                                import sailpoint.reporting.*;
                                import sailpoint.object.*;
@@ -54,12 +54,12 @@
                                }
                                return queryOptions;
                                
-                             </Source>
+                             ]]></Source>
                   </QueryScript>
                 </Parameter>
                 <Parameter argument="permissionTarget" property="profilePermTarget">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                              
                                import sailpoint.reporting.*;
                                import sailpoint.object.*;
@@ -69,12 +69,12 @@
                                }
                                return queryOptions;
                                
-                           </Source>
+                           ]]></Source>
                   </QueryScript>
                 </Parameter>
                 <Parameter argument="permissionRight" property="profilePermRight">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                               
                                import sailpoint.reporting.*;
                                import sailpoint.object.*;
@@ -84,12 +84,12 @@
                                }
                                return queryOptions;
                                
-                            </Source>
+                            ]]></Source>
                   </QueryScript>
                 </Parameter>
                 <Parameter argument="relationships" defaultValue="All" property="relationships">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                              
                                import sailpoint.reporting.*;
                                import sailpoint.object.*;
@@ -99,7 +99,7 @@
                                }
                                return queryOptions;
                                
-                            </Source>
+                            ]]></Source>
                   </QueryScript>
                 </Parameter>
               </QueryParameters>

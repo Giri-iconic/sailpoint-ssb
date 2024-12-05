@@ -5,7 +5,7 @@
 
 Note that an Attributes map of all variables from the current WorkflowContext, merged with the arguments from the Step, is also passed into the workflow rule.</Description>
   <Signature returnType="Object"/>
-  <Source>import java.sql.ResultSet;
+  <Source><![CDATA[import java.sql.ResultSet;
   import java.sql.Statement;
   import java.sql.Connection;
   import java.util.ArrayList;
@@ -67,7 +67,7 @@ Note that an Attributes map of all variables from the current WorkflowContext, m
     }
     int status = prepStatement.executeUpdate();
 
-    if(status &gt; 0) {
+    if(status > 0) {
       log.error("=====================******************" +email+" IS CREATED *****************======================");
     }else{
       log.error("=====================******************" +email+" IS FAILD TO CREATE *****************======================");
@@ -79,5 +79,5 @@ Note that an Attributes map of all variables from the current WorkflowContext, m
     log.error("Exception occured : " +sql); 
   }
 
-  return email;</Source>
+  return email;]]></Source>
 </Rule>

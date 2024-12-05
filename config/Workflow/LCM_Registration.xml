@@ -308,14 +308,14 @@
       Set the identityName workflow variable based on the form input.
     </Description>
     <Script>
-      <Source>
+      <Source><![CDATA[
         String name = (String)identityModel.get("name");
         if (name != null) {
           name = name.trim();
         }
 
         return name;
-      </Source>
+      ]]></Source>
     </Script>
     <Transition to="Build Provisioning Plan"/>
   </Step>

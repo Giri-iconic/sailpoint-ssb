@@ -70,14 +70,14 @@
       want when looping while checking status.
     </Description>
     <Script>
-      <Source>
+      <Source><![CDATA[
         if ( statusChecks == null ) { 
             statusChecks = new Integer(0); 
         } else {
             statusChecks++;
         }
         wfcontext.getWorkflowCase().put("statusChecks", statusChecks);
-      </Source>
+      ]]></Source>
     </Script>
     <Transition to="Calculate Max Checks"/>
   </Step>
@@ -132,7 +132,7 @@
        It is easier to pass this option than to transition around this step.
     </Description>
     <Transition to="Requires Check" when="script:( provisioningMaxStatusChecks == -1 || statusChecks &lt; provisioningMaxStatusChecks)"/>
-    <Transition to="Timeout" when="script:( statusChecks >= provisioningMaxStatusChecks )"/>
+    <Transition to="Timeout" when="script:( statusChecks &gt;= provisioningMaxStatusChecks )"/>
     <Transition to="Apply Committed Results"/>
   </Step>
   <Step action="call:addMessage" name="Timeout" posX="916" posY="118">

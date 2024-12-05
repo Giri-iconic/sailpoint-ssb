@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
 <Rule language="beanshell" name="Workflow Library">
-  <Source>
+  <Source><![CDATA[
     
       import sailpoint.object.Filter;
       import sailpoint.object.Identity;
@@ -130,7 +130,7 @@
 
           if (null != plan) {
               AccountRequest acctReq = plan.getIIQAccountRequest();
-              if ((null != acctReq) &amp;&amp;
+              if ((null != acctReq) &&
                   AccountRequest.Operation.Create.equals(acctReq.getOperation())) {
                   AttributeRequest attrReq = acctReq.getAttributeRequest(attr);
                   if (null != attrReq) {
@@ -172,5 +172,5 @@
       }
 
     
-  </Source>
+  ]]></Source>
 </Rule>

@@ -48,11 +48,11 @@
           <entry key="hidden">
             <value>
               <Script>
-                <Source>
+                <Source><![CDATA[
                   import sailpoint.api.ScopeService;
                   ScopeService scopeSvc = new ScopeService(context);
                   return !scopeSvc.isScopingEnabled();
-                </Source>
+                ]]></Source>
               </Script>
             </value>
           </entry>
@@ -85,7 +85,7 @@
         </Value>
       </AllowedValuesDefinition>
       <ValidationScript>
-        <Source>
+        <Source><![CDATA[
           
           import java.util.*;
           import sailpoint.tools.Util;
@@ -95,14 +95,14 @@
           List emailRecips = form.getField("emailIdentities").getValue();
           List fileTypes = form.getField("emailFileFormat").getValue();
 
-          if (!Util.isEmpty(emailRecips) &amp;&amp; Util.isEmpty(fileTypes)){
+          if (!Util.isEmpty(emailRecips) && Util.isEmpty(fileTypes)){
             errors = new ArrayList();
             errors.add(MessageKeys.REPT_FORM_ERR_NO_EMAIL_FORMAT);
           }
 
           return errors;
           
-        </Source>
+        ]]></Source>
       </ValidationScript>
     </Field>
     <Field displayName="label_dont_email_empty_reports" name="dontEmailEmptyReport" type="boolean" value="ref:dontEmailEmptyReport"/>

@@ -23,6 +23,12 @@
       <Argument name="appsSyncFailed" type="int">
         <Prompt>task_out_cloud_bridge_apps_sync_failed</Prompt>
       </Argument>
+      <Argument name="targetSourceSyncSuccessful" type="int">
+        <Prompt>task_out_cloud_bridge_target_source_sync_success</Prompt>
+      </Argument>
+      <Argument name="targetSourceSyncFailed" type="int">
+        <Prompt>task_out_cloud_bridge_target_source_sync_failed</Prompt>
+      </Argument>
       <Argument name="rulesSyncSuccessful" type="int">
         <Prompt>task_out_cloud_bridge_rules_sync_success</Prompt>
       </Argument>

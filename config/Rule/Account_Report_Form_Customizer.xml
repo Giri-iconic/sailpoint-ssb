@@ -18,7 +18,7 @@
       </Argument>
     </Inputs>
   </Signature>
-  <Source>
+  <Source><![CDATA[
        
         import sailpoint.object.*;
         import sailpoint.reporting.ReportingLibrary;
@@ -27,5 +27,5 @@
         ReportingLibrary.addAttributes(context, report, Link.class, linkConfig.getSearchableAttributes(), null,
           "Account Properties", locale);
        
-</Source>
+]]></Source>
 </Rule>

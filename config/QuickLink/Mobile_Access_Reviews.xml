@@ -8,7 +8,7 @@
       <entry key="textScript">
         <value>
           <Script>
-            <Source>
+            <Source><![CDATA[
                 
                   import sailpoint.object.Certification;
                   import sailpoint.object.Filter;
@@ -20,7 +20,7 @@
 
                   return context.countObjects(Certification.class, qo);
                 
-              </Source>
+              ]]></Source>
           </Script>
         </value>
       </entry>

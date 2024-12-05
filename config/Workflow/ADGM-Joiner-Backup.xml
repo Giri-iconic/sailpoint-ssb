@@ -98,7 +98,7 @@
     <Arg name="event" value="ref:event"/>
     <Transition to="Stop">
       <Script>
-        <Source>
+        <Source><![CDATA[
     import sailpoint.object.Link;
           import java.util.List;
           
@@ -130,7 +130,7 @@ return true;
 }
 
 return false;
-        </Source>
+        ]]></Source>
       </Script>
     </Transition>
     <Transition to="Initialize"/>
@@ -183,7 +183,7 @@ return false;
     <Description>This is left over from the previous incarnation of this
 			workflow. Need to figure out if this is still needed</Description>
     <Script>
-      <Source>
+      <Source><![CDATA[
 			import sailpoint.object.Identity;
 			import sailpoint.object.WorkflowCase;
 			
@@ -219,7 +219,7 @@ return false;
 			
 			
 
-     </Source>
+     ]]></Source>
     </Script>
     <Transition to="Notify Stakeholders"/>
   </Step>
@@ -279,11 +279,11 @@ return false;
     <Arg name="userEmail" value="script:getUserEmail(identityName, plan)"/>
     <Arg name="mailId">
       <Script>
-        <Source>
+        <Source><![CDATA[
 			import sailpoint.object.Identity;
 			Identity identity=context.getObjectByName(Identity.class, identityName);
 			return identity.getEmail();
-        </Source>
+        ]]></Source>
       </Script>
     </Arg>
     <Arg name="securityOfficerName"/>
@@ -293,7 +293,7 @@ return false;
     <Arg name="flow" value="ref:flow"/>
     <Arg name="appMap">
       <Script>
-        <Source>
+        <Source><![CDATA[
 			import sailpoint.object.Application;
 			import sailpoint.object.Identity;
 			import sailpoint.object.Link;
@@ -341,7 +341,7 @@ return false;
 			portal.put("accountid", adIDName);
 			mapAppList.add(portal);
 			return mapAppList;
-        </Source>
+        ]]></Source>
       </Script>
     </Arg>
     <Arg name="launcher" value="ref:launcher"/>
@@ -401,7 +401,7 @@ return false;
   <Step condition="(requestRestrictedFolder != null &amp;&amp; requestRestrictedFolder.equalsIgnoreCase(&quot;true&quot;))" icon="Task" name="Update plan for Restricted Folder" posX="593" posY="245" resultVariable="plan">
     <Description>Generate Restricted Folder Plan</Description>
     <Script>
-      <Source>
+      <Source><![CDATA[
 	    import java.util.ArrayList;
 	    import java.util.List;
 	    
@@ -431,7 +431,7 @@ return false;
         	}
         }
         
-        if (restrictedFolderRoles != null &amp;&amp; !restrictedFolderRoles.equalsIgnoreCase("")){
+        if (restrictedFolderRoles != null && !restrictedFolderRoles.equalsIgnoreCase("")){
         	AccountRequest accReq = new AccountRequest();
 	        accReq.setApplication("IIQ");
 	        accReq.setOperation(ProvisioningPlan.AccountRequest.Operation.Modify);
@@ -453,7 +453,7 @@ return false;
         	plan = null;
         }
 	    return plan;
-	  	</Source>
+	  	]]></Source>
     </Script>
     <Transition to="Submit Restricted Folder Request"/>
   </Step>
@@ -559,7 +559,7 @@ return false;
     <Arg name="flow" value="ref:flow"/>
     <Arg name="launcher" value="ref:launcher"/>
     <ConditionScript>
-      <Source>
+      <Source><![CDATA[
     import sailpoint.object.Link;
     import java.util.List;     
     import sailpoint.object.Identity;
@@ -576,7 +576,7 @@ return false;
     }
     else{
       return true;
-    }</Source>
+    }]]></Source>
     </ConditionScript>
     <Transition to="Intern Bundle Manage Engine"/>
   </Step>
@@ -599,7 +599,7 @@ return false;
     <Arg name="flow" value="ref:flow"/>
     <Arg name="launcher" value="ref:launcher"/>
     <ConditionScript>
-      <Source>
+      <Source><![CDATA[
     import sailpoint.object.Link;
     import java.util.List;     
     import sailpoint.object.Identity;
@@ -616,7 +616,7 @@ return false;
     }
     else{
       return false;
-    }</Source>
+    }]]></Source>
     </ConditionScript>
     <Description>
       	  Notify the various actors specified on notification scheme.

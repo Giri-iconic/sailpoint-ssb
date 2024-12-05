@@ -12,18 +12,18 @@
                 <Parameter argument="type" defaultValue="ApplicationOwner" property="parent.certification.type" valueClass="sailpoint.object.Certification$Type"/>
                 <Parameter argument="tags" property="parent.certification.tags.id">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                             
                             import sailpoint.object.*;
                             import java.util.*;
 
-                            if (value != null &amp;&amp; !value.isEmpty()){
+                            if (value != null && !value.isEmpty()){
                               queryOptions.addFilter(Filter.containsAll("parent.certification.tags.id", value));
                             }
 
                             return queryOptions;
                             
-                          </Source>
+                          ]]></Source>
                   </QueryScript>
                 </Parameter>
                 <Parameter argument="certificationGroups" property="parent.certification.certificationGroups.id"/>
@@ -42,10 +42,10 @@
               <ReportColumnConfig field="lastName" header="rept_cert_col_last_name" property="parent.lastname" sortable="true" width="110"/>
               <ReportColumnConfig field="manager" header="rept_cert_col_manager_name" property="parent" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           import sailpoint.reporting.*;
                           return value != null ? ReportingLibrary.getCertificationItemManagerName(context, value) : null;
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="certName" header="rept_cert_col_cert_access_review" property="parent.certification.name" sortable="true" width="110"/>
@@ -54,10 +54,10 @@
               <ReportColumnConfig field="entitlementType" header="rept_cert_col_entitlement_type" property="type" sortable="true" width="110"/>
               <ReportColumnConfig field="entitlements" header="rept_cert_col_entitlement_desc" property="exceptionEntitlements" scriptArguments="bundle,violationSummary" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           import sailpoint.reporting.*;
                           return ReportingLibrary.describeCertificationEntitlement(value, scriptArgs.get("bundle"), scriptArgs.get("violationSummary"), null);
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="application" header="rept_cert_col_application" property="exceptionEntitlements.application" sortable="true" width="110"/>
@@ -67,34 +67,34 @@
               <ReportColumnConfig field="decision" header="rept_cert_col_decision" property="action.status" sortable="true" width="110"/>
               <ReportColumnConfig field="newValue" header="rept_cert_col_newValue" property="action" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           import sailpoint.reporting.datasource.*;
                           return DataSourceUtil.getRemediationModifiableNewValue(value);
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="remediationCompleted" header="rept_cert_col_revoke_completed" property="action" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           import sailpoint.reporting.ReportingLibrary;
                           import sailpoint.tools.Util;
                           import java.lang.String;
                           String status = ReportingLibrary.getRemediationStatus(context, value);
                           return Util.isNullOrEmpty(status) ? "" : status;
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="decisionMaker" header="rept_cert_col_decision_maker" property="action.actorName" sortable="true" width="110"/>
               <ReportColumnConfig field="comments" header="rept_cert_col_decision_maker_comments" property="action" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                            return value != null ? value.getComments() : null;
-                         </Source>
+                         ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="exclusionExplanation" header="rept_cert_col_exclusion_explanation" property="parent" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           
                           if (value != null){
                             if (value instanceof sailpoint.object.ArchivedCertificationEntity) {
@@ -102,52 +102,52 @@
                             }
                           }
                           
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="recommendation" header="rept_cert_col_recommendation" property="recommendValue" scriptArguments="id" sortable="true" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           import sailpoint.reporting.ReportingLibrary;
                           return ReportingLibrary.getRecommendedDecision(context, value, scriptArgs.get("id"), locale, timezone);
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="recommendationReasons" header="rept_cert_col_recommendation_reasons" property="id" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           import sailpoint.reporting.ReportingLibrary;
                           return ReportingLibrary.getRecommendationReasons(context, value, locale, timezone);
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="recommendationTimestamp" header="rept_cert_col_recommendation_timestamp" property="id" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           import sailpoint.reporting.ReportingLibrary;
                           return ReportingLibrary.getRecommendationTimestamp(context, value, locale, timezone);
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="autoDecisionGenerated" header="rept_cert_col_auto_decision_gen" property="id" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           import sailpoint.reporting.ReportingLibrary;
                           return ReportingLibrary.getAutoDecisionGenerated(context, value);
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="autoDecisionAccepted" header="rept_cert_col_auto_decision_acc" property="id" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           import sailpoint.reporting.ReportingLibrary;
                           return ReportingLibrary.getAutoDecisionAccepted(context, value);
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="classifications" header="rept_cert_col_classifications" property="id" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           import sailpoint.object.CertificationItem;
                           import sailpoint.service.classification.ClassificationService;
                           import sailpoint.tools.Util;
@@ -155,17 +155,17 @@
                           CertificationItem item = context.getObjectById(CertificationItem.class, value);
                           List names = new ClassificationService(context).getDisplayableNames(item.getClassificationNames());
                           return Util.listToCsv(names);
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="elevatedAccess" header="rept_cert_col_elevated_access" property="id" sortable="true" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           import sailpoint.object.CertificationItem;
 
                           CertificationItem item = context.getObjectById(CertificationItem.class, value);
                           return item.isIiqElevatedAccess();
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
             </Columns>
@@ -174,7 +174,7 @@
             </InitializationRule>
             <ReportSummary title="rept_cert_summary_title">
               <DataSourceScript>
-                <Source>
+                <Source><![CDATA[
                         
                         import java.util.*;
                         import sailpoint.object.*;
@@ -201,7 +201,7 @@
 
                         return map;
                         
-                      </Source>
+                      ]]></Source>
               </DataSourceScript>
               <Values>
                 <LiveReportSummaryValue label="reprt_cert_summary_total_certs" name="certifications"/>

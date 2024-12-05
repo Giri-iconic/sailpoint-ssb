@@ -19,7 +19,7 @@
       </Argument>
     </Inputs>
   </Signature>
-  <Source>
+  <Source><![CDATA[
        
         import sailpoint.object.*;
         import sailpoint.reporting.ReportingLibrary;
@@ -54,5 +54,5 @@
         ReportingLibrary.addAttributes(context, report, Identity.class, extendedAttrs, "identity",
           "Identity Extended Properties", locale, "id");
        
-</Source>
+]]></Source>
 </Rule>

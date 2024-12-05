@@ -71,7 +71,7 @@
               </Map>
             </Attributes>
             <Script>
-              <Source> return "Active"; </Source>
+              <Source><![CDATA[ return "Active"; ]]></Source>
             </Script>
           </Field>
           <Field columnSpan="2" displayName="Account Name" name="loginName" postBack="true" type="string">
@@ -82,7 +82,7 @@
               </Map>
             </Attributes>
             <Script>
-              <Source>if(lastname != null &amp;&amp; firstname != null){return firstname+"."+lastname;}</Source>
+              <Source><![CDATA[if(lastname != null && firstname != null){return firstname+"."+lastname;}]]></Source>
             </Script>
           </Field>
           <Field columnSpan="2" displayName="Distinguish Name" dynamic="true" name="distinguishedName" postBack="true" type="string">
@@ -107,16 +107,16 @@
           </Field>
           <Field columnSpan="2" displayName="Date of Joining/Project Start Date" dynamic="true" name="startDate" required="true" type="date">
             <Script>
-              <Source>
+              <Source><![CDATA[
                 import java.util.*;
                 Date sysDate = new Date();
                 return sysDate;
-              </Source>
+              ]]></Source>
             </Script>
           </Field>
           <Field columnSpan="2" displayName="Account Expiry Date" name="endDate" postBack="true" required="true" type="date">
             <Script>
-              <Source>
+              <Source><![CDATA[
                 import java.util.*;
                 Date dt = new Date();
                 Calendar c = Calendar.getInstance(); 
@@ -125,7 +125,7 @@
                 dt = c.getTime();
                 return dt;
 
-              </Source>
+              ]]></Source>
             </Script>
           </Field>
         </Section>
@@ -136,20 +136,20 @@
                 <entry key="hidden">
                   <value>
                     <Script>
-                      <Source>
+                      <Source><![CDATA[
                         log.warn("########ONSITE:"+onOffSite);
-                        if(null != onOffSite &amp;&amp; onOffSite.equals("Off-site"))
+                        if(null != onOffSite && onOffSite.equals("Off-site"))
                         {
                         return "false";
                         }
-                        else if(null != onOffSite  &amp;&amp; onOffSite.equals("On-site"))
+                        else if(null != onOffSite  && onOffSite.equals("On-site"))
                         {
                         return "true";
                         }
                         else{
                         return "true";
                         }
-                      </Source>
+                      ]]></Source>
                     </Script>
                   </value>
                 </entry>

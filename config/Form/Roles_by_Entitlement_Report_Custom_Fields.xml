@@ -23,7 +23,7 @@
     <Field displayName="rept_role_by_entitlement_field_entitlement_attribute" helpKey="rept_role_by_entitlement_help_entitlement_attribute" multi="true" name="entitlementAttribute" type="string" value="ref:entitlementAttribute">
       <AllowedValuesDefinition>
         <Script>
-          <Source>
+          <Source><![CDATA[
               
                  import sailpoint.reporting.*;
                  import sailpoint.object.*;
@@ -32,7 +32,7 @@
                  List bundleProfileRelationEntitlementAttributes = ReportingLibrary.getEntitlementAttributeAllowedValuesByApp(context, applications);
                  return bundleProfileRelationEntitlementAttributes;
                 
-            </Source>
+            ]]></Source>
         </Script>
       </AllowedValuesDefinition>
       <Attributes>
@@ -40,11 +40,11 @@
           <entry key="hidden">
             <value>
               <Script>
-                <Source>
+                <Source><![CDATA[
                     
                       return (profileType == null || profileType.equals("Permission"));
                       
-                  </Source>
+                  ]]></Source>
               </Script>
             </value>
           </entry>
@@ -54,7 +54,7 @@
     <Field displayName="rept_role_by_entitlement_field_entitlement_value" helpKey="rept_role_by_entitlement_help_entitlement_value" multi="true" name="entitlementValue" type="string" value="ref:entitlementValue">
       <AllowedValuesDefinition>
         <Script>
-          <Source>
+          <Source><![CDATA[
               
                import sailpoint.reporting.*;
                import sailpoint.object.*;
@@ -63,7 +63,7 @@
                List bundleProfileRelationEntitlementValues = ReportingLibrary.getEntitlementValueAllowedValuesByApp(context, applications);
                return bundleProfileRelationEntitlementValues;
               
-            </Source>
+            ]]></Source>
         </Script>
       </AllowedValuesDefinition>
       <Attributes>
@@ -71,11 +71,11 @@
           <entry key="hidden">
             <value>
               <Script>
-                <Source>
+                <Source><![CDATA[
                     
                       return (profileType == null || profileType.equals("Permission"));
                       
-                  </Source>
+                  ]]></Source>
               </Script>
             </value>
           </entry>
@@ -85,7 +85,7 @@
     <Field displayName="rept_role_by_entitlement_field_permission_target" helpKey="rept_role_by_entitlement_help_permission_target" multi="true" name="permissionTarget" type="string" value="ref:permissionTarget">
       <AllowedValuesDefinition>
         <Script>
-          <Source>
+          <Source><![CDATA[
               
                import sailpoint.reporting.*;
                import sailpoint.object.*;
@@ -94,7 +94,7 @@
                List bundleProfileRelationPermissionTargets = ReportingLibrary.getPermissionTargetAllowedValuesByApp(context, applications);
                return bundleProfileRelationPermissionTargets;
               
-            </Source>
+            ]]></Source>
         </Script>
       </AllowedValuesDefinition>
       <Attributes>
@@ -102,11 +102,11 @@
           <entry key="hidden">
             <value>
               <Script>
-                <Source>
+                <Source><![CDATA[
                     
                       return (profileType == null || profileType.equals("Entitlement"));
                       
-                  </Source>
+                  ]]></Source>
               </Script>
             </value>
           </entry>
@@ -116,7 +116,7 @@
     <Field displayName="rept_role_by_entitlement_field_permission_right" helpKey="rept_role_by_entitlement_help_permission_right" multi="true" name="permissionRight" type="string" value="ref:permissionRight">
       <AllowedValuesDefinition>
         <Script>
-          <Source>
+          <Source><![CDATA[
               
                import sailpoint.reporting.*;
                import sailpoint.object.*;
@@ -125,7 +125,7 @@
                List bundleProfileRelationPermissionRights = ReportingLibrary.getPermissionRightAllowedValuesByApp(context, applications);
                return bundleProfileRelationPermissionRights;
               
-            </Source>
+            ]]></Source>
         </Script>
       </AllowedValuesDefinition>
       <Attributes>
@@ -133,11 +133,11 @@
           <entry key="hidden">
             <value>
               <Script>
-                <Source>
+                <Source><![CDATA[
                     
                       return (profileType == null || profileType.equals("Entitlement"));
                       
-                  </Source>
+                  ]]></Source>
               </Script>
             </value>
           </entry>
@@ -164,11 +164,11 @@
           <entry key="hidden">
             <value>
               <Script>
-                <Source>
+                <Source><![CDATA[
                     
                       return (profileType == null);
                       
-                  </Source>
+                  ]]></Source>
               </Script>
             </value>
           </entry>

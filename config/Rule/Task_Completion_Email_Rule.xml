@@ -23,7 +23,7 @@
       </Argument>
     </Inputs>
   </Signature>
-  <Source>
+  <Source><![CDATA[
       
           import java.util.*;
           import sailpoint.tools.Util;
@@ -113,8 +113,8 @@
 
               if (notifyStr != null) {
                   if (notifyStr.equals("Always") ||
-                      ((notifyStr.equals("Failure")) &amp;&amp; result.isError()) || 
-                      ((notifyStr.equals("Warning")) &amp;&amp;
+                      ((notifyStr.equals("Failure")) && result.isError()) || 
+                      ((notifyStr.equals("Warning")) &&
                        (result.isWarning() || result.isError()))) {
                       sendEmail = true;
                   }
@@ -169,14 +169,14 @@
               if (identityNames != null) {
                   recipients = new ArrayList ();
                   // From Task definition, single identity
-                  if (identityNames instanceof String  &amp;&amp; !identityNames.contains(",")) {
+                  if (identityNames instanceof String  && !identityNames.contains(",")) {
                       List addresses = getEmailAddress (identityNames.toString(), context);
                       if (addresses != null) {
                          recipients.addAll (addresses);
                       }
                   }
                   // From Task definition, multiple identities
-                  else if (identityNames instanceof String  &amp;&amp; identityNames.contains(",") == true) {
+                  else if (identityNames instanceof String  && identityNames.contains(",") == true) {
                       List nameList = Util.csvToList(identityNames);
                       for (String identityName : nameList) {
                           List addresses = getEmailAddress (identityName, context);
@@ -212,7 +212,7 @@
               String emailTemplate = getEmailTemplate(result, sysConfig);
               List recipients = getEmailRecipient(identityNames, context);
 
-              if (recipients != null &amp;&amp; !Util.isEmpty(recipients)) {
+              if (recipients != null && !Util.isEmpty(recipients)) {
                     // Send Email and Teams notification
                    sendNotificationOnTaskCompletion(emailTemplate, recipients, result, context);
               }
@@ -223,5 +223,5 @@
               }
           }
     
-    </Source>
+    ]]></Source>
 </Rule>

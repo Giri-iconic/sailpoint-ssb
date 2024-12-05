@@ -2,6 +2,6 @@
 <!DOCTYPE CorrelationConfig PUBLIC "sailpoint.dtd" "sailpoint.dtd">
 <CorrelationConfig name="HRMS Correlation Config">
   <AttributeAssignments>
-    <Filter operation="EQ" property="emp_id" value="Emp Id"/>
+    <Filter operation="EQ" property="displayName" value="Emp Id"/>
   </AttributeAssignments>
 </CorrelationConfig>

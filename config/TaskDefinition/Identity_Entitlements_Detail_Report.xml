@@ -17,7 +17,7 @@
                 <Parameter argument="source" property="source"/>
                 <Parameter argument="aggregationState" property="aggregationState">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                             import sailpoint.object.Filter;
                             import sailpoint.object.IdentityEntitlement.AggregationState;
                             import sailpoint.tools.Util;
@@ -31,12 +31,12 @@
                                 }
                             }
                             return queryOptions;
-                          </Source>
+                          ]]></Source>
                   </QueryScript>
                 </Parameter>
                 <Parameter argument="type" property="type">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                             import sailpoint.object.Filter;
                             import sailpoint.object.IdentityEntitlement.AggregationState;
                             import sailpoint.tools.Util;
@@ -46,7 +46,7 @@
                                 queryOptions.addFilter(Filter.eq("type", value));                                   
                             }
                             return queryOptions;
-                          </Source>
+                          ]]></Source>
                   </QueryScript>
                 </Parameter>
                 <Parameter argument="allowed" property="allowed" valueClass="boolean"/>
@@ -55,7 +55,7 @@
                 <Parameter argument="assigner" property="assigner"/>
                 <Parameter argument="pendingRequest" property="pendingRequestItem">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                             import sailpoint.object.*;
                             import sailpoint.tools.*;
 
@@ -69,12 +69,12 @@
                                     
                             }
                             return queryOptions;
-                          </Source>
+                          ]]></Source>
                   </QueryScript>
                 </Parameter>
                 <Parameter argument="currentRequest" property="requestItem">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                             import sailpoint.object.*;
                             import sailpoint.tools.*;
 
@@ -88,12 +88,12 @@
                                     
                             }
                             return queryOptions;
-                          </Source>
+                          ]]></Source>
                   </QueryScript>
                 </Parameter>
                 <Parameter argument="pendingCertification" property="pendingCertificationItem">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                             import sailpoint.object.*;
                             import sailpoint.tools.*;
 
@@ -107,12 +107,12 @@
                                     
                             }
                             return queryOptions;
-                          </Source>
+                          ]]></Source>
                   </QueryScript>
                 </Parameter>
                 <Parameter argument="certified" property="certificationItem">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                             import sailpoint.object.*;
                             import sailpoint.tools.*;
 
@@ -126,7 +126,7 @@
                                     
                             }
                             return queryOptions;
-                          </Source>
+                          ]]></Source>
                   </QueryScript>
                 </Parameter>
               </QueryParameters>
@@ -141,7 +141,7 @@
               <ReportColumnConfig field="value" header="entitlement" property="value" sortable="true" width="110"/>
               <ReportColumnConfig field="displayValue" header="label_display_value" property="application.id" scriptArguments="name,value,type" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           
                             import sailpoint.api.Explanator;
                             import sailpoint.api.Explanator.Explanation;
@@ -158,7 +158,7 @@
                             String val = (String) scriptArgs.get("value");
                             Type type = (Type) scriptArgs.get("type");
 
-                            if (type != null &amp;&amp; type == Type.Entitlement &amp;&amp; appId != null &amp;&amp; name != null) {
+                            if (type != null && type == Type.Entitlement && appId != null && name != null) {
                               Explanation exp = Explanator.get(appId, name, val, type.name());
 
                               if (exp != null) {
@@ -168,7 +168,7 @@
 
                             return null;
                             
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="accountId" header="account_name" property="nativeIdentity" skipLocalization="true" sortable="true" width="110"/>
@@ -186,7 +186,7 @@
               <ReportColumnConfig field="lastRequestId" header="identity_entitlements_request_id" property="requestItem.identityRequest.name" sortable="true" width="110"/>
               <ReportColumnConfig field="classificationNames" header="rept_cert_col_classifications" property="application.id" scriptArguments="name,value,type" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                             
                             import sailpoint.api.Explanator;
                             import sailpoint.api.Explanator.Explanation;
@@ -215,7 +215,7 @@
                             }
                             // Otherwise it is an entitlement
                             else {
-                                if (appId != null &amp;&amp; name != null &amp;&amp; type != null) {
+                                if (appId != null && name != null && type != null) {
                                     Explanation exp = type == Type.Permission ?
                                                       Explanator.get(appId, name) :
                                                       Explanator.get(appId, name, val);
@@ -228,12 +228,12 @@
 
                             return null;
                             
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="elevatedAccess" header="label_elevated_access" property="application.id" scriptArguments="name,value,type" sortable="true" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           
                             import sailpoint.api.Explanator;
                             import sailpoint.api.Explanator.Explanation;
@@ -250,14 +250,14 @@
                             String val = (String) scriptArgs.get("value");
                             Type type = (Type) scriptArgs.get("type");
 
-                            if (type != null &amp;&amp; type == Type.Entitlement &amp;&amp; appId != null &amp;&amp; name != null) {
+                            if (type != null && type == Type.Entitlement && appId != null && name != null) {
                               Explanation exp = Explanator.get(appId, name, val, type.name());
                               return exp == null ? null : exp.isIiqElevatedAccess();
                             }
 
                             return null;
                             
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
             </Columns>
@@ -315,6 +315,10 @@
       <Argument name="assigned" type="string">
         <Description>Include only entitlements that are assigned</Description>
         <Prompt>identity_entitlements_assigned</Prompt>
+      </Argument>
+      <Argument name="assigner" type="string">
+        <Description>Include only entitlements that has an assigner</Description>
+        <Prompt>identity_entitlements_assigner</Prompt>
       </Argument>
       <Argument name="grantedByRole" type="string">
         <Description>Include only entitlements granted by a role.</Description>

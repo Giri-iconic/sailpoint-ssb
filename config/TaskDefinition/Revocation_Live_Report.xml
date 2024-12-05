@@ -12,24 +12,24 @@
                 <Parameter argument="type" property="parent.certification.type" valueClass="sailpoint.object.Certification$Type"/>
                 <Parameter argument="tags" property="parent.certification.tags.id">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                             
                             import sailpoint.object.*;
                             import java.util.*;
 
-                            if (value != null &amp;&amp; !value.isEmpty()){
+                            if (value != null && !value.isEmpty()){
                               queryOptions.addFilter(Filter.containsAll("parent.certification.tags.id", value));
                             }
 
                             return queryOptions;
                             
-                          </Source>
+                          ]]></Source>
                   </QueryScript>
                 </Parameter>
                 <Parameter argument="certificationGroups" property="parent.certification.certificationGroups.id"/>
                 <Parameter argument="applications">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                             
                             import sailpoint.object.*;
                             import sailpoint.api.ObjectUtil;
@@ -37,7 +37,7 @@
 
                             if (value != null){
                               List appNames = ObjectUtil.convertIdsToNames(context, Application.class, value);
-                              if (appNames != null &amp;&amp; !appNames.isEmpty()){
+                              if (appNames != null && !appNames.isEmpty()){
                                 List filters = new ArrayList();
                                 for(String appName : appNames){
                                   List appList = new ArrayList();
@@ -50,12 +50,12 @@
 
                             return queryOptions;
                             
-                          </Source>
+                          ]]></Source>
                   </QueryScript>
                 </Parameter>
                 <Parameter argument="groups">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                             import sailpoint.reporting.*;
                             import sailpoint.object.*;
 
@@ -65,7 +65,7 @@
                               queryOptions.addFilter(f);
                             }
                             return queryOptions;
-                          </Source>
+                          ]]></Source>
                   </QueryScript>
                 </Parameter>
                 <Parameter argument="creationStartDate" operation="GT" property="parent.certification.created"/>
@@ -82,25 +82,25 @@
             <Columns>
               <ReportColumnConfig field="status" header="rept_remediation_progress_grid_col_status" property="action.remediationCompleted" sortable="true" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           import sailpoint.tools.Message;
                           import sailpoint.web.messages.MessageKeys;
                           return value == true ? Message.localize(MessageKeys.WORK_ITEM_STATE_FINISHED) : Message.localize(MessageKeys.WORK_ITEM_STATE_OPEN);
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="recipient" header="rept_remediation_progress_grid_col_recipient" property="action.ownerName" sortable="true" width="110"/>
               <ReportColumnConfig field="requestor" header="rept_remediation_progress_grid_col_requester" property="action.actorName" sortable="true" width="110"/>
               <ReportColumnConfig field="type" header="rept_remediation_progress_grid_col_type" property="action" sortable="true" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           
                           import sailpoint.object.*;
                           Object returnValue = null;
-                          if(value != null &amp;&amp; value.getRemediationAction() != null) {
+                          if(value != null && value.getRemediationAction() != null) {
                             if (value.getRemediationAction().equals(CertificationAction.RemediationAction.SendProvisionRequest)) {
                               ProvisioningPlan plan = value.getRemediationDetails();
-                              if(plan != null &amp;&amp; plan.getAccountRequests() !=null) {
+                              if(plan != null && plan.getAccountRequests() !=null) {
                                     if(!plan.getAccountRequests().isEmpty()) {
                                         returnValue = plan.getAccountRequests().get(0).getTargetIntegration();
                                     }
@@ -115,29 +115,29 @@
                             return returnValue;
                           }
                           
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="requestId" header="rept_remediation_progress_grid_col_requestID" property="action" sortable="true" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           
                             import sailpoint.object.*;
                              if(value!=null) {
                                 ProvisioningPlan plan = value.getRemediationDetails();
-                                if(plan!=null &amp;&amp; plan.getAccountRequests()!=null &amp;&amp; !plan.getAccountRequests().isEmpty())
+                                if(plan!=null && plan.getAccountRequests()!=null && !plan.getAccountRequests().isEmpty())
                                   return plan.getAccountRequests().get(0).getRequestID();
                              }
 
                             return null;
                           
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="expiration" header="rept_remediation_progress_grid_col_expiration" property="parent.certification.expiration" sortable="true" width="110"/>
               <ReportColumnConfig field="identity" header="rept_remediation_progress_grid_col_identity" property="parent.identity" scriptArguments="type,targetName" sortable="true" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           import sailpoint.object.*;
                           CertificationItem.Type type = scriptArgs.get("type");
                           if(type.equals(CertificationItem.Type.AccountGroupMembership) || type.equals(CertificationItem.Type.DataOwner)) {
@@ -145,12 +145,12 @@
                           } else {
                               return value;
                           }
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="account" header="rept_remediation_progress_grid_col_account" property="exceptionEntitlements.displayName" scriptArguments="policyViolation" sortable="true" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           
                             import sailpoint.object.*;
                             import sailpoint.policy.*;
@@ -165,12 +165,12 @@
                                 }
                             }
                           
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="application" header="rept_remediation_progress_grid_col_application" property="exceptionEntitlements.application" scriptArguments="policyViolation" sortable="true" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           
                             import sailpoint.object.*;
                             import sailpoint.tools.Util;
@@ -178,28 +178,28 @@
                                 return value;
 
                             PolicyViolation violation = scriptArgs.get("policyViolation");
-                            if(violation != null &amp;&amp; violation.getRelevantApps() != null) {
+                            if(violation != null && violation.getRelevantApps() != null) {
                                 return Util.listToCsv(violation.getRelevantApps());
                             }
                           
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="instance" header="rept_certification_col_instance" property="exceptionEntitlements.instance" sortable="true" width="110"/>
               <ReportColumnConfig field="entitlement" header="rept_remediation_progress_grid_col_entitlement" property="exceptionEntitlements" scriptArguments="bundle,violationSummary,targetName" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           import sailpoint.reporting.*;
                           return ReportingLibrary.describeCertificationEntitlement(value, null, scriptArgs.get("violationSummary"), scriptArgs.get("targetName"));
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="newValue" header="rept_remediation_progress_grid_col_newValue" property="action" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           import sailpoint.reporting.datasource.*;
                           return DataSourceUtil.getRemediationModifiableNewValue(value);
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="accessReviewName" header="rept_remediation_progress_grid_col_accessReview" property="parent.certification.name" width="110"/>

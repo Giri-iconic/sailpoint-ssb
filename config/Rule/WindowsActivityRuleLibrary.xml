@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
 <Rule language="beanshell" name="WindowsActivityRuleLibrary">
-  <Source>
+  <Source><![CDATA[
     
       import java.util.HashMap;
       import java.util.ArrayList;
@@ -37,12 +37,12 @@
               if ( values.length == 2 ) {
                   String name = values[0];
                   String value = values[1];
-                  if ( ( name != null ) &amp;&amp; ( value != null ) ) {
+                  if ( ( name != null ) && ( value != null ) ) {
 //System.out.println("name: " + name.trim() + " value: " + value.trim());
                       attributeMap.put(name.trim(), value.trim());
                   }
               } else 
-              if ( (values.length == 1) &amp;&amp; (tokenNum == 1) ) {
+              if ( (values.length == 1) && (tokenNum == 1) ) {
                   String name = values[0];
                   attributeMap.put("action", name.trim());
               }
@@ -81,7 +81,7 @@
                   String access = st.nextToken();
                   if ( access != null ) {
                       String trimed = access.trim();
-                      if ( trimed.length() &gt; 0 ) {
+                      if ( trimed.length() > 0 ) {
 //System.out.println("access: '" + trimed + "'");
                           accesses.add(trimed);
                       }
@@ -89,7 +89,7 @@
               }
           }
 
-          if ( accesses.size() &gt; 0 ) {
+          if ( accesses.size() > 0 ) {
               extraInfo.put(ACCESSES, accesses);
           }
       }
@@ -187,5 +187,5 @@
           return contains;
       }
     
-  </Source>
+  ]]></Source>
 </Rule>

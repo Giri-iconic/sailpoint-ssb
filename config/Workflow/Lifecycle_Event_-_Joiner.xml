@@ -21,9 +21,9 @@
   <Step icon="Message" name="Process user" posX="148" posY="10">
     <Description>Process the user that joined.</Description>
     <Script>
-      <Source>
+      <Source><![CDATA[
       System.out.println("New user was entered the system: " + event.getObject().getDisplayableName());
-      </Source>
+      ]]></Source>
     </Script>
     <Transition to="Stop"/>
   </Step>

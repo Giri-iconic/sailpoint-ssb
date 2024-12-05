@@ -81,7 +81,7 @@
   <Step icon="Stop" name="Stop" posX="416" posY="169"/>
   <Step icon="Default" name="Add notification attributes" posX="630" posY="7">
     <Script>
-      <Source>
+      <Source><![CDATA[
 			import sailpoint.object.Identity;
 			import sailpoint.object.WorkflowCase;
 			
@@ -98,7 +98,7 @@
 			
 			
 
-     </Source>
+     ]]></Source>
     </Script>
     <Transition to="Notify user"/>
   </Step>

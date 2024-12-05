@@ -1,13 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE TaskDefinition PUBLIC "sailpoint.dtd" "sailpoint.dtd">
 <TaskDefinition concurrent="true" hidden="true" name="Native Identity Change Propagation" progressMode="String" subType="task_item_type_native_identity_change_propagation" template="true" type="NativeIdentityChangePropagation">
-  <Attributes>
-    <Map>
-      <entry key="TaskDefinition.runLengthAverage" value="37"/>
-      <entry key="TaskDefinition.runLengthTotal" value="185"/>
-      <entry key="TaskDefinition.runs" value="5"/>
-    </Map>
-  </Attributes>
   <Description>
         Task for Propagate Native Identity Change Event.
     </Description>

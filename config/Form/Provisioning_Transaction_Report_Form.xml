@@ -27,7 +27,7 @@
     <Field displayName="report_provisioning_operation" helpKey="help_report_provisioning_operation" multi="true" name="operation" type="string" value="ref:operation">
       <AllowedValuesDefinition>
         <Script>
-          <Source>
+          <Source><![CDATA[
                 String[] operations = {
                     "Create",
                     "Delete",
@@ -48,14 +48,14 @@
                 }
 
                 return values;
-              </Source>
+              ]]></Source>
         </Script>
       </AllowedValuesDefinition>
     </Field>
     <Field displayName="report_provisioning_source" helpKey="help_report_provisioning_source" multi="true" name="source" type="string" value="ref:source">
       <AllowedValuesDefinition>
         <Script>
-          <Source>
+          <Source><![CDATA[
                 String[] sources = {
                     "Batch",
                     "Certification",
@@ -83,14 +83,14 @@
                 }
 
                 return values;
-              </Source>
+              ]]></Source>
         </Script>
       </AllowedValuesDefinition>
     </Field>
     <Field displayName="report_provisioning_status" helpKey="help_report_provisioning_status" multi="true" name="status" type="string" value="ref:status">
       <AllowedValuesDefinition>
         <Script>
-          <Source>
+          <Source><![CDATA[
                       import sailpoint.object.*;
                       List enums = new ArrayList();
                       for(ProvisioningTransaction.Status enumItem : ProvisioningTransaction.Status.values()) {
@@ -100,14 +100,14 @@
                         enums.add(item);
                       }
                       return enums;
-                  </Source>
+                  ]]></Source>
         </Script>
       </AllowedValuesDefinition>
     </Field>
     <Field displayName="report_provisioning_type" helpKey="help_report_provisioning_type" multi="true" name="type" type="string" value="ref:type">
       <AllowedValuesDefinition>
         <Script>
-          <Source>
+          <Source><![CDATA[
                       import sailpoint.object.*;
                       List enums = new ArrayList();
                       for(ProvisioningTransaction.Type enumItem : ProvisioningTransaction.Type.values()) {
@@ -117,7 +117,7 @@
                         enums.add(item);
                       }
                       return enums;
-                  </Source>
+                  ]]></Source>
         </Script>
       </AllowedValuesDefinition>
     </Field>

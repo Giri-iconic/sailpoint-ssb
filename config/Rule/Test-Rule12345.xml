@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule language="beanshell" name="Test-Rule12345" type="EmailRecipient">
+  <Description>This rule is used to select an identity or a list of identities who will receive email.</Description>
+  <Signature returnType="String or List of Strings">
+    <Inputs>
+      <Argument name="log" type="org.apache.commons.logging.Log">
+        <Description>
+          The log object associated with the SailPointContext.
+        </Description>
+      </Argument>
+      <Argument name="context" type="sailpoint.api.SailPointContext">
+        <Description>
+          A sailpoint.api.SailPointContext object that can be used to query the database if necessary.
+        </Description>
+      </Argument>
+      <Argument name="item">
+        <Description>
+          The sailpoint.object.Notifiable Interface for objects that can be reminded, escalated, and expired. 
+        </Description>
+      </Argument>
+    </Inputs>
+    <Returns>
+      <Argument name="identity name or names">
+        <Description>
+          You can return an identity name or a list of identity names.
+        </Description>
+      </Argument>
+    </Returns>
+  </Signature>
+  <Source><![CDATA[
+  /*import sailpoint.object.*;
+
+  QueryOptions qo = new QueryOptions();
+  qo.addFilter(Filter.contains("application.owner",Identity.class));
+  return qo; */
+
+  import java.util.concurrent.ExecutorService;
+  import java.util.concurrent.Executors;
+
+  int totalIternations = 200000;
+  int iterationsPerThread = 2000;
+  int numOfThreads = totalIternations / iterationsPerThread;
+  ExecutorService ex = Executors.newFixedThreadPool(numOfThreads);
+  Executors.newFixedThreadPool(numOfThreads);
+
+
+ for (int i = 0; i < numOfThreads; i++ ) {
+    int start = i * iterationsPerThread;
+    int end = start + iterationsPerThread;
+
+    ex.submit(new Runnable()) {
+      int s = start;
+      int end = end;
+
+      public void run() {
+        for( int j = s; j < e; j++ ){
+          print("Thread " + Thread.currentThread().getId() + " processing index " + j);
+        }
+      }
+    }
+  } 
+  
+  ex.shutdown();
+  ]]></Source>
+</Rule>

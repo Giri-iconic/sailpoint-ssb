@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule language="beanshell" name="Test-infinite">
+  <Source><![CDATA[
+  int i = 0;
+  while(i < 20000000){
+    i++;
+  }
+    ]]></Source>
+</Rule>

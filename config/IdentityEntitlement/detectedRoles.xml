@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE IdentityEntitlement PUBLIC "sailpoint.dtd" "sailpoint.dtd">
-<IdentityEntitlement name="detectedRoles" value="Employees Birthright Role">
-  <IdentityRef>
-    <Reference class="sailpoint.object.Identity" name="ISIN1004"/>
-  </IdentityRef>
-</IdentityEntitlement>

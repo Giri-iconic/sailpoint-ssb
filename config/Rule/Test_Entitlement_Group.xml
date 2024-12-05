@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule language="beanshell" name="Test Entitlement Group">
+  <Source><![CDATA[
+  import sailpoint.object.*;
+  
+  QueryOptions qO = new QueryOptions();
+  qO.addFilter(Filter.eq("exceptions.nativeIdentity","CN=Active Test,OU=Test,DC=iconic,DC=com"));
+
+  List list = context.getObjects(Identity.class, qO);
+  return list.get(0).getName();
+
+  QueryOptions qO = new QueryOptions();
+  qO.addFilter(Filter.eq("links.application.name","Active Directory"));
+
+  List list = context.getObjects(Identity.class, qO);
+  return list;
+
+  QueryOptions qO = new QueryOptions();
+  Filter filter = Filter.and(Filter.eq("application.name","Active Directory"),Filter.eq("value","CN=Account Operators,CN=Builtin,DC=iconic,DC=com"));
+  qO.addFilter(filter);
+
+  List list = context.getObjects(IdentityEntitlement.class, qO);
+  // return list;
+  ArrayList arList = new ArrayList();
+  for(IdentityEntitlement id : list){
+    arList.add(id.getIdentity().getName());
+  }
+
+  return arList;
+  ]]></Source>
+</Rule>

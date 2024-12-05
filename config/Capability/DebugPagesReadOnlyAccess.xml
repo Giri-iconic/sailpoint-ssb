@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Capability PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Capability displayName="capability_debug_pages_read_only_access" name="DebugPagesReadOnlyAccess">
+  <Description>capability_desc_debug_pages_read_only_access</Description>
+  <RightRefs>
+    <Reference class="sailpoint.object.SPRight" name="ViewAccessAboutPage"/>
+    <Reference class="sailpoint.object.SPRight" name="ViewAccessDebugPage"/>
+    <Reference class="sailpoint.object.SPRight" name="ViewAccessMemoryPage"/>
+    <Reference class="sailpoint.object.SPRight" name="ViewAccessCachesPage"/>
+    <Reference class="sailpoint.object.SPRight" name="ViewAccessCountPage"/>
+    <Reference class="sailpoint.object.SPRight" name="ViewAccessBeansPage"/>
+    <Reference class="sailpoint.object.SPRight" name="ViewAccessThreadsPage"/>
+    <Reference class="sailpoint.object.SPRight" name="ViewAccessMetersPage"/>
+    <Reference class="sailpoint.object.SPRight" name="ViewAccessMetersGridPage"/>
+    <Reference class="sailpoint.object.SPRight" name="ViewAccessLoggingPage"/>
+    <Reference class="sailpoint.object.SPRight" name="ViewAccessDatabasePage"/>
+    <Reference class="sailpoint.object.SPRight" name="ViewAccessActiveMQPage"/>
+  </RightRefs>
+</Capability>

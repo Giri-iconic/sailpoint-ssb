@@ -30,7 +30,7 @@
       </Argument>
     </Returns>
   </Signature>
-  <Source>
+  <Source><![CDATA[
       
        import java.util.*;
        import sailpoint.object.*;
@@ -42,7 +42,7 @@
          boolean found = false;
          for(FormItem item : section.getItems()){
            Field field = (Field)item;
-           if(field.getValue() != null &amp;&amp; !field.getValue().equals("") &amp;&amp; !field.getValue().equals("null")) {
+           if(field.getValue() != null && !field.getValue().equals("") && !field.getValue().equals("null")) {
              found = true;
            }
          }
@@ -56,5 +56,5 @@
 
        return messages;
       
-  </Source>
+  ]]></Source>
 </Rule>

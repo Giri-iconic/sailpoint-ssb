@@ -9,9 +9,9 @@
           <entry key="hidden">
             <value>
               <Script>
-                <Source>
+                <Source><![CDATA[
                       return !sailpoint.tools.Util.isEmpty(applications);
-                    </Source>
+                    ]]></Source>
               </Script>
             </value>
           </entry>
@@ -24,11 +24,11 @@
           <entry key="hidden">
             <value>
               <Script>
-                <Source>
+                <Source><![CDATA[
                       
-                      return sailpoint.tools.Util.isEmpty(applications) &amp;&amp; (showAllApps == null || !showAllApps);
+                      return sailpoint.tools.Util.isEmpty(applications) && (showAllApps == null || !showAllApps);
                       
-                    </Source>
+                    ]]></Source>
               </Script>
             </value>
           </entry>

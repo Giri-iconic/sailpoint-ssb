@@ -13,7 +13,7 @@
     <Field displayName="report_filter_work_item_level" helpKey="rept_input_work_item_report_priority" multi="true" name="levels" type="string" value="ref:levels">
       <AllowedValuesDefinition>
         <Script>
-          <Source>
+          <Source><![CDATA[
                       import sailpoint.object.*;
                       List l = new ArrayList();
                       for(WorkItem.Level enumItem : WorkItem.Level.values()) {
@@ -23,20 +23,20 @@
                         l.add(l2);
                       }
                       return l;
-                  </Source>
+                  ]]></Source>
         </Script>
       </AllowedValuesDefinition>
     </Field>
     <Field displayName="report_filter_work_item_type" helpKey="rept_input_work_item_report_types" multi="true" name="types" type="string" value="ref:types">
       <AllowedValuesDefinition>
         <Script>
-          <Source>
+          <Source><![CDATA[
                       
                       import sailpoint.object.*;
                       List l = new ArrayList();
                       for(WorkItem.Type enumItem : WorkItem.Type.values()) {
-                        if (enumItem != WorkItem.Type.Generic &amp;&amp;
-                              enumItem != WorkItem.Type.Test &amp;&amp;
+                        if (enumItem != WorkItem.Type.Generic &&
+                              enumItem != WorkItem.Type.Test &&
                               enumItem != WorkItem.Type.Event)
                           {
                             List l2 = new ArrayList();
@@ -47,17 +47,17 @@
                       }
                       return l;
                       
-                  </Source>
+                  ]]></Source>
         </Script>
       </AllowedValuesDefinition>
     </Field>
     <Field displayName="report_filter_work_item_state" helpKey="rept_input_work_item_report_states" multi="true" name="states" type="string" value="ref:states">
       <AllowedValuesDefinition>
         <Script>
-          <Source>
+          <Source><![CDATA[
                     import sailpoint.object.*;
                     return WorkItem.State.getWorkItemStatesList();
-                  </Source>
+                  ]]></Source>
         </Script>
       </AllowedValuesDefinition>
     </Field>

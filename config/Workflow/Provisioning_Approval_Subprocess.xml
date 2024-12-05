@@ -248,7 +248,7 @@
   <Step icon="Approval" name="Approval" posX="158" posY="22">
     <Approval mode="ref:approvalMode" owner="call:buildCommonApprovals" renderer="lcmWorkItemRenderer.xhtml" send="identityDisplayName,identityName,approvalSet,flow,policyViolations,identityRequestId">
       <AfterScript>
-        <Source>
+        <Source><![CDATA[
           import sailpoint.workflow.IdentityRequestLibrary;
                     
           if ( item == null ) 
@@ -257,7 +257,7 @@
           assimilateWorkItemApprovalSet(wfcontext, item, approvalSet);          
           auditDecisions(item);  
           IdentityRequestLibrary.assimilateWorkItemApprovalSetToIdentityRequest(wfcontext, approvalSet);
-        </Source>
+        ]]></Source>
       </AfterScript>
       <Arg name="launcher" value="ref:launcher"/>
       <Arg name="workItemDescription" value="ref:workItemDescription"/>
@@ -277,7 +277,7 @@
       <Arg name="workItemReminderTemplate" value="ref:workItemReminderTemplate"/>
       <Arg name="workItemRequester" value="$(launcher)"/>
       <InterceptorScript>
-        <Source>
+        <Source><![CDATA[
             
             import sailpoint.object.Workflow.Approval;
             import sailpoint.object.ApprovalItem;
@@ -312,7 +312,7 @@
 
                 ApprovalSet currentSet = approval.getApprovalSet();
 
-                if (currentSet != null &amp;&amp; !Util.isEmpty(currentSet.getItems())) {
+                if (currentSet != null && !Util.isEmpty(currentSet.getItems())) {
                     //If filterRejects is true, filter any rejected items in the master ApprovalSet from the currentSet
                     if (Boolean.valueOf(filterRejects)) {
                         filterRejectsFromApprovalSet(approvalSet, currentSet);
@@ -337,10 +337,10 @@
                 Approval parentApp = approval.getParent();
                 // Never relay the state to the root approval
                 // If we don't have an approvalSet, must be a container approval
-                if (parentApp != null &amp;&amp; approval.getApprovalSet() == null) {
+                if (parentApp != null && approval.getApprovalSet() == null) {
                     boolean completeAndRejected = false;
                     for (Approval child : Util.safeIterable(approval.getChildren())) {
-                        if (child.isComplete() &amp;&amp; child.getState() == WorkItem.State.Rejected) {
+                        if (child.isComplete() && child.getState() == WorkItem.State.Rejected) {
                             completeAndRejected = true;
                         } else {
                             completeAndRejected = false;
@@ -359,7 +359,7 @@
                IdentityRequestLibrary.assimilateWorkItemApprovalSetToIdentityRequest(wfcontext, item.getApprovalSet(), false);
             }
             
-        </Source>
+        ]]></Source>
       </InterceptorScript>
     </Approval>
     <Transition to="Process Approval Decisions" when="script:(step.getApproval() != null &amp;&amp; step.getApproval().containsApprovalItems())"/>

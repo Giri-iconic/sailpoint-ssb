@@ -18,16 +18,16 @@
                 <Parameter argument="createEnd" operation="LE" property="archive2.created" valueClass="date"/>
               </QueryParameters>
               <QueryScript>
-                <Source>
+                <Source><![CDATA[
                           
                               import sailpoint.reporting.ReportingLibrary;
 
                               String dateClause = "";
                               if (args.get("createStart") != null){
-                                 dateClause += " and archive2.created&gt;=:createStart ";
+                                 dateClause += " and archive2.created>=:createStart ";
                               }
                               if (args.get("createEnd") != null){
-                                 dateClause += " and archive2.created&lt;=:createEnd ";
+                                 dateClause += " and archive2.created<=:createEnd ";
                               }
 
                               query = query.replace("%CREATED", dateClause);
@@ -62,7 +62,7 @@
 
                               return queryBuffer.toString();
                           
-                       </Source>
+                       ]]></Source>
               </QueryScript>
             </DataSource>
             <ReportForm>
@@ -72,7 +72,7 @@
               <ReportColumnConfig field="role" header="rept_role_change_mgmt_name" property="bundle.name" sortable="true" width="110"/>
               <ReportColumnConfig field="type" header="rept_role_change_mgmt_type" property="bundle.type" sortable="true" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           
                               import sailpoint.tools.Message;
                               import sailpoint.reporting.ReportingLibrary;
@@ -85,7 +85,7 @@
 
                               return value;
                           
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="version" header="rept_role_change_mgmt_version" property="archive.version" sortable="true" width="110"/>
@@ -93,14 +93,14 @@
               <ReportColumnConfig field="approver" header="rept_role_change_mgmt_approver" property="archive.creator" sortable="true" width="110"/>
               <ReportColumnConfig field="disabled" header="rept_role_change_mgmt_status" property="bundle.disabled" sortable="true" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           
                               import sailpoint.tools.Message;
                               import sailpoint.tools.Util;
                               return Util.otob(value) ? Message.localize("rept_change_mgmt_status_disabled") :
                                 Message.localize("rept_change_mgmt_status_enabled");
                           
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
             </Columns>

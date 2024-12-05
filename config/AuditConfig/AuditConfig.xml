@@ -45,7 +45,9 @@
     <AuditAction displayName="audit_action_pruneAttachments" name="attachmentsPruned"/>
     <AuditAction displayName="audit_action_prunePendingAttachments" name="pendingAttachmentsPruned"/>
     <AuditAction displayName="audit_action_pruneNativeIdentityChangeEvents" name="nativeIdentityChangeEventsPruned"/>
-    <AuditAction displayName="audit_action_provision" enabled="true" name="provision"/>
+    <AuditAction displayName="audit_action_intercepted_delete_prune" name="InterceptedDeletePruning"/>
+    <AuditAction displayName="audit_action_prunePostCommitNotificationObjects" name="PostCommitNotificationObjectPruning"/>
+    <AuditAction displayName="audit_action_provision" name="provision"/>
     <AuditAction displayName="audit_action_expansion" name="expansion"/>
     <AuditAction displayName="audit_action_attribute_sync" name="attributeSync"/>
     <AuditAction displayName="audit_action_identityCorrelation" name="identityCorrelation"/>
@@ -70,6 +72,8 @@
     <AuditAction displayName="audit_action_login_config" name="LoginConfigurationChange"/>
     <AuditAction displayName="audit_action_chat_notification_success" name="ChatNotificationSuccess"/>
     <AuditAction displayName="audit_action_chat_notification_failure" name="ChatNotificationFailure"/>
+    <AuditAction displayName="audit_action_DebugObjectBrowserChange" enabled="true" name="DebugObjectBrowserChange"/>
+    <AuditAction displayName="audit_action_accesshistory_remove_events" enabled="true" name="AccessHistoryRemoveEvents"/>
     <AuditAction displayName="audit_action_ApproveLineItem" enabled="true" name="ApproveLineItem"/>
     <AuditAction displayName="audit_action_AccountsRequestStart" enabled="true" name="AccountsRequestStart"/>
     <AuditAction displayName="audit_action_Comment" enabled="true" name="Comment"/>
@@ -114,7 +118,6 @@
     <AuditAttribute class="Identity" displayName="audit_attribute_password" name="password"/>
     <AuditAttribute class="Identity" displayName="audit_attribute_scope" name="scope"/>
     <AuditAttribute class="Identity" displayName="audit_attribute_correlationStatus" name="correlationStatus"/>
-    <AuditAttribute class="Identity" displayName="att_email" name="email"/>
   </AuditAttributes>
   <AuditClasses>
     <AuditClass name="ActivityDataSource"/>
@@ -141,6 +144,7 @@
     <AuditClass name="UIConfig"/>
     <AuditClass name="Workflow"/>
     <AuditClass name="Attachment"/>
+    <AuditClass name="Identity"/>
   </AuditClasses>
   <AuditSCIMResources>
     <AuditSCIMResource create="true" delete="true" name="User" update="true"/>

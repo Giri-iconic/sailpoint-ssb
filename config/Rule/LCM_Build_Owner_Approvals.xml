@@ -4,7 +4,7 @@
   <ReferencedRules>
     <Reference class="sailpoint.object.Rule" name="Approval Library"/>
   </ReferencedRules>
-  <Source>
+  <Source><![CDATA[
     
        import sailpoint.object.ApprovalSet;
        import sailpoint.object.ProvisioningPlan;
@@ -33,7 +33,7 @@
                approvals = buildApprovalsFromMap(ownerMap, identityName, launcher);
            } 
        }
-       return ( Util.size(approvals) &gt; 0 ) ? approvals : null;
+       return ( Util.size(approvals) > 0 ) ? approvals : null;
     
-  </Source>
+  ]]></Source>
 </Rule>

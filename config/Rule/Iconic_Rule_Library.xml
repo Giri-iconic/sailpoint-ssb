@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
 <Rule language="beanshell" name="Iconic_Rule_Library">
-  <Source>
+  <Source><![CDATA[
   import sailpoint.object.Identity;
   import sailpoint.object.Application;
   import sailpoint.api.IdentityService;
@@ -29,5 +29,5 @@
   }
   
   
-  </Source>
+  ]]></Source>
 </Rule>

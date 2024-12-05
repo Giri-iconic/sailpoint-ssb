@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
 <Rule language="beanshell" name="LCM Workflow Library">
-  <Source>
+  <Source><![CDATA[
     
       import sailpoint.api.Provisioner;
       import sailpoint.api.SailPointFactory;
@@ -37,7 +37,7 @@
        */
       public void auditWorkItemOwnerHistory(WorkItem item) {
           List ownerHistories = item.getOwnerHistory();
-          if ( Util.size(ownerHistories) &gt; 0 ) {
+          if ( Util.size(ownerHistories) > 0 ) {
               String action = "Forward";
               if ( Auditor.isEnabled(action) ) {
                   for ( OwnerHistory history : ownerHistories ) {
@@ -76,7 +76,7 @@
        */
       public void auditWorkItemComments(WorkItem item) {
           List comments = item.getComments();
-          if ( Util.size(comments) &gt; 0 ) {
+          if ( Util.size(comments) > 0 ) {
               String action = "Comment";
               if ( Auditor.isEnabled(action) ) {
                   AuditEvent event = new AuditEvent();
@@ -131,18 +131,18 @@
           // there is only one Signoff, duplicated for each approval item
           SignOffHistory signoff = null;
           List signoffs = item.getSignOffs();
-          if (signoffs != null &amp;&amp; signoffs.size() &gt; 0)
+          if (signoffs != null && signoffs.size() > 0)
               signoff = (SignOffHistory)signoffs.get(0);
 
           ApprovalSet approvalSet = (ApprovalSet)item.get("approvalSet");
-          if ( ( approvalSet != null ) &amp;&amp; ( !approvalSet.isEmpty() ) ) {
+          if ( ( approvalSet != null ) && ( !approvalSet.isEmpty() ) ) {
               for ( ApprovalItem it : approvalSet.getItems() ) {
 
                   /** Assimilate the form field changes back into the attribute requests before
                   * creating the audit event so that the correct data is stored in the audit event. **/
                   List attrs = it.getIIQAttributes();
                   Form form = (Form)item.get("workItemForm");
-                  if(attrs!=null &amp;&amp; form!=null) {
+                  if(attrs!=null && form!=null) {
                     for(AttributeRequest attr : attrs) {
                       
                       Field field = form.getField(it.getApplication()+":"+attr.getName());
@@ -200,7 +200,7 @@
                   event.setAttribute("requester", launcher);
 
                   List comments = it.getComments();
-                  if ( Util.size(comments) &gt; 0 ) {
+                  if ( Util.size(comments) > 0 ) {
                       event.setAttribute("completionComments", comments);
                   }
 
@@ -230,7 +230,7 @@
               ApprovalSet set = (ApprovalSet)item.get("approvalSet");
               if ( set != null ) {
                   List items = set.getItems();
-                  if ( Util.size(items) &gt; 0 ) {
+                  if ( Util.size(items) > 0 ) {
                       int num = 0 ;
                       for ( ApprovalItem it : items  ) { 
                           num++;
@@ -240,12 +240,12 @@
                           event.setAttribute("requester", wfcontext.getString("launcher"));
                           event.setAttribute("op", it.getOperation());
                           List comments = it.getComments();
-                          if ( Util.size(comments) &gt; 0 ) {
+                          if ( Util.size(comments) > 0 ) {
                               event.setAttribute("completionComments", comments);
                           }
                           Auditor.log(event);
                       }
-                      if ( num &gt; 0 ) 
+                      if ( num > 0 ) 
                           wfcontext.getSailPointContext().commitTransaction();
                   }
               } else {
@@ -294,7 +294,7 @@
       public boolean isApprovalEnabled(String approvalScheme, String approvalType) {
           if ( approvalScheme != null )  {
               List schemes = Util.csvToList(approvalScheme);
-              if ( Util.size(schemes) &gt; 0 ) {
+              if ( Util.size(schemes) > 0 ) {
                   if ( schemes.contains(approvalType) ) {
                       return true;
                   }
@@ -336,7 +336,7 @@
                   }
               }
  
-              if ( Util.size(items) &gt; 0 )  {
+              if ( Util.size(items) > 0 )  {
                   for ( ApprovalItem item : items ) {
                       if ( forceDecision ) { 
                           item.setState(null);
@@ -350,13 +350,13 @@
 
       //Filter items from the currentSet that are rejected in the masterSet
       public void filterRejectsFromApprovalSet(ApprovalSet masterSet, ApprovalSet currentSet) {
-        if (currentSet != null &amp;&amp; !Util.isEmpty(currentSet.getItems())) {
+        if (currentSet != null && !Util.isEmpty(currentSet.getItems())) {
             Iterator it = currentSet.getItems().iterator();
             while(it.hasNext()) {
                 ApprovalItem currentItem = (ApprovalItem)it.next();
                 //Find the item in the global ApprovalSet
                 ApprovalItem globalItem = masterSet.find(currentItem);
-                if (globalItem != null &amp;&amp; globalItem.isRejected()) {
+                if (globalItem != null && globalItem.isRejected()) {
                     //remove from the current approval
                     it.remove();
                 }
@@ -367,7 +367,7 @@
 
       //Set decisions on the currentSet to those in the masterSet
       public void setPreviousDecisionsOnApprovalSet(ApprovalSet masterSet, ApprovalSet currentSet) {
-        if (currentSet != null &amp;&amp; !Util.isEmpty(currentSet.getItems())) {
+        if (currentSet != null && !Util.isEmpty(currentSet.getItems())) {
             Iterator it = currentSet.getItems().iterator();
             while(it.hasNext()) {
                 ApprovalItem currentItem = (ApprovalItem)it.next();
@@ -381,5 +381,5 @@
       }
 
     
-  </Source>
+  ]]></Source>
 </Rule>

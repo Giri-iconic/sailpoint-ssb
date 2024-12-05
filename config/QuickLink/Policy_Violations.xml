@@ -7,16 +7,16 @@
       <entry key="ownerId">
         <value>
           <Script>
-            <Source>
+            <Source><![CDATA[
                               return currentUser.getId();
-                          </Source>
+                          ]]></Source>
           </Script>
         </value>
       </entry>
       <entry key="textScript">
         <value>
           <Script>
-            <Source>
+            <Source><![CDATA[
                               
                               import sailpoint.object.PolicyViolation;
                               import sailpoint.object.QueryOptions;
@@ -32,12 +32,12 @@
 
                               filters.add(Filter.eq("owner", currentUser));
 
-                              if (currentUser.getWorkgroups() != null &amp;&amp; !currentUser.getWorkgroups().isEmpty())
+                              if (currentUser.getWorkgroups() != null && !currentUser.getWorkgroups().isEmpty())
                               {
                                 filters.add(Filter.in("owner", currentUser.getWorkgroups()));
                               }
 
-                              List&lt;String&gt; delegatedViolationIds = new ArrayList();
+                              List<String> delegatedViolationIds = new ArrayList();
                               qo.add(Filter.eq("type", WorkItem.Type.Delegation));
                               qo.add(Filter.or(filters));
                               Iterator iter = context.search(WorkItem.class, qo, "targetId");
@@ -57,11 +57,16 @@
                               context.countObjects(PolicyViolation.class, qo);
                               return count;
                               
-                          </Source>
+                          ]]></Source>
           </Script>
         </value>
       </entry>
     </Map>
   </Attributes>
   <Description>quicklink_policy_violations_desc</Description>
+  <QuickLinkOptions allowSelf="true">
+    <DynamicScopeRef>
+      <Reference class="sailpoint.object.DynamicScope" name="Everyone"/>
+    </DynamicScopeRef>
+  </QuickLinkOptions>
 </QuickLink>

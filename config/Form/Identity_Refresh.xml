@@ -21,12 +21,12 @@
     <Field displayName="provision_last_name" value="script:identity.getLastname()"/>
     <Field displayName="provision_assigned_roles">
       <Script>
-        <Source>
+        <Source><![CDATA[
           import sailpoint.api.ObjectUtil;
           import sailpoint.tools.Util;
           List names = ObjectUtil.getObjectNames(identity.getAssignedRoles());
           return Util.listToCsv(names);
-      </Source>
+      ]]></Source>
       </Script>
     </Field>
   </Section>

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
 <Rule language="beanshell" name="Approval Library">
-  <Source>
+  <Source><![CDATA[
     
 
     import sailpoint.api.ManagedAttributer;
@@ -73,10 +73,10 @@
     }
         
     public void flattenAttributeRequests(List attributeRequests, List flat) {
-        if ( Util.size(attributeRequests) &gt; 0 ) {
+        if ( Util.size(attributeRequests) > 0 ) {
             for (AttributeRequest attr : attributeRequests ) {
-                if( !attr.getName().equals(ProvisioningPlan.ATT_IIQ_PASSWORD) &amp;&amp;
-                    !attr.getBoolean(ProvisioningPlan.ARG_SECRET) &amp;&amp;
+                if( !attr.getName().equals(ProvisioningPlan.ATT_IIQ_PASSWORD) &&
+                    !attr.getBoolean(ProvisioningPlan.ARG_SECRET) &&
                     !attr.getName().equals(Identity.PRF_USE_BY_DATE)) {
                     if (attr.getDisplayValue() == null) {
                         String displayName = attr.getName();
@@ -98,7 +98,7 @@
                             }
                             
                             String type = (String)attr.get(ProvisioningPlan.ARG_TYPE);
-                            if (type!=null &amp;&amp; type.equals(ProvisioningPlan.ARG_TYPE_DATE)) {
+                            if (type!=null && type.equals(ProvisioningPlan.ARG_TYPE_DATE)) {
                               Object obj = val.get(0);
                               
                               Date date = null;
@@ -115,7 +115,7 @@
                             }
                             
                         }
-                        if ( Util.size(val) &gt; 0 ) 
+                        if ( Util.size(val) > 0 ) 
                             flat.add(displayName+ " = '"+Util.listToCsv(val)+"'");
                     } else {
                         flat.add(attr.getDisplayValue());
@@ -137,7 +137,7 @@
         }
 
         List scopeNames = new ArrayList();
-        for (int i=0; i&lt;val.size(); ++i) {
+        for (int i=0; i<val.size(); ++i) {
             scopeNames.add(fetchScopeName((String) val.get(i)));
         }
         
@@ -160,7 +160,7 @@
     }
 
     /**
-     * Convert a List&lt;PermissionRequests&gt; into a List&lt;String&gt;
+     * Convert a List<PermissionRequests> into a List<String>
      * with each string formatted as "target='right,right,right'"
      * This is similar to flattenAttributeRequests above but 
      * kept distinct in case we need to change the rendering of permissions.
@@ -178,7 +178,7 @@
     }
 
     /**
-     * Convert a Map&lt;String,ApprovalSet&gt; into Approval objects. 
+     * Convert a Map<String,ApprovalSet> into Approval objects. 
      * One Approval object for each of the keys in the map.
      *
      * Used only by rules that calculate approval structures such
@@ -211,8 +211,8 @@
                     }
                     // djs: check here to make sure this isn't an auto-approved 
                     // item because the approver is the launcher
-                    if ( !sailpoint.workflow.IdentityLibrary.isElectronicSignatureEnabled(wfcontext) &amp;&amp; 
-                         key.compareTo(launcher) == 0 &amp;&amp; 
+                    if ( !sailpoint.workflow.IdentityLibrary.isElectronicSignatureEnabled(wfcontext) && 
+                         key.compareTo(launcher) == 0 && 
                          set.isAllApproved() ) {
                         // self approved continue;
                         continue;
@@ -237,7 +237,7 @@
     }
 
     /**
-     * Build a Map&lt;String,ApprovalSet&gt; each key representing a unique owner.
+     * Build a Map<String,ApprovalSet> each key representing a unique owner.
      * Use a Map here to allow us to easily merge any items for the same owner.
      *
      * Used by rules to build approval structures, normally followed by
@@ -260,7 +260,7 @@
         List items = approvalSet.getItems();
         for ( ApprovalItem item : items ) {
             List approvers = getApproverNames(scheme, item, plan, identity);
-            if ( approvers != null &amp;&amp; approvers.size() == 0 &amp;&amp; fallbackApprover != null ) {
+            if ( approvers != null && approvers.size() == 0 && fallbackApprover != null ) {
                 if ( log.isDebugEnabled() ) {
                     log.debug("Approver could not be resolved using fallbackApprover '"+fallbackApprover+"'.");
                 }
@@ -270,7 +270,7 @@
             // Build an approval set or add an ApprovalItem 
             // to an existing set
             //
-            if ( Util.size(approvers) &gt; 0 ) {
+            if ( Util.size(approvers) > 0 ) {
                 for ( String approver : approvers ) {
                     ApprovalSet set = (ApprovalSet)ownerToSet.get(approver);
                     if ( set == null ) {
@@ -446,7 +446,7 @@
         // a ManagedAttribute 
         String attrName = item.getName();
         List vals = item.getValueList();
-        if ( ( attrName != null ) &amp;&amp; ( Util.size(vals) &gt; 0 ) ) {
+        if ( ( attrName != null ) && ( Util.size(vals) > 0 ) ) {
             // there should just be one value in each record... 
             // log something
             String val = (String)vals.get(0);
@@ -499,7 +499,7 @@
     private String resolveRoleOwner(ApprovalItem item) {
         String approverName = null;
         List values = item.getValueList();
-        if ( Util.size(values) &gt; 0 ) {
+        if ( Util.size(values) > 0 ) {
             if ( Util.size(values) != 1 ) 
                 throw new Exception("More then one value found in an approval item");
 
@@ -554,15 +554,15 @@
         }
 
         String planManager = resolveManagerFromPlan(plan);
-        if ( ( currentManager == null ) &amp;&amp; ( planManager != null ) ) {
+        if ( ( currentManager == null ) && ( planManager != null ) ) {
             // likely Identity Create case
             approverNames.add(planManager);
         } else
-            if ( ( currentManager != null ) &amp;&amp; ( planManager == null ) ) {
+            if ( ( currentManager != null ) && ( planManager == null ) ) {
                 // normal case
                 approverNames.add(currentManager);
             } else
-                if ( ( currentManager != null ) &amp;&amp; ( planManager != null ) ) {
+                if ( ( currentManager != null ) && ( planManager != null ) ) {
                     // Manager Transfer
                     if ( schemes.contains("manager") ){
                         approverNames.add(currentManager);
@@ -571,7 +571,7 @@
                         approverNames.add(planManager);
                     } 
                 }
-        return ( approverNames.size() &gt; 0 ) ? approverNames : null;
+        return ( approverNames.size() > 0 ) ? approverNames : null;
     }
 
     /**
@@ -605,5 +605,5 @@
     }
 
     
-  </Source>
+  ]]></Source>
 </Rule>

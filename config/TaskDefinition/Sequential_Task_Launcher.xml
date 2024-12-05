@@ -23,6 +23,9 @@
       <Argument name="tasksRun" type="string">
         <Prompt>task_sequential_tasks_executed</Prompt>
       </Argument>
+      <Argument name="SequentialTask.tasksRun" type="string">
+        <Prompt>task_sequential_tasks_executed</Prompt>
+      </Argument>
     </Returns>
   </Signature>
 </TaskDefinition>

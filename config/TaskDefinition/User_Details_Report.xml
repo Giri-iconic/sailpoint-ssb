@@ -14,7 +14,7 @@
                 <Parameter argument="capabilities" property="capabilities.id"/>
                 <Parameter argument="identityRoles">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                             import sailpoint.object.*;
                             import java.lang.*;
                             List roleFilters = new ArrayList();
@@ -28,12 +28,12 @@
                                 queryOptions.addFilter(Filter.subquery("id", Identity.class, "id", Filter.or(roleFilters)));
                             }
                             return queryOptions;
-                          </Source>
+                          ]]></Source>
                   </QueryScript>
                 </Parameter>
                 <Parameter argument="groupDefinitions">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                             import sailpoint.object.*;
                             import sailpoint.reporting.*;
                             Filter f = ReportingLibrary.getGroupDefinitionFilter(context, value, false);
@@ -41,7 +41,7 @@
                                 queryOptions.addFilter(f);
                             }
                             return queryOptions;
-                          </Source>
+                          ]]></Source>
                   </QueryScript>
                 </Parameter>
               </QueryParameters>
@@ -56,7 +56,7 @@
               <ReportColumnConfig field="manager" header="rept_user_details_col_manager" property="manager.displayName" sortable="true" width="110"/>
               <ReportColumnConfig field="roles" header="rept_user_details_col_roles" property="id" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           import sailpoint.object.*;
                           import java.util.*;
 
@@ -76,7 +76,7 @@
                             names.add(iter.next()[0]);
                           }
                           return names;
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="applications" header="rept_user_details_col_applications" property="links.application.name" subQueryKey="id" width="110"/>

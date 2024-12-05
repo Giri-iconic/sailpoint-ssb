@@ -28,7 +28,7 @@
     <Field displayName="rept_pol_viol_filter_viol_status" helpKey="rept_pol_viol_help_viol_status" multi="true" name="actualStatus" type="String" value="ref:actualStatus">
       <AllowedValuesDefinition>
         <Script>
-          <Source>
+          <Source><![CDATA[
                           import sailpoint.object.*;
 
                           List l = new ArrayList();
@@ -40,7 +40,7 @@
                           l.add(l2);
                           }
                           return l;
-                      </Source>
+                      ]]></Source>
         </Script>
       </AllowedValuesDefinition>
     </Field>

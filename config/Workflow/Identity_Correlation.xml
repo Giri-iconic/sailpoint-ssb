@@ -211,7 +211,7 @@
        approvals can be validate.
     </Description>
     <Script>
-      <Source>
+      <Source><![CDATA[
         import sailpoint.object.Field;
         import sailpoint.object.Form;
         import sailpoint.object.Rule;
@@ -237,7 +237,7 @@
             }
         }
         return approvalForm;
-      </Source>
+      ]]></Source>
     </Script>
     <Transition to="Check Policies"/>
   </Step>
@@ -245,13 +245,13 @@
     <Arg name="identityName" value="ref:identityName"/>
     <Arg name="plan" value="ref:plan"/>
     <Arg name="policies" value="ref:policiesToCheck"/>
-    <Transition to="Exit On Policy Violation" when="script:((Util.size(policyViolations) > 0 ) &amp;&amp; (policyScheme.equals(&quot;fail&quot;)))"/>
+    <Transition to="Exit On Policy Violation" when="script:((Util.size(policyViolations) &gt; 0 ) &amp;&amp; (policyScheme.equals(&quot;fail&quot;)))"/>
     <Transition to="Approval"/>
   </Step>
   <Step condition="script:!approvalScheme.equals(&quot;none&quot;)" icon="Approval" name="Approval" posX="238" posY="288">
     <Approval mode="ref:approvalMode" owner="rule:LCM Build Identity Approvers" renderer="lcmEditableWorkItemRenderer.xhtml" send="identityDisplayName,identityName,policyViolations,approvalSet">
       <AfterScript>
-        <Source>
+        <Source><![CDATA[
           import sailpoint.object.ApprovalSet;
           import sailpoint.object.WorkItem;
           import sailpoint.object.Workflow.WorkflowCase;
@@ -281,9 +281,7 @@
           } else {
               throw new GeneralException("ApprovalSet not found in afterscript.");
           }
- 
-          // djs: this is kind of a hack, do I have alternatives?
-          // come back to this
+
           Form form = (Form)item.get("workItemForm");
           if ( form != null ) {
               WorkflowCase c = wfcontext.getWorkflowCase();
@@ -303,7 +301,7 @@
 
           auditWorkItemOwnerHistory(item);
           auditWorkItemComments(item);
-        </Source>
+        ]]></Source>
       </AfterScript>
       <Arg name="workItemRequester" value="$(launcher)"/>
       <Arg name="workItemDescription" value="Account Changes for User: $(identityDisplayName)"/>
@@ -406,7 +404,7 @@
       the stub identity on the plan accordingly.
     </Description>
     <Script>
-      <Source>
+      <Source><![CDATA[
         import sailpoint.object.ApprovalSet;
         import sailpoint.object.ApprovalItem;
         import sailpoint.object.Identity;
@@ -464,7 +462,7 @@
             }
         }
         return plan;
-      </Source>
+      ]]></Source>
     </Script>
     <Transition to="end"/>
   </Step>

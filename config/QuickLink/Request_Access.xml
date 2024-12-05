@@ -6,11 +6,11 @@
       <entry key="labelScript">
         <value>
           <Script>
-            <Source>
+            <Source><![CDATA[
                 
-                  return (quickLinkWrapper.isAllowSelf() &amp;&amp; !quickLinkWrapper.isAllowOthers()) ? "quicklink_request_access_label_my_access" : "quicklink_request_access_label_user_access";
+                  return (quickLinkWrapper.isAllowSelf() && !quickLinkWrapper.isAllowOthers()) ? "quicklink_request_access_label_my_access" : "quicklink_request_access_label_user_access";
                 
-              </Source>
+              ]]></Source>
           </Script>
         </value>
       </entry>
@@ -36,7 +36,7 @@
   </QuickLinkOptions>
   <QuickLinkOptions allowBulk="true">
     <DynamicScopeRef>
-      <Reference class="sailpoint.object.DynamicScope" name="Help Desk"/>
+      <Reference class="sailpoint.object.DynamicScope" name="Manager"/>
     </DynamicScopeRef>
     <Attributes>
       <Map>
@@ -53,7 +53,7 @@
   </QuickLinkOptions>
   <QuickLinkOptions allowBulk="true">
     <DynamicScopeRef>
-      <Reference class="sailpoint.object.DynamicScope" name="Manager"/>
+      <Reference class="sailpoint.object.DynamicScope" name="Help Desk"/>
     </DynamicScopeRef>
     <Attributes>
       <Map>

@@ -15,11 +15,11 @@
                 <Parameter argument="remindersMax" operation="LE" property="reminders"/>
                 <Parameter argument="owners">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                                     
                                     import sailpoint.object.*;
                                     import sailpoint.api.*;
-                                    if (value != null &amp;&amp; !value.isEmpty()){
+                                    if (value != null && !value.isEmpty()){
                                       if (arguments.get("isArchive") == true){
                                         List names = ObjectUtil.convertIdsToNames(context, Identity.class, value);
                                         queryOptions.addFilter(Filter.in("ownerName", names));
@@ -30,16 +30,16 @@
 
                                     return queryOptions;
                                     
-                                  </Source>
+                                  ]]></Source>
                   </QueryScript>
                 </Parameter>
                 <Parameter argument="requesters">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                                     
                                     import sailpoint.object.*;
                                     import sailpoint.api.*;
-                                    if (value != null &amp;&amp; !value.isEmpty()){
+                                    if (value != null && !value.isEmpty()){
                                       if (arguments.get("isArchive") == true){
                                         List names = ObjectUtil.convertIdsToNames(context, Identity.class, value);
                                         queryOptions.addFilter(Filter.in("requester", names));
@@ -50,7 +50,7 @@
 
                                     return queryOptions;
                                     
-                                  </Source>
+                                  ]]></Source>
                   </QueryScript>
                 </Parameter>
               </QueryParameters>

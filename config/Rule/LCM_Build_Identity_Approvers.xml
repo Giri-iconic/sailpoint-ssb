@@ -4,7 +4,7 @@
   <ReferencedRules>
     <Reference class="sailpoint.object.Rule" name="Approval Library"/>
   </ReferencedRules>
-  <Source>
+  <Source><![CDATA[
     
        import sailpoint.object.ApprovalSet;
        import sailpoint.object.ProvisioningPlan;
@@ -47,25 +47,25 @@
            List items = approvalSet.getItems();
            // By default there is one item for all of the edits
            ApprovalItem item = null;
-           if ( Util.size(items) &gt; 0 ) 
+           if ( Util.size(items) > 0 ) 
                item = items.get(0); 
 
            if ( item != null ) {
                approvers = getApproverNames(approvalScheme, item, plan, identityName, securityOfficerName);
-               if ( approvers != null &amp;&amp; approvers.size() == 0 &amp;&amp; fallbackApprover != null ) {
+               if ( approvers != null && approvers.size() == 0 && fallbackApprover != null ) {
                    if ( log.isDebugEnabled() ) { 
                        log.debug("Approver could not be resolved using fallbackApprover '"+fallbackApprover+"'.");
                    }
                    approvers.add(fallbackApprover);
                } 
                // If the launcher is an approver remove them from the list
-               if ( approvers != null &amp;&amp; approvers.contains(launcher) ) {
+               if ( approvers != null && approvers.contains(launcher) ) {
                    Map args = wfcontext.getArguments();
                    String esig = null;
                    if ( args != null ) 
                        esig = (String)args.get("approverElectronicSignature");
  
-                   if ( !IdentityLibrary.isElectronicSignatureEnabled(wfcontext) &amp;&amp; Util.isNullOrEmpty(esig) ) {
+                   if ( !IdentityLibrary.isElectronicSignatureEnabled(wfcontext) && Util.isNullOrEmpty(esig) ) {
                        approvers.remove(launcher);
                        // If this is the only approver automaticaly
                        // mark the item approved.
@@ -79,5 +79,5 @@
        }
        return approvers;
     
-  </Source>
+  ]]></Source>
 </Rule>

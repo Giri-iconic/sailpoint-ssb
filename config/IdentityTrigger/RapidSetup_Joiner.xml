@@ -6,8 +6,6 @@
     <Attributes>
       <Map>
         <entry key="businessProcess" value="joiner"/>
-        <entry key="identityProcessingThreshold"/>
-        <entry key="identityProcessingThresholdType"/>
         <entry key="workflow" value="RapidSetup - Joiner"/>
       </Map>
     </Attributes>

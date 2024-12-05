@@ -55,7 +55,7 @@ Note that an Attributes map of all variables from the current WorkflowContext, m
       </Argument>
     </Returns>
   </Signature>
-  <Source>import sailpoint.object.Identity;
+  <Source><![CDATA[import sailpoint.object.Identity;
 
 Identity identity = new Identity();
 Identity managerIdentity = context.getObjectById(Identity.class,manager);
@@ -70,5 +70,5 @@ identity.setEmail(email);
 context.saveObject(identity);
 context.commitTransaction();
 String identityName = identity.getDisplayName();
-return identityName;</Source>
+return identityName;]]></Source>
 </Rule>

@@ -23,7 +23,7 @@
       </Argument>
     </Returns>
   </Signature>
-  <Source>
+  <Source><![CDATA[
       
         import sailpoint.object.*;
         import java.util.*;
@@ -53,5 +53,5 @@
 
         return null;
       
-</Source>
+]]></Source>
 </Rule>

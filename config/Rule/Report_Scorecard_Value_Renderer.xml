@@ -4,7 +4,7 @@
   <Description>
       This rule renders report columns which pull values from a Scorecard object.
     </Description>
-  <Source>
+  <Source><![CDATA[
       
        import java.util.*;
        import sailpoint.object.*;
@@ -16,5 +16,5 @@
 
        return score != null ? score.toString() : null;
       
-  </Source>
+  ]]></Source>
 </Rule>

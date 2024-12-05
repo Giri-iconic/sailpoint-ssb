@@ -1,13 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE TaskDefinition PUBLIC "sailpoint.dtd" "sailpoint.dtd">
 <TaskDefinition executor="sailpoint.task.WorkItemExpirationScanner" name="Check Expired Work Items" subType="task_item_type_system" type="System">
-  <Attributes>
-    <Map>
-      <entry key="TaskDefinition.runLengthAverage" value="1"/>
-      <entry key="TaskDefinition.runLengthTotal" value="91"/>
-      <entry key="TaskDefinition.runs" value="61"/>
-    </Map>
-  </Attributes>
   <Description>Send reminders, escalate, or expire items.</Description>
   <Signature>
     <Returns>

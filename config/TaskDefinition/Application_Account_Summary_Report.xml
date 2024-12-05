@@ -15,34 +15,34 @@
               <ReportColumnConfig field="application" header="rept_app_account_summary_col_app" property="name" sortable="true" width="110"/>
               <ReportColumnConfig field="totalAccounts" header="rept_app_account_summary_col_total_accounts" property="id" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           import sailpoint.object.*;
                           QueryOptions ops = new QueryOptions();
                           ops.addFilter(Filter.eq("application.id", value));
                           return context.countObjects(Link.class, ops);
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="distinctIdentities" header="rept_app_account_summary_col_identities_with_accounts" property="id" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           import sailpoint.object.*;
                           QueryOptions ops = new QueryOptions();
                           ops.addFilter(Filter.eq("links.application.id", value));
                           ops.setDistinct(true);
                           return context.countObjects(Identity.class, ops);
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="multipleAccounts" header="rept_app_account_summary_col_identities_with_mult_accounts" property="id" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                             import sailpoint.object.*;
                             Map queryArgs = new HashMap();
                             queryArgs.put("application", value);
 
                             int multipleLinksCount = 0;
-                            String hql = "select count(distinct identityAlias.id) from sailpoint.object.Identity identityAlias where (select count(*) from sailpoint.object.Link links2 where links2.identity.id = identityAlias.id and links2.application.id = (:application)) &gt; 1";
+                            String hql = "select count(distinct identityAlias.id) from sailpoint.object.Identity identityAlias where (select count(*) from sailpoint.object.Link links2 where links2.identity.id = identityAlias.id and links2.application.id = (:application)) > 1";
                             Iterator it = context.search(hql, queryArgs, null);
                             while (it.hasNext()) {
                                 Object o = it.next();
@@ -51,7 +51,7 @@
                                 }
                             }
                           return multipleLinksCount;
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
             </Columns>

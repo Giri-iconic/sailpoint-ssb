@@ -73,7 +73,7 @@
               </Map>
             </Attributes>
             <Script>
-              <Source> return "Active"; </Source>
+              <Source><![CDATA[ return "Active"; ]]></Source>
             </Script>
           </Field>
           <Field columnSpan="2" displayName="Account Name" name="loginName" postBack="true" type="string">
@@ -84,7 +84,7 @@
               </Map>
             </Attributes>
             <Script>
-              <Source>if(lastname != null &amp;&amp; firstname != null){return firstname+"."+lastname;}</Source>
+              <Source><![CDATA[if(lastname != null && firstname != null){return firstname+"."+lastname;}]]></Source>
             </Script>
           </Field>
           <Field columnSpan="2" displayName="Distinguish Name" dynamic="true" name="distinguishedName" postBack="true" type="string">
@@ -109,16 +109,16 @@
           </Field>
           <Field columnSpan="2" displayName="Date of Joining/Project Start Date" dynamic="true" name="startDate" required="true" type="date">
             <Script>
-              <Source>
+              <Source><![CDATA[
                 import java.util.*;
                 Date sysDate = new Date();
                 return sysDate;
-              </Source>
+              ]]></Source>
             </Script>
           </Field>
           <Field columnSpan="2" displayName="Account Expiry Date" name="endDate" postBack="true" required="true" type="date">
             <Script>
-              <Source>
+              <Source><![CDATA[
                 import java.util.*;
                 Date dt = new Date();
                 Calendar c = Calendar.getInstance(); 
@@ -127,7 +127,7 @@
                 dt = c.getTime();
                 return dt;
 
-              </Source>
+              ]]></Source>
             </Script>
           </Field>
         </Section>
@@ -138,20 +138,20 @@
                 <entry key="hidden">
                   <value>
                     <Script>
-                      <Source>
+                      <Source><![CDATA[
                         log.warn("########ONSITE:"+onOffSite);
-                        if(null != onOffSite &amp;&amp; onOffSite.equals("Off-site"))
+                        if(null != onOffSite && onOffSite.equals("Off-site"))
                         {
                         return "false";
                         }
-                        else if(null != onOffSite  &amp;&amp; onOffSite.equals("On-site"))
+                        else if(null != onOffSite  && onOffSite.equals("On-site"))
                         {
                         return "true";
                         }
                         else{
                         return "true";
                         }
-                      </Source>
+                      ]]></Source>
                     </Script>
                   </value>
                 </entry>
@@ -176,18 +176,18 @@
     </Approval>
     <Transition to="Create Identity">
       <Script>
-        <Source>
+        <Source><![CDATA[
           if(ndaForm.equals("Yes"))
           {
           return true;
           }
-        </Source>
+        ]]></Source>
       </Script>
     </Transition>
   </Step>
   <Step icon="Default" name="Create Identity" posX="254" posY="7" resultVariable="identityName">
     <Script>
-      <Source>
+      <Source><![CDATA[
         // this step is to create an Identity in SailPoint
         import sailpoint.object.Identity;
         import sailpoint.object.Custom;
@@ -236,7 +236,7 @@
         iden.setAttribute("position",position);
         System.out.println("position"+position);
         System.out.println("###################COUNTRYCODE:"+countryCode);
-        if(countryCode !=null &amp;&amp; workPhone!=null)
+        if(countryCode !=null && workPhone!=null)
         {
         Custom customList = context.getObjectByName(Custom.class,"Vendors_Country_Code");
         Attributes cc= customList.getAttributes();
@@ -265,13 +265,13 @@ log.warn("*****VENDOR ACCOUNT PROVISIONING || MANAGER: "+manage);
         context.commitTransaction();
         Identity ide = context.getObjectByName(Identity.class,loginName);
         return ide.getName();
-      </Source>
+      ]]></Source>
     </Script>
     <Transition to="Load Plan"/>
   </Step>
   <Step icon="Default" name="Load Plan" posX="350" posY="7" resultVariable="plan">
     <Script>
-      <Source>
+      <Source><![CDATA[
         // this step is to assign an AD account to the identity user
         import sailpoint.object.Configuration;
         import sailpoint.object.ProvisioningPlan;
@@ -321,7 +321,7 @@ log.warn("*****VENDOR ACCOUNT PROVISIONING || MANAGER: "+manage);
         plan.setAccountRequests(reqs);
         System.out.println("PLAN of the IDENTITY: "+plan.toXml());
         return plan;
-      </Source>
+      ]]></Source>
     </Script>
     <Transition to="Request message"/>
   </Step>
@@ -385,7 +385,7 @@ log.warn("*****VENDOR ACCOUNT PROVISIONING || MANAGER: "+manage);
   </Step>
   <Step icon="Default" name="Add Attributes" posX="632" posY="9">
     <Script>
-      <Source>
+      <Source><![CDATA[
         import sailpoint.object.Identity;
         import sailpoint.object.WorkflowCase;
 
@@ -424,7 +424,7 @@ log.warn("******** ADD ATTRIBUTES MANAGER :"+manager);
         c.put("firstName", cube.getFirstname());
         c.put("lastName", cube.getLastname());
 
-      </Source>
+      ]]></Source>
     </Script>
     <Transition to="Send EMail"/>
   </Step>

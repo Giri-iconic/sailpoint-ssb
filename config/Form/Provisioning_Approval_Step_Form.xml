@@ -9,22 +9,22 @@
         </Map>
       </Attributes>
       <Script>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             
-            if ( approvalScheme != void &amp;&amp; approvalScheme != null &amp;&amp; stepDTO.isArgReference("approvalScheme") &amp;&amp;  sailpoint.workflow.FormUtil.isFieldEqual(approvalScheme, "approvalScheme", stepDTO)) {
+            if ( approvalScheme != void && approvalScheme != null && stepDTO.isArgReference("approvalScheme") &&  sailpoint.workflow.FormUtil.isFieldEqual(approvalScheme, "approvalScheme", stepDTO)) {
                return false;
             }
             return true;
           
-        </Source>
+        ]]></Source>
       </Script>
     </Field>
     <Field displayName="wf_config_provisioning_approval_approver" helpKey="help_wf_provisioning_approval_setting" multi="true" name="approvalSchemeField" postBack="true">
       <AllowedValuesDefinition>
         <Script>
-          <Source>
+          <Source><![CDATA[
             
               import sailpoint.tools.Util;
               
@@ -52,7 +52,7 @@
 
               return values;
                          
-          </Source>
+          ]]></Source>
         </Script>
       </AllowedValuesDefinition>
       <Attributes>
@@ -69,19 +69,19 @@
         by the WorkflowBean.
       </Description>
       <Script>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             
             List list = null;
-            if ( approvalSchemeField == void &amp;&amp; approvalScheme != void ) {
-                if ( approvalSchemeField != null &amp;&amp; Util.otob(approvalOverride)) {
+            if ( approvalSchemeField == void && approvalScheme != void ) {
+                if ( approvalSchemeField != null && Util.otob(approvalOverride)) {
                     list = Util.csvToList(approvalScheme);
                 } 
             }                
             return list;
           
-        </Source>
+        ]]></Source>
       </Script>
     </Field>
     <Field dynamic="true" hidden="true" name="approvalScheme" type="string">
@@ -89,7 +89,7 @@
         This is the value that gets set on the arg value.
       </Description>
       <Script>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
 
@@ -97,7 +97,7 @@
 
             if ( approvalSchemeField != void ) {
                 csv = Util.listToCsv(approvalSchemeField);                
-                if ( approvalOverride != void &amp;&amp; !Util.otob(approvalOverride) ) {
+                if ( approvalOverride != void && !Util.otob(approvalOverride) ) {
                     csv = stepDTO.getArgScript("approvalScheme");
                     if ( approvalSchemeField != null ) {
                         approvalSchemeField.clear();
@@ -107,7 +107,7 @@
             
             return csv;
           
-        </Source>
+        ]]></Source>
       </Script>
     </Field>
     <Field displayName="wf_config_provisioning_approval_identityOrWorkgroup_label" helpKey="help_wf_provisioning_identities_scheme" multi="true" name="approvingIdentities" type="identity">
@@ -124,35 +124,35 @@
         </Map>
       </Attributes>
       <Script>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             
             String val = value;
-            if ( value != null &amp;&amp; stepDTO.isLiteral(field.getName() ) ) {
-                if ( Util.otob(approvalOverride) &amp;&amp; !Util.nullSafeContains(approvalSchemeField, "securityOfficer")  ) {
+            if ( value != null && stepDTO.isLiteral(field.getName() ) ) {
+                if ( Util.otob(approvalOverride) && !Util.nullSafeContains(approvalSchemeField, "securityOfficer")  ) {
                     val = null;
                 } 
             }
             return val;
           
-        </Source>
+        ]]></Source>
       </Script>
       <ValidationScript>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             import sailpoint.tools.Message;
             import sailpoint.web.messages.MessageKeys;
             
             Message error = null;
-            if ( value == null &amp;&amp; Util.nullSafeContains(approvalSchemeField, "securityOfficer") ) {
+            if ( value == null && Util.nullSafeContains(approvalSchemeField, "securityOfficer") ) {
                 Object[] msgParams = { field.getName() };
                 error = new Message(MessageKeys.WF_CONFIG_PROVISIONING_VALIDATE_NULL, msgParams );
             }  
             return error;
           
-        </Source>
+        ]]></Source>
       </ValidationScript>
     </Field>
     <Field displayName="wf_config_provisioning_approval_fallback_approver" dynamic="true" helpKey="help_wf_provisioning_fallback_approver" name="fallbackApprover" type="identity">
@@ -163,27 +163,27 @@
         </Map>
       </Attributes>
       <Script>
-        <Source>
+        <Source><![CDATA[
          
            return value;
           
-        </Source>
+        ]]></Source>
       </Script>
       <ValidationScript>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             import sailpoint.tools.Message;
             import sailpoint.web.messages.MessageKeys;
             
             Message error = null;
-            if ( value == null &amp;&amp; approvalSchemeField != null || Util.nullSafeContains(approvalSchemeField, "none") ) {
+            if ( value == null && approvalSchemeField != null || Util.nullSafeContains(approvalSchemeField, "none") ) {
                 Object[] msgParams = { field.getName() };
                 error = new Message(MessageKeys.WF_CONFIG_PROVISIONING_VALIDATE_NULL, msgParams );
             }  
             return error;
           
-        </Source>
+        ]]></Source>
       </ValidationScript>
     </Field>
   </Section>
@@ -201,35 +201,35 @@
         </Map>
       </Attributes>
       <Script>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             
             String val = value;
-            if ( value != null &amp;&amp; stepDTO.isLiteral(field.getName() ) ) {
-                if ( Util.otob(approvalOverride) &amp;&amp; !Util.nullSafeContains(approvalSchemeField, "manager") ) {
+            if ( value != null && stepDTO.isLiteral(field.getName() ) ) {
+                if ( Util.otob(approvalOverride) && !Util.nullSafeContains(approvalSchemeField, "manager") ) {
                     val = null;
                 } 
             }
             return val;
           
-        </Source>
+        ]]></Source>
       </Script>
       <ValidationScript>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             import sailpoint.tools.Message;
             import sailpoint.web.messages.MessageKeys;
             
             Message error = null;
-            if ( value == null &amp;&amp; Util.nullSafeContains(approvalSchemeField, "manager") ) {
+            if ( value == null && Util.nullSafeContains(approvalSchemeField, "manager") ) {
                 Object[] msgParams = { field.getName() };
                 error = new Message(MessageKeys.WF_CONFIG_PROVISIONING_VALIDATE_NULL, msgParams );
             }  
             return error;
           
-        </Source>
+        ]]></Source>
       </ValidationScript>
     </Field>
     <Field displayName="wf_config_provisioning_approval_owner_email" dynamic="true" helpKey="help_wf_provisioning_owner_approval_emailtemplate" name="ownerEmailTemplate" type="EmailTemplate">
@@ -240,35 +240,35 @@
         </Map>
       </Attributes>
       <Script>
-        <Source>
+        <Source><![CDATA[
          
             import sailpoint.tools.Util;
             
             String val = value;
-            if ( value != null &amp;&amp; stepDTO.isLiteral(field.getName() ) ) {
-                if ( Util.otob(approvalOverride) &amp;&amp; !Util.nullSafeContains(approvalSchemeField, "owner")  ) {
+            if ( value != null && stepDTO.isLiteral(field.getName() ) ) {
+                if ( Util.otob(approvalOverride) && !Util.nullSafeContains(approvalSchemeField, "owner")  ) {
                     val = null;
                 } 
             }
             return val;
           
-        </Source>
+        ]]></Source>
       </Script>
       <ValidationScript>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             import sailpoint.tools.Message;
             import sailpoint.web.messages.MessageKeys;
             
             Message error = null;
-            if ( value == null &amp;&amp; Util.nullSafeContains(approvalSchemeField, "owner") ) {
+            if ( value == null && Util.nullSafeContains(approvalSchemeField, "owner") ) {
                 Object[] msgParams = { field.getName() };
                 error = new Message(MessageKeys.WF_CONFIG_PROVISIONING_VALIDATE_NULL, msgParams );
             }  
             return error;
           
-        </Source>
+        ]]></Source>
       </ValidationScript>
     </Field>
     <Field displayName="wf_config_provisioning_approval_so_email" dynamic="true" helpKey="help_wf_provisioning_so_approval_emailtemplate" name="securityOfficerEmailTemplate" type="EmailTemplate">
@@ -279,35 +279,35 @@
         </Map>
       </Attributes>
       <Script>
-        <Source>
+        <Source><![CDATA[
          
             import sailpoint.tools.Util;
             
             String val = value;
-            if ( value != null &amp;&amp; stepDTO.isLiteral(field.getName() ) ) {
-                if ( Util.otob(approvalOverride) &amp;&amp; !Util.nullSafeContains(approvalSchemeField, "securityOfficer")  ) {
+            if ( value != null && stepDTO.isLiteral(field.getName() ) ) {
+                if ( Util.otob(approvalOverride) && !Util.nullSafeContains(approvalSchemeField, "securityOfficer")  ) {
                     val = null;
                 } 
             }
             return val;
           
-        </Source>
+        ]]></Source>
       </Script>
       <ValidationScript>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             import sailpoint.tools.Message;
             import sailpoint.web.messages.MessageKeys;
             
             Message error = null;
-            if ( value == null &amp;&amp; Util.nullSafeContains(approvalSchemeField, "securityOfficer") ) {
+            if ( value == null && Util.nullSafeContains(approvalSchemeField, "securityOfficer") ) {
                 Object[] msgParams = { field.getName() };
                 error = new Message(MessageKeys.WF_CONFIG_PROVISIONING_VALIDATE_NULL, msgParams );
             }  
             return error;
           
-        </Source>
+        ]]></Source>
       </ValidationScript>
     </Field>
     <Field displayName="wf_config_provisioning_approval_identity_email" dynamic="true" helpKey="help_wf_provisioning_identity_approval_emailtemplate" name="identityEmailTemplate" type="EmailTemplate">
@@ -317,35 +317,35 @@
         </Map>
       </Attributes>
       <Script>
-        <Source>
+        <Source><![CDATA[
          
             import sailpoint.tools.Util;
             
             String val = value;
-            if ( value != null &amp;&amp; stepDTO.isLiteral(field.getName() ) ) {
-                if ( Util.otob(approvalOverride) &amp;&amp; !Util.nullSafeContains(approvalSchemeField, "identity")  ) {
+            if ( value != null && stepDTO.isLiteral(field.getName() ) ) {
+                if ( Util.otob(approvalOverride) && !Util.nullSafeContains(approvalSchemeField, "identity")  ) {
                     val = null;
                 } 
             }
             return val;
           
-        </Source>
+        ]]></Source>
       </Script>
       <ValidationScript>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             import sailpoint.tools.Message;
             import sailpoint.web.messages.MessageKeys;
             
             Message error = null;
-            if ( value == null &amp;&amp; Util.nullSafeContains(approvalSchemeField, "identity") ) {
+            if ( value == null && Util.nullSafeContains(approvalSchemeField, "identity") ) {
                 Object[] msgParams = { field.getName() };
                 error = new Message(MessageKeys.WF_CONFIG_PROVISIONING_VALIDATE_NULL, msgParams );
             }  
             return error;
           
-        </Source>
+        ]]></Source>
       </ValidationScript>
     </Field>
   </Section>
@@ -358,10 +358,10 @@
     <Field displayName="wf_config_provisioning_approval_manager_esig" dynamic="true" helpKey="help_wf_provisioning_manager_esig" name="managerElectronicSignature" type="string">
       <AllowedValuesDefinition>
         <Script>
-          <Source>
+          <Source><![CDATA[
             import sailpoint.workflow.FormUtil;
             return FormUtil.getStepElectronicSignatureNames(context, field, stepDTO, locale);
-          </Source>
+          ]]></Source>
         </Script>
       </AllowedValuesDefinition>
       <Attributes>
@@ -370,28 +370,28 @@
         </Map>
       </Attributes>
       <Script>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             
             String val = value;
-            if ( value != null &amp;&amp; stepDTO.isLiteral(field.getName() ) ) {
-                if ( Util.otob(approvalOverride) &amp;&amp; !Util.nullSafeContains(approvalSchemeField, "manager") ) {
+            if ( value != null && stepDTO.isLiteral(field.getName() ) ) {
+                if ( Util.otob(approvalOverride) && !Util.nullSafeContains(approvalSchemeField, "manager") ) {
                     val = null;
                 } 
             }
             return val;
           
-        </Source>
+        ]]></Source>
       </Script>
     </Field>
     <Field displayName="wf_config_provisioning_approval_owner_esig" dynamic="true" helpKey="help_wf_provisioning_owner_esig" name="ownerElectronicSignature" type="string">
       <AllowedValuesDefinition>
         <Script>
-          <Source>
+          <Source><![CDATA[
             import sailpoint.workflow.FormUtil;
             return FormUtil.getStepElectronicSignatureNames(context, field, stepDTO, locale);
-          </Source>
+          ]]></Source>
         </Script>
       </AllowedValuesDefinition>
       <Attributes>
@@ -400,28 +400,28 @@
         </Map>
       </Attributes>
       <Script>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             
             String val = value;
-            if ( value != null &amp;&amp; stepDTO.isLiteral(field.getName() ) ) {
-                if ( Util.otob(approvalOverride) &amp;&amp; !Util.nullSafeContains(approvalSchemeField, "owner")  ) {
+            if ( value != null && stepDTO.isLiteral(field.getName() ) ) {
+                if ( Util.otob(approvalOverride) && !Util.nullSafeContains(approvalSchemeField, "owner")  ) {
                     val = null;
                 } 
             }
             return val;
           
-        </Source>
+        ]]></Source>
       </Script>
     </Field>
     <Field displayName="wf_config_provisioning_approval_security_esig" dynamic="true" helpKey="help_wf_provisioning_sofficer_esig" name="securityOfficerElectronicSignature" type="string">
       <AllowedValuesDefinition>
         <Script>
-          <Source>
+          <Source><![CDATA[
             import sailpoint.workflow.FormUtil;
             return FormUtil.getStepElectronicSignatureNames(context, field, stepDTO, locale);
-          </Source>
+          ]]></Source>
         </Script>
       </AllowedValuesDefinition>
       <Attributes>
@@ -431,28 +431,28 @@
         </Map>
       </Attributes>
       <Script>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             
             String val = value;
-            if ( value != null &amp;&amp; stepDTO.isLiteral(field.getName() ) ) {
-                if ( Util.otob(approvalOverride) &amp;&amp; !Util.nullSafeContains(approvalSchemeField, "securityOfficer")  ) {
+            if ( value != null && stepDTO.isLiteral(field.getName() ) ) {
+                if ( Util.otob(approvalOverride) && !Util.nullSafeContains(approvalSchemeField, "securityOfficer")  ) {
                     val = null;
                 } 
             }
             return val;
           
-        </Source>
+        ]]></Source>
       </Script>
     </Field>
     <Field displayName="wf_config_provisioning_approval_identity_esig" dynamic="true" helpKey="help_wf_provisioning_identity_esig" name="identityElectronicSignature" type="string">
       <AllowedValuesDefinition>
         <Script>
-          <Source>
+          <Source><![CDATA[
             import sailpoint.workflow.FormUtil;
             return FormUtil.getStepElectronicSignatureNames(context, field, stepDTO, locale);
-          </Source>
+          ]]></Source>
         </Script>
       </AllowedValuesDefinition>
       <Attributes>
@@ -461,19 +461,19 @@
         </Map>
       </Attributes>
       <Script>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             
             String val = value;
-            if ( value != null &amp;&amp; stepDTO.isLiteral(field.getName() ) ) {
-                if ( Util.otob(approvalOverride) &amp;&amp; !Util.nullSafeContains(approvalSchemeField, "identity")  ) {
+            if ( value != null && stepDTO.isLiteral(field.getName() ) ) {
+                if ( Util.otob(approvalOverride) && !Util.nullSafeContains(approvalSchemeField, "identity")  ) {
                     val = null;
                 } 
             }
             return val;;
           
-        </Source>
+        ]]></Source>
       </Script>
     </Field>
   </Section>
@@ -502,7 +502,7 @@
         </Value>
       </AllowedValuesDefinition>
       <Script>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             
@@ -511,11 +511,11 @@
             boolean reminderTemplateEnabled = false;
             boolean workItemEscalationRuleEnabled = false;
             
-            if ( workItemReminderTemplate != void &amp;&amp; workItemReminderTemplate != null ) {
+            if ( workItemReminderTemplate != void && workItemReminderTemplate != null ) {
                 reminderTemplateEnabled = true;
             }
             
-            if ( workItemEscalationRule != void &amp;&amp; workItemEscalationRule != null ) {
+            if ( workItemEscalationRule != void && workItemEscalationRule != null ) {
                 workItemEscalationRuleEnabled = true;
             }
             
@@ -523,17 +523,17 @@
                 val = "sendReminders";
             } 
             
-            if ( workItemEscalationRuleEnabled &amp;&amp; !reminderTemplateEnabled ) {
+            if ( workItemEscalationRuleEnabled && !reminderTemplateEnabled ) {
                 val = "escalateOnly";
             }
             
-            if ( reminderTemplateEnabled &amp;&amp; workItemEscalationRuleEnabled ) { 
+            if ( reminderTemplateEnabled && workItemEscalationRuleEnabled ) { 
                 val = "reminderEsclate";
             }
             
             return val;
           
-        </Source>
+        ]]></Source>
       </Script>
     </Field>
     <Field displayName="wf_config_provisioning_approval_reminder_template" dynamic="true" helpKey="help_wf_provisioning_approval_reminder_email" name="workItemReminderTemplate" type="EmailTemplate">
@@ -543,7 +543,7 @@
         </Map>
       </Attributes>
       <Script>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
 
@@ -553,23 +553,23 @@
             } 
             return val;
           
-        </Source>
+        ]]></Source>
       </Script>
       <ValidationScript>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             import sailpoint.tools.Message;
             import sailpoint.web.messages.MessageKeys;
             
             Message error = null;
-            if ( value == null &amp;&amp; approvalEscalation != null &amp;&amp; !Util.nullSafeEq(approvalEscalation, "none") &amp;&amp; !Util.nullSafeEq(approvalEscalation, "escalateOnly") ) {
+            if ( value == null && approvalEscalation != null && !Util.nullSafeEq(approvalEscalation, "none") && !Util.nullSafeEq(approvalEscalation, "escalateOnly") ) {
                 Object[] msgParams = { field.getName() };
                 error = new Message(MessageKeys.WF_CONFIG_PROVISIONING_VALIDATE_NULL, msgParams );
             }  
             return error;
           
-        </Source>
+        ]]></Source>
       </ValidationScript>
     </Field>
     <Field displayName="wf_config_provisioning_approval_reminder_days" dynamic="true" helpKey="help_wf_provisioning_approval_reminder_days" name="workItemDaysBeforeReminderField">
@@ -579,14 +579,14 @@
         </Map>
       </Attributes>
       <Script>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             import sailpoint.workflow.FormUtil;
 
             String val = value;
-            if ( workItemDaysBeforeReminderField == void &amp;&amp; value == null &amp;&amp; workItemHoursTillEscalation != void ) {
-                if ( Util.atoi(workItemHoursTillEscalation) &gt; 0 ) {            
+            if ( workItemDaysBeforeReminderField == void && value == null && workItemHoursTillEscalation != void ) {
+                if ( Util.atoi(workItemHoursTillEscalation) > 0 ) {            
                     val = FormUtil.convertHoursToDays(workItemHoursTillEscalation);
                 } else {
                     val = workItemHoursTillEscalation;
@@ -597,23 +597,23 @@
             } 
             return val;
           
-        </Source>
+        ]]></Source>
       </Script>
       <ValidationScript>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             import sailpoint.tools.Message;
             import sailpoint.web.messages.MessageKeys;
             
             Message error = null;
-            if ( value == null &amp;&amp; approvalEscalation != null &amp;&amp; !Util.nullSafeEq(approvalEscalation, "none") &amp;&amp; !Util.nullSafeEq(approvalEscalation, "escalateOnly") ) {
+            if ( value == null && approvalEscalation != null && !Util.nullSafeEq(approvalEscalation, "none") && !Util.nullSafeEq(approvalEscalation, "escalateOnly") ) {
                 Object[] msgParams = { field.getName() };
                 error = new Message(MessageKeys.WF_CONFIG_PROVISIONING_VALIDATE_NULL, msgParams );
             }  
             return error;
           
-        </Source>
+        ]]></Source>
       </ValidationScript>
     </Field>
     <Field displayName="wf_config_provisioning_approval_reminder_frequency_days" dynamic="true" helpKey="help_wf_provisioning_approval_reminder_frequency_days" name="workItemDaysBetweenRemindersField">
@@ -623,14 +623,14 @@
         </Map>
       </Attributes>
       <Script>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.workflow.FormUtil;
             import sailpoint.tools.Util;
 
             String val = value;
-            if ( workItemDaysBetweenRemindersField == void &amp;&amp; value == null &amp;&amp; workItemHoursBetweenReminders != void ) {
-                if ( Util.atoi(workItemHoursBetweenReminders) &gt; 0 ) {            
+            if ( workItemDaysBetweenRemindersField == void && value == null && workItemHoursBetweenReminders != void ) {
+                if ( Util.atoi(workItemHoursBetweenReminders) > 0 ) {            
                     val = FormUtil.convertHoursToDays(workItemHoursBetweenReminders);
                 } else {
                     val = workItemHoursBetweenReminders;
@@ -641,23 +641,23 @@
             }            
             return val;
           
-        </Source>
+        ]]></Source>
       </Script>
       <ValidationScript>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             import sailpoint.tools.Message;
             import sailpoint.web.messages.MessageKeys;
             
             Message error = null;
-            if ( value == null &amp;&amp; approvalEscalation != null &amp;&amp; !Util.nullSafeEq(approvalEscalation, "none") &amp;&amp; !Util.nullSafeEq(approvalEscalation, "escalateOnly") ) {
+            if ( value == null && approvalEscalation != null && !Util.nullSafeEq(approvalEscalation, "none") && !Util.nullSafeEq(approvalEscalation, "escalateOnly") ) {
                 Object[] msgParams = { field.getName() };
                 error = new Message(MessageKeys.WF_CONFIG_PROVISIONING_VALIDATE_NULL, msgParams );
             }  
             return error;
           
-        </Source>
+        ]]></Source>
       </ValidationScript>
     </Field>
     <Field displayName="wf_config_provisioning_approval_max_reminders" dynamic="true" helpKey="help_wf_provisioning_approval_max_reminder" name="workItemMaxReminders">
@@ -667,7 +667,7 @@
         </Map>
       </Attributes>
       <Script>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
 
@@ -677,7 +677,7 @@
             }            
             return val;
           
-        </Source>
+        ]]></Source>
       </Script>
     </Field>
     <Field dynamic="true" hidden="true" name="workItemHoursBetweenReminders">
@@ -687,14 +687,14 @@
          Workflow.ARG_WORK_ITEM_HOURS_BETWEEN_REMINDERS
       </Description>
       <Script>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.workflow.FormUtil;
             import sailpoint.tools.Util;
             
             String val = value;
             if ( workItemDaysBetweenRemindersField != void ) {
-                if ( Util.atoi(workItemDaysBetweenRemindersField) &gt; 0 ) {            
+                if ( Util.atoi(workItemDaysBetweenRemindersField) > 0 ) {            
                     val = FormUtil.convertDaysToHours(workItemDaysBetweenRemindersField);
                 }  else {
                     val = workItemDaysBetweenRemindersField;
@@ -702,7 +702,7 @@
             }
             return val;
           
-        </Source>
+        ]]></Source>
       </Script>
     </Field>
     <Field displayName="wf_config_provisioning_approval_escalation_rule" dynamic="true" filterString="type == &quot;Escalation&quot;" helpKey="help_wf_provisioning_approval_escalation_rule" name="workItemEscalationRule" type="rule">
@@ -712,7 +712,7 @@
         </Map>
       </Attributes>
       <Script>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
 
@@ -722,23 +722,23 @@
             }
             return val;
           
-        </Source>
+        ]]></Source>
       </Script>
       <ValidationScript>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             import sailpoint.tools.Message;
             import sailpoint.web.messages.MessageKeys;
             
             Message error = null;
-            if ( value == null &amp;&amp; approvalEscalation != null &amp;&amp; !Util.nullSafeEq(approvalEscalation, "none") &amp;&amp; !Util.nullSafeEq(approvalEscalation, "sendReminders") ) {
+            if ( value == null && approvalEscalation != null && !Util.nullSafeEq(approvalEscalation, "none") && !Util.nullSafeEq(approvalEscalation, "sendReminders") ) {
                 Object[] msgParams = { field.getName() };
                 error = new Message(MessageKeys.WF_CONFIG_PROVISIONING_VALIDATE_NULL, msgParams );
             }  
             return error;
           
-        </Source>
+        ]]></Source>
       </ValidationScript>
     </Field>
     <Field displayName="wf_config_provisioning_approval_escalation_template" dynamic="true" helpKey="help_wf_provisioning_approval_escalation_email" name="workItemEscalationTemplate" type="EmailTemplate">
@@ -748,7 +748,7 @@
         </Map>
       </Attributes>
       <Script>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
 
@@ -758,23 +758,23 @@
             }
             return val;
           
-        </Source>
+        ]]></Source>
       </Script>
       <ValidationScript>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             import sailpoint.tools.Message;
             import sailpoint.web.messages.MessageKeys;
             
             Message error = null;
-            if ( value == null &amp;&amp; approvalEscalation != null &amp;&amp; !Util.nullSafeEq(approvalEscalation, "none") &amp;&amp; !Util.nullSafeEq(approvalEscalation, "sendReminders") ) {
+            if ( value == null && approvalEscalation != null && !Util.nullSafeEq(approvalEscalation, "none") && !Util.nullSafeEq(approvalEscalation, "sendReminders") ) {
                 Object[] msgParams = { field.getName() };
                 error = new Message(MessageKeys.WF_CONFIG_PROVISIONING_VALIDATE_NULL, msgParams );
             }  
             return error;
           
-        </Source>
+        ]]></Source>
       </ValidationScript>
     </Field>
     <Field displayName="wf_config_provisioning_approval_max_days_reminders" dynamic="true" helpKey="help_wf_provisioning_approval_max_days_reminder" name="workItemDaysTillEscalationField">
@@ -784,15 +784,15 @@
         </Map>
       </Attributes>
       <Script>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             import sailpoint.workflow.FormUtil;
 
             String val = value;
             if ( workItemDaysTillEscalationField == void ) {
-                if ( value == null &amp;&amp; workItemHoursTillEscalation != void ) {
-                    if ( Util.atoi(workItemHoursTillEscalation) &gt; 0 ) {
+                if ( value == null && workItemHoursTillEscalation != void ) {
+                    if ( Util.atoi(workItemHoursTillEscalation) > 0 ) {
                         val = FormUtil.convertHoursToDays(workItemHoursTillEscalation);
                     } else {
                         val = workItemHoursTillEscalation;
@@ -805,23 +805,23 @@
             }
             return val;
           
-        </Source>
+        ]]></Source>
       </Script>
       <ValidationScript>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             import sailpoint.tools.Message;
             import sailpoint.web.messages.MessageKeys;
             
             Message error = null;
-            if ( value == null &amp;&amp; Util.nullSafeEq(approvalEscalation, "escalateOnly") ) {
+            if ( value == null && Util.nullSafeEq(approvalEscalation, "escalateOnly") ) {
                 Object[] msgParams = { field.getName() };
                 error = new Message(MessageKeys.WF_CONFIG_PROVISIONING_VALIDATE_NULL, msgParams );
             }  
             return error;
           
-        </Source>
+        ]]></Source>
       </ValidationScript>
     </Field>
     <Field dynamic="true" hidden="true" name="workItemHoursTillEscalation">
@@ -840,7 +840,7 @@
          We ignore negative number conversion because that represent seconds.
       </Description>
       <Script>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.workflow.FormUtil;
             import sailpoint.tools.Util;
@@ -857,7 +857,7 @@
                  if ( toConvert != null ) {
                      int i = Util.atoi(toConvert);
                      // If its negative leave it, can be used to convey seconds
-                     if ( i &gt; 0 ) {
+                     if ( i > 0 ) {
                          val = FormUtil.convertDaysToHours(toConvert);
                      } else {
                          val = toConvert;
@@ -870,7 +870,7 @@
              }
              return val;
           
-        </Source>
+        ]]></Source>
       </Script>
     </Field>
   </Section>
@@ -878,7 +878,7 @@
     <Field displayName="wf_config_provisioning_approval_mode" helpKey="help_wf_provisioning_approval_mode" name="approvalMode" type="string">
       <AllowedValuesDefinition>
         <Script>
-          <Source>
+          <Source><![CDATA[
               
               import sailpoint.tools.Util;
               import sailpoint.workflow.FormUtil;
@@ -917,7 +917,7 @@
 
               return values;
             
-          </Source>
+          ]]></Source>
         </Script>
       </AllowedValuesDefinition>
       <Attributes>
@@ -926,7 +926,7 @@
         </Map>
       </Attributes>
       <Script>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             
@@ -936,25 +936,25 @@
             }             
             return mode;
           
-        </Source>
+        ]]></Source>
       </Script>
     </Field>
     <Field displayName="wf_config_provisioning_approval_assignment_rule" filterString="type == &quot;ApprovalAssignment&quot;" helpKey="help_wf_provisioning_approval_assignment_rule" name="approvalAssignmentRule" type="rule">
       <ValidationScript>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
             import sailpoint.tools.Message;
             import sailpoint.web.messages.MessageKeys;
             
             Message error = null;
-            if ( value == null &amp;&amp; approvalSchemeField == null &amp;&amp; Util.otob(approvalOverride ) ) {
+            if ( value == null && approvalSchemeField == null && Util.otob(approvalOverride ) ) {
                 Object[] msgParams = { field.getName() };
                 error = new Message(MessageKeys.WF_CONFIG_PROVISIONING_VALIDATE_NULL, msgParams );
             }  
             return error;
           
-        </Source>
+        ]]></Source>
       </ValidationScript>
     </Field>
   </Section>

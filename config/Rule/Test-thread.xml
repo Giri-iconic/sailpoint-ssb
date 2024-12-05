@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule language="beanshell" name="Test-thread">
+  <Source><![CDATA[
+  import java.util.concurrent.ExecutorService;
+  import java.util.concurrent.Executors;
+
+  
+  int totalIternations = 20000000;
+  int iterationsPerThread = 2000000;
+  int numOfThreads = totalIternations / iterationsPerThread;
+  ExecutorService ex = Executors.newFixedThreadPool(numOfThreads);
+
+class MyRunnable implements Runnable {
+
+	int start = 0;
+ 	int end = 0;
+
+	MyRunnable(int start, int end){
+		this.start = start;
+		this.end = end;
+	}
+
+      public void run() {
+        for( int j = s; j < e; j++ ){
+          System.out.print("Thread " + Thread.currentThread().getId() + " processing index " + j);
+        }
+      }
+}
+ 
+  for (int i = 0; i < numOfThreads; i++ ) {
+    start = i * iterationsPerThread;
+    end = start + iterationsPerThread;
+
+    ex.submit(new MyRunnable(start, end));
+  }
+
+  ex.shutdown(); 
+  ]]></Source>
+</Rule>

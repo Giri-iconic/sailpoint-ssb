@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
 <Rule language="beanshell" name="Audit_Rule">
-  <Source>
+  <Source><![CDATA[
 
   import sailpoint.object.*;
   
@@ -44,5 +44,5 @@
   context.saveObject(aeIqnJoiner);
   context.commitTransaction();
   logger.info(aeIqnJoiner.toXml());
-  </Source>
+  ]]></Source>
 </Rule>

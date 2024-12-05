@@ -34,7 +34,7 @@
       </Argument>
     </Inputs>
   </Signature>
-  <Source>
+  <Source><![CDATA[
     
       import java.io.BufferedReader;
       import java.io.FileNotFoundException;
@@ -110,10 +110,10 @@
       */
       Set secreteAttributes = new LinkedHashSet();
       String rowSeparator = "\n";
-      private String docTypeHeader = "&lt;?xml version='1.0' encoding='UTF-8'?&gt;" +
-                             "\n&lt;!DOCTYPE Application PUBLIC \"sailpoint.dtd\" \"sailpoint.dtd\"&gt;" +
-                             "\n&lt;Application&gt;\n";
-      private String docTypeFooter = "\n&lt;/Application&gt;";
+      private String docTypeHeader = "<?xml version='1.0' encoding='UTF-8'?>" +
+                             "\n<!DOCTYPE Application PUBLIC \"sailpoint.dtd\" \"sailpoint.dtd\">" +
+                             "\n<Application>\n";
+      private String docTypeFooter = "\n</Application>";
       private String schemasHeader = "Schemas";
       private String provisioningFormsHeader = "ProvisioningForms";
       private String create = "create";
@@ -159,11 +159,11 @@
                   String applicationName = "";
 
                   if (fileRowList != null) {
-                      if (fileRowList.size() &gt; fileHeaders.size()) {
+                      if (fileRowList.size() > fileHeaders.size()) {
                           throw new GeneralException("Mismach in row data and headers length. Affected row: " + fileRow);
                       }
                       // Attribute Map received from input file
-                      for (int i = 0; i &lt; fileRowList.size(); i++) {
+                      for (int i = 0; i < fileRowList.size(); i++) {
                           String fileRowData = (String)fileRowList.get(i);
                           if (Util.isNotNullOrEmpty(fileRowData)) {
                               if (isApplicationName) {
@@ -344,17 +344,17 @@
 
                   String appXML = application.toXml(false);
 
-                  String schemasHeaderTag = "&lt;Schemas&gt;";
-                  String schemasFooterTag = "&lt;/Schemas&gt;";
-                  if (appXML.indexOf(schemasHeaderTag) &gt; 0) {
+                  String schemasHeaderTag = "<Schemas>";
+                  String schemasFooterTag = "</Schemas>";
+                  if (appXML.indexOf(schemasHeaderTag) > 0) {
                       String schema = appXML.substring(appXML.indexOf(schemasHeaderTag), appXML.indexOf(schemasFooterTag) + 10);
                       uniqueHeaders.add(schemasHeader);
                       attributeMap.put(schemasHeader, schema);
                   }
 
-                  String provisioningFormsHeaderTag = "&lt;ProvisioningForms&gt;";
-                  String provisioningFormsFooterTag = "&lt;/ProvisioningForms&gt;";
-                  if (appXML.indexOf(provisioningFormsHeaderTag) &gt; 0) {
+                  String provisioningFormsHeaderTag = "<ProvisioningForms>";
+                  String provisioningFormsFooterTag = "</ProvisioningForms>";
+                  if (appXML.indexOf(provisioningFormsHeaderTag) > 0) {
                       String forms = appXML.substring(appXML.indexOf(provisioningFormsHeaderTag), appXML.indexOf(provisioningFormsFooterTag) + 20);
                       uniqueHeaders.add(provisioningFormsHeader);
                       attributeMap.put(provisioningFormsHeader, forms);
@@ -518,15 +518,15 @@
               String key = (String)entryMap.getKey();
               Object value = entryMap.getValue();
 
-              if (key != null &amp;&amp; !applicationObjects.contains(key) &amp;&amp; value != null) {
+              if (key != null && !applicationObjects.contains(key) && value != null) {
                   application.setAttribute((String)entryMap.getKey(), entryMap.getValue());
               }
 
-              if (applicationObjects.contains(key) &amp;&amp; schemasHeader.equals(key)) {
+              if (applicationObjects.contains(key) && schemasHeader.equals(key)) {
                   mergeSchemas(application, value.toString());
               }
 
-              if (applicationObjects.contains(key) &amp;&amp; provisioningFormsHeader.equals(key)) {
+              if (applicationObjects.contains(key) && provisioningFormsHeader.equals(key)) {
                   setProvisioningForms(application, value.toString());
               }
           }
@@ -554,7 +554,7 @@
           aggregationappList.add(application.getName());
 
           // Perform account and group aggregation task for configured applications per aggregation
-          if (aggregationappList.size() &gt;= applicationsPerAggregation) {
+          if (aggregationappList.size() >= applicationsPerAggregation) {
                 triggerAggregation(aggregationappList);
 
                 // clear the list for the next chunk of aggregations
@@ -694,17 +694,17 @@
       private void updateTaskResult() {
           log.debug("Entering updateTaskResult()...");
 
-          if (applicationsFailed.size() &gt; 0) {
+          if (applicationsFailed.size() > 0) {
               taskResult.setCompletionStatus(TaskResult.CompletionStatus.Error);
               if (create.equals(operation)) {
                   taskResult.addMessage(Message.error("application_builder_create_failed_error", applicationsFailed.size()));
               } else if (update.equals(operation)) {
                   taskResult.addMessage(Message.error("application_builder_update_failed_error", applicationsFailed.size()));
               }
-          } else if (applicationsExists.size() &gt; 0) {
+          } else if (applicationsExists.size() > 0) {
               taskResult.setCompletionStatus(TaskResult.CompletionStatus.Warning);
               taskResult.addMessage(Message.warn("application_builder_create_warning_msg", filePath));
-          } else if (applicationsNotFound.size() &gt; 0) {
+          } else if (applicationsNotFound.size() > 0) {
               taskResult.setCompletionStatus(TaskResult.CompletionStatus.Warning);
               taskResult.addMessage(Message.warn("application_builder_update_warning_msg", filePath));
           } else {
@@ -749,7 +749,7 @@
 
           if (inputParams.get("applicationsPerAggregation") != null) {
               try {
-                  if (Integer.parseInt(inputParams.get("applicationsPerAggregation")) &gt; 0) {
+                  if (Integer.parseInt(inputParams.get("applicationsPerAggregation")) > 0) {
                       applicationsPerAggregation = Integer.parseInt(inputParams.get("applicationsPerAggregation"));
                   }
               } catch (NumberFormatException e) {
@@ -815,5 +815,5 @@
 
       return taskResult;
     
-  </Source>
+  ]]></Source>
 </Rule>

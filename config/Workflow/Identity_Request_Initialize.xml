@@ -227,24 +227,24 @@
     <Arg name="disableRetryRequest" value="!ref:enableRetryRequest"/>
     <Arg name="noApplicationTemplates">
       <Script>
-        <Source>
+        <Source><![CDATA[
             boolean ignoreForms = false;
             if ("ForgotPassword".equals(flow) || "ExpirePassword".equals(flow)) {
                ignoreForms = true;
             }
             return ignoreForms;
-        </Source>
+        ]]></Source>
       </Script>
     </Arg>
     <Arg name="noLocking">
       <Script>
-        <Source>
+        <Source><![CDATA[
             boolean noLocking = false;
             if ("Lifecycle".equals(flow)) {
                noLocking = true;
             }
             return noLocking;
-        </Source>
+        ]]></Source>
       </Script>
     </Arg>
     <Description>Compile the provisioning plan into a provisioning project.
@@ -290,7 +290,7 @@
       <Reference class="sailpoint.object.Workflow" name="Identity Request Violation Review"/>
     </WorkflowRef>
     <Transition to="end" when="script:(&quot;cancel&quot;.equals(violationReviewDecision))"/>
-    <Transition to="end" when="script:((policyScheme.equals(&quot;fail&quot;) &amp;&amp; (size(policyViolations) > 0 )  ))"/>
+    <Transition to="end" when="script:((policyScheme.equals(&quot;fail&quot;) &amp;&amp; (size(policyViolations) &gt; 0 )  ))"/>
     <Transition to="Rebuild Approval Set"/>
   </Step>
   <Step action="call:buildApprovalSet" name="Rebuild Approval Set" posX="187" posY="252" resultVariable="approvalSet">
@@ -325,7 +325,7 @@
     <Arg name="formTemplate" value="ref:formTemplate"/>
     <Arg name="requiredOwner">
       <Script>
-        <Source>
+        <Source><![CDATA[
             
            if(sessionOwner.equals("System") || sessionOwner.equals("Scheduler") || sessionOwner.equals("RequestHandler"))
            {
@@ -336,7 +336,7 @@
            return sessionOwner;
            }
            
-          </Source>
+          ]]></Source>
       </Script>
     </Arg>
     <Arg name="workItemComments" value="ref:workItemComments"/>

@@ -30,7 +30,7 @@
     </Field>
     <Field displayName="label_confirm_password" name="confirmPassword" required="true" type="secret">
       <ValidationScript>
-        <Source>
+        <Source><![CDATA[
             
             import java.util.*;
             import sailpoint.web.messages.MessageKeys;
@@ -39,7 +39,7 @@
             List errors = null;
             String pw = $(password);
             String cPw = $(confirmPassword);
-            if( (pw == null &amp;&amp; cPw != null) || (pw != null &amp;&amp; cPw == null) || (pw != null &amp;&amp; !pw.equals(cPw))) {
+            if( (pw == null && cPw != null) || (pw != null && cPw == null) || (pw != null && !pw.equals(cPw))) {
                 errors = new ArrayList();
                 Message msg = new Message();
                 msg.setKey(MessageKeys.ERROR_IDENTITY_CONFIRM_PASS_MISMATCH);
@@ -48,7 +48,7 @@
   
             return errors;
             
-          </Source>
+          ]]></Source>
       </ValidationScript>
     </Field>
   </Section>

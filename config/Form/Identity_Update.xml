@@ -18,13 +18,13 @@
     </Attributes>
     <Field displayName="provision_requester">
       <Script>
-        <Source>
+        <Source><![CDATA[
           import sailpoint.object.Identity;
 
           Identity launchIdentity = context.getObject(Identity.class, launcher);
 
           return launchIdentity == null ? launcher : launchIdentity.getDisplayableName();
-        </Source>
+        ]]></Source>
       </Script>
     </Field>
     <Field displayName="provision_requested_roles" value="ref:newRoles"/>
@@ -40,7 +40,7 @@
     <Field columnSpan="1" displayName="provision_account_id" value="script:(identity != null) ? identity.getDisplayableName() : null"/>
     <Field columnSpan="3" displayName="provision_assigned_roles">
       <Script>
-        <Source>
+        <Source><![CDATA[
           import java.util.ArrayList;
           import java.util.List;
           import sailpoint.object.Bundle;
@@ -49,7 +49,7 @@
           String names = null;
 
           if (identity != null) {
-              List&lt;String&gt; roleNames = new ArrayList&lt;String&gt;();
+              List<String> roleNames = new ArrayList<String>();
 
               for (Bundle bundle : Util.iterate(identity.getAssignedRoles())) {
                   roleNames.add(bundle.getDisplayableName());
@@ -59,7 +59,7 @@
           }
 
           return names;
-      </Source>
+      ]]></Source>
       </Script>
     </Field>
   </Section>

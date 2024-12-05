@@ -129,21 +129,21 @@
   </RuleLibraries>
   <Step icon="Start" name="start" posX="23" posY="129">
     <Script>
-      <Source>
+      <Source><![CDATA[
         import sailpoint.tools.Util;
         if ( Util.otob(trace) ) { 
             System.out.println("Event was fired for identity ["+identityName+"]");
             System.out.println("                    trigger ["+trigger.toXml()+"]");
             System.out.println("                    event ["+event.toXml()+"]");
         }
-      </Source>
+      ]]></Source>
     </Script>
     <Transition to="Build Op String"/>
     <Transition to="end" when="script:(Util.size(event.getNativeChanges())==0)"/>
   </Step>
   <Step name="Build Op String" posX="81" posY="20" resultVariable="operations">
     <Script>
-      <Source>
+      <Source><![CDATA[
         import sailpoint.object.NativeChangeDetection;
         import sailpoint.object.ProvisioningPlan.AccountRequest;
         import sailpoint.tools.Util;
@@ -166,7 +166,7 @@
             }
         }
         return Util.listToCsv(ops);
-      </Source>
+      ]]></Source>
     </Script>
     <Transition to="Build Native Change Approval"/>
   </Step>
@@ -183,7 +183,7 @@
   <Step name="Approve Native Change" posX="533" posY="20">
     <Approval mode="parallel" owner="script:getManagerName(identityName, launcher, fallbackApprover);" renderer="nativeChangeApprovalRenderer.xhtml" send="identityDisplayName,identityName">
       <AfterScript>
-        <Source>
+        <Source><![CDATA[
           import sailpoint.workflow.IdentityRequestLibrary;
                     
           if ( item == null ) 
@@ -191,7 +191,7 @@
 
           assimilateWorkItemApprovalSet(wfcontext, item, approvalSet);          
           auditDecisions(item);
-        </Source>
+        ]]></Source>
       </AfterScript>
       <Arg name="workItemRequester" value="$(launcher)"/>
       <Arg name="launcher" value="ref:launcher"/>

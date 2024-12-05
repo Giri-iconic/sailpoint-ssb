@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
 <Rule language="beanshell" name="Leaver sample">
-  <Source>
+  <Source><![CDATA[
 
 
   import sailpoint.object.ProvisioningPlan;
@@ -79,5 +79,5 @@
 
 
 
-  </Source>
+  ]]></Source>
 </Rule>

@@ -20,10 +20,10 @@
       </Argument>
     </Returns>
   </Signature>
-  <Source>
+  <Source><![CDATA[
       import java.util.*;
      Map sysConfig = context.getConfiguration().getAttributes();
      List locales = sysConfig.get("supportedLanguages");
      return locales;
-</Source>
+]]></Source>
 </Rule>

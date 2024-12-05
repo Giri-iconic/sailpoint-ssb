@@ -36,7 +36,7 @@
       </Argument>
     </Returns>
   </Signature>
-  <Source>import sailpoint.object.QueryInfo;
+  <Source><![CDATA[import sailpoint.object.QueryInfo;
 
-return new QueryInfo(null, false);</Source>
+return new QueryInfo(null, false);]]></Source>
 </Rule>

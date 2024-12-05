@@ -13,7 +13,7 @@
               </QueryParameters>
             </DataSource>
             <ExtendedColumnScript>
-              <Source>
+              <Source><![CDATA[
                           
                           import java.util.*;
                           import sailpoint.reporting.*;
@@ -25,7 +25,7 @@
                           if (scores != null) {
                               Rule rule = context.getObjectByName(Rule.class, "Report Scorecard Value Renderer");
                               for (ScoreDefinition score : scores) {
-                                  if (!score.isDisabled()  &amp;&amp; score.getName()!=null) {
+                                  if (!score.isDisabled()  && score.getName()!=null) {
                                       ReportColumnConfig conf = new ReportColumnConfig(score.getName(),
                                           score.getDisplayableName(), "java.lang.String");
                                       conf.setProperty("scorecard");
@@ -39,7 +39,7 @@
 
                           return newCols;
                           
-                      </Source>
+                      ]]></Source>
             </ExtendedColumnScript>
             <Columns>
               <ReportColumnConfig field="name" header="rept_app_risk_col_app" property="name" sortable="true" width="110"/>

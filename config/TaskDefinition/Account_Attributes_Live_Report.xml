@@ -15,7 +15,7 @@
                 <Parameter argument="capabilities" property="capabilities.id"/>
                 <Parameter argument="groupDefinitions">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                             import sailpoint.object.*;
                             import sailpoint.reporting.*;
                             Filter f = ReportingLibrary.getGroupDefinitionFilter(context, value, false);
@@ -23,7 +23,7 @@
                                 queryOptions.addFilter(f);
                             }
                             return queryOptions;
-                          </Source>
+                          ]]></Source>
                   </QueryScript>
                 </Parameter>
               </QueryParameters>

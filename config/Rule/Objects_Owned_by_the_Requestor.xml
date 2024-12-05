@@ -27,6 +27,18 @@
           should have access to the selected object.
         </Description>
       </Argument>
+      <Argument name="isUnmatchedEntitlements">
+        <Description>
+          A boolean flag which shows that we need a filter for entitlements without matched ManagedAttributes if true. To filter
+          such entitlements the MapMatcher is used. MapMatcher does not support subquery, that's why a filter with "in"
+          instead of subquery should be created.
+        </Description>
+      </Argument>
+      <Argument name="isCurrentAccess">
+        <Description>
+          A boolean flag which shows that we select user's current access if true.
+        </Description>
+      </Argument>
     </Inputs>
     <Returns>
       <Argument name="filter">
@@ -36,13 +48,17 @@
       </Argument>
     </Returns>
   </Signature>
-  <Source>
+  <Source><![CDATA[
     
       import sailpoint.object.Filter;
       import sailpoint.object.Identity;
       import sailpoint.object.QueryOptions;
-      import sailpoint.object.QueryInfo; 
-      return new QueryInfo(QueryOptions.getOwnerScopeFilterUsingSubqueries(requestor, "owner"), false);
+      import sailpoint.object.QueryInfo;
+      if (isUnmatchedEntitlements && isCurrentAccess) {
+        return new QueryInfo(QueryOptions.getOwnerScopeFilter(requestor, "owner"), false);
+      } else {
+        return new QueryInfo(QueryOptions.getOwnerScopeFilterUsingSubqueries(requestor, "owner"), false);
+      }
     
-  </Source>
+  ]]></Source>
 </Rule>

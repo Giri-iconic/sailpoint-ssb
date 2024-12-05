@@ -191,14 +191,14 @@
   <Step action="setLaunchMessage" icon="Message" name="Start Provisioning Process" posX="270" posY="315">
     <Arg name="message">
       <Script>
-        <Source>
+        <Source><![CDATA[
           // pick a message with more detail if we're provisioning
           import sailpoint.object.ProvisioningPlan;
           String msg = "workflow_identity_saved";
           boolean otherPlans = false;
           List plans = project.getPlans();
           if (plans != null) {
-              for (int i = 0 ; i &lt; plans.size() ; i++) {
+              for (int i = 0 ; i < plans.size() ; i++) {
                   ProvisioningPlan plan = (ProvisioningPlan)plans.get(i);
                   if (!ProvisioningPlan.APP_IIQ.equals(plan.getTargetIntegration())) {
                      otherPlans = true;
@@ -207,7 +207,7 @@
               }
           }
 
-          if (project.getUnmanagedPlan() != null &amp;&amp; isTrue(doManualActions)) {
+          if (project.getUnmanagedPlan() != null && isTrue(doManualActions)) {
               if (otherPlans)
                   msg = "workflow_identity_provisioning_manual";
               else
@@ -218,7 +218,7 @@
           }
 
           return msg;
-        </Source>
+        ]]></Source>
       </Script>
     </Arg>
     <Arg name="arg1" value="ref:identityDisplayName"/>
@@ -263,10 +263,10 @@
   </Step>
   <Step name="Form Owner Error" posX="701" posY="9">
     <Script>
-      <Source>
+      <Source><![CDATA[
         //println("Unable to determine owner for provisioning form, terminating process");
         //println(wfcontext.getWorkflowCase().toXml());
-      </Source>
+      ]]></Source>
     </Script>
     <Transition to="end"/>
   </Step>

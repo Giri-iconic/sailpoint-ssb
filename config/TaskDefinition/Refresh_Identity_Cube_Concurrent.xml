@@ -1,13 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE TaskDefinition PUBLIC "sailpoint.dtd" "sailpoint.dtd">
 <TaskDefinition concurrent="true" name="Refresh Identity Cube Concurrent" subType="task_item_type_identity" type="Identity">
-  <Attributes>
-    <Map>
-      <entry key="TaskDefinition.runLengthAverage" value="4"/>
-      <entry key="TaskDefinition.runLengthTotal" value="17"/>
-      <entry key="TaskDefinition.runs" value="4"/>
-    </Map>
-  </Attributes>
   <Description>
             Perform a full refresh of selected identities. This supports running concurrently.
         </Description>

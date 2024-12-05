@@ -47,12 +47,12 @@
                 <entry key="hidden">
                   <value>
                     <Script>
-                      <Source>
-if(needAccounExpiry != null &amp;&amp; needAccounExpiry.equals("yes")){
+                      <Source><![CDATA[
+if(needAccounExpiry != null && needAccounExpiry.equals("yes")){
   return "false";
 }else{
  return "true";
-}</Source>
+}]]></Source>
                     </Script>
                   </value>
                 </entry>

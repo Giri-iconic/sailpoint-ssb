@@ -16,19 +16,19 @@
                 <Parameter argument="capabilities" property="identity.capabilities.id"/>
                 <Parameter argument="identityRoles" property="value">
                   <ValueScript>
-                    <Source>
+                    <Source><![CDATA[
                             import sailpoint.object.*;
                             import sailpoint.api.ObjectUtil;
                             if (value != null){
                               return ObjectUtil.convertIdsToNames(context, Bundle.class, value);
                             }
                             return null;
-                          </Source>
+                          ]]></Source>
                   </ValueScript>
                 </Parameter>
                 <Parameter argument="groupDefinitions" property="identity">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                             import sailpoint.object.*;
                             import sailpoint.reporting.*;
                             Filter f = ReportingLibrary.getGroupDefinitionFilter(context, value, true, property);
@@ -36,7 +36,7 @@
                                 queryOptions.addFilter(f);
                             }
                             return queryOptions;
-                          </Source>
+                          ]]></Source>
                   </QueryScript>
                 </Parameter>
               </QueryParameters>
@@ -49,10 +49,10 @@
               <ReportColumnConfig field="role" header="rept_id_roles_col_role" property="value" sortable="true" width="110"/>
               <ReportColumnConfig field="detected" header="rept_id_roles_col_method" property="name" sortable="true" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           import sailpoint.tools.*;
                           return value.equals("assignedRoles") ? Message.localize("rept_id_roles_col_assigned") : Message.localize("rept_id_roles_col_detected");
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="lastCertification" header="rept_id_roles_last_cert" property="certificationItem.parent.certification.signed" sortable="true" width="110"/>

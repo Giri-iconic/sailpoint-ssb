@@ -11,31 +11,31 @@
                 <Parameter argument="groups" property="groupDefinitionId"/>
                 <Parameter argument="tags" property="tags.id">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                             
                             import sailpoint.object.*;
                             import java.util.*;
 
-                            if (value != null &amp;&amp; !value.isEmpty()){
+                            if (value != null && !value.isEmpty()){
                               queryOptions.addFilter(Filter.containsAll("tags.id", value));
                             }
 
                             return queryOptions;
                             
-                          </Source>
+                          ]]></Source>
                   </QueryScript>
                 </Parameter>
                 <Parameter argument="certificationGroups" property="certificationGroups.id"/>
                 <Parameter argument="managers" property="manager">
                   <ValueScript>
-                    <Source>
+                    <Source><![CDATA[
                             import sailpoint.object.*;
                             import sailpoint.api.ObjectUtil;
                             if (value != null){
                               return ObjectUtil.convertIdsToNames(context, Identity.class, value);
                             }
                             return null;
-                          </Source>
+                          ]]></Source>
                   </ValueScript>
                 </Parameter>
                 <Parameter argument="applications" property="applicationId"/>
@@ -44,11 +44,11 @@
                 <Parameter argument="expirationDate" property="expiration" valueClass="daterange"/>
                 <Parameter argument="esigned" property="signOffHistory.electronicSign" valueClass="boolean">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                             
                             import sailpoint.object.*;
                             import sailpoint.api.*;
-                            if (value != null &amp;&amp; !"null".equals(value)){
+                            if (value != null && !"null".equals(value)){
                               if (value){
                                 queryOptions.addFilter(Filter.eq("signOffHistory.electronicSign", true));
                               } else {
@@ -61,17 +61,17 @@
 
                             return queryOptions;
                             
-                          </Source>
+                          ]]></Source>
                   </QueryScript>
                 </Parameter>
                 <Parameter argument="signedOff" property="signed">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                             
                             import sailpoint.object.*;
                             import sailpoint.api.*;
 
-                            if (value != null &amp;&amp; !"null".equals(value)){
+                            if (value != null && !"null".equals(value)){
                               if (Boolean.parseBoolean(value)){
                                 queryOptions.addFilter(Filter.notnull("signed"));
                               } else {
@@ -81,7 +81,7 @@
 
                             return queryOptions;
                            
-                          </Source>
+                          ]]></Source>
                   </QueryScript>
                 </Parameter>
               </QueryParameters>
@@ -98,7 +98,7 @@
               <ReportColumnConfig field="due" header="rept_cert_signoff_due_date" property="expiration" sortable="true" width="110"/>
               <ReportColumnConfig field="owner" header="rept_cert_signoff_owner" property="id" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           import sailpoint.object.*;
                           import java.util.*;
                           QueryOptions ops = new QueryOptions();
@@ -112,20 +112,20 @@
                             names.add(iter.next()[0]);
                           }
                           return names;
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="tags" header="rept_cert_signoff_tags" property="tags.name" subQueryKey="id" width="110"/>
               <ReportColumnConfig field="esigned" header="rept_cert_signoff_esig" property="signOffHistory.electronicSign" sortable="true" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                           import sailpoint.web.messages.MessageKeys;
 
                           if (value != null)
                             return value ? MessageKeys.REPT_CERT_SIGNOFF_ESIGNED_VALUE_TRUE : MessageKeys.REPT_CERT_SIGNOFF_ESIGNED_VALUE_FALSE;
 
                           return MessageKeys.REPT_CERT_SIGNOFF_ESIGNED_VALUE_FALSE;
-                        </Source>
+                        ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="meaning" header="rept_cert_signoff_meaning" property="signOffHistory.text" width="110"/>

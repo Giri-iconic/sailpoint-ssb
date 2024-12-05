@@ -27,7 +27,7 @@
       </Argument>
     </Returns>
   </Signature>
-  <Source>
+  <Source><![CDATA[
         
             // Imports
             import sailpoint.object.Identity;
@@ -47,5 +47,5 @@
             return ident;
 
         
-    </Source>
+    ]]></Source>
 </Rule>

@@ -61,59 +61,17 @@
   <ObjectAttribute displayName="att_last_login" name="lastLogin" silent="true" system="true" type="string"/>
   <ObjectAttribute displayName="att_capabilities" name="capabilities" system="true" type="string"/>
   <ObjectAttribute displayName="att_composite_score" name="scorecard.compositeScore" silent="true" system="true" type="string"/>
+  <ObjectAttribute displayName="att_email" name="email" standard="true" type="string"/>
   <ObjectAttribute displayName="att_inactive" name="inactive" standard="true" type="boolean"/>
   <ObjectAttribute displayName="att_manager_status" name="managerStatus" system="true" type="boolean"/>
   <ObjectAttribute displayName="att_rights" name="rights" system="true" type="string"/>
   <ObjectAttribute displayName="att_workgroups" name="workgroups" system="true" type="string"/>
+  <ObjectAttribute displayName="att_identity_type" name="type" standard="true" type="string"/>
   <ObjectAttribute displayName="att_software_version" name="softwareVersion" standard="true" type="string"/>
   <ObjectAttribute displayName="att_administrator" name="administrator" standard="true" type="sailpoint.object.Identity"/>
-  <ObjectAttribute displayName="Middle Name" editMode="ReadOnly" name="middleName" type="string">
-    <AttributeSource name="Middle Name">
-      <ApplicationRef>
-        <Reference class="sailpoint.object.Application" name="Test"/>
-      </ApplicationRef>
-    </AttributeSource>
-  </ObjectAttribute>
-  <ObjectAttribute displayName="att_display_name" editMode="ReadOnly" name="displayName" standard="true" type="string">
-    <AttributeSource name="cn">
-      <ApplicationRef>
-        <Reference class="sailpoint.object.Application" name="Active Directory"/>
-      </ApplicationRef>
-    </AttributeSource>
-  </ObjectAttribute>
-  <ObjectAttribute displayName="att_email" editMode="UntilFeedValueChanges" name="email" standard="true" type="string">
-    <AttributeSource name="mail">
-      <ApplicationRef>
-        <Reference class="sailpoint.object.Application" name="Active Directory"/>
-      </ApplicationRef>
-    </AttributeSource>
-  </ObjectAttribute>
-  <ObjectAttribute displayName="att_manager" editMode="ReadOnly" groupFactory="true" name="manager" standard="true" type="sailpoint.object.Identity">
-    <AttributeSource name="manager">
-      <ApplicationRef>
-        <Reference class="sailpoint.object.Application" name="Active Directory"/>
-      </ApplicationRef>
-    </AttributeSource>
-    <AttributeSource name="Mgr">
-      <ApplicationRef>
-        <Reference class="sailpoint.object.Application" name="HRMS"/>
-      </ApplicationRef>
-    </AttributeSource>
-  </ObjectAttribute>
-  <ObjectAttribute displayName="Emp id" editMode="ReadOnly" extendedNumber="2" name="emp_id" type="string">
-    <AttributeSource name="Emp Id">
-      <ApplicationRef>
-        <Reference class="sailpoint.object.Application" name="HRMS"/>
-      </ApplicationRef>
-    </AttributeSource>
-  </ObjectAttribute>
-  <ObjectAttribute displayName="att_first_name" editMode="ReadOnly" name="firstname" standard="true" type="string">
-    <AttributeSource name="First Name">
-      <ApplicationRef>
-        <Reference class="sailpoint.object.Application" name="Test"/>
-      </ApplicationRef>
-    </AttributeSource>
-    <AttributeSource name="First Name">
+  <ObjectAttribute displayName="Region" editMode="ReadOnly" name="region" type="string"/>
+  <ObjectAttribute displayName="Location" editMode="ReadOnly" name="location" type="string">
+    <AttributeSource name="Office Loc">
       <ApplicationRef>
         <Reference class="sailpoint.object.Application" name="HRMS"/>
       </ApplicationRef>
@@ -122,31 +80,55 @@
   <ObjectAttribute displayName="att_last_name" editMode="ReadOnly" name="lastname" standard="true" type="string">
     <AttributeSource name="Last Name">
       <ApplicationRef>
-        <Reference class="sailpoint.object.Application" name="Test"/>
+        <Reference class="sailpoint.object.Application" name="HRMS"/>
       </ApplicationRef>
     </AttributeSource>
-    <AttributeSource name="Last Name">
+    <AttributeSource name="lastName">
       <ApplicationRef>
-        <Reference class="sailpoint.object.Application" name="HRMS"/>
+        <Reference class="sailpoint.object.Application" name="API"/>
       </ApplicationRef>
     </AttributeSource>
   </ObjectAttribute>
-  <ObjectAttribute displayName="Type" editMode="ReadOnly" name="type" standard="true" type="string">
-    <AttributeSource name="Type">
+  <ObjectAttribute displayName="Employee Id" editMode="ReadOnly" name="employeeId" type="string">
+    <AttributeSource name="Emp Id">
       <ApplicationRef>
         <Reference class="sailpoint.object.Application" name="HRMS"/>
+      </ApplicationRef>
+    </AttributeSource>
+    <AttributeSource name="employeeId">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application" name="API"/>
       </ApplicationRef>
     </AttributeSource>
   </ObjectAttribute>
-  <ObjectAttribute displayName="Depratment" editMode="ReadOnly" name="depratment" type="string">
-    <AttributeSource name="Dept">
+  <ObjectAttribute displayName="att_display_name" editMode="ReadOnly" name="displayName" standard="true" type="string">
+    <AttributeSource name="fullName">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application" name="API"/>
+      </ApplicationRef>
+    </AttributeSource>
+  </ObjectAttribute>
+  <ObjectAttribute displayName="att_manager" editMode="Permanent" groupFactory="true" name="manager" standard="true" type="sailpoint.object.Identity">
+    <AttributeSource name="Mgr">
       <ApplicationRef>
         <Reference class="sailpoint.object.Application" name="HRMS"/>
       </ApplicationRef>
     </AttributeSource>
-    <AttributeSource name="department">
+    <AttributeSource name="manager">
       <ApplicationRef>
-        <Reference class="sailpoint.object.Application" name="Active Directory"/>
+        <Reference class="sailpoint.object.Application" name="API"/>
+      </ApplicationRef>
+    </AttributeSource>
+  </ObjectAttribute>
+  <ObjectAttribute displayName="att_first_name" editMode="ReadOnly" groupFactory="true" name="firstname" standard="true" type="string">
+    <AttributeSource name="firstName">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application" name="API"/>
+      </ApplicationRef>
+    </AttributeSource>
+    <AttributeSource name="First Name">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application" name="HRMS"/>
       </ApplicationRef>
     </AttributeSource>
   </ObjectAttribute>

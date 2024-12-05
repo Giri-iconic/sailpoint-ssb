@@ -10,7 +10,7 @@
     <Field displayName="wf_config_provisioning_notification_scheme" helpKey="help_wf_provisioning_notification_scheme" multi="true" name="notificationScheme" postBack="true" type="string">
       <AllowedValuesDefinition>
         <Script>
-          <Source>
+          <Source><![CDATA[
             
               import sailpoint.tools.Util;
 
@@ -43,7 +43,7 @@
 
               return values;
                          
-          </Source>
+          ]]></Source>
         </Script>
       </AllowedValuesDefinition>
       <Attributes>
@@ -57,7 +57,7 @@
         </Map>
       </Attributes>
       <Script>
-        <Source>
+        <Source><![CDATA[
           
             import sailpoint.tools.Util;
 
@@ -65,13 +65,13 @@
 
             // References are not supported in this form right now so initialize the value 
             // to null if we get a reference
-            if ( notificationScheme != void &amp;&amp; notificationScheme != null &amp;&amp; !notificationScheme.startsWith("ref:")) {
+            if ( notificationScheme != void && notificationScheme != null && !notificationScheme.startsWith("ref:")) {
                 val = Util.csvToList(notificationScheme);
             }
 
             return val;
           
-        </Source>
+        ]]></Source>
       </Script>
     </Field>
     <Field displayName="wf_config_provisioning_notification_other_users_names" dynamic="true" helpKey="help_wf_provisioning_other_users_names" multi="true" name="otherUsersToNotify" type="Identity">

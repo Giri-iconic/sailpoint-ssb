@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Configuration PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Configuration name="MessageBusConfiguration">
+  <Attributes>
+    <Map>
+      <entry key="activemqConfiguration">
+        <value>
+          <Attributes>
+            <Map>
+              <entry key="adminPassword" value="1:ACP:Y8wS2AXL9a/8oB10F5SM2EZa7Gw2ocrQp9xVyc+IOnnU6dJAGX6ENIBKmYlR0oog"/>
+              <entry key="adminUsername" value="amq_adminuser"/>
+              <entry key="clientConnectionString" value="failover:(tcp://localhost:61616)?initialReconnectDelay=10&amp;maxReconnectAttempts=10&amp;randomize=false&amp;startupMaxReconnectAttempts=10&amp;jms.watchTopicAdvisories=false&amp;jms.redeliveryPolicy.initialRedeliveryDelay=900000&amp;jms.redeliveryPolicy.redeliveryDelay=900000"/>
+              <entry key="consumerPassword" value="1:ACP:7YQvXDEeLy+YId6Ja737ccHWOD7Zbiz+2a0fUSUOPXo="/>
+              <entry key="consumerUsername" value="amq_consumeruser"/>
+              <entry key="dlqExpirationInDays">
+                <value>
+                  <Integer>30</Integer>
+                </value>
+              </entry>
+              <entry key="lockAcquireSleepInterval">
+                <value>
+                  <Integer>30000</Integer>
+                </value>
+              </entry>
+              <entry key="lockKeepAlivePeriod">
+                <value>
+                  <Integer>10000</Integer>
+                </value>
+              </entry>
+              <entry key="maxPageSize">
+                <value>
+                  <Integer>2000</Integer>
+                </value>
+              </entry>
+              <entry key="optimizeFailoverEnabled">
+                <value>
+                  <Boolean>true</Boolean>
+                </value>
+              </entry>
+              <entry key="producerPassword" value="1:ACP:CYGnQpAeqrPGVp2sojpyo+3qdn+SYU6YtlkAINnx1FY="/>
+              <entry key="producerUsername" value="amq_produceruser"/>
+            </Map>
+          </Attributes>
+        </value>
+      </entry>
+      <entry key="brokerStatsQueue" value="queue://iiqBrokerStatsQueue"/>
+      <entry key="brokerType" value="embedded"/>
+      <entry key="destinationStatsQueue" value="queue://iiqDestinationStatsQueue"/>
+      <entry key="subscriptionStatsQueue" value="queue://iiqSubscriptionStatsQueue"/>
+    </Map>
+  </Attributes>
+</Configuration>

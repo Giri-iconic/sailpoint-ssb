@@ -4,16 +4,13 @@
   <Attributes>
     <Map>
       <entry key="displayName" value="RapidSetup No Manager"/>
-      <entry key="email" value="security@example.com"/>
     </Map>
   </Attributes>
-  <Description>Receives Rapid Setup manager emails for users with no manager
-defined</Description>
   <Preferences>
     <Map>
       <entry key="workgroupNotificationOption">
         <value>
-          <WorkgroupNotifationOption>GroupEmailOnly</WorkgroupNotifationOption>
+          <WorkgroupNotifationOption>Both</WorkgroupNotifationOption>
         </value>
       </entry>
     </Map>

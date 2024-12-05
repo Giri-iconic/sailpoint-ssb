@@ -6,8 +6,6 @@
     <Attributes>
       <Map>
         <entry key="businessProcess" value="mover"/>
-        <entry key="identityProcessingThreshold"/>
-        <entry key="identityProcessingThresholdType"/>
         <entry key="workflow" value="RapidSetup - Mover"/>
       </Map>
     </Attributes>

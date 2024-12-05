@@ -37,7 +37,7 @@
   <Step icon="Stop" name="Stop" posX="491" posY="12"/>
   <Step icon="Default" name="Provisioning Plan" posX="345" posY="12">
     <Script>
-      <Source>log.error("================================== "+expiryDate +"  "+userAccount+" =====================================");
+      <Source><![CDATA[log.error("================================== "+expiryDate +"  "+userAccount+" =====================================");
 log.error("================================== "+userAccount+" =====================================");
 
 import sailpoint.objet.Identity;
@@ -54,7 +54,7 @@ AccountRequest accReq = new AccountRequest();
 accReq.setApplication("Active Directory");
 accReq.setOperation(AccountRequest.Operation.Modify);
 
-accReq.add("accountExpires", expiryDate));</Source>
+accReq.add("accountExpires", expiryDate));]]></Source>
     </Script>
     <Transition to="Stop"/>
   </Step>

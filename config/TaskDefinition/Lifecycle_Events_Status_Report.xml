@@ -15,7 +15,7 @@
           <LiveReport title="Lifecycle Events Status Report">
             <Chart title="rept_lcm_access_request_chart_title" type="pie">
               <Script>
-                <Source>
+                <Source><![CDATA[
                              
                                 import sailpoint.object.*;
                                 import java.util.*;
@@ -41,7 +41,7 @@
                                     Filter.eq("identityRequest.executionStatus", IdentityRequest.ExecutionStatus.Terminated));
                                 terminatedStateOps.addFilter(filter);
                                 int terminatedCount = context.countObjects(IdentityRequestItem.class, terminatedStateOps);
-                                if (terminatedCount &gt; 0) {
+                                if (terminatedCount > 0) {
                                     Map val = new HashMap();
                                     val.put("category", "identity_request_terminated");
                                     val.put("value", terminatedCount);
@@ -67,7 +67,7 @@
                                 }
                                 return data;
                               
-                           </Source>
+                           ]]></Source>
               </Script>
             </Chart>
             <DataSource dataSourceClass="sailpoint.reporting.datasource.LcmIdentityRequestStatusJavaDataSource" objectType="sailpoint.object.IdentityRequestItem" type="Java"/>

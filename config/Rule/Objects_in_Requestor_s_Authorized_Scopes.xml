@@ -41,12 +41,12 @@
       </Argument>
     </Returns>
   </Signature>
-  <Source>
+  <Source><![CDATA[
     
       import sailpoint.api.ScopeService;
       
       ScopeService scopeService = new ScopeService(context);
       return scopeService.getControlledScopesQueryInfo(requestor);
     
-  </Source>
+  ]]></Source>
 </Rule>

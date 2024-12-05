@@ -12,7 +12,7 @@
               </QueryParameters>
             </DataSource>
             <ExtendedColumnScript>
-              <Source>
+              <Source><![CDATA[
                         
                         import java.util.*;
                         import sailpoint.reporting.*;
@@ -20,13 +20,13 @@
 
                         List newCols = new ArrayList();
                         Map formValues = form.getFieldValues();
-                        if (formValues != null &amp;&amp; formValues.containsKey("application") &amp;&amp; formValues.get("application") != null){
+                        if (formValues != null && formValues.containsKey("application") && formValues.get("application") != null){
                           newCols = ReportingLibrary.createApplicationAttributeColumns(context, formValues.get("application"));
                         }
 
                         return newCols;
                         
-                    </Source>
+                    ]]></Source>
             </ExtendedColumnScript>
             <ReportForm>
               <Reference class="sailpoint.object.Form" name="Application Account by Attribute Report Form"/>

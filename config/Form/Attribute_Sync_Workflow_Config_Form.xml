@@ -4,7 +4,7 @@
   <Section label="wf_config_provisioning_approval_section">
     <Field displayName="wf_config_provisioning_approval_none" helpKey="help_wf_provisioning_approval_disable" name="disableApprovals" postBack="true" type="boolean">
       <Script>
-        <Source>
+        <Source><![CDATA[
             
                 import sailpoint.tools.Util;
 
@@ -19,13 +19,13 @@
                 }
                 return false;
             
-          </Source>
+          ]]></Source>
       </Script>
     </Field>
     <Field authoritative="true" displayName="wf_config_provisioning_approval_setting" helpKey="help_wf_provisioning_approval_setting" multi="true" name="approvalSchemeField" postBack="true">
       <AllowedValuesDefinition>
         <Script>
-          <Source>
+          <Source><![CDATA[
               
                 import sailpoint.tools.Util;
                 import sailpoint.object.Workflow;
@@ -56,7 +56,7 @@
 
                 return values;
               
-            </Source>
+            ]]></Source>
         </Script>
       </AllowedValuesDefinition>
       <Attributes>
@@ -79,35 +79,35 @@
           by the WorkflowBean.
         </Description>
       <Script>
-        <Source>
+        <Source><![CDATA[
             
               import sailpoint.tools.Util;
 
               List list = null;
-              if ( approvalSchemeField == void &amp;&amp; approvalScheme != void ) {
+              if ( approvalSchemeField == void && approvalScheme != void ) {
                   if ( disableApprovals == void || !Util.otob(disableApprovals) ) {
                       list = Util.csvToList(approvalScheme);
                   }
               }
               return list;
             
-          </Source>
+          ]]></Source>
       </Script>
       <ValidationScript>
-        <Source>
+        <Source><![CDATA[
             
               import sailpoint.tools.Util;
               import sailpoint.tools.Message;
               import sailpoint.web.messages.MessageKeys;
 
               Message error = null;
-              if ( value == null &amp;&amp; !disableApprovals ) {
+              if ( value == null && !disableApprovals ) {
                   Object[] msgParams = { field.getName() };
                   error = new Message(MessageKeys.WF_CONFIG_PROVISIONING_VALIDATE_NULL, msgParams );
               }
               return error;
             
-          </Source>
+          ]]></Source>
       </ValidationScript>
     </Field>
     <Field dynamic="true" hidden="true" name="approvalScheme" type="string">
@@ -118,7 +118,7 @@
           values in approvalScheme field.
         </Description>
       <Script>
-        <Source>
+        <Source><![CDATA[
             
               import sailpoint.tools.Util;
 
@@ -126,12 +126,12 @@
               if ( approvalSchemeField != void ) {
                   csv = Util.listToCsv(approvalSchemeField);
               }
-              if ( disableApprovals != void &amp;&amp; Util.otob(disableApprovals) ) {
+              if ( disableApprovals != void && Util.otob(disableApprovals) ) {
                   csv = "none";
               }
               return csv;
             
-          </Source>
+          ]]></Source>
       </Script>
     </Field>
     <Field displayName="wf_config_provisioning_approval_identityOrWorkgroup_label" helpKey="help_wf_provisioning_identities_scheme" multi="true" name="approvingIdentities" type="identity">
@@ -155,7 +155,7 @@
           <entry key="hidden">
             <value>
               <Script>
-                <Source>
+                <Source><![CDATA[
                     
                       // Hide this field if we are in the LMCIdentity workflow
                       import sailpoint.tools.Util;
@@ -166,7 +166,7 @@
                       }
                       return false;
                     
-                  </Source>
+                  ]]></Source>
               </Script>
             </value>
           </entry>
@@ -181,17 +181,17 @@
         </Map>
       </Attributes>
       <Script>
-        <Source>
+        <Source><![CDATA[
             
               import sailpoint.tools.Util;
 
               String val = value;
-              if (value != null &amp;&amp; !Util.nullSafeContains(approvalSchemeField, "identity")) {
+              if (value != null && !Util.nullSafeContains(approvalSchemeField, "identity")) {
                   val = null;
               }
               return val;;
             
-          </Source>
+          ]]></Source>
       </Script>
     </Field>
     <Field displayName="wf_config_provisioning_approval_security_officer" helpKey="help_wf_provisioning_securityofficer_name" name="securityOfficerName" type="identity">
@@ -228,7 +228,7 @@
   <Section label="wf_config_provisioning_notification_section">
     <Field displayName="wf_config_provisioning_notification_none" helpKey="help_wf_provisioning_notification_disable" name="disableNotifications" postBack="true" type="boolean">
       <Script>
-        <Source>
+        <Source><![CDATA[
             
                 import sailpoint.tools.Util;
 
@@ -243,13 +243,13 @@
                 }
                 return false;
             
-          </Source>
+          ]]></Source>
       </Script>
     </Field>
     <Field displayName="wf_config_provisioning_notification_scheme" helpKey="help_wf_provisioning_notification_scheme" multi="true" name="notificationSchemeField" postBack="true" type="string">
       <AllowedValuesDefinition>
         <Script>
-          <Source>
+          <Source><![CDATA[
               
                 import sailpoint.tools.Util;
                 import sailpoint.object.Workflow;
@@ -272,7 +272,7 @@
                 values.add(requester);
                 return values;
               
-            </Source>
+            ]]></Source>
         </Script>
       </AllowedValuesDefinition>
       <Attributes>
@@ -281,36 +281,36 @@
         </Map>
       </Attributes>
       <Script>
-        <Source>
+        <Source><![CDATA[
             
               import sailpoint.tools.Util;
               import sailpoint.object.Workflow;
 
               List list = null;
               if ( notificationSchemeField == void ) {
-                  if ( notificationScheme != void &amp;&amp; (disableNotifications != void || !Util.otob(disableNotifications)) ) {
+                  if ( notificationScheme != void && (disableNotifications != void || !Util.otob(disableNotifications)) ) {
                       list = Util.csvToList(notificationScheme);
                   }
               }
               return list;
             
-          </Source>
+          ]]></Source>
       </Script>
       <ValidationScript>
-        <Source>
+        <Source><![CDATA[
             
               import sailpoint.tools.Util;
               import sailpoint.tools.Message;
               import sailpoint.web.messages.MessageKeys;
 
               Message error = null;
-              if ( value == null &amp;&amp; !disableNotifications ) {
+              if ( value == null && !disableNotifications ) {
                   Object[] msgParams = { field.getName() };
                   error = new Message(MessageKeys.WF_CONFIG_PROVISIONING_VALIDATE_NULL, msgParams );
               }
               return error;
             
-          </Source>
+          ]]></Source>
       </ValidationScript>
     </Field>
     <Field dynamic="true" hidden="true" name="notificationScheme">
@@ -321,7 +321,7 @@
           values in approvalScheme field.
         </Description>
       <Script>
-        <Source>
+        <Source><![CDATA[
             
               import sailpoint.tools.Util;
 
@@ -329,13 +329,13 @@
               if ( notificationSchemeField != void ) {
                   csv = Util.listToCsv(notificationSchemeField);
               }
-              if ( disableNotifications != void &amp;&amp; Util.otob(disableNotifications) ) {
+              if ( disableNotifications != void && Util.otob(disableNotifications) ) {
                   csv = "none";
               }
 
               return csv;
             
-          </Source>
+          ]]></Source>
       </Script>
     </Field>
     <Field displayName="wf_config_provisioning_notification_user_email" helpKey="help_wf_provisioning_user_template" name="userEmailTemplate" type="EmailTemplate">

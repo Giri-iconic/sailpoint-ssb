@@ -12,34 +12,34 @@
                 <Parameter argument="applications" property="applicationName"/>
                 <Parameter argument="integration" property="integration">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                         
                         import sailpoint.object.*;
                         import java.util.*;
 
-                         if (value != null &amp;&amp; !value.isEmpty()){
+                         if (value != null && !value.isEmpty()){
                            queryOptions.addFilter(Filter.ignoreCase(Filter.like("integration", value, Filter.MatchMode.START)));
                          }
 
                          return queryOptions;
                          
-                      </Source>
+                      ]]></Source>
                   </QueryScript>
                 </Parameter>
                 <Parameter argument="accountDisplayName" property="accountDisplayName">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                         
                         import sailpoint.object.*;
                         import java.util.*;
 
-                        if (value != null &amp;&amp; !value.isEmpty()){
+                        if (value != null && !value.isEmpty()){
                           queryOptions.addFilter(Filter.ignoreCase(Filter.like("accountDisplayName", value, Filter.MatchMode.START)));
                         }
 
                         return queryOptions;
                         
-                      </Source>
+                      ]]></Source>
                   </QueryScript>
                 </Parameter>
                 <Parameter argument="status" property="status"/>
@@ -49,7 +49,7 @@
                 <Parameter argument="creationDate" property="created" valueClass="daterange"/>
                 <Parameter argument="forced" property="forced">
                   <QueryScript>
-                    <Source>
+                    <Source><![CDATA[
                         
                         import sailpoint.object.*;
                         import java.util.*;
@@ -60,7 +60,7 @@
 
                         return queryOptions;
                         
-                      </Source>
+                      ]]></Source>
                   </QueryScript>
                 </Parameter>
               </QueryParameters>
@@ -71,12 +71,12 @@
             <Columns>
               <ReportColumnConfig field="name" header="report_provisioning_id" property="name" sortable="true" width="110">
                 <RenderScript>
-                  <Source>
+                  <Source><![CDATA[
                       
                         import sailpoint.tools.Util;
                         return Util.stripLeadingChar(value, '0');
                       
-                    </Source>
+                    ]]></Source>
                 </RenderScript>
               </ReportColumnConfig>
               <ReportColumnConfig field="applicationName" header="report_provisioning_application" property="applicationName" sortable="true" width="110"/>
