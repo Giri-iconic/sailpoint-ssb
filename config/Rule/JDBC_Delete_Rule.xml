@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule language="beanshell" name="JDBC Delete Rule" type="JDBCOperationProvisioning">
+  <Description>This rule is used by the JDBC connector to do provisioning of the data .</Description>
+  <Signature returnType="ProvisioningResult"/>
+  <Source><![CDATA[
+  import java.sql.*;
+
+  log.error("=========================== FROM JDBC DELETE RULE ====================");
+
+  String deleteQuery = "DELETE FROM employees WHERE emp_id = ?";
+  PreparedStatement stmt = connection.prepareStatement(deleteQuery);
+
+  stmt.setString(1, (String) plan.getNativeIdentity());
+
+  stmt.executeUpdate();
+
+  connection.close();
+
+  log.error("=========================== FROM JDBC DELETE RULE END ====================");]]></Source>
+</Rule>

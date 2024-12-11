@@ -139,6 +139,11 @@
           </List>
         </value>
       </entry>
+      <entry key="groupProvisioning">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
       <entry key="ldapExtendedControls">
         <value>
           <List>
@@ -170,7 +175,31 @@
         </value>
       </entry>
       <entry key="nativeChangeDetectionOperations"/>
+      <entry key="noGroupPermissions">
+        <value>
+          <Map>
+            <entry key="group">
+              <value>
+                <Boolean/>
+              </value>
+            </entry>
+          </Map>
+        </value>
+      </entry>
+      <entry key="noPermissions" value="false"/>
+      <entry key="operations" value="Create, Modify, Delete, Enable, Disable, Unlock, SetPassword"/>
       <entry key="pageSize" value="100"/>
+      <entry key="schemaProvisioningMap">
+        <value>
+          <Map>
+            <entry key="group">
+              <value>
+                <Boolean>true</Boolean>
+              </value>
+            </entry>
+          </Map>
+        </value>
+      </entry>
       <entry key="searchDNs">
         <value>
           <List>

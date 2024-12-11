@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule language="beanshell" name="JDBC Creation Rule" type="JDBCOperationProvisioning">
+  <Description>This rule is used by the JDBC connector to do provisioning of the data .</Description>
+  <Signature returnType="ProvisioningResult"/>
+  <Source><![CDATA[
+  import java.sql.*;
+  import java.lang.Exception;
+  import sailpoint.object.*;
+  import sailpoint.object.ProvisioningPlan.AccountRequest;
+  import sailpoint.object.ProvisioningResult;
+
+  try {
+    log.error("===================================== ENTERING RULE CRATION ========================");
+    AccountRequest aR = plan.getAccountRequests(application.getName()).get(0);
+    ProvisioningResult result = new ProvisioningResult();
+
+
+
+    String firstName = aR.getAttributeRequest("first_name").getValue();
+    String lastName = aR.getAttributeRequest("last_name").getValue();
+    String fullName = aR.getAttributeRequest("full_name").getValue();
+    String title = aR.getAttributeRequest("title").getValue();
+    String department = aR.getAttributeRequest("department").getValue();
+    String status = aR.getAttributeRequest("status").getValue();
+    String employeeId = (String) plan.getNativeIdentity();
+
+
+    String insertQuery = "INSERT INTO employees (emp_id,first_name,last_name,full_name,title,department,status) VALUES (?,?,?,?,?,?,?)";
+    PreparedStatement stmt = connection.prepareStatement(insertQuery);
+
+    stmt.setString(1,employeeId);
+    stmt.setString(2,firstName);
+    stmt.setString(3,lastName);
+    stmt.setString(4,fullName);
+    stmt.setString(5,title);
+    stmt.setString(6,department);
+    stmt.setString(7,status);
+
+
+    log.warn("======================== INSERT QUERY ==========================");
+    log.warn(insertQuery);
+    // result.setStatus(ProvisioningResult.STATUS_COMMITTED);
+
+    int resultCount = stmt.executeUpdate();
+    if(resultCount > 0) {
+      result.setStatus(ProvisioningResult.STATUS_FAILED);
+          log.warn("======================== IF BLOCK ==========================");
+    } else {
+      result.setStatus(ProvisioningResult.STATUS_FAILED);
+          log.warn("======================== ELSE BLOCK ==========================");
+    }  
+    log.warn("+++++++++++++++++++++++++++++ resultCount : " + resultCount );
+    connection.close();
+  } catch(SQLException e) {
+    log.error( e );
+    result.setStatus( ProvisioningResult.STATUS_FAILED );
+    result.addError( e );
+  }
+
+  return result;]]></Source>
+</Rule>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule language="beanshell" name="JDBC Disable Rule" type="JDBCOperationProvisioning">
+  <Description>This rule is used by the JDBC connector to do provisioning of the data .</Description>
+  <Signature returnType="ProvisioningResult"/>
+  <Source><![CDATA[
+  import java.sql.*;
+  
+  log.error("=========================== FROM JDBC DISABLE RUL ====================");
+
+  String disableQuery = "UPDATE employees SET status = 'inactive' WHERE emp_id = ?";
+  PreparedStatement stmt = connection.prepareStatement(disableQuery);
+
+  stmt.setString(1, (String) plan.getNativeIdentity());
+
+  stmt.executeUpdate();
+
+  connection.close();
+
+  log.error("=========================== FROM JDBC DISABLE RULE END ====================");
+  ]]></Source>
+</Rule>

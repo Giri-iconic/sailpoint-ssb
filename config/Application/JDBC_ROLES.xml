@@ -1,0 +1,299 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Application PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Application connector="sailpoint.connector.JDBCConnector" featuresString="DISCOVER_SCHEMA, PROVISIONING, SYNC_PROVISIONING, DIRECT_PERMISSIONS, SEARCH, ENABLE, UNLOCK, ACCOUNT_ONLY_REQUEST" icon="databaseIcon" name="JDBC_ROLES" profileClass="" type="JDBC">
+  <AccountCorrelationConfig>
+    <Reference class="sailpoint.object.CorrelationConfig" name="JDBC Correlation"/>
+  </AccountCorrelationConfig>
+  <Attributes>
+    <Map>
+      <entry key="SQL" value="SELECT e.emp_id,e.first_name,e.last_name,e.full_name,e.title,e.department,er.role_id&#13;&#10;FROM employees e&#13;&#10;FULL JOIN employee_roles er ON e.emp_id = er.emp_id ORDER BY e.emp_id;"/>
+      <entry key="afterProvisioningRule" value="JDBC After Provisioning Rule"/>
+      <entry key="aggregationMode">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="aggregationPartitioned">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="aggregationType" value="account"/>
+      <entry key="beforeProvisioningRule" value="JDBC Before Provisioning Rule"/>
+      <entry key="compositeDefinition"/>
+      <entry key="connMaxRetry" value="3"/>
+      <entry key="connRetryEnable">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="connWaitTimeForRetry" value="2"/>
+      <entry key="deltaTable"/>
+      <entry key="driverClass" value="org.postgresql.Driver"/>
+      <entry key="getDeltaSQL"/>
+      <entry key="group.SQL" value="SELECT r.role_id,r.role_name,r.description,er.emp_id&#13;&#10;FROM roles r&#13;&#10;JOIN employee_roles er ON r.role_id = er.role_id ORDER BY r.role_id;"/>
+      <entry key="group.aggregationMode">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="group.deltaTable"/>
+      <entry key="group.driverClass" value="org.postgresql.Driver"/>
+      <entry key="group.getDeltaSQL"/>
+      <entry key="group.indexColumns">
+        <value>
+          <List>
+            <String>role_id</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="group.isPermissionEnabled">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="group.mergeColumns">
+        <value>
+          <List>
+            <String>emp_id</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="group.mergeRows">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="group.password" value="1:ACP:fXwZgXhdoPQxpKuxsoU4gYLBI2KX19qwU2wzgTbQMkg="/>
+      <entry key="group.url" value="jdbc:postgresql://localhost:5433/postgres"/>
+      <entry key="group.useExecuteQuery">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="group.useStoredProcedureDelta">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="group.useStoredProcedureDirectPermission">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="group.useStoredProcedureGetObject">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="group.useStoredProcedureSqlStmt">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="group.user" value="postgres"/>
+      <entry key="indexColumns">
+        <value>
+          <List>
+            <String>emp_id</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="isPermissionEnabled">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="jdbcCreateProvisioningRule" value="JDBC Creation Rule"/>
+      <entry key="jdbcDeleteProvisioningRule" value="JDBC Delete Rule"/>
+      <entry key="jdbcDisableProvisioningRule" value="JDBC Disable Rule"/>
+      <entry key="jdbcEnableProvisioningRule" value="JDBC Enable Rule"/>
+      <entry key="jdbcExceptionBucketing">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+      <entry key="jdbcModifyProvisioningRule" value="JDBC Modify Rule"/>
+      <entry key="mergeColumns">
+        <value>
+          <List>
+            <String>role_id</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="mergeRows">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+      <entry key="nativeChangeDetectionAttributeScope" value="entitlements"/>
+      <entry key="nativeChangeDetectionAttributes"/>
+      <entry key="nativeChangeDetectionEnabled">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="nativeChangeDetectionOperations"/>
+      <entry key="noPermissions" value="false"/>
+      <entry key="operations" value="Create, Modify, Delete, Enable, Disable, Unlock"/>
+      <entry key="partitionMode">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="partitionStatements"/>
+      <entry key="password" value="1:ACP:+IBMeZVPCv+W5f0Zou7Vql74FZMN4YhprBxv1DOwwA8="/>
+      <entry key="provisionRule" value="operationRule"/>
+      <entry key="sysDescriptions">
+        <value>
+          <Map>
+            <entry key="en_US"/>
+          </Map>
+        </value>
+      </entry>
+      <entry key="templateApplication" value="JDBC Template"/>
+      <entry key="testConnSQL"/>
+      <entry key="url" value="jdbc:postgresql://localhost:5433/postgres"/>
+      <entry key="useExecuteQuery">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="useStoredProcedureDelta">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="useStoredProcedureDirectPermission">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="useStoredProcedureGetObject">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="useStoredProcedurePartition">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="useStoredProcedureSqlStmt">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="useStoredProcedureTestConn">
+        <value>
+          <Boolean/>
+        </value>
+      </entry>
+      <entry key="user" value="postgres"/>
+    </Map>
+  </Attributes>
+  <Owner>
+    <Reference class="sailpoint.object.Identity" name="spadmin"/>
+  </Owner>
+  <ProvisioningForms>
+    <Form name="JDBC Application Creation Form" objectType="account" type="Create">
+      <Attributes>
+        <Map>
+          <entry key="pageTitle" value="JDBC Application Creation Form"/>
+        </Map>
+      </Attributes>
+      <Section name="Section 1">
+        <Field displayName="First name" name="first_name" reviewRequired="true" type="string">
+          <Script>
+            <Source><![CDATA[log.error("================== ====== FIRST NAME =================");
+String firstName = identity.getFirstname();
+if(firstName == null) {
+  return "Jhon";
+}
+return firstName;]]></Source>
+          </Script>
+        </Field>
+        <Field displayName="Last name" name="last_name" reviewRequired="true" type="string">
+          <Script>
+            <Source><![CDATA[log.error("================== ====== LAST NAME =================");
+String lastName = identity.getLastname();
+
+if(lastName == null){
+ return "Doe";
+}
+
+return lastName;]]></Source>
+          </Script>
+        </Field>
+        <Field displayName="Full name" name="full_name" reviewRequired="true" type="string">
+          <Script>
+            <Source><![CDATA[log.error("================== ====== FULL NAME =================");
+String firstName = identity.getFirstname();
+String lastName = identity.getLastname();
+
+return firstName+"  " +lastName;]]></Source>
+          </Script>
+        </Field>
+        <Field displayName="Title" name="title" reviewRequired="true" type="string">
+          <Script>
+            <Source><![CDATA[
+log.error("================== ====== TITLE =================");
+return "developer";]]></Source>
+          </Script>
+        </Field>
+        <Field displayName="Department" name="department" reviewRequired="true" type="string">
+          <Script>
+            <Source><![CDATA[log.error("================== ====== DEPARTMENT =================");
+return "Engineering";]]></Source>
+          </Script>
+        </Field>
+        <Field displayName="Status" name="status" reviewRequired="true" type="string">
+          <Script>
+            <Source><![CDATA[log.error("================== ====== STATUS =================");
+return "active";]]></Source>
+          </Script>
+        </Field>
+      </Section>
+    </Form>
+  </ProvisioningForms>
+  <Schemas>
+    <Schema displayAttribute="emp_id" identityAttribute="emp_id" instanceAttribute="" nativeObjectType="account" objectType="account" permissionsRemediationModificationType="None">
+      <AttributeDefinition name="emp_id" type="string">
+        <Description/>
+      </AttributeDefinition>
+      <AttributeDefinition name="first_name" type="string">
+        <Description/>
+      </AttributeDefinition>
+      <AttributeDefinition name="last_name" type="string">
+        <Description/>
+      </AttributeDefinition>
+      <AttributeDefinition name="full_name" type="string">
+        <Description/>
+      </AttributeDefinition>
+      <AttributeDefinition name="title" type="string">
+        <Description/>
+      </AttributeDefinition>
+      <AttributeDefinition name="department" type="string">
+        <Description/>
+      </AttributeDefinition>
+      <AttributeDefinition entitlement="true" managed="true" multi="true" name="role_id" schemaObjectType="group" type="string">
+        <Description/>
+      </AttributeDefinition>
+    </Schema>
+    <Schema descriptionAttribute="" displayAttribute="role_name" identityAttribute="role_id" instanceAttribute="" nativeObjectType="group" objectType="group" permissionsRemediationModificationType="None">
+      <AttributeDefinition name="role_id" type="string">
+        <Description/>
+      </AttributeDefinition>
+      <AttributeDefinition name="role_name" type="string">
+        <Description/>
+      </AttributeDefinition>
+      <AttributeDefinition name="description" type="string">
+        <Description/>
+      </AttributeDefinition>
+      <AttributeDefinition name="emp_id" type="string">
+        <Description/>
+      </AttributeDefinition>
+    </Schema>
+  </Schemas>
+  <ApplicationScorecard/>
+</Application>

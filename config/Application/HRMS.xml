@@ -16,7 +16,6 @@
       </entry>
       <entry key="aggregationType" value="account"/>
       <entry key="beforeProvisioningRule"/>
-      <entry key="buildMapRule" value="Test BuildMap Rule"/>
       <entry key="compositeDefinition"/>
       <entry key="delimiter" value=","/>
       <entry key="disableAccountFilter">
@@ -84,8 +83,6 @@
       <entry key="parseType" value="delimited"/>
       <entry key="partitionMode" value="auto"/>
       <entry key="port" value="22"/>
-      <entry key="postIterateRule" value="Test Post Iterate"/>
-      <entry key="preIterateRule" value="Test Pre Iterate Rule"/>
       <entry key="sftpAuthMethod" value="password"/>
       <entry key="stopIfLineHasWrongColumnLength">
         <value>
@@ -104,9 +101,6 @@
       <entry key="transportUserPassword" value="1:ACP:PYZsb2KkH1+tb2fZPoReW7ji3awQFnWwcptOkTxCfb8="/>
     </Map>
   </Attributes>
-  <CustomizationRule>
-    <Reference class="sailpoint.object.Rule" name="Test Customization Rule"/>
-  </CustomizationRule>
   <Owner>
     <Reference class="sailpoint.object.Identity" name="spadmin"/>
   </Owner>

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule language="beanshell" name="JDBC Enable Rule" type="JDBCOperationProvisioning">
+  <Description>This rule is used by the JDBC connector to do provisioning of the data .</Description>
+  <Signature returnType="ProvisioningResult">
+    <Inputs>
+      <Argument name="log" type="org.apache.commons.logging.Log">
+        <Description>
+          The log object associated with the SailPointContext.
+        </Description>
+      </Argument>
+      <Argument name="context" type="sailpoint.api.SailPointContext">
+        <Description>
+          A sailpoint.api.SailPointContext object that can be used to query the database if necessary.
+        </Description>
+      </Argument>
+      <Argument name="application">
+        <Description>The application whose data file is being processed.</Description>
+      </Argument>
+      <Argument name="schema">
+        <Description>The Schema currently in use.</Description>
+      </Argument>
+      <Argument name="connection">
+        <Description>A connection object to connect to database.</Description>
+      </Argument>
+      <Argument name="plan">
+        <Description>The ProvisioningPlan created against the JDBC application.</Description>
+      </Argument>
+      <Argument name="request">
+        <Description>The ProvisioningRequest created against the JDBC application.</Description>
+      </Argument>
+    </Inputs>
+    <Returns>
+      <Argument name="result">
+        <Description>A Provisioning Result object is desirable to return the status.IT can be a new object or part of  Provisioning Plan</Description>
+      </Argument>
+    </Returns>
+  </Signature>
+  <Source><![CDATA[
+  import java.sql.*;
+  log.error("=========================== FROM JDBC ENABLE RULE ====================");
+	
+  log.error(plan.toXml());
+  
+  //String employeeId = (String) plan.getNativeIdentity();
+  log.error("=============== NATIVE IDENTITY : " + plan.getNativeIdentity());
+  String disableQuery = "UPDATE employees SET status = 'active' WHERE emp_id = "+"'"+plan.getNativeIdentity()+"'";
+	log.error(disableQuery);
+ 	Statement statement = connection.createStatement(); // Execute the update statement
+  int rowsAffected = statement.executeUpdate(disableQuery);
+  /*PreparedStatement stmt = connection.prepareStatement(disableQuery);
+
+  stmt.setString(1, (String) plan.getNativeIdentity());
+
+  stmt.executeUpdate();
+ */
+  connection.close();
+
+  log.error("=========================== FROM JDBC ENABLE RULE END ====================");]]></Source>
+</Rule>

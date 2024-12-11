@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule language="beanshell" name="JDBC Modify Rule" type="JDBCOperationProvisioning">
+  <Description>This rule is used by the JDBC connector to do provisioning of the data .</Description>
+  <Signature returnType="ProvisioningResult"/>
+  <Source><![CDATA[
+  import java.sql.*;
+  
+  log.error("=================== FROM MODIFY RULE ==================");
+log.error(schema.toXml());
+log.error(request.toXml());
+log.error(plan.toXml());]]></Source>
+</Rule>

@@ -3,7 +3,7 @@
 <Application connector="sailpoint.connector.JDBCConnector" featuresString="DISCOVER_SCHEMA, PROVISIONING, SYNC_PROVISIONING, DIRECT_PERMISSIONS, SEARCH, ENABLE, UNLOCK, ACCOUNT_ONLY_REQUEST" icon="databaseIcon" name="Cart" profileClass="" type="JDBC">
   <Attributes>
     <Map>
-      <entry key="SQL" value="Select * from employee;"/>
+      <entry key="SQL" value="SELECT * FROM employee WHERE title = 'Accountant';"/>
       <entry key="afterProvisioningRule"/>
       <entry key="aggregationMode">
         <value>
@@ -72,7 +72,7 @@
         </value>
       </entry>
       <entry key="partitionStatements"/>
-      <entry key="password" value="1:ACP:hUQZc84tcKTrS/oMKvlKh7brevp92wm2KeWmzOJGSHY="/>
+      <entry key="password" value="1:ACP:2FVC22EkLzJ/tME2bR7b3YyO16r21nPaA6+kDvPcrJU="/>
       <entry key="provisionRule" value="globalRule"/>
       <entry key="sysDescriptions">
         <value>
