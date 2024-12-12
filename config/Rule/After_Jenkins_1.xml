@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule language="beanshell" name="After_Jenkins_1">
+  <Source><![CDATA[
+  import sailpoint.object.*;
+  import  sailpoint.object.EntitlementGroup;
+
+
+  QueryOptions qO = new QueryOptions();
+  
+  qO.addFilter(Filter.eq("exceptions.nativeIdentity","CN=Active Test,OU=Test,DC=iconic,DC=com"));
+  
+  return context.getObjects(Identity.class,qO);
+  
+  List li = context.getObjects(Identity.class,qO);
+//return li;  
+  for(Identity i:li){
+  return i.getName();
+  }
+  
+  
+  QueryOptions queryOptions = new QueryOptions();
+  queryOptions.addFilter(Filter.eq("firstname","Carla"));
+
+  List list = context.getObjects(Identity.class,queryOptions);
+
+  return list;
+
+  /*
+  QueryOptions qO = new QueryOptions();
+  qO.addFilter(Filter.eq("workgroups.name","AttributeSyncWorkGroup"));
+
+  List list = context.getObjects(Identity.class,qO);
+
+  return list;    
+  */
+
+  /* QueryOptions qO = new QueryOptions();
+ // qO.addFilter(Filter.eq("email","iconic@iconic.com"));
+   qO.addFilter(Filter.eq("displayName","Active Test"));            
+  List list = context.getObjects(Link.class,qO);
+
+  return list; */
+
+
+  // Identity id = contect.getObjectByName(Identity.class, "AttributeSyncWorkGroup");
+
+  /*
+  List list = context.getObjects(Identity.class);
+  List users = new ArrayList();
+
+  for(Identity idn : list){
+    List identityWorkGroups = idn.getWorkgroups();
+
+    for(Identity workGroup : identityWorkGroups){
+
+      String wName = workGroup.getName();
+
+      if(wName.equals("AttributeSyncWorkGroup")){
+
+        users.add(idn.getName());
+
+      }
+    }
+  }
+
+  return users; */
+  ]]></Source>
+</Rule>
