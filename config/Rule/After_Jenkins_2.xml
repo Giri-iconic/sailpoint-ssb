@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule language="beanshell" name="After_Jenkins_2">
+  <Source><![CDATA[
+    return "After_Jenkins_2";
+  ]]></Source>
+</Rule>
