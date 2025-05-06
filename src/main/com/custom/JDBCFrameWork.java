@@ -5,7 +5,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Map;
+import java.util.Set;
+import java.util.*;
 
+import sailpoint.object.*;
 import sailpoint.object.ProvisioningPlan;
 import sailpoint.object.ProvisioningResult;
 import sailpoint.tools.GeneralException;
@@ -14,6 +17,8 @@ import sailpoint.object.ProvisioningPlan.AccountRequest;
 import sailpoint.object.ProvisioningPlan.AttributeRequest;
 import sailpoint.object.Custom;
 import org.apache.log4j.Logger;
+import sailpoint.object.Application;
+import sailpoint.object.IdentityEntitlement;
 
 public class JDBCFrameWork {
 
@@ -23,7 +28,8 @@ public class JDBCFrameWork {
             ProvisioningPlan plan,
             AccountRequest accountRequest,
             Map<Integer, String> attributesMap) throws GeneralException {
-
+        logger.info(accountRequest.toXml());
+        logger.info(plan.toXml());
         ProvisioningResult result = new ProvisioningResult();
 
         if (plan == null) {
@@ -89,7 +95,7 @@ public class JDBCFrameWork {
             PreparedStatement statement = connection.prepareStatement(insertQuery);
             statement.setString(1, plan.getNativeIdentity());
             for(Map.Entry<Integer, String> attributeEntry : attributesMap.entrySet()){
-                statement.setString(attributeEntry.getKey(), attributeEntry.getValue());
+                statement.setString(attributeEntry.getKey() + 1, getAttributeRequestValue(accountRequest, attributeEntry.getValue()));
             }
 
             statement.executeUpdate();
@@ -130,6 +136,83 @@ public class JDBCFrameWork {
         return result;
     }
 
+      
+  public static ProvisioningResult deleteUserWithQuery(SailPointContext context, Connection connection,
+            ProvisioningPlan plan, AccountRequest accountRequest, Application application)throws GeneralException {
+        ProvisioningResult result = new ProvisioningResult();
+
+
+        // Retrieve Custom object for JDBC
+        Custom jdbcCustomObj = context.getObject(Custom.class, "JDBC Custom Object");
+        Map<String, String> entitlementDeleteQueriesMap = (Map<String, String>) jdbcCustomObj.get("jdbc-frame-work-removeAllEntitlementsQuery");
+
+        // Get Account Delete Query
+        String accountDeleteQuery = (String) jdbcCustomObj.get("jdbc-frame-work-deleteQuery");
+
+        // Null check for query
+        if (accountDeleteQuery == null) {
+            return nullCheckHandler("Account Delete query is null", result);
+        }
+
+        if (entitlementDeleteQueriesMap == null || entitlementDeleteQueriesMap.isEmpty()) {
+            return nullCheckHandler("Entitlement Delete queries Map is null", result);
+        }
+
+        try {
+
+            PreparedStatement statement;
+
+            Filter identityFilter = Filter.eq("identity.name", plan.getNativeIdentity());
+            Filter applicationFilter = Filter.eq("application", application);
+            Filter collectiveFilter = Filter.and(identityFilter, applicationFilter);
+
+            QueryOptions qo = new QueryOptions();
+            qo.addFilter(collectiveFilter);
+
+            List<IdentityEntitlement> entitlementsList = context.getObjects(IdentityEntitlement.class, qo);
+            Set processedAttr = new HashSet();
+
+            // Delete all Entitlements
+            for (IdentityEntitlement id : entitlementsList) {
+                String attName = id.getName();
+                if (!processedAttr.contains(attName)) {
+                    processedAttr.add(attName);
+
+                    String query = entitlementDeleteQueriesMap.get(attName);
+                    if (query == null || query.isEmpty()) {
+                        logger.warn("Entitlement Delete " + attName + " query is null");
+                        continue;
+                    }
+
+                    statement = connection.prepareStatement(query);
+                    statement.setString(1, (String) plan.getNativeIdentity());
+                    statement.executeUpdate();
+                    statement.close();
+
+                    // Log successful execution of the delete query
+                    logger.info("Executed Entitlement delete query for attribute: { " + attName + " }");
+                }
+            }
+
+            // Delete User Account
+            statement = connection.prepareStatement(accountDeleteQuery);
+            statement.setString(1, (String) plan.getNativeIdentity());
+            statement.executeUpdate();
+            statement.close();
+
+            application.setDisabled(true);
+            // Log successful execution of the delete query
+            logger.info("Executed Account delete query for user: { " + plan.getNativeIdentity() + " }");
+            result.setStatus(ProvisioningResult.STATUS_COMMITTED);
+        } catch (SQLException e) {
+            logger.error(e);
+            result.setStatus(ProvisioningResult.STATUS_FAILED);
+            result.addError(e);
+        }
+        logger.debug("Result {" + result.toXml() + " }");
+        return result;
+    }
+
     // Helper method to get attribute request value
     public static String getAttributeRequestValue(AccountRequest acctReq, String attribute) {
         if (acctReq != null) {
@@ -148,5 +231,8 @@ public class JDBCFrameWork {
         result.setStatus(ProvisioningResult.STATUS_FAILED);
         result.addError(errorMessage);
         return result;
+    }
+    public static String test(){
+      return "Hello World!";
     }
 }
