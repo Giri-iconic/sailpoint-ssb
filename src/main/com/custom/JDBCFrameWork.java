@@ -198,9 +198,7 @@ public class JDBCFrameWork {
             statement = connection.prepareStatement(accountDeleteQuery);
             statement.setString(1, (String) plan.getNativeIdentity());
             statement.executeUpdate();
-            statement.close();
 
-            application.setDisabled(true);
             // Log successful execution of the delete query
             logger.info("Executed Account delete query for user: { " + plan.getNativeIdentity() + " }");
             result.setStatus(ProvisioningResult.STATUS_COMMITTED);
@@ -210,6 +208,135 @@ public class JDBCFrameWork {
             result.addError(e);
         }
         logger.debug("Result {" + result.toXml() + " }");
+        return result;
+    }
+
+
+    public static ProvisioningResult enableUserWithQuery(SailPointContext context, Connection connection,
+            ProvisioningPlan plan) throws GeneralException {
+
+        ProvisioningResult result = new ProvisioningResult();
+
+        // Check if the provisioning plan is null
+        if (plan == null) {
+            return nullCheckHandler("ProvisioningPlan is null", result);
+        }
+
+        // Retrieve Custom object for JDBC
+        Custom jdbcCustomObj = context.getObject(Custom.class, "JDBC Custom Object");
+
+        // Get enable query from Custom Object
+        String enableQuery = (String) jdbcCustomObj.get("jdbc-frame-work-enableQuery");
+
+        // Null check for query
+        if (enableQuery == null) {
+            String error = "Account Enable query is null";
+            logger.error(error);
+            result.setStatus(ProvisioningResult.STATUS_FAILED);
+            result.addError(error);
+            return result;
+        }
+
+        try {
+
+            PreparedStatement statement = connection.prepareStatement(enableQuery);
+            statement.setString(1, (String) plan.getNativeIdentity());
+            statement.executeUpdate();
+            statement.close();
+
+            // Log successful execution of the enable query
+            logger.info("Executed enable query for user: { " + plan.getNativeIdentity() + " }");
+            result.setStatus(ProvisioningResult.STATUS_COMMITTED);
+        } catch (SQLException e) {
+            logger.error("SQL Exception occurred: { " + e.getMessage() + " }");
+            result.setStatus(ProvisioningResult.STATUS_FAILED);
+            result.addError(e);
+        }
+        logger.debug("Result { " + result.toXml(false) + " }");
+        return result;
+    }
+
+    public static ProvisioningResult disableUserWithQuery(SailPointContext context, Connection connection,
+            ProvisioningPlan plan)throws GeneralException {
+
+        // Initialize result object
+        ProvisioningResult result = new ProvisioningResult();
+
+        // Check if the provisioning plan is null
+        if (plan == null) {
+            return nullCheckHandler("ProvisioningPlan is null", result);
+        }
+
+        // Retrieve Custom object for JDBC
+        Custom jdbcCustomObj = context.getObject(Custom.class, "JDBC Custom Object");
+
+        // Get enable query from Custom Object
+        String disableQuery = (String) jdbcCustomObj.get("jdbc-frame-work-disableQuery");
+
+        // Null check for query
+        if (disableQuery == null) {
+            String error = "Account Disable query is null";
+            return nullCheckHandler(error, result);
+        }
+
+        try {
+
+            PreparedStatement statement = connection.prepareStatement(disableQuery);
+            statement.setString(1, (String) plan.getNativeIdentity());
+            statement.executeUpdate();
+            statement.close();
+
+            // Log successful execution of the Disable query
+            logger.info("Executed disable query for user: { " + plan.getNativeIdentity() + " }");
+            result.setStatus(ProvisioningResult.STATUS_COMMITTED);
+        } catch (SQLException e) {
+            logger.error(e);
+            result.setStatus(ProvisioningResult.STATUS_FAILED);
+            result.addError(e);
+        }
+        logger.debug("Result { " + result.toXml() + " }");
+        return result;
+    }
+
+    public static ProvisioningResult unlockUserWithQuery(SailPointContext context, Connection connection,
+            ProvisioningPlan plan) throws GeneralException {
+
+        // Initialize result object
+        ProvisioningResult result = new ProvisioningResult();
+
+        // Check if the provisioning plan is null
+        if (plan == null) {
+            String error = "Provisioning Plan is null";
+            return nullCheckHandler(error, result);
+        }
+
+        // Retrieve Custom object for JDBC
+        Custom jdbcCustomObj = context.getObject(Custom.class, "JDBC Custom Object");
+
+        // Get enable query from Custom Object
+        String unLockQuery = (String) jdbcCustomObj.get("jdbc-frame-work-unLockQuery");
+
+        // Null check for query
+        if (unLockQuery == null) {
+            String error = "Account Unlock query is null";
+            return nullCheckHandler(error, result);
+        }
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(unLockQuery);
+            statement.setString(1, (String) plan.getNativeIdentity());
+            statement.executeUpdate();
+            statement.close();
+
+            // Log successful execution of the Unlock query
+            logger.info("Executed Unlock query for user: { " + plan.getNativeIdentity() + " }");
+            result.setStatus(ProvisioningResult.STATUS_COMMITTED);
+        } catch (SQLException e) {
+            logger.error(e);
+            result.setStatus(ProvisioningResult.STATUS_FAILED);
+            result.addError(e);
+        }
+        logger.debug("Result { " + result.toXml(false) + " }");
         return result;
     }
 
@@ -227,7 +354,6 @@ public class JDBCFrameWork {
     // Return ProvisioningResult and logs with error message
     private static ProvisioningResult nullCheckHandler(String errorMessage, ProvisioningResult result) {
         logger.error(errorMessage);
-        logger.error("From null check handler");
         result.setStatus(ProvisioningResult.STATUS_FAILED);
         result.addError(errorMessage);
         return result;
