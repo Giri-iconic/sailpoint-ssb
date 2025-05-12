@@ -340,6 +340,105 @@ public class JDBCFrameWork {
         return result;
     }
 
+  public static ProvisioningResult updateUser(SailPointContext context, Connection connection, ProvisioningPlan plan, AccountRequest request) throws GeneralException {
+        ProvisioningResult result = new ProvisioningResult();
+        // Check if the provisioning plan is null
+        if (plan == null) {
+            String error = "Provisioning Plan is null";
+            return nullCheckHandler(error, result);
+        }
+
+        // Retrieve AttributeRequest request and custom JDBC object
+        List<AttributeRequest> attributeRequests = request.getAttributeRequests();
+        Custom jdbcCustomObj = context.getObject(Custom.class, "JDBC Custom Object");
+        Map<String, String> entitlementAddQueriesMap = (Map<String, String>) jdbcCustomObj.get("jdbc-frame-work-addEntitlementQuery");
+        Map<String, String> entitlementRemoveQueriesMap = (Map<String, String>) jdbcCustomObj.get("jdbc-frame-work-removeEntitlementQuery");
+
+        if (entitlementAddQueriesMap == null || entitlementAddQueriesMap.isEmpty()) {
+            return nullCheckHandler("Entitlement Queries Map is null", result);
+        }
+
+        if (entitlementRemoveQueriesMap == null || entitlementRemoveQueriesMap.isEmpty()) {
+            return nullCheckHandler("Entitlement Queries Map is null", result);
+        }
+
+        // Loop through attribute request and process entitlement operation
+        for (AttributeRequest attributeRequest : attributeRequests) {
+            String attributeName = attributeRequest.getName();
+            String attributeValue = (String) attributeRequest.getValue();
+
+            PreparedStatement statement;
+            try {
+                // Add entitlement
+                if (ProvisioningPlan.Operation.Add.equals(attributeRequest.getOperation())) {
+                    String entitlementAddQuery = entitlementAddQueriesMap.get(attributeName);
+
+
+                    if (entitlementAddQuery != null) {
+                        statement = connection.prepareStatement(entitlementAddQuery);
+                        statement.setString(1, plan.getNativeIdentity());
+                        statement.setString(2, attributeValue);
+                        statement.executeUpdate();
+                        statement.close();
+
+                        // Log successful execution of each entitlement attribute query
+                        logger.info("Executed Entitlement add query for attribute: { " + attributeName
+                                + " }  with value: { " + attributeValue + " }");
+                    } else {
+                        logger.warn("No add query found for attribute: { " + attributeName + " }");
+                    }
+                }
+
+                // Remove entitlement
+                if (ProvisioningPlan.Operation.Remove.equals(attributeRequest.getOperation())) {
+                    String entitlementDeleteQuery = entitlementRemoveQueriesMap.get(attributeName);
+
+                    if (entitlementDeleteQuery != null) {
+                        statement = connection.prepareStatement(entitlementDeleteQuery);
+                        statement.setString(1, plan.getNativeIdentity());
+                        statement.setString(2, attributeValue);
+                        statement.executeUpdate();
+
+                        // Log successful execution of each entitlement attribute query
+                        logger.info("Executed Entitlement remove query for attribute: { " + attributeName
+                                + " }  with value: { " + attributeValue + " }");
+                    } else {
+                        logger.warn("No remove query found for attribute: { " + attributeName + " }");
+                    }
+                }
+
+                // Update Account attribute
+                if (ProvisioningPlan.Operation.Set.equals(attributeRequest.getOperation())) {
+                    String attributeUpdateQuery = (String) jdbcCustomObj.get("jdbc-frame-work-singleAttributeUpdateQuery");
+
+                    if (attributeUpdateQuery != null) {
+                        attributeUpdateQuery = attributeUpdateQuery + attributeName + " = ? WHERE emp_id = ?";
+                        statement = connection.prepareStatement(attributeUpdateQuery);
+                        statement.setString(1, attributeValue);
+                        statement.setString(2, plan.getNativeIdentity());
+                        statement.executeUpdate();
+
+                        // Log successful execution of each entitlement attribute query
+                        logger.info("Executed Attribute Update query for attribute: { " + attributeName
+                                + " }  with value: { " + attributeValue + " }");
+                    } else {
+                        return nullCheckHandler("Single Attribute Update Query is Null", result);
+                    }
+                }
+
+            } catch (SQLException e) {
+                logger.error(e);
+                result.setStatus(ProvisioningResult.STATUS_FAILED);
+                result.addError(e);
+                return result;
+            }
+        }
+
+        result.setStatus(ProvisioningResult.STATUS_COMMITTED);
+        // Log the result and return
+        logger.info("Result: { " + result.toXml() + " }");
+        return result;
+    }
     // Helper method to get attribute request value
     public static String getAttributeRequestValue(AccountRequest acctReq, String attribute) {
         if (acctReq != null) {
