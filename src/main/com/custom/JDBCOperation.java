@@ -187,8 +187,6 @@ public class JDBCOperation {
                             String attributeName = attributeRequest.getName();
                             String attributeValue = (String) attributeRequest.getValue();
 
-                            logger.info(
-                                    "====================== Create Operation Add Entitlement =========================");
                             if (entitlementAddQueriesMap == null) {
                                 String error = "Entitlement Add Query / Stored Procedure Map is null";
                                 return nullCheckHandler(error, result, connection);
@@ -198,6 +196,8 @@ public class JDBCOperation {
                                 List<Map<String, Object>> entitleMentQueryList = (List<Map<String, Object>>) entitlementAddQueriesMap
                                         .get(attributeName);
 
+                            logger.info(
+                                    "====================== Create Operation Add Entitlement =========================");
                                 // Iterate on entilement add Queries
                                 for (Map<String, Object> queryData : entitleMentQueryList) {
                                     String query = (String) queryData.get("query");
