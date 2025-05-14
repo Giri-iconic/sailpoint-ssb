@@ -120,7 +120,7 @@ public class JDBCOperation {
         logger.info("Executed stored procedure for user: { " + plan.getNativeIdentity() + " }");
     }
 
-    // Handle all AccountRequest and AttributeRequest Operatiosn
+    // Handle all AccountRequest and AttributeRequest Operations
     public static ProvisioningResult provision(SailPointContext context, Connection connection, ProvisioningPlan plan,
             String custObj) throws GeneralException {
 
@@ -152,9 +152,9 @@ public class JDBCOperation {
 
                         logger.info("====================== Create Operation =========================");
                         List<Map<String, Object>> queryList = (List<Map<String, Object>>) jdbcCustomObj
-                                .get("jdbc-frame-work-insertQuery");
+                                .get("insert");
                         Map<String, Object> entitlementAddQueriesMap = (Map<String, Object>) jdbcCustomObj
-                                .get("jdbc-frame-work-addEntitlementQuery");
+                                .get("addEntitlement");
 
                         if (queryList == null) {
                             String error = "Insert Query / Stored Procedure List is null";
@@ -165,7 +165,7 @@ public class JDBCOperation {
                         for (Map<String, Object> queryData : queryList) {
                             String query = (String) queryData.get("query");
                             if (query == null) {
-                                String error = "Insert Query / Procedure is null";
+                                String error = "Insert Query / Stored Procedure is null";
                                 return nullCheckHandler(error, result, connection);
                             }
                             boolean isPreparedStatement = Boolean
@@ -231,10 +231,10 @@ public class JDBCOperation {
                         logger.info("====================== Modify Operation =========================");
                        
                         Map<String, Object> entitlementAddQueriesMap = (Map<String, Object>) jdbcCustomObj
-                                .get("jdbc-frame-work-addEntitlementQuery");
+                                .get("addEntitlement");
                         Map<String, Object> entitlementRemoveQueriesMap = (Map<String, Object>) jdbcCustomObj
-                                .get("jdbc-frame-work-removeEntitlementQuery");
-                        Map<String, Object> attributeUpdateQuery = (Map<String, Object>) jdbcCustomObj.get("jdbc-frame-work-singleAttributeUpdateQuery");
+                                .get("removeEntitlement");
+                        Map<String, Object> attributeUpdateQuery = (Map<String, Object>) jdbcCustomObj.get("attributeUpdate");
 
                         if (entitlementAddQueriesMap == null) {
                             String error = "Entitlement Add Query / Stored Procedure Map is null";
@@ -271,11 +271,9 @@ public class JDBCOperation {
                                         executePreparedStatementEntitlement(connection, plan, query, paramNames,
                                                 account,
                                                 attributeRequest);
-                                        logger.info(paramNames);
                                     } else {
                                         executeQueryEntitlement(connection, plan, query, paramNames, account,
                                                 attributeRequest);
-                                        logger.info(paramNames);
                                     }
                                 }
                             }
@@ -316,7 +314,6 @@ public class JDBCOperation {
 
                                 logger.info("====================== Update Operation =========================");
 
-                                logger.info(attributeName);
                                 List<Map<String, Object>> queryList = (List<Map<String, Object>>) attributeUpdateQuery.get(attributeName);
 
                                 for (Map<String, Object> queryData : queryList) {
@@ -346,10 +343,10 @@ public class JDBCOperation {
                         logger.info("====================== Disable Operation =========================");
 
                         List<Map<String, Object>> queryList = (List<Map<String, Object>>) jdbcCustomObj
-                                .get("jdbc-frame-work-disableQuery");
+                                .get("disable");
 
                         if (queryList == null) {
-                            String error = "Entitlement Remove Query / Stored Procedure List is null";
+                            String error = "Account Disable Query / Stored Procedure List is null";
                             return nullCheckHandler(error, result, connection);
                         }
 
@@ -360,7 +357,7 @@ public class JDBCOperation {
                             List<String> paramNames = (List<String>) queryData.get("parameters");
 
                             if (query == null) {
-                                String error = "Entitlement Add Query / Stored Procedure is null";
+                                String error = "Account Disable Query / Stored Procedure is null";
                                 return nullCheckHandler(error, result, connection);
                             }
 
@@ -377,10 +374,10 @@ public class JDBCOperation {
                         logger.info("====================== Enable Operation =========================");
                         
                         List<Map<String, Object>> queryList = (List<Map<String, Object>>) jdbcCustomObj
-                                .get("jdbc-frame-work-enableQuery");
+                                .get("enable");
 
                         if (queryList == null) {
-                            String error = "Entitlement Enable Query / Stored Procedure is null";
+                            String error = "Account Enable Query / Stored Procedure is null";
                             return nullCheckHandler(error, result, connection);
                         }
 
@@ -391,7 +388,7 @@ public class JDBCOperation {
                             List<String> paramNames = (List<String>) queryData.get("parameters");
 
                             if (query == null) {
-                                String error = "Entitlement Enable Query / Stored Procedure is null";
+                                String error = "Account Enable Query / Stored Procedure is null";
                                 return nullCheckHandler(error, result, connection);
                             }
 
@@ -409,9 +406,9 @@ public class JDBCOperation {
                         logger.info("====================== Delete Operation =========================");
 
                         Map<String, Object> entitlementDeleteQueriesMap = (Map<String, Object>) jdbcCustomObj
-                                .get("jdbc-frame-work-removeAllEntitlementsQuery");
+                                .get("removeAllEntitlements");
                         List<Map<String, Object>> deleteQueryList = (List<Map<String, Object>>) jdbcCustomObj
-                                .get("jdbc-frame-work-deleteQuery");
+                                .get("delete");
 
                         if (deleteQueryList == null) {
                             String error = "Account Delete Query / Stored Procedure Map is null";
@@ -481,7 +478,7 @@ public class JDBCOperation {
                             List<String> paramNames = (List<String>) queryData.get("parameters");
 
                             if (query == null) {
-                                String error = "Account Remove Query / Stored Procedure is null";
+                                String error = "Account Delete Query / Stored Procedure is null";
                                 return nullCheckHandler(error, result, connection);
                             }
 
@@ -498,7 +495,7 @@ public class JDBCOperation {
                         logger.info("====================== Unlock Operation =========================");
 
                         List<Map<String, Object>> queryList = (List<Map<String, Object>>) jdbcCustomObj
-                                .get("jdbc-frame-work-unLockQuery");
+                                .get("unlock");
                         
                         if (queryList == null) {
                             String error = "Account Unlock Query / Stored Procedure List is null";
